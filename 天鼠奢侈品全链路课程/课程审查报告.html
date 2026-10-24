@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全链路课程审查报告</title>
+<style>
+:root{
+  --paper:#F1F2EC;--paper-glass:rgba(241,242,236,.94);--card:#FBFBF8;--hover:#F4F5EE;
+  --ink:#17231E;--ink2:#4A5951;--ink3:#626F66;--line:#CBD0C6;--line2:#E0E3DA;
+  --brass:#8F6E30;--brass-soft:#EFE7D4;--brass-wash:#F7F3E9;--note-ink:#5B4A22;
+  --seal:#A5382A;--seal-soft:#F0DAD4;--seal-wash:#FBF5F3;--on-accent:#FBFBF8;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+    --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+    --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+    --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+  --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+  --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+  --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+a{color:var(--brass);text-underline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header.top{padding:56px 0 30px}
+.doc-title{font-family:var(--serif);font-size:35px;line-height:1.35;font-weight:600;margin:0 0 12px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 12px}
+.claim{border:1px solid var(--ink);padding:20px 24px;margin:24px 0 20px;max-width:42em;background:var(--card)}
+.claim .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.16em;display:block;margin-bottom:6px}
+.claim p{font-family:var(--serif);font-size:21px;line-height:1.6;margin:0;font-weight:600}
+.claim small{display:block;margin-top:10px;font-size:14px;color:var(--ink2);line-height:1.8}
+.doc-meta{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--paper-glass);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px 18px;overflow-x:auto;white-space:nowrap;padding-top:9px;padding-bottom:9px;font-size:13.5px}
+nav.toc a{color:var(--ink2);text-decoration:none}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--brass)}
+section.sec{padding:44px 0 6px}
+.sec-n{font-family:var(--serif);color:var(--brass);font-size:13px;letter-spacing:.16em}
+h2{font-family:var(--serif);font-size:26px;font-weight:600;margin:2px 0 8px;line-height:1.4}
+h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:28px 0 8px}
+.lead{color:var(--ink2);max-width:46em;margin:0 0 12px}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:1.3em}
+li{margin:3px 0}
+.tbl{overflow-x:auto;margin:12px 0 18px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.7}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line2)}
+th{font-family:var(--serif);font-weight:600;color:var(--ink2);background:var(--brass-wash);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.t{white-space:nowrap;color:var(--ink3);font-variant-numeric:tabular-nums}
+td.k{white-space:nowrap;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);padding:16px 18px}
+.card h4{font-family:var(--serif);font-size:17px;margin:0 0 6px;font-weight:600}
+.card .who{display:inline-block;font-family:var(--serif);font-size:12.5px;padding:0 8px;background:var(--ink);color:var(--card);margin-bottom:8px}
+.card p,.card li{font-size:14px;color:var(--ink2)}
+.card .one{color:var(--ink);font-weight:600;border-top:1px solid var(--line2);padding-top:8px;margin-top:10px}
+.rail{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);background:var(--card);margin:14px 0}
+.stop{padding:16px 14px;border-right:1px solid var(--line2);text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.stop:last-child{border-right:none}
+.stop:hover,.stop:focus-visible{background:var(--hover)}
+.stop .n{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:22px;padding:0 6px;background:var(--brass);color:var(--on-accent);font-size:12.5px;font-family:var(--serif);margin-bottom:8px;align-self:flex-start}
+.stop.core .n{background:var(--ink);color:var(--card)}
+.stop b{font-family:var(--serif);font-size:17px;font-weight:600;display:block;margin-bottom:6px}
+.stop span{font-size:12.5px;line-height:1.6;color:var(--ink3)}
+.stop i{font-style:normal;margin-top:auto;padding-top:10px;font-size:12.5px;color:var(--ink)}
+.day{border-top:2px solid var(--ink);margin-top:46px;padding-top:18px}
+.day-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.day-h .d{font-family:var(--serif);font-size:15px;padding:1px 10px;background:var(--ink);color:var(--card)}
+.day-h h2{margin:0}
+.goal{font-size:16px;color:var(--ink);margin:10px 0 6px;max-width:44em}
+.tool{border:1px solid var(--line);background:var(--card);padding:14px 18px 10px;margin:16px 0}
+.tool .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.12em;display:block;margin-bottom:4px}
+.tool .tbl{margin:8px -18px 6px;border-left:none;border-right:none}
+.note{background:var(--brass-wash);border-left:3px solid var(--brass);padding:11px 16px;color:var(--note-ink);margin:14px 0;font-size:14.5px}
+.warn{background:var(--seal-wash);border-left:3px solid var(--seal);padding:11px 16px;margin:14px 0;font-size:14.5px}
+.warn b.lb{color:var(--seal);font-family:var(--serif)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.three div{background:var(--card);border:1px solid var(--line2);padding:10px 14px;font-size:14px;color:var(--ink2)}
+.three div b{display:block;font-family:var(--serif);color:var(--ink);font-size:14px}
+.redline{background:var(--card);border:1px solid var(--seal-soft);padding:12px 18px;margin:14px 0}
+.redline b.lb{font-family:var(--serif);color:var(--seal);letter-spacing:.1em;font-size:13px;display:block}
+.redline ol{margin:4px 0 2px}
+.hand{border:1px solid var(--ink);background:var(--card);padding:12px 18px;margin:14px 0}
+.hand b.lb{font-family:var(--serif);color:var(--brass);letter-spacing:.12em;font-size:13px;display:block}
+.skip{color:var(--ink3);font-size:14px}
+.bad{color:var(--seal)}
+footer{padding:46px 0 70px;color:var(--ink3);font-size:13px;border-top:1px solid var(--line);margin-top:50px}
+@media (max-width:760px){
+  .doc-title{font-size:27px}
+  .cards,.three{grid-template-columns:1fr}
+  .rail{grid-template-columns:1fr}
+  .stop{border-right:none;border-bottom:1px solid var(--line2)}
+  .stop:last-child{border-bottom:none}
+  h2{font-size:22px}
+}
+@media (max-width:760px){
+  .tbl table{min-width:600px}
+  .tbl table.stack{min-width:0}
+  table.stack thead{display:none}
+  table.stack tr{display:block;padding:10px 12px;border-bottom:1px solid var(--line2)}
+  table.stack tr:last-child{border-bottom:none}
+  table.stack td{display:block;border:none;padding:0}
+  table.stack td.t,table.stack td.k{display:inline-block;margin-right:10px}
+  table.stack td:last-child{margin-top:4px}
+}
+@media print{nav.toc{display:none}.day{break-before:page}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1 class="doc-title">全链路课程审查报告</h1>
+  <p class="doc-sub">审的是《课程大纲 v5（9.28）》和《课程教案 9.28》。对照的是：三份直播稿（五步连麦、短视频获客五层、"这件货你敢不敢收"专场）、《商业模型定盘》、短视频密训 Day1–Day5 逐字稿，以及你这次说的三类目标人群。</p>
+  <div class="claim">
+    <span class="lb">总判断</span>
+    <p>骨架是对的。问题出在三处：人群写成了"任何人"；内容堆到 114 个小节、106 张表；短视频和私域还是通用写法，和逐字稿里跑通过的做法有好几处相反。</p>
+    <small>改法：人群收窄到三类；六站压成五天、一天一个主题；短视频和私域整段换成逐字稿里的方法；风控从 125 条错误清单改成每天三条红线。改完的版本见<a href="课程大纲v6-精简版.html">《课程大纲 v6 精简版》</a>。</small>
+  </div>
+  <div class="doc-meta">
+    <span><b>说明</b> 之前的聊天记录我这边看不到，"直播"的方向按仓库里三份直播稿来理解</span>
+    <span><b>没动的文件</b> 诊断表 docx、教案、第一站 PPT（都按 v5 做的，等 v6 定了再改）</span>
+  </div>
+</div></header>
+
+<nav class="toc" aria-label="目录"><div class="wrap">
+  <a href="#s1">一 人群</a><a href="#s2">二 和直播对不对得上</a><a href="#s3">三 复杂在哪</a><a href="#s4">四 短视频和获客</a><a href="#s5">五 直播要补的</a><a href="#s6">六 要你拍板的</a>
+</div></nav>
+
+<main class="wrap">
+
+<section class="sec" id="s1">
+  <div class="sec-n">第一节</div>
+  <h2>人群：课写的是"任何人"，直播吸的是"在做的人"，你要的是三类人</h2>
+  <p class="lead">v5 写的适用人群是"有获客需求，或有二手成交意向的任何人"；三份直播稿要吸引的是"正在做但不稳定的从业者和已经决定入行的人"。你这次说的三类人里，只有 C 类被直播稳稳接住，A、B 两类在直播和课里都没被单独对待。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>人群</th><th>手上有什么</th><th>缺什么</th><th>最容易犯的错</th><th>现在接住了吗</th></tr></thead>
+    <tbody>
+      <tr><td><b>A 有创业经验，没进过二奢</b></td><td>经营能力、人脉、老客户名单、一点启动资金，有的有门店</td><td>行业怎么赚钱、货真假、货往哪卖</td><td>当成低买高卖，一上来租店囤货；以为不会鉴定就不能干</td><td><b>课：</b>1.2 误解、1.6 零库存能对上。<br><b>直播：</b>没接住。三份稿都在讲压货、不敢收，没入行的人听不进去。</td></tr>
+      <tr><td><b>B 有回收经验（寄卖、二手车、二手数码、二手号）</b></td><td>回收流程、从出口倒推估价的习惯、门店和本地客户、地推本地推经验、登记存证意识</td><td>品类真假、二奢出货渠道、二奢客户要的人设和信任</td><td>把原行业"线上报高、线下压价"搬过来；以为估价和车、手机一样有标准检测</td><td><b>课：</b>五条路平行讲，B 最大的优势（老客户交叉转化、门店加一块业务）没被点出来。<br><b>直播：</b>没接住。</td></tr>
+      <tr><td><b>C 做过二奢，没做成</b></td><td>账号、一些客户、一些货、踩过的坑</td><td>找到自己卡在哪一步</td><td>在废号上硬拍；靠投流买来比价客户；压着货舍不得降价</td><td><b>课：</b>基本接得住（第二站、6.5、6.6.4）。<br><b>直播：</b>五步连麦（压货、不敢收）就是给他们的，最对路。</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><b>建议：</b>招生页、大纲首页、开课第一天都改成这三类人，各写一句"你来这五天重点学什么"（v6 第一节已写）。直播补 A、B 两类人的话题（本报告第五节）。另外要分清两拨"人群"：<b>我们的直播间</b>面对的是创业者和从业者；<b>学员的账号</b>面对的是消费者（手里有闲置想出手的人、想买二奢的人）。两边选题方向相反，课上要讲清楚。</div>
+</section>
+
+<section class="sec" id="s2">
+  <div class="sec-n">第二节</div>
+  <h2>和直播主线对不对得上</h2>
+  <h3>对得上的，保留</h3>
+  <ol>
+    <li><b>核心主张一致。</b>课的"手上有什么牌就 all in 哪条路"，和直播口径"短视频只是入口，你真正卡的地方八成不在这"是一回事。</li>
+    <li><b>先避损再谈赚，一致。</b>鉴定站"判不了的时候知道自己判不了，然后知道该找谁"，就是连麦里那句"真正的门槛不是看得准，是知道什么时候看不准"。</li>
+    <li><b>内容分层已经画好。</b>"敢不敢收"专场里那张表（直播讲到哪、三晚课讲到哪、全链路讲到哪）方向对，v6 沿用。</li>
+  </ol>
+  <h3>对不上的，要改</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>冲突</th><th>出处</th><th>v6 怎么改</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>报价口径相反（最要紧）。</b>逐字稿收尾讲"线上没见面前报高价先让人来，线下先报低再慢慢涨"。v5 把"视频里报高、收货时压价"列为会被投诉的错；"敢不敢收"专场讲"图没齐给时间不给数字"；逐字稿 Day1 自己也说"敢讲坑，客户才信你"。</td><td>Day5 约 01:57；v5 2.8 第 09 条、4.6 第 06 条</td><td>统一成"线上给区间和条件，见了货按实物逐处讲清折价"。建议短视频密训那页课件同步改掉。</td></tr>
+      <tr><td>2</td><td><b>短视频选题方向相反。</b>v5 把"真假对比、现场估价、差价揭秘"列为必出量选题。逐字稿：讲鉴定吸来的是同行和白嫖党；揭行业利润，消费者只会更不信你。《短视频获客五层》也说"钱是钩子，真假是过程"。</td><td>v5 2.3.2；Day1 约 00:51、Day2 约 01:20</td><td>按逐字稿：知识干货六小类 ＋ vlog ＋ 故事观点；鉴定只拿来证明专业。</td></tr>
+      <tr><td>3</td><td><b>开口品断层。</b>直播卖"5 元三晚课"，大纲和教案里一个字没提。从三晚课进来的人，第一天会发现又从头讲"敢不敢收"。</td><td>"敢不敢收"专场"卖"一段；v5 全文</td><td>v6 第七节写明三晚课讲到哪、五天从哪接，三晚课学员相关部分只练不重讲。</td></tr>
+      <tr><td>4</td><td><b>天数三处不一样。</b>商业模型定"5 天，定死"；教案按"4 天 × 7 小时"排；大纲写"各站课时切分待定"。</td><td>商业模型二；教案总览；v5 页脚</td><td>统一 5 天，每天约 6 小时。</td></tr>
+      <tr><td>5</td><td><b>数据口径冲突。</b>v5 要学员"只看完播率、互动率…"，还讲发布时间。逐字稿实测：时长、发布时间、两秒跳出、五秒完播都不决定流量，选题决定八成。</td><td>v5 2.3.6、2.3.7；Day1 约 00:34</td><td>看私信数和加微数；数据不行先换选题。</td></tr>
+      <tr><td>6</td><td><b>出镜口径冲突。</b>v5："不擅长出镜完全不影响做内容路径"，给了不露脸、AI 分身。逐字稿："人设才是账号核心"，头像必须真人，vlog 最后也要露脸。</td><td>v5 2.3.4；Day1 约 01:20、02:07；Day3 约 01:37</td><td>不露脸可以起号打标签，但成交要有一个人立住人设，自己或找的人。</td></tr>
+      <tr><td>7</td><td><b>社群。</b>v5 要建行情群、捡漏群、同城群。逐字稿：二奢不适合社群——同行潜进来截胡，高客单客户要隐私，群里发货显得廉价。</td><td>v5 3.1；Day5 约 01:35</td><td>删掉社群，只做朋友圈 ＋ 一对一。</td></tr>
+      <tr><td>8</td><td><b>"免费估价"当钩子。</b>v5 把它列为四种钩子之首。逐字稿：视频里引导"来找我估价"会判引流违规，估价只能走付费广告。</td><td>v5 3.2；Day5 约 01:17</td><td>钩子换成资料：行情表、避坑清单、要图清单，和直播间"扣'渠道''动线'领表"一个路子。</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn"><b class="lb">平台规则提醒</b> 逐字稿里有"让对方用半拼音半汉字留联系方式"的做法，本质是绕开平台的导流识别，规则一变就可能封号。建议课上只讲"让对方主动留 ＋ 官方留资组件"，不教绕法。"个人号简介可以放微信号"这类讲师实测的结论，课件里标"以开课当期规则为准"，每期核一次。</div>
+</section>
+
+<section class="sec" id="s3">
+  <div class="sec-n">第三节</div>
+  <h2>复杂在哪</h2>
+  <p class="lead">v4 到 v5 每一轮都在"补"：风控从一站拆进每一站，每站又加了错误清单和找错练习；五条获客路径每条都要"讲到能独立跑通"。补到现在，四天上不完。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>项</th><th>v5 现状</th><th>问题</th></tr></thead>
+    <tbody>
+      <tr><td class="k">小节</td><td>114 个编号小节（其中 55 个三级小节）</td><td>教案按 4 天 1680 分钟排，平均每节不到 15 分钟，还要"讲三成、练七成"</td></tr>
+      <tr><td class="k">诊断表</td><td>7 套共 106 张，第六站一站 29 张</td><td>学员课上填不完，回去也不会翻</td></tr>
+      <tr><td class="k">错误清单</td><td>10 张共 125 条</td><td>教案自己也写"不照念，挑三条讲"</td></tr>
+      <tr><td class="k">协议</td><td>8 份，每份"现场填自己的信息"</td><td>新人第一个月用得上的只有回收单和寄卖协议</td></tr>
+      <tr><td class="k">交付物</td><td>100 多件，外加 30 多本分册手册</td><td>物料清单自己定的原则是"核心物料控制在 12 件以内"</td></tr>
+      <tr><td class="k">获客</td><td>5 条路，每条 4–10 个小节</td><td>每个学员只走 1 条，另外 4 条对他是噪音</td></tr>
+      <tr><td class="k">出课标准</td><td>每站 5–15 项</td><td>结营那天逐项核对就要一个下午</td></tr>
+    </tbody>
+  </table></div>
+  <h3>砍的五条规矩</h3>
+  <ol>
+    <li><b>一天一个主题，一天只交一样东西。</b></li>
+    <li><b>只讲新人第一个月用得上的。</b>做大以后才用得上的（员工内控、三本账和税务、合伙、出海、团队复制、门店装修）进资料包或后端课。</li>
+    <li><b>风控跟着动作走，但只留红线。</b>每天收尾三条红线，五天共 15 条，代替 125 条错误清单。</li>
+    <li><b>获客改成"一条线上 ＋ 两条线下 ＋ 两个加速器"。</b>线上是短视频，线下是老关系和本地门店；付费投放和闲鱼各一页纸。理由：三类人里 A、B 的牌大多在线下（老客户、门店），C 的问题大多在短视频和私域。</li>
+    <li><b>表从 106 张压到 10 件核心资料</b>，每件对应一天的作业。</li>
+  </ol>
+</section>
+
+<section class="sec" id="s4">
+  <div class="sec-n">第四节</div>
+  <h2>短视频和获客：换上逐字稿里跑通过的做法</h2>
+  <p class="lead">逐字稿是一套完整的短视频获客方法，有结构、有工具、有智能体、有作业批改。v5 的内容路径还是"黄金三秒、完播率、设备清单"这类通用写法，正是《短视频获客五层》说的"一进这个赛道就变成几千个短视频老师里的一个"。v6 的 D2、D3 整段换掉。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>环节</th><th>v5 现在</th><th>换成（出处）</th></tr></thead>
+    <tbody>
+      <tr><td class="k">底层逻辑</td><td>没有</td><td>成交三角：流量 ＋ 人设 ＋ 产品，缺一样都卖不动；你卖的是服务不是包（Day1）</td></tr>
+      <tr><td class="k">人群</td><td>按资源分路径</td><td>学员账号的人群只有一个：手里有闲置想出手的、想买二奢的（Day1）</td></tr>
+      <tr><td class="k">账号</td><td>头像、昵称、简介一行带过</td><td>五件套：真人头像、带人味昵称、简介四要素、背景图不重复、置顶三条（个人故事 · 信任 · 服务流程）（Day1）</td></tr>
+      <tr><td class="k">选题</td><td>五类必出量（含真假对比、差价揭秘）</td><td>三个素材库收集 → 四类脚本分工 → 八大爆款元素改选题（Day1–2）</td></tr>
+      <tr><td class="k">脚本</td><td>三种开头 ＋ 口播模板</td><td>呈现形式按点数选：三点以内用内心 OS、偷窥视角、口播；五点以上用打枪、一人分饰两角；vlog 用六脉神剑（Day2–3）</td></tr>
+      <tr><td class="k">开篇</td><td>黄金三秒</td><td>好奇、痛点、利益、借势、恐吓五类句式；否定句 &gt; 肯定句 &gt; 疑问句（Day3）</td></tr>
+      <tr><td class="k">人设</td><td>出镜四种做法</td><td>人设四象限；故事＝事件＋感悟；观点永远站消费者；情绪当下就录（Day4）</td></tr>
+      <tr><td class="k">拍</td><td>设备清单、布光</td><td>提词器短句、你一句我一句、531 练法、三分构图（Day1）</td></tr>
+      <tr><td class="k">发布节奏</td><td>日更满 30 天</td><td>先知识干货打标签 2–4 周 → 起号后上 vlog → 每 1–2 周穿插一条故事观点；翻拍爆款还起不来就换号（Day5）</td></tr>
+      <tr><td class="k">违规和投流</td><td>投流一节讲 7 个平台</td><td>违规三处自查 ＋ 申诉；抖加只一个打法：自然流 24 小时过 1 万才投，100 元、24 小时、点赞评论、智能投放（Day5）</td></tr>
+      <tr><td class="k">私域</td><td>承接、转化两站，四种钩子，建社群</td><td>一条线：合规引流 → 30 分钟内送资料破冰 → 打标签 → SABC 分级 → 朋友圈信任存折 → 按标签私聊（Day5）</td></tr>
+      <tr><td class="k">线下进私域</td><td>本地路径 8 个小节</td><td>算账口径：本地推一条电话 200–300 元还是比价的；地推 500 元换 5 个本地微信就值；异业送一次清洗换一个微信；转介绍成功率最高（Day5）</td></tr>
+    </tbody>
+  </table></div>
+  <p>v5 里逐字稿没覆盖、但要保留的：问诊和要图、来源异常信号、兜底体系、出货预判三问、收货流程。这几块是全链路课区别于短视频课的地方，v6 留在 D3、D4、D5。</p>
+</section>
+
+<section class="sec" id="s5">
+  <div class="sec-n">第五节</div>
+  <h2>直播要补的：给 A、B 两类人</h2>
+  <p class="lead">现有三份直播稿的话题（压货、不敢收、敢不敢报、短视频吸不来卖家）都对着 C 类。要把 A、B 两类人引进来，补下面这几场，结构沿用你们的"卡点 → 你有病 → 找病因 → 我有药"和七步连麦。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>人群</th><th>直播标题（贴片）</th><th>要击破的想法</th><th>给的那一个动作</th><th>收口钩子</th></tr></thead>
+    <tbody>
+      <tr><td class="k">A</td><td>做过生意的人，转做二奢最容易亏在哪</td><td>"我会做生意，换个品类而已"</td><td>第一单先撮合或寄卖，不压钱</td><td>扣"盘点"，领资源盘点表</td></tr>
+      <tr><td class="k">A</td><td>不会鉴定、没有货源，能不能做二奢</td><td>"得先学会鉴定才能入行"</td><td>五种处理方式：自己判、送机构、找上游、同行复核、转撮合</td><td>扣"兜底"，领决策表</td></tr>
+      <tr><td class="k">A</td><td>想开二奢店？先别急着租门面</td><td>"有店才像样"</td><td>先算清一单看走眼要白干几单</td><td>扣"测算"，领单店测算表</td></tr>
+      <tr><td class="k">B</td><td>做二手车、数码回收的，转二奢有三样能直接用，两样会让你亏</td><td>"回收都一样，换个品类"</td><td>能用：流程、登记、从出口倒推；会亏：真假风险在你，"线上报高线下压"会毁信任</td><td>扣"差异"，领二奢和原行业回收差异卡</td></tr>
+      <tr><td class="k">B</td><td>你的老客户里，藏着多少只闲置包</td><td>"我的客户不碰奢侈品"</td><td>回访时加一句话</td><td>扣"老客户"，领激活话术</td></tr>
+      <tr><td class="k">C</td><td>沿用：压货出不掉 / 这件货你敢不敢收 / 短视频发了三个月没客户</td><td>—</td><td>—</td><td>扣"渠道""动线""自查"</td></tr>
+    </tbody>
+  </table></div>
+  <h3>连麦和互动怎么分人</h3>
+  <ul>
+    <li><b>挖故事那一步加三问：</b>"你现在做什么生意？""以前做过回收吗？""做二奢多久了？"三句话就能对上 A、B、C，后面按类接话。</li>
+    <li><b>放大共性那一步用三类点名：</b>"还没入行的扣 1，做过别的回收的扣 2，在做二奢的扣 3。"每类讲一句，三类人都对上号，直播间留得住。</li>
+    <li><b>每场必说的口径：</b>"这门课不是教你拍视频的，是教你从第一个客户走到第一笔回款。"和"短视频只是入口"那句配着说。</li>
+    <li><b>三晚课：</b>现在按"收货"写，A 类会觉得远。建议第一晚开头加 15 分钟"入行三问"：你手上有什么牌、你从哪种模式起步、你能亏多少。</li>
+  </ul>
+</section>
+
+<section class="sec" id="s6">
+  <div class="sec-n">第六节</div>
+  <h2>需要你拍板的</h2>
+  <ol>
+    <li><b>天数。</b>v6 按 5 天排（商业模型定盘的建议）。如果只能 4 天，D3 下午和 D5 上午各压一半，D4 鉴定不建议砍。</li>
+    <li><b>五条路改成"一条线上 ＋ 两条线下 ＋ 两个加速器"。</b>招生页"五条获客路径"的说法要跟着改。</li>
+    <li><b>报价口径。</b>短视频密训 Day5"线上报高、线下压价"那段，是否同步改成"线上给区间、线下逐处讲折价"。</li>
+    <li><b>短视频密训算不算后端产品。</b>商业模型的后端只列了技术课、线上陪跑、组合档、线下陪跑；v6 把密训写成 D2 的深化，要你确认。</li>
+    <li><b>其他文件什么时候跟。</b>诊断表 docx、教案、第一站 PPT 都按 v5 做的。v6 定了以后，按 10 件核心资料重做。</li>
+    <li><b>之前聊天里定过的事。</b>我看不到那段记录。如果当时还定了别的（比如直播只做视频号、开口品换了、某一站必须保留），告诉我，我再对一遍。</li>
+  </ol>
+</section>
+
+</main>
+<footer><div class="wrap">
+  全链路课程审查报告 · 配套《课程大纲 v6 精简版》· 引用的时间点是逐字稿里的大致位置，方便回查。
+</div></footer>
+</body>
+</html>
