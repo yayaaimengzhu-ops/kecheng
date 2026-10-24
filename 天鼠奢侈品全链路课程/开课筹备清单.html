@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>开课筹备清单 · 六阶段</title>
+<style>
+:root{
+  --paper:#F1F2EC; --card:#FBFBF8;
+  --ink:#17231E; --ink2:#4A5951; --ink3:#78857C;
+  --line:#CBD0C6; --line2:#E0E3DA;
+  --brass:#8F6E30; --brass-soft:#EFE7D4;
+  --seal:#A5382A; --seal-soft:#F3E3DF;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+
+header.top{padding:64px 0 30px}
+.doc-title{font-family:var(--serif);font-size:36px;line-height:1.35;font-weight:600;margin:0 0 14px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 14px}
+.doc-sub b{color:var(--ink);font-weight:600}
+.doc-meta{display:flex;flex-wrap:wrap;gap:10px 22px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+
+.gate{border:1px solid var(--ink);background:var(--card);padding:26px 28px;margin:32px 0 0}
+.gate .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.16em;display:block;margin-bottom:10px}
+.gate h2{font-family:var(--serif);font-size:21px;font-weight:600;margin:0 0 12px}
+.gate p{margin:0 0 12px;color:var(--ink2);max-width:44em}
+.gate p:last-child{margin-bottom:0}
+.gate b{color:var(--ink);font-weight:600}
+
+.sec{padding:52px 0 6px;border-top:1px solid var(--line);margin-top:44px}
+.sec:first-of-type{margin-top:38px}
+.sec-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:8px}
+.sec-n{
+  flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--brass);color:var(--brass);font-family:var(--serif);font-size:17px;margin-top:5px;
+}
+.sec-n.core{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.sec-title{font-family:var(--serif);font-size:27px;font-weight:600;margin:0;letter-spacing:.03em}
+.sec-title span{color:var(--ink3);font-size:15.5px;font-weight:400;margin-left:12px;letter-spacing:0}
+.sec-goal{color:var(--ink2);margin:0 0 26px 50px;max-width:46em}
+.sec-goal b{color:var(--ink);font-weight:600}
+.sec-body{margin-left:50px}
+
+h3.grp{font-family:var(--serif);font-size:18px;font-weight:600;margin:32px 0 4px;padding-bottom:7px;border-bottom:1px solid var(--line2)}
+h3.grp:first-child{margin-top:0}
+
+.tbl{width:100%;border-collapse:collapse;margin-top:18px;font-size:13.5px}
+.tbl th,.tbl td{border:1px solid var(--line2);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--card);font-family:var(--serif);font-weight:600;color:var(--ink);font-size:14px}
+.tbl td{color:var(--ink2)}
+.tbl td.nm{color:var(--ink);font-weight:600}
+.tbl td.nw{white-space:nowrap}
+.tbl tr.hd td{background:var(--brass-soft);color:#5B4A22;font-family:var(--serif);font-weight:600;font-size:14.5px}
+
+.p{display:inline-block;font-family:var(--serif);font-size:11.5px;line-height:1.7;padding:0 6px;letter-spacing:.08em;white-space:nowrap}
+.p-1{background:var(--seal);color:#fff}
+.p-2{background:var(--brass);color:#FBFBF8}
+.p-3{background:transparent;color:var(--ink3);box-shadow:inset 0 0 0 1px var(--line)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--ink3);padding:14px 0 0;margin-top:20px;border-top:1px solid var(--line2)}
+
+.note{background:var(--brass-soft);border-left:2px solid var(--brass);padding:13px 16px;margin:20px 0 0;font-size:14px;color:#5B4A22;line-height:1.75}
+.note b{color:#3E3216}
+.warn{background:#FCF8F7;border-left:2px solid var(--seal);padding:13px 16px;margin:20px 0 0;font-size:14px;color:#6B2F25;line-height:1.75}
+.warn b{color:var(--seal)}
+
+ul{margin:8px 0 0;padding:0;list-style:none}
+li{position:relative;padding-left:16px;margin-bottom:4px;color:var(--ink2)}
+li::before{content:"";position:absolute;left:1px;top:.85em;width:5px;height:1px;background:var(--line)}
+li b{color:var(--ink);font-weight:600}
+
+.qs{margin-top:20px}
+.qs dt{font-family:var(--serif);font-size:16px;font-weight:600;margin:18px 0 2px;color:var(--ink)}
+.qs dd{margin:0;color:var(--ink2);max-width:46em;font-size:14px}
+
+footer{margin-top:56px;padding:24px 0 70px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
+footer b{color:var(--ink2);font-weight:500}
+
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .wrap{padding:0 18px}
+  header.top{padding:40px 0 24px}
+  .doc-title{font-size:26px}
+  .gate{padding:20px}
+  .sec-title{font-size:22px}
+  .sec-title span{display:block;margin:4px 0 0;font-size:14px}
+  .sec-goal,.sec-body{margin-left:0}
+  .sec-n{width:28px;height:28px;font-size:15px}
+  .tbl,.tbl tbody,.tbl tr,.tbl td,.tbl th{display:block;width:100%}
+  .tbl thead{display:none}
+  .tbl tr{border:1px solid var(--line2);margin-bottom:12px}
+  .tbl td{border:none;border-bottom:1px solid var(--line2)}
+  .tbl td:last-child{border-bottom:none}
+  .tbl td.nm{background:var(--card)}
+  .tbl td.nw{white-space:normal}
+  .tbl tr.hd{margin-bottom:0;border:none}
+}
+@media print{body{background:#fff;font-size:10.5pt}.sec{break-before:page;border-top:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <h1 class="doc-title">开课筹备清单<br>从"能讲"到"能开、能卖、能交付"</h1>
+    <p class="doc-sub">课程内容和物料解决的是"能讲"。这份清单解决剩下四件事：<b>盘子怎么定、承诺怎么兑现、课怎么真讲得下来、人怎么招进来。</b></p>
+    <p class="doc-sub">六个阶段有先后依赖关系，不建议并行推进——尤其阶段一没定，后面的定价、招生、成本核算都没有依据。</p>
+    <div class="doc-meta">
+      <div><b>配套</b> 大纲 v4 · 交付物料总清单</div>
+      <div><b>优先级</b> 必须先做 / 开课前完成 / 可分期补</div>
+      <div><b>关键节点</b> 内测班 → 正价首期</div>
+    </div>
+  </header>
+
+  <section class="gate">
+    <span class="lb">先回答这一题</span>
+    <h2>这门课是收入来源，还是获客与建生态的手段？</h2>
+    <p>你的主业是资源对接与回收销售。如果学员将来会成为你的<b>供货方、下游渠道或撮合网络的一部分</b>，那课程可以定得更亲民、招生面更宽，赚的是后端——学员越多，你的货源和渠道网络越厚。</p>
+    <p>如果课程是<b>独立的利润中心</b>，那定价要往上走、要设招生门槛、要有完整的后端产品线（技术课、高阶课、私教、团队复制），复训和续费政策也得跟着设计。</p>
+    <p>两种取向对定价、招生门槛、后端设计、甚至学员筛选标准的要求完全不同。<b>这一题不定，后面的成本核算和定价就没有依据。</b>也可以是混合的，但主次要分清楚。</p>
+  </section>
+
+  <!-- 阶段一 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">一</div>
+      <h2 class="sec-title">定盘子<span>商业模型与课程边界</span></h2>
+    </div>
+    <p class="sec-goal">这一阶段全是决策，没有执行。<b>决策没定完，后面每一步都会返工。</b></p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>事项</th><th>优先级</th><th>要定下来的具体内容</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm">课程的商业角色</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>收入来源 / 获客手段 / 混合。这一条决定后面所有定价和招生决策</td>
+          </tr>
+          <tr>
+            <td class="nm">单期人数上限</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>议价对练、四轮盲测、协议逐份填写都靠师生比。<b>先算一个老师加几个助教能带多少人</b>，这个数字倒推定价和成本</td>
+          </tr>
+          <tr>
+            <td class="nm">与技术课的关系</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>能力切分口径（本课到 L3，技术课接 L3 之后）· 打包还是独立售卖 · 先后顺序 · 打包价与单售价</td>
+          </tr>
+          <tr>
+            <td class="nm">课时与开课形式</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>几天、是否含外出实战、线下集中还是线下加线上补充。这是大纲 v4 里唯一还没定的结构性问题</td>
+          </tr>
+          <tr>
+            <td class="nm">单期成本核算</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>场地 · 餐饮住宿 · 物料印刷 · 工具包采购 · 讲师与助教 · 样本库摊销 · 陪跑人力 · 获客成本。<b>陪跑和样本库最容易被漏算</b></td>
+          </tr>
+          <tr>
+            <td class="nm">定价与价格结构</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>正价 · 早鸟 · 内测价 · 打包价 · 老学员复训价 · 转介绍返佣。定价前先看成本和人数上限</td>
+          </tr>
+          <tr>
+            <td class="nm">开班频次与年度排期</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>一年几期、淡旺季、和你主业的时间冲突怎么排</td>
+          </tr>
+          <tr>
+            <td class="nm">后端产品线</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>技术课 · 团队复制加餐 · 私教 · 供应链或渠道合作。<b>结营那天是转化后端的最佳时机</b>，得提前想好接什么</td>
+          </tr>
+          <tr>
+            <td class="nm">学员筛选标准</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>课程适用面很宽，但混进完全不合适的人会拉低整期体验。至少定一条底线：什么样的人建议先别报</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note"><b>报名问卷可以一举两得。</b>报名时收集现有资源、是否入行、主打品类、是否上过技术课——既是筛选，又能直接变成学员的课前资源盘点表预填数据，第一站省下大量时间。</div>
+    </div>
+  </section>
+
+  <!-- 阶段二 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">二</div>
+      <h2 class="sec-title">把承诺变成真的<span>资源落地 · 最容易被忽略、最伤口碑</span></h2>
+    </div>
+    <p class="sec-goal">招生页上写了"可对接上游""能送检的机构""出货渠道联系人"——这些如果只是一份名单，第一期就会露馅。<b>这也是你最难被抄走的部分：方法别人能讲，关系别人给不了。</b></p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>事项</th><th>优先级</th><th>要落实到什么程度</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm">盲测样本库</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>真货 + 分档高仿。要定：品类覆盖几类、每类几件、高仿档次够不够真、样本怎么保管与轮换、损耗怎么算。<b>样本不够，第五站会被迫讲回 PPT</b></td>
+          </tr>
+          <tr>
+            <td class="nm">上游兜底关系</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>不是名单，是<b>真的谈下来</b>：哪几家愿意接学员的货、什么条件、分成怎么算、能不能给学员一个对接入口</td>
+          </tr>
+          <tr>
+            <td class="nm">鉴定机构合作</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>能不能谈到学员折扣、加急通道或对接人。谈成了就是硬承诺，谈不成就把招生页表述改成"清单与对照表"</td>
+          </tr>
+          <tr>
+            <td class="nm">出货渠道联系人</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>同行、B 端平台、寄卖平台、直播间主播，各准备几个能真的介绍给学员的</td>
+          </tr>
+          <tr>
+            <td class="nm">异业物料印刷</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>台卡、二维码贴、宣传单、样品册。设计定稿 + 印刷厂 + 单期数量与单价</td>
+          </tr>
+          <tr>
+            <td class="nm">入门工具包采购</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>紫光灯、放大镜、卡尺、白手套、绒布。定配置、比价、算单人成本、备货周期</td>
+          </tr>
+          <tr>
+            <td class="nm">行业基准数据</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>各品类的参考成交率、客单毛利、复购次数。第一站的测算表没有这个就是空转</td>
+          </tr>
+          <tr>
+            <td class="nm">AI 大脑搭建</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>平台选型 · 数据喂养（行情表、动线卡、话术库、渠道数据）· 学员权限 · 更新机制 · 谁维护</td>
+          </tr>
+          <tr>
+            <td class="nm">资料库承载平台</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>网盘 / 知识库 / 飞书空间选一个。要能分文件夹、能控权限、能持续更新、能防批量外传</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="warn"><b>一条硬规则：谈不下来的资源，就从招生页上拿掉。</b>宁可承诺少一点，也不能第一期就被学员发现对不上。这行圈子小，第一期的口碑基本决定后面还开不开得下去。</div>
+    </div>
+  </section>
+
+  <!-- 阶段三 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">三</div>
+      <h2 class="sec-title">从大纲到能开课<span>教学工程 · 含内测班</span></h2>
+    </div>
+    <p class="sec-goal">大纲告诉你讲什么，讲师手册告诉你<b>怎么讲</b>：每段多长、什么时候发什么物料、动作指令怎么下、学员问倒了怎么答。这一层不补，第一次开课会很狼狈。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>事项</th><th>优先级</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm">课时切分定稿</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>十站 + 结营，精确到半小时。<b>实操环节的时间最容易低估</b>——四轮盲测、十场议价对练、协议填写，都比想象中慢</td>
+          </tr>
+          <tr>
+            <td class="nm">讲师手册</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>每站：时间切分 · 核心要点 · 案例与故事 · 何时发何物料 · 动作指令的原话 · 常见提问的标准答法 · 冷场和超时怎么办</td>
+          </tr>
+          <tr>
+            <td class="nm">讲师分工</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>一个人讲十站还是分工？<b>鉴定站需要有真实操能力的人</b>，这一站不能靠念稿</td>
+          </tr>
+          <tr>
+            <td class="nm">助教配置与培训</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>对练纠错、盲测计分、物料分发、录像回放。助教要先过一遍评分标准，否则各组尺度不一</td>
+          </tr>
+          <tr>
+            <td class="nm">评分标准统一</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>盲测四轮、盲报、对练、场景判断，每项的评分口径写死。<b>标准不统一，出课标准就没有意义</b></td>
+          </tr>
+          <tr>
+            <td class="nm">完整彩排</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>至少走一遍实操环节：盲测怎么摆台、怎么计时、怎么收卷、怎么对答案。纯讲授部分可以只过关键段落</td>
+          </tr>
+          <tr>
+            <td class="nm">内测班</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>见下方说明</td>
+          </tr>
+          <tr>
+            <td class="nm">课件与视觉</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>PPT / 板书方案 · 图例统一 · 案例配图 · 高仿对比图的清晰度</td>
+          </tr>
+          <tr>
+            <td class="nm">课程录制方案</td>
+            <td class="nw"><span class="p p-3">可分期</span></td>
+            <td>要不要录、录了做什么用（复训 / 线上课 / 内部培训）、学员能不能看。<b>录之前要先定内容外传的边界</b></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="grp">关于内测班</h3>
+      <p style="color:var(--ink2);margin:12px 0 0;max-width:46em">这是整份清单里我最建议不要跳过的一项。</p>
+      <ul>
+        <li><b>规模</b>：8–12 人，低价或免费，讲清楚这是内测、请他们提意见</li>
+        <li><b>目的一</b>：拿到真实的课时数据。哪一站超时、哪个实操组织不起来、哪段学员明显走神</li>
+        <li><b>目的二</b>：发现讲不清楚的地方。你觉得讲透了但学员没听懂的点，只有真讲一遍才知道</li>
+        <li><b>目的三</b>：拿到<b>第一批学员见证和案例</b>。这是正价首期招生最缺的素材，没有它招生会非常吃力</li>
+        <li><b>目的四</b>：测试物料。哪些表学员真的填了，哪些发下去没人碰</li>
+        <li><b>选人</b>：优先选五条路径各有代表的人，能同时验证五条路径的落地表</li>
+        <li><b>约定</b>：提前说好要交反馈、要出镜拍见证、30 天要交作业。这是内测价的对价</li>
+      </ul>
+      <div class="note">内测班的成本远低于第一期正价班翻车的代价。而且内测学员往往是最好的转介绍来源——他们知道自己拿到了实惠，会主动帮你说话。</div>
+    </div>
+  </section>
+
+  <!-- 阶段四 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">四</div>
+      <h2 class="sec-title">招生与转化<span>含合规红线</span></h2>
+    </div>
+    <p class="sec-goal">招生不只是写个页面。<b>咨询谁来接、怎么筛人、退费怎么算、页面怎么写才不违法</b>，这几件事没定，招生一开就会出乱子。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>事项</th><th>优先级</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm">招生页 / 详情页</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>核心结构：核心主张（按资源 all in）· 认知升级八问 · 十站链路 · 两级水位交付表 · 你会带走什么 · 讲师与背书 · 见证 · 价格与政策 · 常见问题</td>
+          </tr>
+          <tr>
+            <td class="nm">能力边界的明示</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>这门课让你会什么、<b>不会什么</b>（疑难件与全品类深度鉴定）。含糊过去，退款和差评的风险全在这里</td>
+          </tr>
+          <tr>
+            <td class="nm">广告法合规审查</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>见下方红线</td>
+          </tr>
+          <tr>
+            <td class="nm">退费与转期政策</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>开课前多久可退、退多少、开课后能不能退、能不能转期、能不能转让。<b>必须写进合同并在招生页公示</b></td>
+          </tr>
+          <tr>
+            <td class="nm">培训服务协议</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>服务内容 · 交付范围 · 退费条款 · 资料版权与外传限制 · 肖像使用授权 · 免责范围（不承诺收益）</td>
+          </tr>
+          <tr>
+            <td class="nm">报名与收款流程</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>报名表单 · 收款主体 · 支付方式 · 开票 · 定金与尾款 · 报名确认与行前通知</td>
+          </tr>
+          <tr>
+            <td class="nm">咨询承接与话术</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>谁接咨询 · 常见十问的标准答法 · 怎么判断这个人适不适合 · 什么情况主动劝退</td>
+          </tr>
+          <tr>
+            <td class="nm">招生渠道</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>自有私域 · 短视频与直播 · 老客户与同行转介 · 内测班转介绍 · 异业合作方。<b>课程本身就该用课上教的五路径逻辑来招生</b></td>
+          </tr>
+          <tr>
+            <td class="nm">信任素材</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>讲师履历与实战成绩 · 样本库和物料实拍 · 内测班现场照片与见证 · 往期学员成果</td>
+          </tr>
+          <tr>
+            <td class="nm">预约与候补机制</td>
+            <td class="nw"><span class="p p-3">可分期</span></td>
+            <td>人数有上限，满了怎么排下一期、要不要收定金锁位</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warn">
+        <b>广告法红线，招生页逐条自查：</b><br>
+        不能出现"最专业""第一""顶级""国家级"等绝对化用语 · 不能承诺收益或回本周期（"包出单""月入 X 万""三个月回本"）· 不能承诺"包学会""学不会全额退"除非你真的执行 · 不能用"保真"作为服务承诺 · 不能虚构学员案例和数据 · 使用学员肖像和成绩必须有书面授权 · 引用第三方机构或平台名称要注意是否构成误导性关联。<br>
+        <b>这些不是小事</b>——教培类广告是投诉和处罚的高发区，且竞争对手举报的成本极低。
+      </div>
+    </div>
+  </section>
+
+  <!-- 阶段五 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">五</div>
+      <h2 class="sec-title">现场执行<span>场地 · 设备 · 流程 · 应急</span></h2>
+    </div>
+    <p class="sec-goal">这一阶段不难，但漏一项就很难受——比如场地没有能摆盲测台的空间，或者对练时没有足够的独立角落。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>事项</th><th>优先级</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm">场地选址</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>容量 · <b>能不能摆盲测长台</b> · 对练要几个独立角落 · 有没有拍摄区 · 光线（看货非常吃光）· 能不能贴海报 · 有没有存放样本的安全空间</td>
+          </tr>
+          <tr>
+            <td class="nm">设备清单</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>投影 · 音响 · 无线麦（多支）· 白板 · 拍摄补光 · 录像设备与支架 · 计时器 · 插线板 · 备用电池</td>
+          </tr>
+          <tr>
+            <td class="nm">现场流程手册</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>每天几点做什么、谁负责、物料什么时候发。<b>助教照着这本走，不用问</b></td>
+          </tr>
+          <tr>
+            <td class="nm">住宿与餐饮</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>是否包含、协议酒店、午餐安排、茶歇。异地学员的接送与指引</td>
+          </tr>
+          <tr>
+            <td class="nm">样本安保</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>真货样本的存放、清点、责任人。<b>每场盲测前后各清点一次</b>，这是必须的流程</td>
+          </tr>
+          <tr>
+            <td class="nm">现场应急预案</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>讲师临时缺席 · 设备故障 · 学员突发身体状况 · 学员争执 · 样本损坏或丢失</td>
+          </tr>
+          <tr>
+            <td class="nm">现场拍摄计划</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>要拍什么、谁拍、用于哪些用途。<b>结营当天现场采访见证，趁热拍，回去就拍不到了</b></td>
+          </tr>
+          <tr>
+            <td class="nm">外出实战安排</td>
+            <td class="nw"><span class="p p-3">可分期</span></td>
+            <td>如果保留：去哪、几组、怎么带、安全责任怎么划、需不需要额外协议</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 阶段六 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">六</div>
+      <h2 class="sec-title">课后与迭代<span>陪跑 · 社群 · 数据</span></h2>
+    </div>
+    <p class="sec-goal">30 天陪跑是大纲里承诺的，但它的人力投入最容易被低估。<b>做重了拖垮你，做轻了没效果</b>——先把投入算清楚再承诺。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>事项</th><th>优先级</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm">陪跑投入核算</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>三个节点 × 每人多少分钟 × 多少人 = 总人力。<b>算完再决定反馈形式</b>：群内统一点评最省、一对一语音最有效、集体复盘会折中</td>
+          </tr>
+          <tr>
+            <td class="nm">陪跑责任人</td>
+            <td class="nw"><span class="p p-1">必须先做</span></td>
+            <td>你自己做还是助教做。助教做的话，反馈质量的标准怎么定</td>
+          </tr>
+          <tr>
+            <td class="nm">学员社群规则</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>群定位 · 发言规则 · 能不能互相做生意 · 广告怎么管 · 群主是谁 · 多久活跃一次。<b>没规则的群三周就死</b></td>
+          </tr>
+          <tr>
+            <td class="nm">资料更新机制</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>哪些资料要更新（违禁词、行情、机构价格、手册改版）· 多久一次 · 谁负责 · 怎么推送。<b>每份文件标版本号和日期</b></td>
+          </tr>
+          <tr>
+            <td class="nm">出课标准达成统计</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>十站逐项统计达成率。<b>哪一站达成率低，就是下一期要改的地方</b>——这是最有价值的迭代依据</td>
+          </tr>
+          <tr>
+            <td class="nm">反馈收集</td>
+            <td class="nw"><span class="p p-2">开课前</span></td>
+            <td>每天一条快评 + 结营完整问卷 + 30 天后回访。三个时点收到的反馈质量完全不同</td>
+          </tr>
+          <tr>
+            <td class="nm">学员成果追踪</td>
+            <td class="nw"><span class="p p-3">可分期</span></td>
+            <td>30 天 / 90 天的出单情况。<b>这是下一期招生最有力的素材</b>，也是验证课程有没有用的唯一标准</td>
+          </tr>
+          <tr>
+            <td class="nm">复训与老学员政策</td>
+            <td class="nw"><span class="p p-3">可分期</span></td>
+            <td>能不能免费或低价回炉 · 老学员群怎么维护 · 转介绍怎么奖励</td>
+          </tr>
+          <tr>
+            <td class="nm">课程迭代节奏</td>
+            <td class="nw"><span class="p p-3">可分期</span></td>
+            <td>每期结束后多久做复盘、改哪些、版本怎么标。大纲已经到 v4，保持这个习惯</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="legend">
+        <div><span class="p p-1">必须先做</span> 决定后续所有动作</div>
+        <div><span class="p p-2">开课前</span> 首期开课前必须完成</div>
+        <div><span class="p p-3">可分期</span> 第二期再补也来得及</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关键决策 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">七</div>
+      <h2 class="sec-title">现在就该拍板的九个问题<span>其余都是执行</span></h2>
+    </div>
+    <p class="sec-goal">上面六个阶段里，大部分是执行动作。真正需要你做判断的是下面这九个——<b>把这九个答完，剩下的就是排期和分工。</b></p>
+    <div class="sec-body">
+      <dl class="qs">
+        <dt>1. 这门课是收入来源，还是获客与建生态的手段？</dt>
+        <dd>决定定价、招生门槛、后端设计的取向。可以混合，但主次要分清楚。</dd>
+
+        <dt>2. 一期带多少人？</dt>
+        <dd>由对练和盲测的师生比决定，不是由场地大小决定。这个数字倒推定价和成本。</dd>
+
+        <dt>3. 课时定几天？外出实战保不保留？</dt>
+        <dd>大纲 v4 里唯一还没定的结构性问题。保留实战就得加一天，或者砍掉某站的实操。</dd>
+
+        <dt>4. 和技术课怎么切、怎么卖？</dt>
+        <dd>能力切分口径（本课到 L3）已经写好了，但打包还是独立、先后顺序、价格结构还没定。</dd>
+
+        <dt>5. 样本库现在有多少？缺口怎么补？</dt>
+        <dd>决定第五站能不能兑现。样本不够就得压缩鉴定站或改变考核形式，越早知道越好。</dd>
+
+        <dt>6. 上游和鉴定机构能谈成到什么程度？</dt>
+        <dd>谈成什么就在招生页写什么。谈不成的一律拿掉，不要写"可对接"这种含糊表述。</dd>
+
+        <dt>7. 谁讲鉴定站？</dt>
+        <dd>这一站不能靠念稿。如果没有能真上手的人，要么外请，要么把这一站的定位再往"避损与兜底"上收。</dd>
+
+        <dt>8. 30 天陪跑投入多少人力，采用什么反馈形式？</dt>
+        <dd>先算总时长再承诺。承诺了做不到，比一开始就不承诺伤害更大。</dd>
+
+        <dt>9. 内测班什么时候跑，选哪些人？</dt>
+        <dd>建议正价首期前留足两个月：内测 → 收反馈改课 → 拿见证素材 → 正式招生。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer>
+    开课筹备清单 · 配套大纲 v4 与交付物料总清单<br>
+    <b>建议节奏：</b>先答完第七节的九个问题 → 阶段一二并行推进（决策与资源同时启动，因为资源谈判周期长）→ 阶段三教学工程 → 内测班 → 按内测反馈修课与物料 → 阶段四五招生与现场 → 正价首期 → 阶段六复盘迭代
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>商业模型定盘 · 课程定位、班型、成本与定价</title>
+<style>
+:root{
+  --paper:#F1F2EC; --card:#FBFBF8;
+  --ink:#17231E; --ink2:#4A5951; --ink3:#78857C;
+  --line:#CBD0C6; --line2:#E0E3DA;
+  --brass:#8F6E30; --brass-soft:#EFE7D4;
+  --seal:#A5382A; --seal-soft:#F3E3DF;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+
+header.top{padding:64px 0 30px}
+.doc-title{font-family:var(--serif);font-size:36px;line-height:1.35;font-weight:600;margin:0 0 14px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 14px}
+.doc-sub b{color:var(--ink);font-weight:600}
+.doc-meta{display:flex;flex-wrap:wrap;gap:10px 22px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+
+.verdict{background:var(--card);border:1px solid var(--line);padding:26px 28px 24px;margin:32px 0 0}
+.verdict h2{font-family:var(--serif);font-size:21px;font-weight:600;margin:0 0 4px}
+.verdict p.lead{color:var(--ink3);font-size:13.5px;margin:0 0 20px}
+.verdict ol{margin:0;padding:0;counter-reset:d;list-style:none}
+.verdict ol li{padding-left:30px;margin-bottom:14px;color:var(--ink2);counter-increment:d;position:relative}
+.verdict ol li::before{
+  content:counter(d);position:absolute;left:0;top:.42em;
+  width:19px;height:19px;display:flex;align-items:center;justify-content:center;
+  background:var(--ink);color:var(--card);font-family:var(--serif);font-size:12px;
+}
+.verdict ol li strong{color:var(--ink);font-weight:600;display:block}
+
+.sec{padding:52px 0 6px;border-top:1px solid var(--line);margin-top:44px}
+.sec:first-of-type{margin-top:38px}
+.sec-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:8px}
+.sec-n{
+  flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--brass);color:var(--brass);font-family:var(--serif);font-size:17px;margin-top:5px;
+}
+.sec-n.core{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.sec-title{font-family:var(--serif);font-size:27px;font-weight:600;margin:0;letter-spacing:.03em}
+.sec-title span{color:var(--ink3);font-size:15.5px;font-weight:400;margin-left:12px;letter-spacing:0}
+.sec-goal{color:var(--ink2);margin:0 0 26px 50px;max-width:46em}
+.sec-goal b{color:var(--ink);font-weight:600}
+.sec-body{margin-left:50px}
+
+h3.grp{font-family:var(--serif);font-size:18px;font-weight:600;margin:32px 0 4px;padding-bottom:7px;border-bottom:1px solid var(--line2)}
+h3.grp:first-child{margin-top:0}
+
+.tbl{width:100%;border-collapse:collapse;margin-top:18px;font-size:13.5px}
+.tbl th,.tbl td{border:1px solid var(--line2);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--card);font-family:var(--serif);font-weight:600;color:var(--ink);font-size:14px}
+.tbl td{color:var(--ink2)}
+.tbl td.nm{color:var(--ink);font-weight:600}
+.tbl td.nw{white-space:nowrap}
+.tbl td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl td.tot{color:var(--ink);font-weight:600;background:var(--card)}
+.tbl tr.hd td{background:var(--brass-soft);color:#5B4A22;font-family:var(--serif);font-weight:600;font-size:14.5px}
+.tbl tr.sum td{background:var(--card);color:var(--ink);font-weight:600}
+
+.note{background:var(--brass-soft);border-left:2px solid var(--brass);padding:13px 16px;margin:20px 0 0;font-size:14px;color:#5B4A22;line-height:1.75}
+.note b{color:#3E3216}
+.warn{background:#FCF8F7;border-left:2px solid var(--seal);padding:13px 16px;margin:20px 0 0;font-size:14px;color:#6B2F25;line-height:1.75}
+.warn b{color:var(--seal)}
+
+ul{margin:8px 0 0;padding:0;list-style:none}
+li{position:relative;padding-left:16px;margin-bottom:4px;color:var(--ink2)}
+li::before{content:"";position:absolute;left:1px;top:.85em;width:5px;height:1px;background:var(--line)}
+li b{color:var(--ink);font-weight:600}
+
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2);margin-top:22px}
+.tier{background:var(--card);padding:18px 18px 20px}
+.tier .lv{font-family:var(--serif);font-size:12px;color:var(--brass);letter-spacing:.14em;display:block;margin-bottom:8px}
+.tier h4{font-family:var(--serif);font-size:16px;font-weight:600;margin:0 0 4px;color:var(--ink)}
+.tier .pr{font-family:var(--serif);font-size:20px;color:var(--ink);margin:6px 0 8px;font-weight:600}
+.tier p{margin:0;font-size:13px;color:var(--ink2);line-height:1.7}
+
+.qs{margin-top:20px}
+.qs dt{font-family:var(--serif);font-size:16px;font-weight:600;margin:18px 0 2px;color:var(--ink)}
+.qs dd{margin:0;color:var(--ink2);max-width:46em;font-size:14px}
+
+footer{margin-top:56px;padding:24px 0 70px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
+footer b{color:var(--ink2);font-weight:500}
+
+@media (max-width:900px){.tiers{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .wrap{padding:0 18px}
+  header.top{padding:40px 0 24px}
+  .doc-title{font-size:26px}
+  .verdict{padding:20px}
+  .sec-title{font-size:22px}
+  .sec-title span{display:block;margin:4px 0 0;font-size:14px}
+  .sec-goal,.sec-body{margin-left:0}
+  .sec-n{width:28px;height:28px;font-size:15px}
+  .tiers{grid-template-columns:1fr}
+  .tbl,.tbl tbody,.tbl tr,.tbl td,.tbl th{display:block;width:100%}
+  .tbl thead{display:none}
+  .tbl tr{border:1px solid var(--line2);margin-bottom:12px}
+  .tbl td{border:none;border-bottom:1px solid var(--line2)}
+  .tbl td:last-child{border-bottom:none}
+  .tbl td.nm{background:var(--card)}
+  .tbl td.num{text-align:left}
+  .tbl tr.hd{margin-bottom:0;border:none}
+}
+@media print{body{background:#fff;font-size:10.5pt}.sec{break-before:page;border-top:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <h1 class="doc-title">商业模型定盘<br>定位 · 班型 · 成本 · 定价 · 后端</h1>
+    <p class="doc-sub">总体判断：<b>结构是对的，账也算得过来。</b>盈亏平衡点在 8 人左右，风险不大。真正的问题不在这一期能不能赚钱，而在<b>第二、三期会不会跑不动</b>——有三处设计会在那时候显形。</p>
+    <p class="doc-sub">下面先说建议改的六件事，再给完整的定盘版本和成本测算。所有金额都是估算，单价假设已逐项列出，你按实际情况替换即可。</p>
+    <div class="doc-meta">
+      <div><b>配套</b> 大纲 v4 · 物料清单 · 筹备清单</div>
+      <div><b>状态</b> 待确认版本</div>
+      <div><b>测算口径</b> 5 天班 · 三档人数场景</div>
+    </div>
+  </header>
+
+  <section class="verdict">
+    <h2>建议改的六件事</h2>
+    <p class="lead">按重要性排。前三件会影响第二、三期能不能持续跑。</p>
+    <ol>
+      <li><strong>40 人和大纲的实操强度冲突，首期先做 20–25 人</strong>第六站十场景议价对练要"录像回放、老师逐个纠"：40 人两两分组是 20 组，每组每场景点评 1 分钟就要 200 分钟。第五站实物盲测 40 人轮转 20 件样本更慢。<b>40 人是空间上限，不是交付上限。</b>建议首期 20–25 人配 4 名助教，摸准实操真实耗时后再往上加。要坚持 40 人，就得把"逐个纠"改成"抽样精讲 + 组内互评"，并且在招生页如实说明。</li>
+
+      <li><strong>一个月一期，陪跑会在第三个月崩</strong>到第 3 期时，你和那一个人要同时带第 1、2、3 期累计 100+ 人的 30 天陪跑、讲第 3 期的课、招第 4 期的生。<b>建议重新定义陪跑</b>：随课的免费陪跑改为群内统一节点点评 + 一场集体复盘直播（可承载）；一对一深度陪跑抽出来作为 5980 线上陪跑的核心价值。这样人力扛得住，后端产品也终于有了清晰的价值差异——现在 4980 送 30 天陪跑、5980 卖陪跑，两者差在哪说不清楚。</li>
+
+      <li><strong>助教用招生提成激励，是负循环</strong>助教的核心职责是交付质量：对练纠错、盲测计分、物料分发。用招生提成做浮动，他会把精力挪去招生，交付质量下降 → 口碑变差 → 招生更难。<b>建议浮动部分挂交付指标</b>（所带组的出课标准达成率、30 天作业提交率、学员满意度），招生提成单独给到招生动作或老学员转介绍。</li>
+
+      <li><strong>按天定价是成本思维，改成按价值定价</strong>"1000 元/天"暗示价值来自时长——学员会觉得少一天就该少一千，而且它把你和所有按天卖课的人放在同一个比较维度上。4980 这个数字可以不变，但对外的说法要换成交付清单：五条路径 + 鉴定避损 + 全套物料工具 + 资料库 + AI 大脑 + 陪跑。<b>让人比的是内容，不是天数。</b></li>
+
+      <li><strong>4980 到 5 万是 10 倍断层，中间要补一档</strong>现在只有 5980 一个中间档，且它和 4980 差得太近、和 5 万差得太远。建议补一个 <b>1.5 万左右的组合档</b>（全链路课 + 技术课 + 3 个月线上陪跑），让升单有台阶可上。10 倍跳跃的成交率会非常低。</li>
+
+      <li><strong>内测价 2000–3000 折扣太深，且要把折扣换成对价</strong>4980 打到 2500 是五折。风险有三：老学员会认为正价虚高；内测学员会跟人说自己花了 2500；未来复训会期待同样价格。<b>建议内测价 2980–3480（三到四折优惠），并且明确对价</b>：必须交书面反馈、必须出镜拍见证、必须交满 30 天作业。把折扣变成交换，价格体系才立得住。</li>
+    </ol>
+  </section>
+
+  <!-- 一 定位 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">一</div>
+      <h2 class="sec-title">商业角色与产品阶梯<span>"引流入门产品"这个说法要拆开看</span></h2>
+    </div>
+    <p class="sec-goal">相对于 5 万的线下陪跑，4980 确实是入门。但一个要请假 4–5 天、专程赶过来、花五千块的产品，<b>不具备引流品该有的低决策成本和易传播性</b>。它的真实角色是「主力产品 + 升单跳板」。</p>
+    <div class="sec-body">
+      <p style="color:var(--ink2);margin:0;max-width:46em">这个区别很实际：引流品可以亏钱换量，主力品必须自己赚钱。如果按引流品的心态去定价和投入，账会算错。建议把产品线拆成四层，让真正的引流动作由更前面的东西承担。</p>
+
+      <div class="tiers">
+        <div class="tier">
+          <span class="lv">引流层</span>
+          <h4>公开课 / 直播 / 线上入门</h4>
+          <div class="pr">0 – 999</div>
+          <p>免费直播、行业公开课，或 399–999 的线上入门课。<b>这一层才是真正的引流品</b>：决策成本低、能规模化、可传播。目前缺这一层，全链路课被迫承担了不该它承担的获客压力。</p>
+        </div>
+        <div class="tier">
+          <span class="lv">主力层</span>
+          <h4>全链路课（本课）</h4>
+          <div class="pr">4980</div>
+          <p>五天线下，全套物料工具。<b>核心职责是筛选和升单</b>——把有执行力、愿意付费的人筛出来，交付到位，再往后端引。本身要盈利，但不必赚太狠。</p>
+        </div>
+        <div class="tier">
+          <span class="lv">组合层</span>
+          <h4>全链路 + 技术课 + 线上陪跑</h4>
+          <div class="pr">约 1.5 万</div>
+          <p><b>建议新增，补断层用。</b>把三样打包给一个明显优于单买的价格。这一档是 5 万线下陪跑的前置台阶，也是结营当天最容易成交的一档。</p>
+        </div>
+        <div class="tier">
+          <span class="lv">高端层</span>
+          <h4>线下陪跑</h4>
+          <div class="pr">5 万</div>
+          <p>一对一或极小班，落地到店、带做、带谈。<b>名额必须稀缺</b>——一年只做几个，稀缺性本身就是定价依据，也是你精力的天然上限。</p>
+        </div>
+      </div>
+
+      <h3 class="grp">后端承接方向</h3>
+      <table class="tbl">
+        <thead><tr><th>方向</th><th>产品形态</th><th>建议客单</th><th>课程里的埋点在哪</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm nw">鉴定深造</td>
+            <td>技术课（疑难件、全品类深度、鉴定服务变现）</td>
+            <td class="nw">按现有定价</td>
+            <td><b>已有。</b>第五站的 L1/L2/L3 能力分层天然引出"L3 之后去哪学"</td>
+          </tr>
+          <tr>
+            <td class="nm nw">线上陪跑</td>
+            <td>3 个月一对一 + 每周复盘会 + 资料库高级权限</td>
+            <td class="nw">5980</td>
+            <td><b>需要重做。</b>把随课的 30 天陪跑降为群内统一反馈，一对一才是这个产品的价值。见第二节</td>
+          </tr>
+          <tr>
+            <td class="nm nw">线下陪跑</td>
+            <td>到店诊断、带做、带谈、渠道对接</td>
+            <td class="nw">5 万</td>
+            <td><b>需要补。</b>课上要展示"到现场能解决什么"，比如放一段实地带做的记录</td>
+          </tr>
+          <tr>
+            <td class="nm nw">养护与维修</td>
+            <td>养护服务、腕表维修、箱包翻新，供学员转介或自用</td>
+            <td class="nw">按件</td>
+            <td><b>缺口最大。</b>大纲 v4 里只在第一站提了一句。见下方建议</td>
+          </tr>
+          <tr>
+            <td class="nm nw">供应链承接</td>
+            <td>学员的货由你接、学员的疑难件由你验</td>
+            <td class="nw">按差价</td>
+            <td>第五站的上游兜底、第九站的出货渠道——<b>你自己就可以是那个上游</b></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note"><b>养护维修这条线需要在课程里补三个埋点，否则后端接不上：</b>第五站讲翻新、改色、换件识别时，顺带讲"能修的货能加多少价、修一次多少钱"；第六站折价逻辑里加一项"可修复瑕疵 vs 不可修复瑕疵，报价差多少"；第九站滞销处理里加"翻新改色后再售"这条路。<b>学员一旦意识到"修一下能多赚"，养护就从服务变成了他的利润工具</b>，转介绍会自然发生。</div>
+
+      <div class="note"><b>还有一个最容易被忽略的后端：你自己就是学员的上游。</b>第五站教了兜底体系、第九站教了出货渠道——你可以直接成为他们的兜底方和出货口。这条线不收学费，赚的是差价和周转，而且随着学员数量增长会自动放大。<b>如果这条线成立，全链路课作为"引流入门产品"的定位就真正成立了</b>，因为你赚的是学员的长期业务，不是他的学费。</div>
+    </div>
+  </section>
+
+  <!-- 二 班型 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">二</div>
+      <h2 class="sec-title">班型与交付形式<span>人数、课时、频次、陪跑</span></h2>
+    </div>
+    <p class="sec-goal">这一节主要处理两件事：<b>人数上限的真实约束</b>，以及<b>陪跑的重新定义</b>。这两件事不解决，第三期开始会很难受。</p>
+    <div class="sec-body">
+
+      <h3 class="grp">人数：40 是空间上限，不是交付上限</h3>
+      <table class="tbl">
+        <thead><tr><th>实操环节</th><th>40 人时的实际情况</th><th>建议</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm nw">十场景议价对练<br>（第六站）</td>
+            <td>20 组同时进行，每组每场景仅点评 1 分钟就需 200 分钟。"老师逐个纠"实际做不到</td>
+            <td>抽样精讲：每场景抽 2–3 组当众演示并点评，其余组用评分卡互评。<b>招生页要如实写"抽样精讲"</b></td>
+          </tr>
+          <tr>
+            <td class="nm nw">实物盲测<br>（第五站）</td>
+            <td>40 人轮转 20 件样本，光排队就耗掉大半天</td>
+            <td>样本翻倍到 40 件分两个台，或分组错峰（一半盲测、一半做决策表判断，然后交换）</td>
+          </tr>
+          <tr>
+            <td class="nm nw">协议逐份填写<br>（第八站）</td>
+            <td>八份协议 × 40 人，答疑会淹没讲师</td>
+            <td>助教分组带，每人负责 6–10 人，讲师巡回</td>
+          </tr>
+          <tr>
+            <td class="nm nw">问诊对练与录像<br>（第四站）</td>
+            <td>录像回放 40 人份，课上放不完</td>
+            <td>录像课后单独发给本人，课上只回放 3–4 组典型</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="warn"><b>建议首期做 20–25 人。</b>不是因为 40 人不行，是因为你现在还不知道每个实操环节的真实耗时。用小班把时间摸准、把分组流程跑顺，第二期再加到 30，第三期再到 40。反过来做——首期直接 40 人然后发现走不完流程——会同时损失口碑和见证素材。</div>
+
+      <h3 class="grp">陪跑：重新定义，一举两得</h3>
+      <table class="tbl">
+        <thead><tr><th></th><th>现在的设计</th><th>建议改成</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm nw">随课陪跑<br>（含在 4980 里）</td>
+            <td>30 天，三个节点，形式未定</td>
+            <td><b>群内统一节点点评 + 三场集体复盘直播</b>。学员按节点交作业，你集中点评，所有人都能看到别人的问题。人力可控，且群里有内容</td>
+          </tr>
+          <tr>
+            <td class="nm nw">线上陪跑<br>（5980）</td>
+            <td>价值和随课陪跑说不清区别</td>
+            <td><b>3 个月一对一 + 每周复盘会 + 资料库高级权限 + 疑难件优先复核</b>。差异一句话讲得清：随课是集体点评，付费是一对一带你改</td>
+          </tr>
+          <tr>
+            <td class="nm nw">线下陪跑<br>（5 万）</td>
+            <td>暂无具体设计</td>
+            <td>到店诊断 + 现场带做 + 带谈异业/上游 + 渠道对接。<b>一年限额几个名额</b>，稀缺是定价依据也是精力上限</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">这样改之后，<b>三个陪跑产品的价值阶梯是清晰的：集体点评 → 一对一 → 到现场</b>。学员一眼看得懂差在哪，你也不用在结营时费劲解释"我们已经送了陪跑，为什么还要买陪跑"。</div>
+
+      <h3 class="grp">课时与频次</h3>
+      <table class="tbl">
+        <thead><tr><th>项目</th><th>你的设定</th><th>建议</th></tr></thead>
+        <tbody>
+          <tr><td class="nm nw">课时</td><td>4–5 天</td><td><b>定 5 天</b>。大纲 v4 有十站，其中鉴定 1–2 天、估价报价含对练、风控半天。4 天会被迫砍实操，而实操是这门课唯一抄不走的部分</td></tr>
+          <tr><td class="nm nw">交付形式</td><td>线下集中 + 线上补充答疑</td><td>合理。补一条：<b>线上答疑要有固定时间</b>，随时答疑等于全天在线</td></tr>
+          <tr><td class="nm nw">开课频次</td><td>一个月一次</td><td><b>首年建议双月一期</b>。一个月一期意味着招生周期只有一个月，而教培类决策周期通常 2–6 周。首期靠私域可以快，第二期开始会吃紧。稳定后再加密</td></tr>
+          <tr><td class="nm nw">外出实战</td><td>未定</td><td>5 天排下来 D5 已满。要保留就得加半天，或者放到<b>线上陪跑产品里</b>作为差异化价值</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 三 成本测算 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">三</div>
+      <h2 class="sec-title">成本测算<span>单价假设已逐项列出，按实际替换</span></h2>
+    </div>
+    <p class="sec-goal">按 5 天班测算。所有单价都是<b>行业常见区间的估算值</b>，你有实际报价的直接替换。测算的价值不在数字精确，在于看清<b>哪些是变动成本、哪些是固定成本、盈亏平衡在哪</b>。</p>
+    <div class="sec-body">
+
+      <h3 class="grp">变动成本（每人）</h3>
+      <table class="tbl">
+        <thead><tr><th>项目</th><th>单价估算</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">鉴定工具包</td><td class="num">130</td><td>紫光灯、放大镜、卡尺、白手套、绒布。你说 100 多，按 130 取</td></tr>
+          <tr><td class="nm">活页夹 + 讲义印刷</td><td class="num">80</td><td>约 100–150 页彩印 + 活页夹。页数多，这项别低估</td></tr>
+          <tr><td class="nm">口袋速查卡组（8 张塑封）</td><td class="num">20</td><td>成本最低、使用率最高的一项</td></tr>
+          <tr><td class="nm">异业物料包</td><td class="num">80</td><td>台卡、二维码贴、宣传单、样品册，印刷成品</td></tr>
+          <tr><td class="nm">学员卡 / 桌牌 / 本笔 / 手提袋</td><td class="num">50</td><td>现场物料</td></tr>
+          <tr><td class="nm">结业证书</td><td class="num">15</td><td></td></tr>
+          <tr><td class="nm">首晚聚餐</td><td class="num">150</td><td>人均，含场地</td></tr>
+          <tr><td class="nm">课间零食饮水（5 天）</td><td class="num">100</td><td>人均 20/天</td></tr>
+          <tr><td class="nm">杂项与损耗</td><td class="num">30</td><td>补印、遗失、备用</td></tr>
+          <tr class="sum"><td>小计（不含提成与获客）</td><td class="num">655</td><td>建议按 <b>650–800</b> 预留</td></tr>
+          <tr><td class="nm">招生提成 5%</td><td class="num">249</td><td>按正价 4980 计；内测价 2980 时为 149</td></tr>
+          <tr><td class="nm">获客成本</td><td class="num">300 / 700 / 1500</td><td>见下方分层说明</td></tr>
+        </tbody>
+      </table>
+
+      <div class="warn"><b>获客成本是这份测算里不确定性最大的一项，也是第二期开始会陡增的一项。</b>分层估算：<b>私域老学员</b> 100–300 元/人（仅沟通人力）；<b>老学员转介绍</b> 300–500 元/人（返佣）；<b>短视频自然流</b> 300–800 元/人（内容人力摊销）；<b>付费投流</b> 800–3000 元/人（教培类线索本来就贵）。<br><br>首期靠私域，按 300 算很轻松。<b>但私域老学员是有限的，挖完就没了。</b>第二、三期开始必须依赖公域，那时按 1000–1500 预留才安全。这是所有培训产品的通病——首期数据好看，第三期见真章。</div>
+
+      <h3 class="grp">固定成本（每期）</h3>
+      <table class="tbl">
+        <thead><tr><th>项目</th><th>金额估算</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">助教基础工资</td><td class="num">12,000 – 16,000</td><td>按 4000/人/月。<b>25 人班需 3 人，40 人班需 4 人</b>。若助教兼做其他工作应按比例分摊</td></tr>
+          <tr><td class="nm">陪跑人力</td><td class="num">5,500</td><td>1 人月薪。你自己的时间未计入现金成本</td></tr>
+          <tr><td class="nm">场地水电、清洁、布置</td><td class="num">1,500</td><td>自有教室不等于零成本，5 天的水电清洁和布置复原要算</td></tr>
+          <tr><td class="nm">样本库摊销与损耗</td><td class="num">3,000</td><td>假设样本库投入 8–15 万（真货可复用可出售），按损耗与占用摊算</td></tr>
+          <tr><td class="nm">设备摊销</td><td class="num">600</td><td>投影音响麦克拍摄，一次性 1–2 万按 24 期摊</td></tr>
+          <tr><td class="nm">内容与物料设计摊销</td><td class="num">2,500</td><td>首次投入 2–5 万（手册撰写、设计、版式），按 12 期摊</td></tr>
+          <tr class="sum"><td>小计</td><td class="num">25,100 – 29,100</td><td>25 人班取 <b>25,100</b>；40 人班取 <b>29,100</b></td></tr>
+        </tbody>
+      </table>
+      <div class="note"><b>讲师成本按现金支出记为 0（内部人员），但不等于没有成本。</b>建议在内部记一笔影子成本：你自己 5 天不做主业的机会成本 + 如果外请要花多少。这个数字不进损益表，但在判断"这门课值不值得做"时必须放进去考虑。</div>
+
+      <h3 class="grp">三个场景测算</h3>
+      <table class="tbl">
+        <thead><tr><th>项目</th><th>内测班<br>12 人 × 2980</th><th>首期<br>25 人 × 4980</th><th>满班<br>40 人 × 4980</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">收入</td><td class="num tot">35,760</td><td class="num tot">124,500</td><td class="num tot">199,200</td></tr>
+          <tr class="hd"><td colspan="4">变动成本</td></tr>
+          <tr><td class="nm">物料 · 工具 · 餐饮（655/人）</td><td class="num">7,860</td><td class="num">16,375</td><td class="num">26,200</td></tr>
+          <tr><td class="nm">招生提成 5%</td><td class="num">1,788</td><td class="num">6,225</td><td class="num">9,960</td></tr>
+          <tr><td class="nm">获客成本</td><td class="num">2,400<br><span style="font-size:12px">私域 200/人</span></td><td class="num">17,500<br><span style="font-size:12px">混合 700/人</span></td><td class="num">40,000<br><span style="font-size:12px">公域为主 1000/人</span></td></tr>
+          <tr class="sum"><td>变动小计</td><td class="num">12,048</td><td class="num">40,100</td><td class="num">76,160</td></tr>
+          <tr class="hd"><td colspan="4">固定成本</td></tr>
+          <tr><td class="nm">助教</td><td class="num">8,000<br><span style="font-size:12px">2 人</span></td><td class="num">12,000<br><span style="font-size:12px">3 人</span></td><td class="num">16,000<br><span style="font-size:12px">4 人</span></td></tr>
+          <tr><td class="nm">陪跑人力</td><td class="num">5,500</td><td class="num">5,500</td><td class="num">5,500</td></tr>
+          <tr><td class="nm">场地 · 样本 · 设备 · 内容摊销</td><td class="num">7,600</td><td class="num">7,600</td><td class="num">7,600</td></tr>
+          <tr class="sum"><td>固定小计</td><td class="num">21,100</td><td class="num">25,100</td><td class="num">29,100</td></tr>
+          <tr class="sum"><td>总成本</td><td class="num">33,148</td><td class="num">65,200</td><td class="num">105,260</td></tr>
+          <tr class="sum"><td>毛利</td><td class="num tot">2,612</td><td class="num tot">59,300</td><td class="num tot">93,940</td></tr>
+          <tr class="sum"><td>毛利率</td><td class="num">7%</td><td class="num">48%</td><td class="num">47%</td></tr>
+          <tr class="sum"><td>单人毛利</td><td class="num">218</td><td class="num">2,372</td><td class="num">2,349</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note"><b>盈亏平衡点</b>（正价 4980，固定成本按 25,100）：单人变动成本 655 + 249 + 700 = 1,604，单人毛贡献 3,376，<b>平衡点约 8 人</b>。这门课本身的经营风险很低。<br><br><b>内测班要注意</b>：按 2980 计，单人毛贡献约 1,830，固定成本压到 21,100 也需要 <b>12 人</b>才平。所以内测班人数不要低于 12——如果你想做 8–10 人的小班，就要接受一定亏损（买的是反馈和见证素材，这个投入是值得的，但要心里有数）。</div>
+
+      <div class="warn"><b>40 人班的毛利率没有比 25 人班更高（47% vs 48%）。</b>原因是获客成本随人数上升而上升——从私域转向公域，单客成本涨了。这说明：<b>盲目冲人数不会提升盈利质量，反而会拉低交付质量。</b>与其把班扩到 40 人，不如把 25 人的后端升单率做上去。</div>
+    </div>
+  </section>
+
+  <!-- 四 后端测算 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">四</div>
+      <h2 class="sec-title">后端才是主要利润<span>这决定了前端该怎么设计</span></h2>
+    </div>
+    <p class="sec-goal">前端一期毛利五六万，后端一期可能十万以上，而且边际成本低得多。<b>这印证了"引流入门产品"的定位是对的——但前提是升单率要跟得上。</b></p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>后端产品</th><th>客单</th><th>假设转化率</th><th>25 人班的后端收入</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">技术课</td><td class="num">6,000</td><td class="num">15%</td><td class="num">22,500</td></tr>
+          <tr><td class="nm">线上陪跑</td><td class="num">5,980</td><td class="num">20%</td><td class="num">29,900</td></tr>
+          <tr><td class="nm">组合档（建议新增）</td><td class="num">15,000</td><td class="num">10%</td><td class="num">37,500</td></tr>
+          <tr><td class="nm">线下陪跑</td><td class="num">50,000</td><td class="num">4%</td><td class="num">50,000</td></tr>
+          <tr class="sum"><td>后端合计</td><td></td><td></td><td class="num tot">139,900</td></tr>
+          <tr class="sum"><td>后端毛利（按 60%）</td><td></td><td></td><td class="num tot">83,940</td></tr>
+        </tbody>
+      </table>
+      <div class="note">转化率是假设值，实际要靠前几期跑出来。但即便打对折，<b>后端毛利也和前端相当</b>。加上养护维修和供应链承接（学员的货由你接），长期看后端一定超过前端。</div>
+
+      <h3 class="grp">但课程里现在没有升单设计</h3>
+      <p style="color:var(--ink2);margin:12px 0 0;max-width:46em">这是我在大纲 v4 里发现的真实缺口。结营环节现在是：AI 大脑实操 → 定位校准 → 30 天执行表 → 出课标准确认。<b>没有任何一个环节是为升单铺垫的。</b>而结营当天是学员情绪最高、信任最强、最容易成交的时刻——错过就要重新培育。</p>
+      <h3 class="grp">建议补的四个升单埋点</h3>
+      <ul>
+        <li><b>第五站（鉴定）末尾</b>：讲完 L1/L2/L3 分层后，明确说"L3 之后的疑难件和全品类深度在技术课"。不是推销，是能力边界的诚实说明——恰恰因为诚实，才有说服力</li>
+        <li><b>第九站（出货）</b>：讲上游兜底和出货渠道时，自然带出"我们自己也接货"。学员的第一批货如果由你接，关系就从师生变成了业务伙伴</li>
+        <li><b>结营环节新增一节「接下来怎么走」</b>：不是卖课环节，是路径规划——按每个人的资源盘点和路径选择，说清楚他接下来 3 个月最该补的是什么。<b>该补什么，自然就对应哪个产品</b></li>
+        <li><b>30 天陪跑的第 30 天</b>：学员交完第一单复盘，正是他最需要下一步指导的时候。这是比结营当天更精准的升单时点，而且此时他已经验证了课程有用</li>
+      </ul>
+      <div class="note"><b>升单设计的原则：不要在结营时突然变成销售会。</b>最好的升单是把它做成"路径规划"——你已经知道每个学员的资源、路径、出课标准达成情况，基于这些给建议，产品只是建议的载体。这比任何促销话术都有效，也不会伤害课程本身的口碑。</div>
+    </div>
+  </section>
+
+  <!-- 五 学员筛选 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">五</div>
+      <h2 class="sec-title">学员筛选<span>"没执行力的不要报"是对的，但不可执行</span></h2>
+    </div>
+    <p class="sec-goal">没有人会自认为没执行力。这句话写在招生页上，起不到任何筛选作用。<b>筛选要靠动作，不靠自我判断。</b></p>
+    <div class="sec-body">
+      <h3 class="grp">四道可执行的筛选</h3>
+      <ul>
+        <li><b>报名问卷</b>：问三个具体问题——每天能投入几小时？手上现在有什么资源（按八类勾选）？最近三个月做过哪些获客动作？<b>答不出第三题的人，大概率就是想当甩手掌柜的人</b>。而且问卷数据能直接变成第一站资源盘点表的预填，一举两得</li>
+        <li><b>行前作业作为门槛</b>：课前准备包的四件事（资源盘点预填、账号截图、行业关系名单、带货来）。<b>没完成的不能进教室</b>——这个门槛本身就是最有效的执行力筛选，而且它在收钱之后、上课之前，成本最低</li>
+        <li><b>明确告知作业要求</b>：报名前就说清 30 天要交 3 次作业、课上有 12 张表要自己填。不接受的建议别报</li>
+        <li><b>一句有力的劝退话术</b>：与其说"没执行力的不要报"，不如说——"这门课有 12 张表要你自己填、5 天里有一半时间在做实操和对练、回去 30 天要交 3 次作业。<b>如果你想的是听完就有人帮你做，这门课帮不了你。</b>"</li>
+      </ul>
+      <div class="note">适合人群那句"只要有获客需求、有全流程需求的都可以报"是对的，和课程的五路径设计一致。<b>但要在招生页把"宽入口"和"高要求"同时写清楚</b>——入口宽是因为路径多，不是因为要求低。这两句放在一起，反而增加可信度。</div>
+    </div>
+  </section>
+
+  <!-- 六 定盘版本 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">六</div>
+      <h2 class="sec-title">定盘版本<span>建议采纳的一版，供你圈改</span></h2>
+    </div>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>项目</th><th>建议定为</th><th>与你原方案的差异</th></tr></thead>
+        <tbody>
+          <tr class="hd"><td colspan="3">定位与产品线</td></tr>
+          <tr><td class="nm nw">商业角色</td><td>主力产品 + 升单跳板。真正的引流由前置的公开课/线上入门课承担</td><td>措辞调整，避免按引流品的心态定价</td></tr>
+          <tr><td class="nm nw">产品阶梯</td><td>公开课 0–999 → 全链路课 4980 → 组合档 1.5 万 → 线下陪跑 5 万</td><td><b>新增引流层和组合档</b>，补断层</td></tr>
+          <tr><td class="nm nw">后端方向</td><td>技术课 · 线上陪跑 · 线下陪跑 · 养护维修 · <b>供应链承接</b></td><td>新增供应链承接；养护维修补三个课内埋点</td></tr>
+          <tr class="hd"><td colspan="3">班型与交付</td></tr>
+          <tr><td class="nm nw">首期人数</td><td>20–25 人，配 3 名助教</td><td>由 40 降至 25，第二期 30，第三期再到 40</td></tr>
+          <tr><td class="nm nw">课时</td><td>5 天，定死</td><td>不留 4 天选项，4 天会砍掉实操</td></tr>
+          <tr><td class="nm nw">开课频次</td><td>首年双月一期，稳定后加密到月度</td><td>由月度降为双月，给招生和陪跑留出空间</td></tr>
+          <tr><td class="nm nw">随课陪跑</td><td>30 天，<b>群内统一节点点评 + 3 场集体复盘直播</b></td><td>由未定形式改为可承载的集体形式</td></tr>
+          <tr><td class="nm nw">交付形式</td><td>线下集中 + 线上固定时段答疑</td><td>答疑要有固定时间，不做全天在线</td></tr>
+          <tr class="hd"><td colspan="3">定价</td></tr>
+          <tr><td class="nm nw">正价</td><td>4980，<b>对外按交付清单说明价值，不按天数</b></td><td>价格不变，说法改变</td></tr>
+          <tr><td class="nm nw">内测价</td><td>2980–3480，且<b>换取三项对价</b>：书面反馈、出镜见证、30 天作业交满</td><td>由 2000–3000 上调，并把折扣变成交换</td></tr>
+          <tr><td class="nm nw">内测班人数</td><td>不低于 12 人（低于 12 会亏，可接受但要有数）</td><td>新增</td></tr>
+          <tr><td class="nm nw">组合档</td><td>约 1.5 万（全链路 + 技术课 + 3 个月线上陪跑）</td><td><b>新增</b></td></tr>
+          <tr class="hd"><td colspan="3">人力与激励</td></tr>
+          <tr><td class="nm nw">助教配置</td><td>25 人配 3 名，40 人配 4 名</td><td>明确配比</td></tr>
+          <tr><td class="nm nw">助教激励</td><td>基础 4000 + <b>交付质量浮动</b>（出课标准达成率、作业提交率、满意度）</td><td>招生提成剥离到专门的招生动作或转介绍</td></tr>
+          <tr><td class="nm nw">陪跑人力</td><td>你 + 1 人，采用集体形式后可承载</td><td>形式改变使原配置可行</td></tr>
+          <tr class="hd"><td colspan="3">筛选与政策</td></tr>
+          <tr><td class="nm nw">筛选机制</td><td>报名问卷 + 行前作业门槛 + 作业要求前置告知</td><td>由主观描述改为可执行动作</td></tr>
+          <tr><td class="nm nw">退费准备金</td><td>按学费的 3–5% 预留</td><td><b>新增</b>，原方案未考虑</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 七 待确认 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">七</div>
+      <h2 class="sec-title">还需要你补的数据<span>补齐后测算才能定稿</span></h2>
+    </div>
+    <div class="sec-body">
+      <dl class="qs">
+        <dt>1. 样本库现在投入了多少？是自有库存还是专门采购？</dt>
+        <dd>如果是自有库存（用完还能卖），成本主要是占用资金和损耗，摊销可以调低；如果专门采购高仿样本，那是纯沉没成本，摊销要提高。这一项对固定成本影响不小。</dd>
+
+        <dt>2. 助教是专职还是兼职？除了带课还做什么？</dt>
+        <dd>如果助教还承担你主业的工作，4000 月薪不该全部计入课程成本，要按投入时间比例分摊。这会明显改善单期毛利。</dd>
+
+        <dt>3. 私域里有多少可触达的老学员和存量客户？</dt>
+        <dd>这个数字决定前几期能靠低成本获客撑多久。假设有 300 人可触达、转化率 8%，那大约能支撑首期加第二期。<b>第三期开始必须有公域方案</b>，这是需要提前准备的。</dd>
+
+        <dt>4. 技术课现在的定价和交付形式是什么？</dt>
+        <dd>组合档的定价要基于技术课实际售价来设计，不能凭空定 1.5 万。同时要确认技术课和全链路课的鉴定内容重叠部分怎么向学员解释。</dd>
+
+        <dt>5. 你自己每期能投入多少天？</dt>
+        <dd>5 天授课 + 招生 + 陪跑 + 升单跟进，加起来可能是每月 10–15 天。这个数字要和你主业的时间需求对一下——<b>如果冲突，双月一期就不是保守选择，而是必要选择</b>。</dd>
+
+        <dt>6. 供应链承接这条线要不要认真做？</dt>
+        <dd>如果学员的货由你接、疑难件由你验，这条线的长期价值可能超过所有课程收入之和，而且它会反过来让课程定价可以更亲民。但它也意味着你要为学员的货负责——需要单独设计规则和风控。<b>这是这份方案里最有想象空间、也最需要你判断的一条。</b></dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer>
+    商业模型定盘 · 待确认版本 · 配套大纲 v4、物料清单、筹备清单<br>
+    <b>所有金额均为估算</b>，单价假设已在测算表中逐项标注，请以实际报价替换后重新核算。
+  </footer>
+
+</div>
+</body>
+</html>

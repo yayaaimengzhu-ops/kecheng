@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>这件货，你敢不敢收｜直播大纲</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ECEFF2;--card:#F9FAFB;--ink:#152238;--ink2:#44526A;--ink3:#667285;
+  --line:#C8D0DA;--line2:#DDE3EA;
+  --carbon:#2D5B8A;--carbon-wash:#E2EAF3;
+  --stamp:#B2352A;--stamp-wash:#F6E7E4;
+  --ok:#2F6B4F;
+  --serif:"Noto Serif SC","Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#10151C;--card:#161D26;--ink:#E2E8EF;--ink2:#B0BBC8;--ink3:#8995A5;
+    --line:#2E3948;--line2:#222B37;
+    --carbon:#8AB2DD;--carbon-wash:#1A2637;
+    --stamp:#E8816F;--stamp-wash:#2B1C1B;
+    --ok:#83C6A3;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#10151C;--card:#161D26;--ink:#E2E8EF;--ink2:#B0BBC8;--ink3:#8995A5;
+  --line:#2E3948;--line2:#222B37;
+  --carbon:#8AB2DD;--carbon-wash:#1A2637;
+  --stamp:#E8816F;--stamp-wash:#2B1C1B;
+  --ok:#83C6A3;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.85}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--carbon);outline-offset:2px}
+.wrap{max-width:920px;margin:0 auto;padding:0 22px}
+
+/* 顶部导航 */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:12px;min-height:52px}
+.nav-links{display:flex;gap:4px;overflow-x:auto;flex:1;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{white-space:nowrap;text-decoration:none;font-size:14px;color:var(--ink2);padding:6px 9px;border-radius:4px}
+.nav-links a:hover{background:var(--line2);color:var(--ink)}
+.nav-links a.ch{font-family:var(--serif);font-weight:900;color:var(--ink)}
+.btn{font:inherit;font-size:13.5px;border:1px solid var(--ink);background:var(--card);color:var(--ink);padding:5px 12px;border-radius:4px;cursor:pointer;white-space:nowrap}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--card)}
+.btn.quiet{border-color:var(--line);color:var(--ink2)}
+
+/* 页头 */
+.top{padding:56px 0 20px}
+.title{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,58px);line-height:1.2;margin:0 0 14px;letter-spacing:.02em}
+.sub{color:var(--ink2);max-width:40em;margin:0 0 6px}
+.ver{color:var(--ink3);font-size:13.5px;margin:0}
+
+/* 一小时条 */
+.hour{margin:34px 0 6px}
+.bar{display:flex;border:1.5px solid var(--ink);background:var(--card)}
+.seg{display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;padding:10px 2px 8px;border-left:1.5px solid var(--ink);min-width:0}
+.seg:first-child{border-left:0}
+.seg .c{font-family:var(--serif);font-weight:900;font-size:clamp(22px,4.4vw,34px);line-height:1}
+.seg .n{font-size:12.5px;color:var(--ink2);margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.seg.kp{background:var(--stamp-wash)}
+.seg.kp .c{color:var(--stamp)}
+.seg.fr{background:var(--carbon-wash)}
+.seg.fr .c{color:var(--carbon)}
+.seg:hover{filter:brightness(.97)}
+.ticks{position:relative;height:22px;font-size:12px;color:var(--ink3)}
+.ticks span{position:absolute;top:4px;transform:translateX(-50%);white-space:nowrap}
+.ticks span:first-child{transform:none}
+.ticks span:last-child{transform:translateX(-100%)}
+.hour-cap{font-size:13.5px;color:var(--ink3);margin:6px 0 0}
+
+/* 通用区块 */
+section.block{padding:40px 0 8px;border-top:1px solid var(--line);margin-top:34px}
+h2{font-family:var(--serif);font-weight:900;font-size:26px;line-height:1.35;margin:0 0 14px}
+h3{font-family:var(--serif);font-weight:600;font-size:18.5px;margin:26px 0 10px}
+p{margin:0 0 12px}
+.lead{max-width:42em;color:var(--ink2)}
+.small{font-size:13.5px;color:var(--ink3)}
+
+.whole{background:var(--card);border:1.5px solid var(--ink);padding:22px 24px;margin:26px 0 0}
+.whole .lb{font-size:13.5px;color:var(--carbon);margin:0 0 6px;font-weight:600}
+.whole .big{font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.7;margin:0}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 0}
+.two > div{background:var(--card);border:1px solid var(--line);padding:16px 18px}
+.two h4{margin:0 0 6px;font-size:15px}
+.two .yes h4{color:var(--ok)}
+.two .no h4{color:var(--stamp)}
+.two ul{margin:0;padding-left:1.2em}
+
+ol.rules{margin:10px 0 0;padding-left:1.4em;max-width:44em}
+ol.rules li{margin-bottom:8px}
+ol.rules b{font-weight:600}
+
+.howto{margin:20px 0 0;padding:14px 18px;border-left:3px solid var(--line);color:var(--ink2);font-size:14.5px;max-width:44em}
+.howto p{margin:0 0 4px}
+
+.todo{width:100%;border-collapse:collapse;font-size:14.5px}
+.todo td{border-bottom:1px solid var(--line2);padding:8px 10px 8px 0;vertical-align:top}
+.todo td:last-child{color:var(--ink3);white-space:nowrap;padding-right:0;text-align:right}
+
+.titles{list-style:none;padding:0;margin:12px 0 14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.titles li{background:var(--card);border:1px solid var(--line);padding:12px 14px;font-family:var(--serif);font-weight:600;font-size:17px;line-height:1.5}
+
+.tbl-wrap{overflow-x:auto;margin:12px 0}
+table.grid{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px;background:var(--card)}
+table.grid th,table.grid td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+table.grid th{background:var(--line2);font-weight:600}
+table.grid td:first-child{white-space:nowrap;font-weight:600}
+
+ul.plain{margin:8px 0 0;padding-left:1.2em;max-width:44em}
+ul.plain li{margin-bottom:6px}
+
+/* 模块 */
+.mod{padding:44px 0 10px;border-top:1.5px solid var(--ink);margin-top:40px}
+.mod-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:18px}
+.seal{flex:none;width:64px;height:64px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:40px;line-height:1;border:2.5px solid currentColor;border-radius:6px}
+.mod.kp .seal{color:var(--stamp);transform:rotate(-4deg)}
+.mod.fr .seal{color:var(--carbon)}
+.mod-meta{font-size:13.5px;color:var(--ink3);margin:2px 0 2px}
+.mod-head h2{margin:0}
+.mod-prog{font-size:13px;color:var(--ink3);margin-top:4px}
+.mod-prog.done{color:var(--ok)}
+
+.goal{background:var(--carbon-wash);border-left:4px solid var(--carbon);padding:16px 20px;margin:0 0 20px}
+.goal .lb{font-size:13.5px;color:var(--carbon);font-weight:600;margin:0 0 4px}
+.goal .main{font-family:var(--serif);font-weight:600;font-size:18.5px;line-height:1.7;margin:0 0 10px}
+.goal .after{margin:0;color:var(--ink2);font-size:14.5px}
+.goal .after b{color:var(--ink);font-weight:600}
+
+.note{font-size:14px;color:var(--ink2);border:1px solid var(--line);background:var(--card);padding:10px 14px;margin:0 0 18px}
+
+.steps{border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:8.2em 1fr 1fr;gap:6px 22px;padding:14px 0;border-bottom:1px solid var(--line)}
+.s-name{font-weight:600;line-height:1.5}
+.s-name span{display:block;font-weight:400;font-size:13px;color:var(--ink3);margin-top:2px}
+.s-say,.s-why{font-size:15px}
+.s-say .k,.s-why .k{display:block;font-size:12.5px;color:var(--ink3);margin-bottom:2px}
+.s-why{color:var(--ink2)}
+.step.case .s-name{color:var(--stamp)}
+.step.case{background:linear-gradient(90deg,var(--stamp-wash),transparent 60%)}
+.step.case .s-name{padding-left:10px;border-left:3px dashed var(--stamp)}
+.step ol,.step ul{margin:4px 0 0;padding-left:1.3em}
+.step li{margin-bottom:3px}
+
+.lines{margin:22px 0 0;background:var(--card);border:1px solid var(--line);padding:16px 20px}
+.lines .lb{font-size:13.5px;color:var(--ink3);margin:0 0 8px}
+.lines .txt{font-family:var(--serif);font-size:17px;line-height:1.95;white-space:pre-line;margin:0}
+.lines .txt + .lb{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line)}
+
+.nogo{margin:18px 0 0;border:1.5px dashed var(--stamp);padding:14px 18px}
+.nogo .lb{color:var(--stamp);font-weight:600;font-size:14px;margin:0 0 4px}
+.nogo p:last-child{margin:0}
+
+.sub-mod{margin:28px 0 0;border:1px solid var(--line);background:var(--card);padding:18px 20px}
+.sub-mod h3{margin:0 0 10px}
+.sub-mod .goal{margin-bottom:14px}
+
+.checks{margin:22px 0 0;padding:14px 18px;border:1px solid var(--line)}
+.checks .lb{font-weight:600;font-size:14.5px;margin:0 0 6px}
+.checks ul{list-style:none;margin:0;padding:0}
+.checks li{margin:4px 0}
+.checks label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.checks input{margin-top:.45em;width:16px;height:16px;flex:none;accent-color:var(--ok)}
+.checks input:checked + span{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--line)}
+
+.rulebox{margin:18px 0 0;padding:14px 18px;background:var(--card);border:1px solid var(--ink)}
+.rulebox .lb{font-weight:600;margin:0 0 4px}
+.rulebox ul{margin:0;padding-left:1.2em}
+
+footer{margin:56px 0 0;padding:22px 0 40px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+
+/* 只看目标 */
+body.goals-only .detail{display:none}
+body.goals-only .goal{margin-bottom:0}
+
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  .two,.titles{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr;gap:4px}
+  .s-name span{display:inline;margin-left:8px}
+  .seal{width:52px;height:52px;font-size:32px}
+  .seg .n{display:none}
+  .top{padding-top:36px}
+}
+@media print{
+  .nav,.btn{display:none !important}
+  body{background:#fff;font-size:12.5px}
+  body.goals-only .detail{display:block}
+  .mod{break-inside:auto}
+  .step,.goal,.lines,.nogo{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="段落导航">
+  <div class="wrap">
+    <div class="nav-links">
+      <a href="#whole">整场</a>
+      <a href="#door">门头</a>
+      <a href="#hour">排法</a>
+      <a class="ch" href="#m-open">开</a>
+      <a class="ch" href="#m-shou">收</a>
+      <a class="ch" href="#m-bao">报</a>
+      <a class="ch" href="#m-da">打</a>
+      <a class="ch" href="#m-mai">卖</a>
+      <a href="#layers">分层</a>
+      <a href="#rules">合规</a>
+    </div>
+    <button class="btn" id="goalsBtn" type="button" aria-pressed="false">只看目标</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<header class="top">
+  <h1 class="title">这件货，你敢不敢收</h1>
+  <p class="sub">鉴定获客专场的直播大纲。每一段先写目标，再写每一步讲什么、为什么这么讲。写逐字稿时对着目标写，写完用段末的自检对一遍。</p>
+  <p class="ver">第二版，按“敢不敢收”方向整理；人设部分待补。</p>
+
+  <div class="hour" aria-label="一小时排法">
+    <div class="bar">
+      <a class="seg fr" href="#m-open" style="flex:6"><span class="c">开</span><span class="n">0–6</span></a>
+      <a class="seg kp" href="#m-shou" style="flex:15"><span class="c">收</span><span class="n">敢不敢收</span></a>
+      <a class="seg kp" href="#m-bao" style="flex:15"><span class="c">报</span><span class="n">敢不敢报</span></a>
+      <a class="seg kp" href="#m-da" style="flex:15"><span class="c">打</span><span class="n">敢不敢打款</span></a>
+      <a class="seg fr" href="#m-mai" style="flex:9"><span class="c">卖</span><span class="n">麦克</span></a>
+    </div>
+    <div class="ticks" aria-hidden="true">
+      <span style="left:0">0</span><span style="left:10%">6</span><span style="left:35%">21</span><span style="left:60%">36</span><span style="left:85%">51</span><span style="left:100%">60</span>
+    </div>
+    <p class="hour-cap">一小时是一轮：开场一段、三个知识点、一段麦克。两小时就再走一轮，知识点可以原样重讲，也可以把第三段换成连麦。</p>
+  </div>
+</header>
+
+<!-- 整场 -->
+<section class="block" id="whole">
+  <h2>整场要做成什么样</h2>
+  <div class="whole">
+    <p class="lb">这一场的目标</p>
+    <p class="big">用“敢不敢收、敢不敢报价、敢不敢打款”，把正在收货和准备入行的人吸引进来；让他们发现收货亏钱，多半不是眼力的问题；最后买下 5 元三晚课，进到私域。</p>
+  </div>
+
+  <div class="two">
+    <div class="yes">
+      <h4>要吸引的人</h4>
+      <ul>
+        <li>正在做、但还不稳定的二奢从业者</li>
+        <li>已经决定要入行的人</li>
+      </ul>
+    </div>
+    <div class="no">
+      <h4>要让他划走的人</h4>
+      <ul>
+        <li>想让你帮忙验自己那只包的消费者</li>
+        <li>准备买二手的买家</li>
+        <li>来听专业细节的同行专家</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small" style="margin-top:10px">为什么这么分：选题决定进来的是谁。讲“真假”，谁都会停下来看；讲“敢不敢收、敢不敢报”，只有收货的人才有感觉。</p>
+
+  <h3>写每一段都要守的三条</h3>
+  <ol class="rules">
+    <li><b>多讲为什么，少讲怎么做。</b>七成篇幅讲认知和后果；方法每段只给一个当场能用的动作。</li>
+    <li><b>站在收货这一头说话。</b>用“收”“报价”“打款给卖家”。别用“掏钱”“付钱”“买”，这几个词会把买家也吸引过来。</li>
+    <li><b>真假只拿来证明专业。</b>每段留一个 30 秒左右的专业动作，比如当场指出一个破绽，点到就停，不展开成教学。</li>
+  </ol>
+
+  <div class="howto">
+    <p>写某一段逐字稿前，先读这一段的“目标”和每一步的“目的”。</p>
+    <p>写完用段末的“写稿自检”逐条勾，勾选只保存在这台设备的浏览器里。</p>
+    <p>点顶部“只看目标”，可以把整场逻辑快速过一遍。</p>
+  </div>
+
+  <h3>还没定、需要补的</h3>
+  <table class="todo">
+    <tr><td>自我介绍：合伙人的人设（业务线、故事线）</td><td><a href="#m-open">开场</a></td></tr>
+    <tr><td>《收货前要图清单》的来源说明</td><td><a href="#m-open">开场</a></td></tr>
+    <tr><td>三张案例卡的素材（脱敏图），以及每段用来“露一手”的真实破绽</td><td><a href="#m-shou">三个知识点</a></td></tr>
+    <tr><td>麦克过渡里的一段真实经历</td><td><a href="#m-mai">麦克</a></td></tr>
+    <tr><td>开口品：现在按 5 元三晚课写，定了以后改麦克和分层两处</td><td><a href="#m-mai">麦克</a></td></tr>
+    <tr><td>名额数（必须是真实数字）</td><td><a href="#m-mai">麦克</a></td></tr>
+  </table>
+</section>
+
+<!-- 门头 -->
+<section class="block" id="door">
+  <h2>门头：贴片标题</h2>
+  <div class="goal">
+    <p class="lb">这一段的目标</p>
+    <p class="main">让收货的人在直播广场上停下来点进来，让只想验包的人直接划走。</p>
+  </div>
+  <ul class="titles">
+    <li>这只包，你敢收吗？</li>
+    <li>客户问多少钱收，你敢报吗？</li>
+    <li>新手收货，先学会不亏钱</li>
+    <li>钱打给卖家之前，先过这四关</li>
+  </ul>
+  <p>写法是人设标签加利益，再加上圈定的人群。人设定了以后，把标签加在标题前面。</p>
+  <p class="small">“回收”两个字不能出现；单用“收”字有没有风险，按你们的违禁词表核一下。</p>
+</section>
+
+<!-- 排法 -->
+<section class="block" id="hour">
+  <h2>一小时怎么排</h2>
+  <div class="tbl-wrap">
+    <table class="grid">
+      <tr><th>时间</th><th>环节</th><th>这一段要做到</th></tr>
+      <tr><td>0–6 分</td><td>自我介绍（人设待补）＋钩子＋指令</td><td>新人知道这场讲什么、为什么该听；点灯牌、进粉丝群</td></tr>
+      <tr><td>6–21 分</td><td>知识点一：这件货，你敢不敢收</td><td>把“敢不敢收”拆成四个怕，真假只占其中一个</td></tr>
+      <tr><td>21–36 分</td><td>知识点二：客户问多少钱收，你敢不敢报</td><td>从出口倒推；图没齐，不给死价</td></tr>
+      <tr><td>36–51 分</td><td>知识点三：钱打给卖家之前（可换连麦）</td><td>成交之前把证据留下</td></tr>
+      <tr><td>51–60 分</td><td>过渡＋麦克</td><td>把人送进私域</td></tr>
+    </table>
+  </div>
+
+  <h3>节奏规则</h3>
+  <ul class="plain">
+    <li>流速一涨就重新做开场，不按钟点来。</li>
+    <li>视频号可以每个知识点讲完就小卖一次；抖音一卖在线就掉，建议讲满一轮再卖。</li>
+    <li>新号第一个月可以先不挂车，走粉丝群加好友，到私域再卖。</li>
+    <li>三个知识点没写齐，先把一个写熟，反复讲也能撑一小时。</li>
+    <li>每个知识点都要能单独成立：新进来的人只听这 15 分钟，也能听到一个完整的道理。</li>
+  </ul>
+
+  <h3>贯穿全场的动作：案例卡</h3>
+  <p class="lead">每个知识点开头，先亮一张案例卡：一件货的图，加上卖家的一句话，让公屏先打“收”或“不收”，或者直接报一个数。讲完方法，再回到这张卡用一次。</p>
+  <p class="lead">目的有两个。演出来比讲出来更留人；这张卡也在筛人，能打出“收”“不收”、能报出一个数的，基本都是做这行或准备入行的。</p>
+  <p class="small">素材一律用脱敏图，尽量别让高仿实物和品牌 logo 反复出镜。</p>
+</section>
+
+<!-- 开场 -->
+<section class="mod fr" id="m-open" data-mod="open">
+  <div class="mod-head">
+    <span class="seal" aria-hidden="true">开</span>
+    <div>
+      <p class="mod-meta">第 0–6 分钟，流速上涨时随时重来</p>
+      <h2>开场：自我介绍、钩子、指令</h2>
+      <p class="mod-prog" data-prog="open"></p>
+    </div>
+  </div>
+  <div class="goal">
+    <p class="lb">这一段的目标</p>
+    <p class="main">让刚进来的人一分钟内知道这场讲什么、为什么该听，然后点灯牌、进粉丝群、领清单。</p>
+    <p class="after"><b>观众听完心里想的是：</b>这场讲收货怎么少亏钱，跟我有关；那份清单我想要。</p>
+  </div>
+
+  <div class="detail">
+    <div class="steps">
+      <div class="step">
+        <div class="s-name">自我介绍<span>约 2 分钟，人设待补</span></div>
+        <div class="s-say"><span class="k">讲什么</span>业务线用数字和结果说话，故事线讲曾经踩过的坑。最后落到一句：今天只讲一件事，新手收货怎么少亏钱。</div>
+        <div class="s-why"><span class="k">目的</span>回答“为什么听你讲”，同时把主题钉住，让不相关的人自己划走。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">钩子<span>约 2 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>《收货前要图清单》拿在手上出镜。讲清楚它是什么（包和首饰各一页，缺哪张就先别给价）、怎么来的、在哪领。</div>
+        <div class="s-why"><span class="k">目的</span>给他一个做动作的理由。清单也提前为知识点二“图没齐不给数”埋下伏笔。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">指令<span>约 1–2 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>点灯牌、进粉丝群、在公屏打“要”。说完停下来看公屏。</div>
+        <div class="s-why"><span class="k">目的</span>确认动作真的发生了。没人动，就补一句价值再说一遍，别直接往下讲。</div>
+      </div>
+    </div>
+
+    <div class="lines">
+      <p class="lb">关键句（照这个意思写，不用照抄）</p>
+      <p class="txt">看到我手上这份了吗？
+《收货前要图清单》，包和首饰各一页。
+客户发图过来问价，照着要。
+缺哪张，就先别给数。
+【这份清单怎么来的，按实际讲】
+点亮灯牌进粉丝群，在群里领。
+领了的在公屏打个“要”。</p>
+    </div>
+
+    <div class="nogo">
+      <p class="lb">这段不要做</p>
+      <p>用“资深、顶尖、领先”这类形容词做自我介绍；送资料时一句带过；在抖音直播间提私人号。</p>
+    </div>
+
+    <div class="checks">
+      <p class="lb">写稿自检</p>
+      <ul>
+        <li><label><input type="checkbox" data-k="open-1"><span>一分钟内能说出“今天讲什么”</span></label></li>
+        <li><label><input type="checkbox" data-k="open-2"><span>自我介绍里的形容词都换成了数字和事实</span></label></li>
+        <li><label><input type="checkbox" data-k="open-3"><span>清单是实物出镜，不是嘴上带过</span></label></li>
+        <li><label><input type="checkbox" data-k="open-4"><span>指令说完，留了时间看公屏</span></label></li>
+        <li><label><input type="checkbox" data-k="open-5"><span>这一段可以在流速上涨时随时重讲一遍</span></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 知识点一 -->
+<section class="mod kp" id="m-shou" data-mod="shou">
+  <div class="mod-head">
+    <span class="seal" aria-hidden="true">收</span>
+    <div>
+      <p class="mod-meta">第 6–21 分钟，知识点一</p>
+      <h2>这件货，你敢不敢收</h2>
+      <p class="mod-prog" data-prog="shou"></p>
+    </div>
+  </div>
+  <div class="goal">
+    <p class="lb">这一段的目标</p>
+    <p class="main">让观众发现：敢不敢收要过四关，真假只占其中一关。</p>
+    <p class="after"><b>观众听完心里想的是：</b>我以前只盯着真假；看走眼一单，要白干好几单；以后收货先过这四问。</p>
+  </div>
+
+  <div class="detail">
+    <div class="steps">
+      <div class="step case">
+        <div class="s-name">案例卡<span>约 1 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>一只包几张图，卖家说“急用钱，价格好商量”。让公屏打“收”或“不收”。</div>
+        <div class="s-why"><span class="k">目的</span>先让人表态，能表态的多半是收货的人。这张卡最后还要回来用。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">卡点<span>写稿时捋清，不一定说出口</span></div>
+        <div class="s-say"><span class="k">讲什么</span>觉得收不收就看真假，真的就收；或者怕错过，先收了再说。</div>
+        <div class="s-why"><span class="k">目的</span>弄清这一段要击破的是哪个想法，后面每句话都朝它去。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">你有病<span>约 4 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>两头的画面都讲。不敢收的：客户转头卖给了隔壁，第二天就看到那只包被人挂了出来。敢收的：收回来卖不动，在柜子里压了三个月；或者货是真的，来路不对，麻烦找上门。</div>
+        <div class="s-why"><span class="k">目的</span>让他觉得“说的就是我”。写他看到的、听到的、身边人怎么说、心里怎么想，别用发问的方式去戳痛点。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">找病因<span>约 3 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>你把敢不敢收全押在真假这一个问题上，真假过了，后面三关照样能让你亏。再现场算一笔账：公屏打出平均一单赚多少；看走眼一单，压进去的是整件货；两个数一除，就是要白干的单数。</div>
+        <div class="s-why"><span class="k">目的</span>击破“只看真假”这个想法，用他自己打出来的数字让他怕。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">我有药<span>约 4 分钟，板书</span></div>
+        <div class="s-say"><span class="k">讲什么</span>收货前四问：
+          <ol>
+            <li>真不真：判不了就不硬判，交给上游、机构或同行复核。</li>
+            <li>来路清不清：卖家特别着急、价格随便谈、说不清东西怎么来的，都是信号。</li>
+            <li>收了卖得掉吗：先想好卖给谁、卖多少，再决定收不收。</li>
+            <li>价对不对：留到下一段讲。</li>
+          </ol>
+        </div>
+        <div class="s-why"><span class="k">目的</span>给一个明天就能用的框架。第四问故意留着，接到下一个知识点。</div>
+      </div>
+      <div class="step case">
+        <div class="s-name">回到案例卡<span>约 2 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>用四问把开头那张卡过一遍，让公屏再打一次“收”或“不收”，看有多少人改了主意。</div>
+        <div class="s-why"><span class="k">目的</span>让他当场感受到这个方法有用。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">专业证据<span>约 30 秒</span></div>
+        <div class="s-say"><span class="k">讲什么</span>在案例卡上指出一个 30 秒就能看出来的问题。</div>
+        <div class="s-why"><span class="k">目的</span>证明你真懂货。点到就停，不展开。</div>
+      </div>
+    </div>
+
+    <div class="lines">
+      <p class="lb">关键句：四问</p>
+      <p class="txt">一件货摆在你面前，
+你到底在怕什么？
+真不真，只是第一关。
+来路清不清，
+收了卖不卖得掉，
+价给得对不对，
+哪一关没过，都能让你亏。</p>
+      <p class="lb">关键句：算账</p>
+      <p class="txt">公屏打一下，你平均一单赚多少？
+一件看走眼的货，压进去多少？
+你自己除一下。</p>
+    </div>
+
+    <div class="nogo">
+      <p class="lb">这段不讲，留给课上</p>
+      <p>分品牌的真假细节、来源核查的具体步骤、出货渠道、兜底怎么谈（对应全链路课 4.3、5.2、6.1、6.4）。</p>
+    </div>
+
+    <div class="checks">
+      <p class="lb">写稿自检</p>
+      <ul>
+        <li><label><input type="checkbox" data-k="shou-1"><span>真假占的篇幅没有超过四关里的一关</span></label></li>
+        <li><label><input type="checkbox" data-k="shou-2"><span>病因落在“只看真假”上，没有跑成讲鉴定技巧</span></label></li>
+        <li><label><input type="checkbox" data-k="shou-3"><span>算账用的是观众自己打出来的数字</span></label></li>
+        <li><label><input type="checkbox" data-k="shou-4"><span>讲完方法，回到了开头那张案例卡</span></label></li>
+        <li><label><input type="checkbox" data-k="shou-5"><span>新人只听这 15 分钟，也能听完整</span></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 知识点二 -->
+<section class="mod kp" id="m-bao" data-mod="bao">
+  <div class="mod-head">
+    <span class="seal" aria-hidden="true">报</span>
+    <div>
+      <p class="mod-meta">第 21–36 分钟，知识点二</p>
+      <h2>客户问“多少钱收”，你敢不敢报</h2>
+      <p class="mod-prog" data-prog="bao"></p>
+    </div>
+  </div>
+  <div class="goal">
+    <p class="lb">这一段的目标</p>
+    <p class="main">让观众知道，报价出问题多半出在两处：货没看全就给了数，价照着挂价往下砍。学会图没齐的时候，只给时间，不给数字。</p>
+    <p class="after"><b>观众听完心里想的是：</b>下次客户问多少钱收，我知道第一句该说什么。</p>
+  </div>
+
+  <div class="detail">
+    <div class="steps">
+      <div class="step case">
+        <div class="s-name">案例卡<span>约 1 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>客户只发了正面和标，问“这个多少钱收”。让公屏打出你会报多少。</div>
+        <div class="s-why"><span class="k">目的</span>让报价的人先亮数字。数字五花八门，这件事本身就是问题。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">卡点<span>写稿时捋清</span></div>
+        <div class="s-say"><span class="k">讲什么</span>怕不报价客户就走；或者看二手平台上挂多少，往下砍一点就报。</div>
+        <div class="s-why"><span class="k">目的</span>这一段要击破的是“先报了再说”和“照挂价报”。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">你有病<span>约 4 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>报高了，货到手发现成色差、配件不全，一改价，客户骂你不讲信用。报低了，客户转身就走。有时候来问价的根本不是卖家，是同行在套价。你说出去的数字，截图就在人家手里。</div>
+        <div class="s-why"><span class="k">目的</span>让他意识到，报价的每一种结果都有代价。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">找病因<span>约 3 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>两个错位。第一，货没看全就给了数字。第二，价是从挂价往下砍出来的。挂价是别人想卖的价，你该算的是自己卖出去实际能到手多少。</div>
+        <div class="s-why"><span class="k">目的</span>把“照着挂价报”这个习惯拆掉。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">我有药<span>约 3 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>
+          <ol>
+            <li>图没齐，给时间，不给数字。</li>
+            <li>从出口倒推：先想卖给谁、到手多少，扣掉成本和该留的利润，剩下的才是能报的价。</li>
+            <li>报出去的价带上条件，不报死价。</li>
+          </ol>
+        </div>
+        <div class="s-why"><span class="k">目的</span>给他一套当场能用的应对，第一条要能直接照着说。</div>
+      </div>
+      <div class="step case">
+        <div class="s-name">补图演示<span>约 3 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>把案例卡缺的图一张张补上，每补一张，讲清楚价格区间怎么变窄。</div>
+        <div class="s-why"><span class="k">目的</span>把方法演出来。开场那份要图清单也在这里有了用处。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">专业证据<span>约 30 秒</span></div>
+        <div class="s-say"><span class="k">讲什么</span>补图的过程中，指出某一张图能看出的问题。</div>
+        <div class="s-why"><span class="k">目的</span>证明你真懂货，点到就停。</div>
+      </div>
+    </div>
+
+    <div class="lines">
+      <p class="lb">关键句：给时间不给数字</p>
+      <p class="txt">这几张补给我，
+今天几点前给你一个准价。</p>
+      <p class="lb">关键句：挂价</p>
+      <p class="txt">挂出来的价，是别人想卖的价。
+你要算的，是你卖出去到手多少。</p>
+    </div>
+
+    <div class="nogo">
+      <p class="lb">这段不讲，留给课上</p>
+      <p>行情从哪来、各渠道的到手价和佣金数字、议价场景话术（对应全链路课 6.2、6.3）。</p>
+    </div>
+
+    <div class="checks">
+      <p class="lb">写稿自检</p>
+      <ul>
+        <li><label><input type="checkbox" data-k="bao-1"><span>没有给出具体的报价公式或行情数字</span></label></li>
+        <li><label><input type="checkbox" data-k="bao-2"><span>“这几张补给我，今天几点前给你准价”说得清楚、能照着用</span></label></li>
+        <li><label><input type="checkbox" data-k="bao-3"><span>演示用的图已经脱敏</span></label></li>
+        <li><label><input type="checkbox" data-k="bao-4"><span>三种结果（报高、报低、被套价）都讲到了后果</span></label></li>
+        <li><label><input type="checkbox" data-k="bao-5"><span>新人只听这 15 分钟，也能听完整</span></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 知识点三 -->
+<section class="mod kp" id="m-da" data-mod="da">
+  <div class="mod-head">
+    <span class="seal" aria-hidden="true">打</span>
+    <div>
+      <p class="mod-meta">第 36–51 分钟，知识点三（可换连麦）</p>
+      <h2>钱打给卖家之前，你敢不敢打</h2>
+      <p class="mod-prog" data-prog="da"></p>
+    </div>
+  </div>
+  <div class="goal">
+    <p class="lb">这一段的目标</p>
+    <p class="main">让观众意识到，成交这一步最容易什么都没留下，并记住打款前的三件事。</p>
+    <p class="after"><b>观众听完心里想的是：</b>钱打出去之前，我手里得有东西。</p>
+  </div>
+
+  <div class="detail">
+    <div class="steps">
+      <div class="step case">
+        <div class="s-name">案例卡<span>约 1 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>货验了，价也谈好了，卖家说“你先打款，我再寄过去”。让公屏打：打，还是不打？</div>
+        <div class="s-why"><span class="k">目的</span>把观众带到付款前的那一刻，让他先做一次决定。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">卡点<span>写稿时捋清</span></div>
+        <div class="s-say"><span class="k">讲什么</span>觉得前面都判断完了，打款只是走个流程；熟人介绍的，更不好意思按流程来。</div>
+        <div class="s-why"><span class="k">目的</span>这一段要击破“打款只是走流程”。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">你有病<span>约 4 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>打完款，卖家不见了。验完的货离开视线一会儿，拿回来已经不是那件。过几天卖家说后悔了，要把货要回去。</div>
+        <div class="s-why"><span class="k">目的</span>让他看见，前面判断得再准，这一步也能让他白干。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">找病因<span>约 3 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>力气全花在判断上，成交这一步什么证据都没留。一旦出事，你拿不出任何东西证明自己是正常收的。</div>
+        <div class="s-why"><span class="k">目的</span>把注意力从“判断”转到“留证据”。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">我有药<span>约 4 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>打款前三件事：
+          <ol>
+            <li>身份登记。不愿意登记的，这单不收。</li>
+            <li>从验货到打款全程录像；验完的货不离开视线，贵的要封签。</li>
+            <li>签收货单或协议，写清成色、价格，以及反悔怎么处理。</li>
+          </ol>
+          异地收货的，先收到货、验完再打款。
+        </div>
+        <div class="s-why"><span class="k">目的</span>给三个明天就能照做的动作。第一条同时也是一次筛选。</div>
+      </div>
+      <div class="step case">
+        <div class="s-name">封签演示<span>约 2 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>现场演示一次封签，并拍下特征点。</div>
+        <div class="s-why"><span class="k">目的</span>把方法演出来，也顺带证明专业。</div>
+      </div>
+    </div>
+
+    <div class="lines">
+      <p class="lb">关键句</p>
+      <p class="txt">钱打出去之前，
+你手里有什么？</p>
+    </div>
+
+    <div class="nogo">
+      <p class="lb">这段不讲，留给课上</p>
+      <p>协议条款细节、法律责任的判断、收货端骗局清单（对应全链路课 6.4）。涉及法律的，只讲风险意识，不下结论。</p>
+    </div>
+
+    <div class="sub-mod">
+      <h3>连麦版（可替换这一整段）</h3>
+      <div class="goal">
+        <p class="lb">连麦的目标</p>
+        <p class="main">用一单真实的收货经历代替案例卡。</p>
+        <p class="after">真事比案例卡更有看头，也更能筛人，只有真在收货的人讲得出来。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="s-name">说规则</div>
+          <div class="s-say"><span class="k">讲什么</span>开场就说清楚：只连做这行和准备入行的，想验自己包的不连。</div>
+          <div class="s-why"><span class="k">目的</span>先把消费者挡在外面。</div>
+        </div>
+        <div class="step">
+          <div class="s-name">提需求</div>
+          <div class="s-say"><span class="k">讲什么</span>请对方讲最近一单：收没收、报了多少、款怎么打的。</div>
+          <div class="s-why"><span class="k">目的</span>让他自己把问题摆出来。</div>
+        </div>
+        <div class="step">
+          <div class="s-name">诊断，确认病情</div>
+          <div class="s-say"><span class="k">讲什么</span>顺着他的话问细节，找出四关里漏了哪一关，或者打款前三件事缺了哪件。</div>
+          <div class="s-why"><span class="k">目的</span>展示你看问题的角度。不帮他验货，帮他看收货流程。</div>
+        </div>
+        <div class="step">
+          <div class="s-name">上升共性</div>
+          <div class="s-say"><span class="k">讲什么</span>问公屏：你们谁也这么收过？</div>
+          <div class="s-why"><span class="k">目的</span>把一个人的事变成直播间所有人的事。</div>
+        </div>
+        <div class="step">
+          <div class="s-name">讲解，回到个人</div>
+          <div class="s-say"><span class="k">讲什么</span>用这一段的方法讲，最后回到他这一单现在该怎么补。</div>
+          <div class="s-why"><span class="k">目的</span>让连麦的人有收获，也让旁观的人看到方法落在一个真实的人身上。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checks">
+      <p class="lb">写稿自检</p>
+      <ul>
+        <li><label><input type="checkbox" data-k="da-1"><span>没有讲成法律课，只讲了风险和动作</span></label></li>
+        <li><label><input type="checkbox" data-k="da-2"><span>没有说“这样做就不会出事”一类的承诺</span></label></li>
+        <li><label><input type="checkbox" data-k="da-3"><span>三件事每一件都能照着做</span></label></li>
+        <li><label><input type="checkbox" data-k="da-4"><span>选连麦版的话，开场说清了只连谁</span></label></li>
+        <li><label><input type="checkbox" data-k="da-5"><span>新人只听这 15 分钟，也能听完整</span></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 麦克 -->
+<section class="mod fr" id="m-mai" data-mod="mai">
+  <div class="mod-head">
+    <span class="seal" aria-hidden="true">卖</span>
+    <div>
+      <p class="mod-meta">第 51–60 分钟，过渡和麦克</p>
+      <h2>过渡与麦克</h2>
+      <p class="mod-prog" data-prog="mai"></p>
+    </div>
+  </div>
+  <div class="goal">
+    <p class="lb">这一段的目标</p>
+    <p class="main">把“我得系统学一下”的念头，变成现在就下单；拍了的人留下入行阶段的信息，方便私域分层。</p>
+    <p class="after"><b>观众听完心里想的是：</b>5 块钱，三个晚上，正好解决我收货的那几个坎。</p>
+  </div>
+
+  <div class="detail">
+    <p class="note">现在按“5 元三晚直播课”写。开口品定了以后，改“产品塑造”这一步和下面的分层表。</p>
+    <div class="steps">
+      <div class="step">
+        <div class="s-name">共情过渡<span>约 2 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>收不收、报多少、打不打，这三件事每天都要过好几遍。今天讲的，明天就能用上一部分；每一关后面具体怎么做，一场讲不完。接一段真实经历（人设待补）。</div>
+        <div class="s-why"><span class="k">目的</span>把观众从听课状态带到感性状态，别让人觉得“要开始卖了”。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">产品塑造<span>约 3 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>
+          <ul>
+            <li>第一晚，敢不敢收：四关逐个讲清，定下自己的止损线（单笔最多亏多少，连续几单看走眼就停）。</li>
+            <li>第二晚，敢不敢报：从出口倒推，完整算一次报价；客户催价、同行套价时怎么接。</li>
+            <li>第三晚，敢不敢打：收货流程从头到尾走一遍，拿不准找谁兜底，出了问题第一个小时做什么。</li>
+          </ul>
+          再描述使用场景：下回客户半夜发图问多少钱收，你知道先要哪几张、什么时候给数、钱打出去之前手里要有什么。
+        </div>
+        <div class="s-why"><span class="k">目的</span>让他看见拍了以后，下一次收货时自己是什么样子。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">说清适合谁<span>约 1 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>已经在收货的、准备入行的，拍。想知道自己那只包真不真的，别拍。</div>
+        <div class="s-why"><span class="k">目的</span>再筛一次人，也让观众觉得你不是什么钱都赚。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">限额逼单<span>约 2 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>报真实的名额数。拍了的，请在公屏打“已拍＋入行几个月＋城市”。</div>
+        <div class="s-why"><span class="k">目的</span>给他今天就下单的理由，同时收集私域分层要用的信息。</div>
+      </div>
+      <div class="step">
+        <div class="s-name">福利逼单<span>约 1–2 分钟</span></div>
+        <div class="s-say"><span class="k">讲什么</span>拍了的另送《收货风险自测》十题；做完发回来，给你回一次文字版的收货流程体检。</div>
+        <div class="s-why"><span class="k">目的</span>推一把还在犹豫的人，也把他带进私域的第一次对话。</div>
+      </div>
+    </div>
+
+    <div class="rulebox">
+      <p class="lb">这一段的规矩</p>
+      <ul>
+        <li>每一步只做一件事，做到位再往下走。</li>
+        <li>卖的时候只卖，别又回去讲干货。</li>
+        <li>语速放慢，站在帮他的位置说话，别像在跟他谈价。</li>
+        <li>名额说多少就是多少。</li>
+      </ul>
+    </div>
+
+    <div class="lines">
+      <p class="lb">关键句：过渡</p>
+      <p class="txt">收不收、报多少、打不打，
+这三件事，你每天都要过好几遍。
+今天讲的，明天就能用上一部分。
+每一关后面具体怎么做，一场直播讲不完。</p>
+      <p class="lb">关键句：适合谁</p>
+      <p class="txt">已经在收货的，准备入行的，拍。
+想知道自己那只包真不真的，别拍。
+这门课帮不到你。</p>
+    </div>
+
+    <div class="nogo">
+      <p class="lb">这段不要做</p>
+      <p>像摆摊一样罗列“第一个好处、第二个好处”；卖到一半又开始讲干货；说“保证”“包会”。</p>
+    </div>
+
+    <div class="checks">
+      <p class="lb">写稿自检</p>
+      <ul>
+        <li><label><input type="checkbox" data-k="mai-1"><span>过渡段读起来不像“要开始卖了”</span></label></li>
+        <li><label><input type="checkbox" data-k="mai-2"><span>三晚课每一晚都对应一个场景，没有罗列好处</span></label></li>
+        <li><label><input type="checkbox" data-k="mai-3"><span>卖的段落里没有插干货</span></label></li>
+        <li><label><input type="checkbox" data-k="mai-4"><span>名额是真实数字</span></label></li>
+        <li><label><input type="checkbox" data-k="mai-5"><span>没有“保证”“包会”一类的说法</span></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 分层 -->
+<section class="block" id="layers">
+  <h2>内容分层：直播讲到哪为止</h2>
+  <div class="goal">
+    <p class="lb">这张表的用处</p>
+    <p class="main">写逐字稿时，拿不准某句话该不该在直播间说，就查这张表。</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="grid">
+      <tr><th></th><th>直播间</th><th>私域（三晚课＋升单课，建议）</th><th>全链路课</th></tr>
+      <tr><td>敢不敢收</td><td>讲四问是什么，演一张案例卡</td><td>每一问怎么查，定止损线</td><td>来源核查、出货预判、兜底决策表、实物盲测（4.3、5.2–5.14、6.1）</td></tr>
+      <tr><td>敢不敢报</td><td>图没齐不给数，出口倒推的思路</td><td>完整算一次报价</td><td>行情表、渠道到手价、盲报、议价对练（6.2、6.3）</td></tr>
+      <tr><td>敢不敢打</td><td>打款前三件事</td><td>收货流程走一遍</td><td>收货流程、协议当场填、骗局识别（6.4）</td></tr>
+    </table>
+  </div>
+  <h3>下播之后怎么接到私域</h3>
+  <p class="lead">加好友后，先发《收货风险自测》，把它当诊断表用：入行多久、主营品类、有没有店、最近一单是怎么收的。按这些分层，再决定先跟谁聊升单课。私域那头别用“小助理”的身份加人，对方会默认你说了不算。</p>
+</section>
+
+<!-- 合规 -->
+<section class="block" id="rules">
+  <h2>合规</h2>
+  <ul class="plain">
+    <li>不承诺结果。“学完不会收到问题货”“保你不亏”“包教包会”都算不正当承诺。</li>
+    <li>“回收”不出现；单用“收”字按违禁词表核一下。</li>
+    <li>抖音直播间不提私人号，统一走粉丝群；视频号严查“能赚多少”一类的话，只讲真实经历。</li>
+    <li>不说店铺地址。不挂车的时候，不暗示“去群里买”。</li>
+    <li>案例卡用脱敏图，尽量别让高仿实物和品牌 logo 反复出镜。</li>
+    <li>名额说多少就是多少。</li>
+    <li>流速突然断崖，大概率是违规了，先下播查原因。申诉只有一次，别急着交。</li>
+  </ul>
+</section>
+
+<footer>
+  <p>这件货，你敢不敢收：鉴定获客专场直播大纲，第二版。人设和开口品确定后再更新。</p>
+  <button class="btn quiet" id="clearBtn" type="button">清空所有勾选</button>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  var KEY = 'live-outline-shou-v2';
+  function load(){
+    try { var raw = localStorage.getItem(KEY); return raw ? JSON.parse(raw) : {}; }
+    catch(e){ return {}; }
+  }
+  function save(s){
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){}
+  }
+  var state = load();
+  if (!state.checks) state.checks = {};
+
+  var boxes = document.querySelectorAll('.checks input[type=checkbox]');
+  function updateProgress(){
+    var mods = document.querySelectorAll('[data-mod]');
+    mods.forEach(function(m){
+      var id = m.getAttribute('data-mod');
+      var list = m.querySelectorAll('.checks input[type=checkbox]');
+      var done = 0;
+      list.forEach(function(b){ if (b.checked) done++; });
+      var el = document.querySelector('[data-prog="' + id + '"]');
+      if (el && list.length){
+        el.textContent = '写稿自检 ' + done + ' / ' + list.length;
+        el.classList.toggle('done', done === list.length);
+      }
+    });
+  }
+  boxes.forEach(function(b){
+    var k = b.getAttribute('data-k');
+    b.checked = !!state.checks[k];
+    b.addEventListener('change', function(){
+      state.checks[k] = b.checked;
+      save(state);
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+  var gBtn = document.getElementById('goalsBtn');
+  function setGoals(on){
+    document.body.classList.toggle('goals-only', on);
+    gBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    gBtn.textContent = on ? '显示全部' : '只看目标';
+  }
+  setGoals(!!state.goalsOnly);
+  gBtn.addEventListener('click', function(){
+    state.goalsOnly = !document.body.classList.contains('goals-only');
+    save(state);
+    setGoals(state.goalsOnly);
+  });
+
+  document.getElementById('clearBtn').addEventListener('click', function(){
+    state.checks = {};
+    save(state);
+    boxes.forEach(function(b){ b.checked = false; });
+    updateProgress();
+  });
+})();
+</script>
+</body>
+</html>

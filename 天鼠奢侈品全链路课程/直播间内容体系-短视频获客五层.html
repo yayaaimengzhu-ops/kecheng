@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>直播间内容体系 · 短视频获客五层</title>
+<style>
+:root{
+  --paper:#F1F2EC; --card:#FBFBF8;
+  --ink:#17231E; --ink2:#4A5951; --ink3:#78857C;
+  --line:#CBD0C6; --line2:#E0E3DA;
+  --brass:#8F6E30; --brass-soft:#EFE7D4;
+  --seal:#A5382A; --seal-soft:#F3E3DF;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+
+header.top{padding:60px 0 28px}
+.doc-title{font-family:var(--serif);font-size:35px;line-height:1.35;font-weight:600;margin:0 0 14px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 14px}
+.doc-sub b{color:var(--ink);font-weight:600}
+.doc-meta{display:flex;flex-wrap:wrap;gap:10px 22px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+
+.claim{border:1px solid var(--ink);background:var(--card);padding:26px 28px;margin:30px 0 0}
+.claim .lb{font-family:var(--serif);font-size:12.5px;color:var(--brass);letter-spacing:.16em;display:block;margin-bottom:10px}
+.claim h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0 0 14px;line-height:1.5}
+.claim p{margin:0 0 11px;color:var(--ink2);max-width:44em}
+.claim p:last-child{margin-bottom:0}
+.claim b{color:var(--ink);font-weight:600}
+
+.sec{padding:50px 0 6px;border-top:1px solid var(--line);margin-top:42px}
+.sec:first-of-type{margin-top:36px}
+.sec-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:6px}
+.sec-n{
+  flex:0 0 auto;min-width:38px;height:34px;padding:0 8px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--ink);color:var(--card);font-family:var(--serif);font-size:15px;margin-top:5px;letter-spacing:.04em;
+}
+.sec-title{font-family:var(--serif);font-size:26px;font-weight:600;margin:0;letter-spacing:.03em}
+.sec-title span{color:var(--ink3);font-size:15px;font-weight:400;margin-left:12px;letter-spacing:0}
+.sec-goal{color:var(--ink2);margin:0 0 22px 54px;max-width:46em}
+.sec-goal b{color:var(--ink);font-weight:600}
+.sec-body{margin-left:54px}
+
+.core{border-left:3px solid var(--ink);background:var(--card);padding:14px 18px;margin:0 0 20px;font-size:15.5px}
+.core .lb{font-family:var(--serif);font-size:12.5px;color:var(--brass);letter-spacing:.1em;display:block;margin-bottom:5px}
+.core p{margin:0;font-family:var(--serif);font-size:17px;line-height:1.7;color:var(--ink)}
+
+h3.grp{font-family:var(--serif);font-size:16.5px;font-weight:600;margin:28px 0 4px;padding-bottom:7px;border-bottom:1px solid var(--line2)}
+h3.grp span{font-family:var(--sans);font-size:12.5px;font-weight:400;color:var(--ink3);margin-left:10px}
+
+.tl{list-style:none;padding:0;margin:10px 0 0}
+.tl li{
+  position:relative;padding:7px 0 7px 20px;margin:0;
+  border-bottom:1px solid var(--line2);
+  color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.6;
+}
+.tl li:last-child{border-bottom:none}
+.tl li::before{content:"";position:absolute;left:2px;top:1.22em;width:9px;height:1px;background:var(--brass)}
+.tl li em{font-style:normal;color:var(--ink3);font-family:var(--sans);font-size:12.5px;display:block;margin-top:2px;line-height:1.6}
+.tl li b{color:var(--ink);font-weight:600}
+.tl.q li::before{background:var(--ink3)}
+
+.tbl{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
+.tbl th,.tbl td{border:1px solid var(--line2);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--card);font-family:var(--serif);font-weight:600;color:var(--ink);font-size:14px}
+.tbl td{color:var(--ink2)}
+.tbl td.nm{color:var(--ink);font-weight:600;font-family:var(--serif);font-size:15px;white-space:nowrap}
+.tbl tr.hd td{background:var(--brass-soft);color:#5B4A22;font-family:var(--serif);font-weight:600}
+
+.plan{border:1px solid var(--line);background:var(--card);padding:20px 22px;margin-top:16px}
+.prow{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line2);font-size:14px}
+.prow:last-child{border-bottom:none}
+.prow .tm{flex:0 0 auto;width:70px;font-family:var(--serif);color:var(--brass);font-size:13.5px}
+.prow .nm{flex:1;color:var(--ink)}
+.prow .nm b{font-family:var(--serif);font-weight:600}
+.prow .tag{flex:0 0 auto;font-size:12.5px;color:var(--ink3)}
+
+.note{background:var(--brass-soft);border-left:2px solid var(--brass);padding:13px 16px;margin:18px 0 0;font-size:14px;color:#5B4A22;line-height:1.75}
+.note b{color:#3E3216}
+.warn{background:#FCF8F7;border-left:2px solid var(--seal);padding:13px 16px;margin:18px 0 0;font-size:14px;color:#6B2F25;line-height:1.75}
+.warn b{color:var(--seal)}
+
+ul.pl{margin:8px 0 0;padding:0;list-style:none}
+ul.pl li{position:relative;padding-left:16px;margin-bottom:6px;color:var(--ink2)}
+ul.pl li::before{content:"";position:absolute;left:1px;top:.85em;width:5px;height:1px;background:var(--line)}
+ul.pl li b{color:var(--ink);font-weight:600}
+
+.hook{border:1px solid var(--seal-soft);border-left:2px solid var(--seal);background:#FCF8F7;padding:12px 16px;margin-top:16px;font-size:14px}
+.hook .lb{color:var(--seal);font-family:var(--serif);font-weight:600;margin-right:10px}
+.hook span{color:var(--ink2)}
+
+footer{margin-top:54px;padding:24px 0 70px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
+footer b{color:var(--ink2);font-weight:500}
+
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .wrap{padding:0 18px}
+  header.top{padding:38px 0 22px}
+  .doc-title{font-size:25px}
+  .claim{padding:20px}
+  .claim h2{font-size:19px}
+  .sec-title{font-size:21px}
+  .sec-title span{display:block;margin:4px 0 0;font-size:13.5px}
+  .sec-goal,.sec-body{margin-left:0}
+  .sec-n{min-width:32px;height:28px;font-size:13px}
+  .tl li{font-size:15.5px}
+  .core p{font-size:16px}
+  .prow{flex-wrap:wrap;gap:4px 12px}
+  .prow .tm{width:auto}
+  .plan{padding:16px 18px}
+  .tbl,.tbl tbody,.tbl tr,.tbl td,.tbl th{display:block;width:100%}
+  .tbl thead{display:none}
+  .tbl tr{border:1px solid var(--line2);margin-bottom:12px}
+  .tbl td{border:none;border-bottom:1px solid var(--line2)}
+  .tbl td:last-child{border-bottom:none}
+  .tbl td.nm{background:var(--card);white-space:normal}
+  .tbl tr.hd{margin-bottom:0;border:none}
+}
+@media print{body{background:#fff;font-size:10.5pt}.sec{break-before:page;border-top:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <h1 class="doc-title">直播间内容体系<br>短视频获客 · 五层纵深</h1>
+    <p class="doc-sub">把之前三份（提问清单、空场选题、诊断框架）合成一套。<b>每一层都自带三件事：怎么问、独播讲什么、用什么实物演。</b>以后开播只要选一层，三个动作全在里面。</p>
+    <p class="doc-sub">主线是一句话：<b>怎么用短视频，让有货要出的人主动来找你。</b></p>
+    <div class="doc-meta">
+      <div><b>替代</b> 提问清单 · 空场选题 · 诊断框架</div>
+      <div><b>结构</b> 五层 × 三动作</div>
+      <div><b>排期</b> 一周五场，一场一层</div>
+    </div>
+  </header>
+
+  <section class="claim">
+    <span class="lb">生死线</span>
+    <h2>不讲"怎么做短视频"，只讲"怎么让有货的人来找你"。</h2>
+    <p>"怎么做短视频"是通用赛道——黄金三秒、完播率、封面标题，谁都能讲，而且讲得比你好的人有的是。你一进这个赛道，就变成了几千个短视频老师里的一个。</p>
+    <p>"怎么让有货的人来找你"是你独有的。因为这行的难点根本不在拍摄剪辑，<b>在于你拍的东西吸来的是不是卖家。</b></p>
+    <p>通用短视频课解决的是"播放怎么起来"。二奢的真问题是——<b>播放起来了也没用，来的全是想卖包的消费者和看热闹的，不是要出货的人。</b>这句判断只有真在收货的人说得出来。</p>
+  </section>
+
+  <!-- 五层地图 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">地图</div>
+      <h2 class="sec-title">五层纵深<span>入口统一，往下扎到链路</span></h2>
+    </div>
+    <p class="sec-goal">只讲短视频，三个月就讲干了——那些知识点是有限的，网上还遍地都是。<b>所以入口统一在短视频，纵深往链路里扎</b>：短视频做不起来，一半的问题根本不在短视频上。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>层</th><th>核心判断</th><th>诊断切口</th><th>实物载体</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">L1 认知</td><td>播放不等于客户。你吸来的是看客不是卖家</td><td>你评论区问什么的最多</td><td>两条视频的数据对比</td></tr>
+          <tr><td class="nm">L2 选题</td><td>钱是钩子，真假是过程</td><td>你标题里出现过价格吗</td><td>一件货拍出五个选题</td></tr>
+          <tr><td class="nm">L3 呈现</td><td>你手上有真货，别人只能讲理论</td><td>你拍货拍几个镜头</td><td>现场拍给他们看</td></tr>
+          <tr><td class="nm">L4 承接</td><td>短视频只负责把人带来，断在哪跟它没关系</td><td>你聊到哪一步断的</td><td>聊天记录打码复盘</td></tr>
+          <tr><td class="nm">L5 底层</td><td>不敢报价、出不掉货，内容就没底气</td><td>你上一单是什么时候</td><td>压最久的那件货</td></tr>
+        </tbody>
+      </table>
+      <div class="note"><b>L5 是转化层。</b>观众冲着"学短视频"进来，听到这一层才发现自己真正卡的在别处——<b>而那个别处，正好是你课里讲的。</b>所以每一层最后都要往 L5 带一句，不要只停在本层。</div>
+    </div>
+  </section>
+
+  <!-- L1 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">L1</div>
+      <h2 class="sec-title">认知层<span>为什么你的短视频吸不来卖家</span></h2>
+    </div>
+    <div class="sec-body">
+      <div class="core">
+        <span class="lb">核心判断</span>
+        <p>你追的是播放，你要的是客户。这是两件事，而且经常是反着的。</p>
+      </div>
+
+      <h3 class="grp">诊断怎么问 <span>连麦时</span></h3>
+      <ol class="tl q">
+        <li>你拍了多久了？一周几条？</li>
+        <li>你最好的一条播放多少？</li>
+        <li><b>那条视频给你带来几个加微信的？</b><em>播放和私信一对比，问题当场显形</em></li>
+        <li>你评论区里，问什么的最多——问真假的，还是问能卖多少的？<em>这一问定生死</em></li>
+        <li>私信来的人，有几个是真有货的？</li>
+        <li>你觉得看你视频的人，是什么人？<em>拿他的自诊，八成是错的</em></li>
+      </ol>
+
+      <h3 class="grp">独播讲什么 <span>没人连麦时</span></h3>
+      <ol class="tl">
+        <li>播放几万，私信为零，你少做了一步</li>
+        <li>你的视频吸来的是卖家，还是看客</li>
+        <li>为什么鉴定教学拍得越好，客户越少</li>
+        <li>一条五百播放的视频给我带来三个客户，一条五万播放的一个没有</li>
+        <li>我从来不追播放，我追的是私信里有几个真有货的</li>
+        <li>评论区问"这个真的假的"的人，永远不会卖货给你</li>
+        <li>粉丝多不等于生意好，我认识几个反例</li>
+        <li>你的账号在给谁打标签，你自己知道吗</li>
+      </ol>
+
+      <h3 class="grp">实物怎么演</h3>
+      <ul class="pl">
+        <li>调出自己两条视频的后台，一条高播放一条低播放，对比带来的私信数</li>
+        <li>翻自己的评论区，念几条出来，指出哪类人是客户哪类不是</li>
+      </ul>
+
+      <div class="hook"><span class="lb">收口钩子</span><span>"我整理了一张表，二奢账号最常犯的十个错，你对一遍就知道自己在哪一条。扣『<b>自查</b>』。"</span></div>
+    </div>
+  </section>
+
+  <!-- L2 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">L2</div>
+      <h2 class="sec-title">选题层<span>拍什么才能让有货的人来找你</span></h2>
+    </div>
+    <div class="sec-body">
+      <div class="core">
+        <span class="lb">核心判断</span>
+        <p>钱是钩子，真假是过程。客户不关心怎么鉴定，只关心自己那件能卖多少。</p>
+      </div>
+
+      <h3 class="grp">诊断怎么问</h3>
+      <ol class="tl q">
+        <li>你最近十条拍的是什么？<em>让他一条条说，别让他概括</em></li>
+        <li>你的标题里出现过价格吗？<em>八成没有</em></li>
+        <li>你拍的内容是让人学会，还是让人想卖？</li>
+        <li>你有固定的选题库吗，还是想到什么拍什么？</li>
+        <li>你拍完之后，会看评论区来的是什么人吗？</li>
+        <li>你写选题的时候，想过这条视频的人怎么找到你吗？<em>引出钩子承接</em></li>
+      </ol>
+
+      <h3 class="grp">独播讲什么</h3>
+      <ol class="tl">
+        <li>同一条内容，标题换一个词，来的人完全不一样<em>最该反复讲的一条</em></li>
+        <li>二奢最出量的五类选题</li>
+        <li>为什么"差价"是这行最好的钩子</li>
+        <li>客户故事为什么比干货管用</li>
+        <li>真假对比怎么拍才有人问价</li>
+        <li>写选题的时候就要把导流路径写完</li>
+        <li>我的一百条选题是怎么攒出来的</li>
+        <li>爆款改编：一个选题怎么变成十条</li>
+        <li>什么选题千万别碰，会把号带偏</li>
+        <li>选题大于表现力，我举个例子</li>
+      </ol>
+
+      <h3 class="grp">实物怎么演</h3>
+      <ul class="pl">
+        <li><b>拿一件货，现场拆出五个不同的选题。</b>同一只包，可以拍真假、拍差价、拍成色、拍客户故事、拍避坑——演给他们看选题是怎么来的</li>
+        <li>把同一条内容的两个标题写在白板上，让观众投票哪个会来卖家</li>
+      </ul>
+
+      <div class="hook"><span class="lb">收口钩子</span><span>"一百条选题库，每条后面带钩子怎么接，我发给你。扣『<b>选题</b>』。"</span></div>
+    </div>
+  </section>
+
+  <!-- L3 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">L3</div>
+      <h2 class="sec-title">呈现层<span>怎么拍 · 你最大的优势在这一层</span></h2>
+    </div>
+    <p class="sec-goal">别的短视频老师手上没有真货，只能讲理论。<b>你手上有，就能演。</b>这一层也是空场最好撑时间的一层——手上有活干，情绪自然在。</p>
+    <div class="sec-body">
+      <div class="core">
+        <span class="lb">核心判断</span>
+        <p>拍货和拍脸是两回事。不出镜完全能做，但货必须拍出信任感。</p>
+      </div>
+
+      <h3 class="grp">诊断怎么问</h3>
+      <ol class="tl q">
+        <li>你拍一件货，拍几个镜头？</li>
+        <li>你出镜吗？不出镜的话拍什么？</li>
+        <li>一条视频你拍几遍？<em>拍十遍以上的人，坚持不下去</em></li>
+        <li>你有固定的拍摄流程吗，还是每次现想？</li>
+        <li>你的设备一共花了多少钱？<em>花太多和花太少都是问题</em></li>
+      </ol>
+
+      <h3 class="grp">独播讲什么</h3>
+      <ol class="tl">
+        <li>这只包我今天要拍条视频，我给你看我会怎么拍<em>最标准的一个单元</em></li>
+        <li>同一只包，这么拍没人看，这么拍有人问价</li>
+        <li>我拍货固定拍这五个镜头</li>
+        <li>不敢出镜怎么办，四种做法</li>
+        <li>找人出镜怎么谈、怎么分工、协议要写什么</li>
+        <li>现场收货怎么拍，客户隐私怎么处理</li>
+        <li>我的设备一共花了多少钱，哪几件是必须的</li>
+        <li>布光差一点，成片差多少——我现场调给你看</li>
+        <li>一次拍十条的流程，我怎么安排</li>
+        <li>前三秒到底该放什么</li>
+        <li>为什么你的货拍出来显得廉价</li>
+      </ol>
+
+      <h3 class="grp">实物怎么演 <span>这一层全程演示</span></h3>
+      <ul class="pl">
+        <li>现场架机位拍一条，边拍边讲</li>
+        <li>同一只包用两种打光拍，画面摆一起对比</li>
+        <li>把设备一件件拿出来，讲各自解决什么问题</li>
+        <li>现场演示手部出镜怎么拍，不露脸也能有信任感</li>
+      </ul>
+
+      <div class="hook"><span class="lb">收口钩子</span><span>"拍摄流程和设备清单，我写成一页纸了。扣『<b>怎么拍</b>』。"</span></div>
+    </div>
+  </section>
+
+  <!-- L4 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">L4</div>
+      <h2 class="sec-title">承接层<span>人来了怎么接住</span></h2>
+    </div>
+    <div class="sec-body">
+      <div class="core">
+        <span class="lb">核心判断</span>
+        <p>短视频只负责把人带来。人来了断在哪，跟短视频一点关系都没有——但大部分人会怪短视频。</p>
+      </div>
+
+      <h3 class="grp">诊断怎么问</h3>
+      <ol class="tl q">
+        <li>有人在评论区问了，你怎么引导的？</li>
+        <li>加微信的申请话术是什么？<em>让他念原话</em></li>
+        <li>通过之后你第一句说什么？<em>这一问最见功力</em></li>
+        <li>你朋友圈发吗？发什么？多久一条？</li>
+        <li>你一般聊到哪一步断的——问诊、要图、还是报价？</li>
+        <li>客户不肯发图的时候你怎么办？</li>
+        <li>你要图的时候，会告诉他拍哪几处吗？<em>八成人没做过这一步</em></li>
+      </ol>
+
+      <h3 class="grp">独播讲什么</h3>
+      <ol class="tl">
+        <li>评论区一堆人问，就是没人加微信</li>
+        <li>通过好友第一句话，八成人说错了</li>
+        <li>四种钩子，哪种吸精准卖家，哪种只吸白嫖党</li>
+        <li>加了三百人一单没成，卡在哪一步</li>
+        <li>客户不肯发图，是你没教他怎么拍</li>
+        <li>客户发的图看不清，怎么指挥他重拍</li>
+        <li>朋友圈发成微商被屏蔽，改这四类内容</li>
+        <li>为什么第一次聊绝对不能报价</li>
+        <li>客户说"我再考虑一下"，其实是什么意思</li>
+        <li>怎么判断这个客户是不是真想卖</li>
+        <li>跟进节奏：当天、三天、七天、三十天各说什么</li>
+      </ol>
+
+      <h3 class="grp">实物怎么演</h3>
+      <ul class="pl">
+        <li>翻自己的聊天记录（打码），复盘一单从加微信到成交的完整过程</li>
+        <li>现场演示"指挥客户拍图"——拿一件货，讲该拍哪几处、怎么跟客户说</li>
+      </ul>
+
+      <div class="hook"><span class="lb">收口钩子</span><span>"各品类要客户拍哪几张图，我做成清单了。扣『<b>要图</b>』。"</span></div>
+    </div>
+  </section>
+
+  <!-- L5 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">L5</div>
+      <h2 class="sec-title">底层<span>你的内容为什么没底气 · 转化层</span></h2>
+    </div>
+    <p class="sec-goal">这一层是整套体系的落点。<b>观众冲着学短视频来，在这一层才发现自己真正卡的在别处</b>——而那个别处正好是你课里讲的。每一场都要往这一层带一句。</p>
+    <div class="sec-body">
+      <div class="core">
+        <span class="lb">核心判断</span>
+        <p>短视频做不起来，一半的问题不在短视频上。你不敢报价，所以内容里不敢碰价格；你出不掉货，所以不敢收；你不敢收，所以拍出来的东西没底气。</p>
+      </div>
+
+      <h3 class="grp">诊断怎么问</h3>
+      <ol class="tl q">
+        <li>你敢在视频里说价格吗？<b>为什么不敢？</b><em>这一问是整套诊断的枢纽</em></li>
+        <li>你收进来的货，出得掉吗？</li>
+        <li>你现在压着多少件？最久的压了多久？</li>
+        <li>你判不准的时候怎么办——放走，还是有别的路？</li>
+        <li>你报价的依据是什么？有行情表吗？</li>
+        <li><b>你上一单是什么时候？</b><em>收网一问</em></li>
+      </ol>
+
+      <h3 class="grp">独播讲什么</h3>
+      <ol class="tl">
+        <li>你为什么不敢在视频里说价格<em>最该反复讲的一条</em></li>
+        <li>短视频做不起来，一半问题不在短视频上</li>
+        <li>压着货的人拍不出好视频，为什么</li>
+        <li>不会鉴定能不能做？三条路绕开它</li>
+        <li>收了出不掉，你的内容会越来越虚</li>
+        <li>收之前必须回答的三个问题</li>
+        <li>判不准的时候，除了放走还有四条路</li>
+        <li>账面上你没亏，为什么手上没钱</li>
+        <li><b>什么时候你不该做短视频</b><em>最能立人设的一条</em></li>
+        <li>我认识几个人，一条视频没拍过，做得比谁都好</li>
+        <li>你手上那三百个好友，比三个月的视频值钱</li>
+      </ol>
+
+      <h3 class="grp">实物怎么演</h3>
+      <ul class="pl">
+        <li>把压在手上最久的那件货拿出来，现场算账：收多少、压多久、这笔钱本来能翻几轮</li>
+        <li>翻出行情表给他们看，讲一个价是怎么算出来的</li>
+      </ul>
+
+      <div class="hook"><span class="lb">收口钩子</span><span>"渠道对照表 + 收之前三问的卡片，扣『<b>渠道</b>』。想知道自己该不该做短视频的，扣『<b>盘点</b>』，我把资源盘点表发你。"</span></div>
+
+      <div class="note"><b>"盘点"这个钩子是整套体系里最值钱的一个。</b>资源盘点表填完，对方自己就知道该不该做短视频、该走哪条路——而且你拿到了他的完整资源画像，私信跟进时直接有话说。</div>
+    </div>
+  </section>
+
+  <!-- 三动作统一 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">动作</div>
+      <h2 class="sec-title">三个动作怎么统一<span>提问 · 给答案 · 独播</span></h2>
+    </div>
+    <div class="sec-body">
+
+      <h3 class="grp">提问：从本层问起，必须往下扎一层</h3>
+      <ul class="pl">
+        <li>开场三连固定不变：<b>你在做还是准备做 → 你最头疼什么 → 你觉得问题出在哪</b></li>
+        <li>按他的答案落到某一层，问那一层的问题</li>
+        <li><b>但一定要往下扎到 L4 和 L5。</b>问到"加了微信之后你聊到哪一步断的""你报价的依据是什么"——这两问一出来，观众就知道你不是只懂短视频的人</li>
+        <li>提问六技：重复数字停一下 · 复述确认 · 二选一逼选不许绕 · 推翻自诊 · 排比反问 · 问全场</li>
+      </ul>
+
+      <h3 class="grp">给答案：硬结论 + 小动作</h3>
+      <ul class="pl">
+        <li>收网三句：<b>"行，我大概明白了" → "你以为你的问题是 A，其实是 B" → "你回去改一件事就够了"</b></li>
+        <li>动作必须是今天就能做的。"把标题里的真假换成钱"能做；"你要建立获客体系"做不了</li>
+        <li><b>结论软了立不住人设，动作大了他回去做不了</b></li>
+        <li>问到八到十二个问题就收网。对方重复自己、连说两次"不知道"、某个数字明显不对劲，任一出现立刻停</li>
+      </ul>
+
+      <h3 class="grp">独播：本层选题 + 实物演示 + 猜价破冷场</h3>
+      <ul class="pl">
+        <li>每层的独播选题走完整痛点结构：<b>你有病 → 找病因 → 我有药 → 三不吃</b></li>
+        <li>没人打字就抛猜价，这是唯一能让陌生人主动打字的低门槛动作</li>
+        <li>问了没人答就顺势接："行，没人说，那我说说我看到的情况"——<b>冷场变内容</b></li>
+        <li>状态靠"事"带不靠"演"：手上一直有活干，语气自然有劲</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 排期 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">排期</div>
+      <h2 class="sec-title">一周五场，一场一层<span>永久解决"今天讲什么"</span></h2>
+    </div>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>场次</th><th>主题层</th><th>这一场的主问题</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">第一场</td><td>L1 认知</td><td>你的视频吸来的是卖家还是看客</td></tr>
+          <tr><td class="nm">第二场</td><td>L2 选题</td><td>拍什么才能让有货的人来找你</td></tr>
+          <tr><td class="nm">第三场</td><td>L3 呈现</td><td>货怎么拍才有人问价</td></tr>
+          <tr><td class="nm">第四场</td><td>L4 承接</td><td>人来了你接不接得住</td></tr>
+          <tr><td class="nm">第五场</td><td>L5 底层</td><td>你为什么不敢在视频里说价格</td></tr>
+        </tbody>
+      </table>
+      <div class="note">五场一轮，轮完再来一遍换素材。<b>好处有三个</b>：你不用每天想讲什么；观众知道周几讲什么，会为某一层专门来；五场攒下来正好是一个完整体系，可以直接剪成一门线上入门课——<b>那就是你产品阶梯里缺的引流层。</b></div>
+
+      <h3 class="grp">单场 90 分钟编排（以任一层为主题）</h3>
+      <div class="plan">
+        <div class="prow"><div class="tm">0–4</div><div class="nm"><b>开场圈人</b> · 今天讲哪一层，谁该留下</div><div class="tag">不做自我介绍</div></div>
+        <div class="prow"><div class="tm">4–16</div><div class="nm"><b>实物演示</b> · 本层的演示单元</div><div class="tag">镜头有东西在动</div></div>
+        <div class="prow"><div class="tm">16–20</div><div class="nm"><b>猜价</b> · 第一次要弹幕</div><div class="tag">破冷场</div></div>
+        <div class="prow"><div class="tm">20–34</div><div class="nm"><b>本层痛点单元 A</b></div><div class="tag">收口留资</div></div>
+        <div class="prow"><div class="tm">34–38</div><div class="nm"><b>自我介绍</b> · 看流速插入</div><div class="tag">流速没变就跳过</div></div>
+        <div class="prow"><div class="tm">38–55</div><div class="nm"><b>连麦 / 诊断</b> · 有人就接，没人就切自问自答</div><div class="tag">往 L4 L5 扎</div></div>
+        <div class="prow"><div class="tm">55–66</div><div class="nm"><b>故事</b> · 本层相关的真实经历</div><div class="tag">最省状态</div></div>
+        <div class="prow"><div class="tm">66–80</div><div class="nm"><b>本层痛点单元 B</b></div><div class="tag">第二次留资</div></div>
+        <div class="prow"><div class="tm">80–90</div><div class="nm"><b>收口</b> · 往 L5 带一句 + 钩子 + 下场预告</div><div class="tag">必说固定开播时间</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 落差 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">口径</div>
+      <h2 class="sec-title">必须处理的预期落差<span>每场都要说的一句话</span></h2>
+    </div>
+    <div class="sec-body">
+      <div class="warn"><b>直播间只讲短视频获客，来的人预期买的是"短视频课"。</b>到时候卖全链路课，落差会很明显——"我是来学拍视频的，你怎么让我买这个"。</div>
+
+      <p style="color:var(--ink2);margin:18px 0 0;max-width:46em">所以在直播间就要不断说一句话，每场至少一次：</p>
+
+      <div class="core" style="margin-top:14px">
+        <span class="lb">固定口径</span>
+        <p>短视频只是入口。你真正卡的地方，八成不在这。</p>
+      </div>
+
+      <p style="color:var(--ink2);margin:18px 0 0;max-width:46em">这既是真话，也是为课程铺垫，而且正好是你课程的核心主张——<b>手上有什么资源就 all in 哪条路，短视频不是唯一的路。</b></p>
+
+      <h3 class="grp">直播间的一句话主张</h3>
+      <div class="core" style="margin-top:14px">
+        <p>教你用短视频找到卖家，<br>也告诉你什么时候不该用短视频。</p>
+      </div>
+      <div class="note">后半句是钩子，也是护城河。<b>当着直播间劝人别做短视频的人，只有你一个。</b>——这句话建议直接做进贴片和账号简介，视觉层定的时候用得上。</div>
+    </div>
+  </section>
+
+  <footer>
+    直播间内容体系 · 短视频获客五层 · 整合自提问清单、空场选题、诊断框架<br>
+    <b>下一步：</b>内容层已定稿，可以往视觉层走——贴片文案就从"教你用短视频找到卖家，也告诉你什么时候不该用"这句展开
+  </footer>
+
+</div>
+</body>
+</html>

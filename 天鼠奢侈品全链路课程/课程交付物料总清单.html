@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>二手奢侈品回收课程 · 交付物料总清单</title>
+<style>
+:root{
+  --paper:#F1F2EC; --card:#FBFBF8;
+  --ink:#17231E; --ink2:#4A5951; --ink3:#78857C;
+  --line:#CBD0C6; --line2:#E0E3DA;
+  --brass:#8F6E30; --brass-soft:#EFE7D4;
+  --seal:#A5382A; --seal-soft:#F3E3DF;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+
+header.top{padding:64px 0 30px}
+.doc-title{font-family:var(--serif);font-size:36px;line-height:1.35;font-weight:600;margin:0 0 14px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 14px}
+.doc-sub b{color:var(--ink);font-weight:600}
+.doc-meta{display:flex;flex-wrap:wrap;gap:10px 22px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+
+.principles{background:var(--card);border:1px solid var(--line);padding:26px 28px 24px;margin:34px 0 0}
+.principles h2{font-family:var(--serif);font-size:21px;font-weight:600;margin:0 0 4px}
+.principles p.lead{color:var(--ink3);font-size:13.5px;margin:0 0 20px}
+.principles ol{margin:0;padding:0;counter-reset:d;list-style:none}
+.principles ol li{padding-left:30px;margin-bottom:13px;color:var(--ink2);counter-increment:d;position:relative}
+.principles ol li::before{
+  content:counter(d);position:absolute;left:0;top:.42em;
+  width:19px;height:19px;display:flex;align-items:center;justify-content:center;
+  background:var(--ink);color:var(--card);font-family:var(--serif);font-size:12px;
+}
+.principles ol li strong{color:var(--ink);font-weight:600;display:block}
+
+.sec{padding:52px 0 6px;border-top:1px solid var(--line);margin-top:44px}
+.sec:first-of-type{margin-top:38px}
+.sec-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:8px}
+.sec-n{
+  flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--brass);color:var(--brass);font-family:var(--serif);font-size:17px;margin-top:5px;
+}
+.sec-n.core{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.sec-title{font-family:var(--serif);font-size:27px;font-weight:600;margin:0;letter-spacing:.03em}
+.sec-title span{color:var(--ink3);font-size:15.5px;font-weight:400;margin-left:12px;letter-spacing:0}
+.sec-goal{color:var(--ink2);margin:0 0 28px 50px;max-width:46em}
+.sec-goal b{color:var(--ink);font-weight:600}
+.sec-body{margin-left:50px}
+
+h3.grp{font-family:var(--serif);font-size:18px;font-weight:600;margin:34px 0 4px;padding-bottom:7px;border-bottom:1px solid var(--line2)}
+h3.grp:first-child{margin-top:0}
+
+.tbl{width:100%;border-collapse:collapse;margin-top:18px;font-size:13.5px}
+.tbl th,.tbl td{border:1px solid var(--line2);padding:9px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--card);font-family:var(--serif);font-weight:600;color:var(--ink);font-size:14px}
+.tbl td{color:var(--ink2)}
+.tbl td.nm{color:var(--ink);font-weight:600;white-space:nowrap}
+.tbl td.nw{white-space:nowrap}
+.tbl tr.hd td{background:var(--brass-soft);color:#5B4A22;font-family:var(--serif);font-weight:600;font-size:14.5px}
+
+.f{display:inline-block;font-family:var(--serif);font-size:11.5px;line-height:1.7;padding:0 6px;letter-spacing:.08em;white-space:nowrap}
+.f-p{background:var(--ink);color:var(--card)}
+.f-e{background:transparent;color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass)}
+.f-b{background:var(--seal-soft);color:var(--seal)}
+.f-o{background:var(--brass);color:#FBFBF8}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--ink3);padding:14px 0 0;margin-top:20px;border-top:1px solid var(--line2)}
+
+.note{background:var(--brass-soft);border-left:2px solid var(--brass);padding:13px 16px;margin:20px 0 0;font-size:14px;color:#5B4A22;line-height:1.75}
+.note b{color:#3E3216}
+ul{margin:8px 0 0;padding:0;list-style:none}
+li{position:relative;padding-left:16px;margin-bottom:4px;color:var(--ink2)}
+li::before{content:"";position:absolute;left:1px;top:.85em;width:5px;height:1px;background:var(--line)}
+li b{color:var(--ink);font-weight:600}
+
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2);margin-top:22px}
+.cardx{background:var(--card);padding:18px 20px 20px}
+.cardx h4{font-family:var(--serif);font-size:16px;font-weight:600;margin:0 0 4px;color:var(--ink)}
+.cardx p{margin:0;font-size:13.5px;color:var(--ink2);line-height:1.7}
+.cardx .tagline{display:block;margin-top:8px}
+
+.pitch{border:1px solid var(--ink);background:var(--card);padding:30px 32px;margin-top:26px}
+.pitch h3{font-family:var(--serif);font-size:22px;font-weight:600;margin:0 0 6px}
+.pitch p.sub{color:var(--ink3);font-size:13.5px;margin:0 0 22px}
+.pitch dl{margin:0}
+.pitch dt{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--ink);margin:18px 0 2px}
+.pitch dt em{font-style:normal;color:var(--brass);margin-right:8px}
+.pitch dd{margin:0;color:var(--ink2);font-size:14px;max-width:44em}
+
+footer{margin-top:56px;padding:24px 0 70px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
+footer b{color:var(--ink2);font-weight:500}
+
+@media (max-width:900px){.cards{grid-template-columns:1fr}}
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .wrap{padding:0 18px}
+  header.top{padding:40px 0 24px}
+  .doc-title{font-size:26px}
+  .principles,.pitch{padding:20px}
+  .sec-title{font-size:22px}
+  .sec-title span{display:block;margin:4px 0 0;font-size:14px}
+  .sec-goal,.sec-body{margin-left:0}
+  .sec-n{width:28px;height:28px;font-size:15px}
+  .tbl,.tbl tbody,.tbl tr,.tbl td,.tbl th{display:block;width:100%}
+  .tbl thead{display:none}
+  .tbl tr{border:1px solid var(--line2);margin-bottom:12px}
+  .tbl td{border:none;border-bottom:1px solid var(--line2)}
+  .tbl td:last-child{border-bottom:none}
+  .tbl td.nm{background:var(--card);white-space:normal}
+  .tbl td.nw{white-space:normal}
+  .tbl tr.hd{margin-bottom:0;border:none}
+}
+@media print{body{background:#fff;font-size:10.5pt}.sec{break-before:page;border-top:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <h1 class="doc-title">交付物料总清单<br>纸质 · 电子 · 实物 · 现场</h1>
+    <p class="doc-sub">这份清单按<b>交付设计</b>组织，不是按品类罗列。每一件物料都标注了三件事：什么形式、什么时候发、用在哪一步。</p>
+    <p class="doc-sub">最后一节是<b>可直接用于招生页的精简版</b>——面向学员，一眼看懂能带走什么。前面各节是筹备用的完整版。</p>
+    <div class="doc-meta">
+      <div><b>配套</b> 大纲 v4 · 五路径并行 · 十站链路</div>
+      <div><b>形式</b> 纸质 / 电子 / 双份 / 实物</div>
+      <div><b>用途</b> 内部筹备清单 + 招生页素材</div>
+    </div>
+  </header>
+
+  <section class="principles">
+    <h2>交付设计的六条原则</h2>
+    <p class="lead">先定原则，再定清单。发得多不等于交付得好——发 80 个模板下去，学员回家一个都不打开，是这类课最常见的结局。</p>
+    <ol>
+      <li><strong>物料就是教学流程，不是附赠品</strong>每一站的出课标准，本质上就是"这几张表填完"。表不填完，这一站不算过。这样物料从"发给你的资料"变成"你必须完成的动作"，使用率才有保证。</li>
+      <li><strong>形式跟着场景走</strong>现场要写、要算、要签字的一律纸质——写下来才会真的想，电子版当场填不下去。回去要反复查、要更新、要搜索的一律电子。要给别人看的（异业物料、客户物料）双份。</li>
+      <li><strong>核心物料控制在 12 件以内</strong>工具库可以有一百份，但"必须用"的只能是十几件。多了学员抓不住重点。招生页展示量，教学设计只保证核心件被真正用到。</li>
+      <li><strong>分五次发，不一次性打包</strong>课前包 → 每站开课前 → 结营包 → 陪跑期按节点推送 → 长期更新。全部结营发，学员上课时手上是空的；全部课前发，学员看都不看。</li>
+      <li><strong>做成一本，不做成一堆</strong>散页会丢，活页夹会留。所有现场填写的表装进一本印着学员名字的活页夹，结营时他带走的不是一沓纸，是一本填满自己数据的经营手册。</li>
+      <li><strong>给一个"回去第一天打开哪个"的入口</strong>最常见的失败是学员回家后不知道从哪开始。落地导航卡放在活页夹第一页：第 1 天做什么、第 7 天交什么、卡住了查哪本手册。</li>
+    </ol>
+  </section>
+
+  <!-- 一 交付节奏 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">一</div>
+      <h2 class="sec-title">交付节奏<span>什么时候发什么</span></h2>
+    </div>
+    <p class="sec-goal">五个发放节点。每个节点发什么、为什么在这个时候发。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>节点</th><th>发什么</th><th>为什么在这时候</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm nw">课前一周</td>
+            <td>课前准备包：资源盘点表（空白）· 测算表（空白）· 品牌图册与款式资料 · 行业词汇表 · 书单 · 剪映基础录播 · 报到须知</td>
+            <td>让学员带着素材来。第一天的资源盘点当场就能填、能验真，不用现场从零回忆通讯录</td>
+          </tr>
+          <tr>
+            <td class="nm nw">开营当天</td>
+            <td>活页夹（含全部现场填写表）· 学员卡 · 桌牌 · 笔记本笔 · 十站流程海报 · 口袋速查卡组 · 实物工具包</td>
+            <td>仪式感和身份感在第一小时建立。工具包当天就用得上，第五站盲测直接上手</td>
+          </tr>
+          <tr>
+            <td class="nm nw">每站开课前</td>
+            <td>该站的现场用表、评分卡、场景卡、动线卡</td>
+            <td>提前全发会让学员翻前面、走神。用一站发一站，注意力才收得住</td>
+          </tr>
+          <tr>
+            <td class="nm nw">结营当天</td>
+            <td>资料库入口二维码 · AI 大脑入口卡 · 所选路径的 30 天落地表 · 30 天打卡本 · 异业物料包 · 结业证书 · 落地导航卡</td>
+            <td>路径确定之后才发对应的落地表——提前发五份等于没选。异业物料要印刷成品，不能让学员自己去印</td>
+          </tr>
+          <tr>
+            <td class="nm nw">陪跑 30 天</td>
+            <td>第 7 / 14 / 30 天各推送一批：对应节点的检查表、常见问题解答、同期学员案例</td>
+            <td>把资料变成触达理由。学员有事可交，你有话可说，比群里干催有用</td>
+          </tr>
+          <tr>
+            <td class="nm nw">长期</td>
+            <td>渠道手册改版 · 行情表更新 · 违禁词更新 · 新增案例 · AI 大脑数据包</td>
+            <td>平台规则一年一变。持续更新既是承诺兑现，也是复购和转介绍的触点</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note"><b>资料库不做一次性打包，做成持续更新的空间。</b>一个二维码进入，按路径和站点分文件夹。学员有理由回来，你有理由触达——这比发一个压缩包强得多，也是后续卖高阶课最自然的入口。</div>
+    </div>
+  </section>
+
+  <!-- 二 核心必用 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">二</div>
+      <h2 class="sec-title">核心必用物料<span>十二件 · 每一件都是出课标准的载体</span></h2>
+    </div>
+    <p class="sec-goal">这十二件是真正的交付。<b>每一件都对应一个必须完成的动作</b>——填不完，这一站不算过。其余所有资料都是工具库，用到再查。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>物料</th><th>形式</th><th>对应</th><th>用在哪一步，怎么保证被用</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm">01 资源盘点表<br>（含真实性校验栏）</td>
+            <td class="nw"><span class="f f-b">双份</span></td>
+            <td class="nw">一站 1.5</td>
+            <td>课前预填，现场校验。左栏写形容词，右栏必须换成可数的数字。<b>不填完不能进第二站选路</b></td>
+          </tr>
+          <tr>
+            <td class="nm">02 单店测算表<br>（含行业基准区间）</td>
+            <td class="nw"><span class="f f-b">双份</span></td>
+            <td class="nw">一站 1.4</td>
+            <td>纸质现场填、当众念出自己的日动作量；电子版回去按真实数据迭代。结营时回填一次</td>
+          </tr>
+          <tr>
+            <td class="nm">03 路径选择书</td>
+            <td class="nw"><span class="f f-p">纸质</span></td>
+            <td class="nw">二站 2.1</td>
+            <td>一页纸，写死三件事：走哪条路、因为手上有什么、第一个月的动作和数量。<b>签自己的名字</b>，贴在活页夹首页</td>
+          </tr>
+          <tr>
+            <td class="nm">04 选题库与选题表<br>（含钩子承接列）</td>
+            <td class="nw"><span class="f f-b">双份</span></td>
+            <td class="nw">二站 2.3.2</td>
+            <td>100 条现成选题（电子）+ 30 条空白待填（纸质）。每条选题旁边必须写钩子，写不出钩子的选题划掉</td>
+          </tr>
+          <tr>
+            <td class="nm">05 各品类要图清单</td>
+            <td class="nw"><span class="f f-b">双份</span></td>
+            <td class="nw">四站 4.4</td>
+            <td>纸质做成速查卡随身带；现场用它向三个真实好友要图，收回来的图第五站要用</td>
+          </tr>
+          <tr>
+            <td class="nm">06 三道防线决策表</td>
+            <td class="nw"><span class="f f-b">双份</span></td>
+            <td class="nw">五站 5.2</td>
+            <td>这货自己判 / 送检 / 找上游 / 找复核 / 转撮合。塑封卡随身，第五站第四轮实操就考这张表</td>
+          </tr>
+          <tr>
+            <td class="nm">07 分品类判定动线卡</td>
+            <td class="nw"><span class="f f-b">双份</span></td>
+            <td class="nw">五站 5.3–5.7</td>
+            <td>每品类一张。盲测时人手一套照着走，<b>当场修订成自己的版本</b>——修订过的才会被用</td>
+          </tr>
+          <tr>
+            <td class="nm">08 行情表模板</td>
+            <td class="nw"><span class="f f-e">电子</span></td>
+            <td class="nw">六站 6.3</td>
+            <td>预填自己主打品类的框架，现场填第一批数据。要求每周更新，陪跑第 14 天检查</td>
+          </tr>
+          <tr>
+            <td class="nm">09 收货 SOP 流程卡<br>（含出货预判三问）</td>
+            <td class="nw"><span class="f f-b">双份</span></td>
+            <td class="nw">七站 7.1</td>
+            <td>桌面立牌 + 口袋卡两版。立牌贴在工作台，真收货时一步步对</td>
+          </tr>
+          <tr>
+            <td class="nm">10 风险自查表<br>+ 全套协议包</td>
+            <td class="nw"><span class="f f-b">双份</span></td>
+            <td class="nw">八站</td>
+            <td>现场逐项标注做到没有；协议现场填自己的信息，填过一遍回去才会真用</td>
+          </tr>
+          <tr>
+            <td class="nm">11 出货渠道对照表</td>
+            <td class="nw"><span class="f f-b">双份</span></td>
+            <td class="nw">九站 9.2</td>
+            <td>货品特征 → 首选渠道 → 备选 → 预计天数 → 到手价。20 件货实操当场填满</td>
+          </tr>
+          <tr>
+            <td class="nm">12 30 天打卡本</td>
+            <td class="nw"><span class="f f-p">纸质</span></td>
+            <td class="nw">结营</td>
+            <td>30 页，每天一页：今天做了什么、数据多少、卡在哪。<b>比 Excel 更容易被坚持</b>，第 30 天拍照上交</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">这十二件的共同点：<b>都要求学员往上面写字。</b>只发不填的资料，回去的打开率接近于零；现场填过一遍、上面有自己数据的资料，回去还会继续用。设计物料时优先考虑"这张纸上有没有空白格要他填"。</div>
+    </div>
+  </section>
+
+  <!-- 三 现场物料 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">三</div>
+      <h2 class="sec-title">现场物料<span>身份感 · 秩序感 · 仪式感</span></h2>
+    </div>
+    <p class="sec-goal">现场物料不是装饰。学员卡、桌牌、编号牌这些东西的作用是让人快速进入"我在学一门手艺"的状态，而不是"我来听个课"。</p>
+    <div class="sec-body">
+
+      <h3 class="grp">签到与身份</h3>
+      <table class="tbl">
+        <thead><tr><th>物料</th><th>形式</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">签到表 + 扫码签到</td><td class="nw"><span class="f f-b">双份</span></td><td>纸质签到做仪式，扫码签到留数据。每天一签，用于出勤统计和结业资格</td></tr>
+          <tr><td class="nm">学员卡（胸牌）</td><td class="nw"><span class="f f-p">纸质</span></td><td><b>正面</b>姓名 · 城市 · 主打品类 · 所选路径（第二站后补贴纸）。<b>背面印红线清单</b>——挂在脖子上的速查卡，比发一张纸有用得多</td></tr>
+          <tr><td class="nm">桌牌（三角立牌）</td><td class="nw"><span class="f f-p">纸质</span></td><td>姓名 + 所选路径。方便老师点名和同学互找同路径的人组队</td></tr>
+          <tr><td class="nm">分组牌</td><td class="nw"><span class="f f-p">纸质</span></td><td>对练分组用。按路径分组还是混合分组，每站可以不同</td></tr>
+          <tr><td class="nm">学员通讯录</td><td class="nw"><span class="f f-e">电子</span></td><td>姓名 · 城市 · 主打品类 · 路径 · 微信。同期学员之间的调货和复核关系就从这里起</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="grp">学习载体</h3>
+      <table class="tbl">
+        <thead><tr><th>物料</th><th>形式</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">课程活页夹</td><td class="nw"><span class="f f-p">纸质</span></td><td><b>核心载体。</b>封面印课程名 + 学员姓名。内含十站分隔页，每站装该站要填的表。结营时是一本填满自己数据的经营手册</td></tr>
+          <tr><td class="nm">落地导航卡</td><td class="nw"><span class="f f-p">纸质</span></td><td>活页夹第一页。回去第 1 天做什么、第 7 / 14 / 30 天交什么、卡住了查哪本手册。<b>解决"回家不知从哪开始"</b></td></tr>
+          <tr><td class="nm">十站流程海报</td><td class="nw"><span class="f f-p">纸质</span></td><td>贴在教室墙上全程可见，每讲完一站打一个勾。学员随时知道自己走到哪了</td></tr>
+          <tr><td class="nm">笔记本 + 笔</td><td class="nw"><span class="f f-p">纸质</span></td><td>印课程 logo。笔多备一倍，一定会丢</td></tr>
+          <tr><td class="nm">各站桌面速查页</td><td class="nw"><span class="f f-p">纸质</span></td><td>该站的关键框架一页纸，A4 横放在桌上，讲课时随时对照</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="grp">实操物料</h3>
+      <table class="tbl">
+        <thead><tr><th>物料</th><th>形式</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">盲测样本编号牌</td><td class="nw"><span class="f f-p">纸质</span></td><td>每件样本一个编号，与答案表分离保管。样本库是第五站的命脉</td></tr>
+          <tr><td class="nm">盲测评分表</td><td class="nw"><span class="f f-p">纸质</span></td><td>四轮各一版：客户图判定 / 实物盲测 / 30 秒一眼假 / 决策表判断</td></tr>
+          <tr><td class="nm">盲报评分表</td><td class="nw"><span class="f f-p">纸质</span></td><td>第六站用。填报价 + <b>必须写估价依据</b>，写不出依据的不计分</td></tr>
+          <tr><td class="nm">对练评分卡</td><td class="nw"><span class="f f-p">纸质</span></td><td>两人一组互评。承接、转化、议价三站各一版</td></tr>
+          <tr><td class="nm">场景判断卡组</td><td class="nw"><span class="f f-p">纸质</span></td><td>成交十场景 / 风控十场景 / 出货二十件货。做成卡片抽取，比 PPT 出题有参与感</td></tr>
+          <tr><td class="nm">计时器与提示铃</td><td class="nw"><span class="f f-o">实物</span></td><td>30 秒一眼假排除用。倒计时的压力感是这个训练的一部分</td></tr>
+          <tr><td class="nm">对练录像设备</td><td class="nw"><span class="f f-o">实物</span></td><td>手机 + 支架若干。录像回放是议价对练最有效的部分，学员的个人录像随课交付</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="grp">仪式与传播</h3>
+      <table class="tbl">
+        <thead><tr><th>物料</th><th>形式</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">结业证书</td><td class="nw"><span class="f f-p">纸质</span></td><td>建议印上<b>本人达成的出课标准项</b>，而不是空泛的"完成学习"。这张证书学员会拍照发朋友圈</td></tr>
+          <tr><td class="nm">合影背景板</td><td class="nw"><span class="f f-p">纸质</span></td><td>结营合影 + 单人照。这批照片是下一期招生的素材</td></tr>
+          <tr><td class="nm">手提袋</td><td class="nw"><span class="f f-o">实物</span></td><td>装得下活页夹和工具包。学员拎着它走出去，本身就是传播</td></tr>
+          <tr><td class="nm">学员见证素材拍摄</td><td class="nw"><span class="f f-e">电子</span></td><td>结营当天现场采访，30 秒一条。趁热拍，回去就拍不到了</td></tr>
+        </tbody>
+      </table>
+
+      <div class="legend">
+        <div><span class="f f-p">纸质</span> 只发纸质</div>
+        <div><span class="f f-e">电子</span> 只发电子</div>
+        <div><span class="f f-b">双份</span> 纸质 + 电子</div>
+        <div><span class="f f-o">实物</span> 实物或设备</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四 口袋卡组 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">四</div>
+      <h2 class="sec-title">口袋速查卡组<span>八张塑封小卡 · 最可能被真正带在身上的东西</span></h2>
+    </div>
+    <p class="sec-goal">成本极低，使用率极高。<b>学员真去收货的时候，能从兜里掏出来的只有这个。</b>每次掏出来，都是一次品牌触达。建议做成名片大小、圆角塑封、配一个金属环串起来。</p>
+    <div class="sec-body">
+      <div class="cards">
+        <div class="cardx"><h4>01 一眼假 30 秒排除</h4><p>最高频的十个破绽，按检查顺序排列。见货第一分钟用。</p></div>
+        <div class="cardx"><h4>02 三道防线决策表</h4><p>自己判 / 送检 / 找上游 / 找复核 / 转撮合，五种情况对应五种处理。</p></div>
+        <div class="cardx"><h4>03 各品类要图清单</h4><p>包 / 表 / 金 / 钻 / 其他，各要哪几张图。私信要图时对着念。</p></div>
+        <div class="cardx"><h4>04 出货预判三问</h4><p>走哪个渠道、几天能出、到手多少。报价前必过一遍。</p></div>
+        <div class="cardx"><h4>05 议价十场景速查</h4><p>十种客户说法，每种一句应对要点。不是逐字稿，是提醒。</p></div>
+        <div class="cardx"><h4>06 红线清单</h4><p>什么货绝对不碰、什么话绝对不说。同款印在学员卡背面。</p></div>
+        <div class="cardx"><h4>07 违禁词速查</h4><p>发内容前对一遍。规则更新时随资料库推送新版。</p></div>
+        <div class="cardx"><h4>08 AI 大脑入口卡</h4><p>二维码 + 五条常用提问示例。降低"不知道问什么"的启动门槛。</p></div>
+      </div>
+      <div class="note">这一组是我最建议投入的物料。<b>一套卡的成本不到一顿饭，但它是唯一会跟着学员进工作现场的东西。</b>其他资料都躺在网盘里，只有这个在真实的收货场景里被掏出来。</div>
+    </div>
+  </section>
+
+  <!-- 五 分站物料 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">五</div>
+      <h2 class="sec-title">分站物料清单<span>十站逐项 · 筹备用</span></h2>
+    </div>
+    <p class="sec-goal">按大纲十站排。带 ★ 的是第二节列出的十二件核心必用物料。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>物料</th><th>形式</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr class="hd"><td colspan="3">课前准备包</td></tr>
+          <tr><td class="nm">资源盘点表（空白）★</td><td class="nw"><span class="f f-b">双份</span></td><td>课前预填，进教室时手上有素材</td></tr>
+          <tr><td class="nm">测算表（空白）★</td><td class="nw"><span class="f f-b">双份</span></td><td>课前预填</td></tr>
+          <tr><td class="nm">品牌基础资料与款式图册</td><td class="nw"><span class="f f-e">电子</span></td><td>第五站前置阅读</td></tr>
+          <tr><td class="nm">行业词汇表与黑话对照</td><td class="nw"><span class="f f-e">电子</span></td><td>听得懂课的最低门槛</td></tr>
+          <tr><td class="nm">行业参考书单与阅读顺序</td><td class="nw"><span class="f f-e">电子</span></td><td>长期自学路径</td></tr>
+          <tr><td class="nm">剪映基础操作录播</td><td class="nw"><span class="f f-e">电子</span></td><td>通用技能不占正课</td></tr>
+          <tr><td class="nm">报到须知与行前清单</td><td class="nw"><span class="f f-e">电子</span></td><td>带什么来、住哪、几点到</td></tr>
+
+          <tr class="hd"><td colspan="3">一 定位</td></tr>
+          <tr><td class="nm">行业链路全景图</td><td class="nw"><span class="f f-b">双份</span></td><td>海报 + 电子版，贯穿全课</td></tr>
+          <tr><td class="nm">认知升级对照表（八个误解）</td><td class="nw"><span class="f f-p">纸质</span></td><td>1.2 用，一页纸，可作招生页素材</td></tr>
+          <tr><td class="nm">资源盘点校验清单</td><td class="nw"><span class="f f-p">纸质</span></td><td>形容词换数字的对照问题</td></tr>
+          <tr><td class="nm">行业基准区间表</td><td class="nw"><span class="f f-e">电子</span></td><td>填测算表的参考锚</td></tr>
+          <tr><td class="nm">品类对比表</td><td class="nw"><span class="f f-b">双份</span></td><td>难度 / 利润 / 周转 / 货源量四项</td></tr>
+          <tr><td class="nm">五种链路模式对照卡</td><td class="nw"><span class="f f-p">纸质</span></td><td>选起步模式用</td></tr>
+          <tr><td class="nm">新手安全通道路线图</td><td class="nw"><span class="f f-b">双份</span></td><td>三阶段风险敞口</td></tr>
+          <tr><td class="nm">止损线确认单</td><td class="nw"><span class="f f-p">纸质</span></td><td>签字确认，贴活页夹</td></tr>
+          <tr><td class="nm">前 30 天分路径预期表</td><td class="nw"><span class="f f-b">双份</span></td><td>预期管理，降低流失</td></tr>
+
+          <tr class="hd"><td colspan="3">二 获客</td></tr>
+          <tr><td class="nm">五路径决策对照表</td><td class="nw"><span class="f f-b">双份</span></td><td>2.1 选路核心工具</td></tr>
+          <tr><td class="nm">路径选择书 ★</td><td class="nw"><span class="f f-p">纸质</span></td><td>签名，贴活页夹首页</td></tr>
+          <tr><td class="nm">五份分路径 30 天落地表</td><td class="nw"><span class="f f-b">双份</span></td><td>结营时只发所选那一份</td></tr>
+          <tr><td class="nm">存量资源激活话术包</td><td class="nw"><span class="f f-e">电子</span></td><td>群发、开口、被拒的应对</td></tr>
+          <tr><td class="nm">50 家异业名单模板</td><td class="nw"><span class="f f-b">双份</span></td><td>按分层排序，现场勾选目标</td></tr>
+          <tr><td class="nm">异业上门逐字话术</td><td class="nw"><span class="f f-b">双份</span></td><td>纸质卡带在身上，上门前看一眼</td></tr>
+          <tr><td class="nm">异业物料包（台卡 / 二维码贴 / 宣传单 / 样品册）</td><td class="nw"><span class="f f-o">实物</span></td><td><b>印刷成品直接发。</b>让学员自己去印，八成印不出来</td></tr>
+          <tr><td class="nm">100 条选题库 ★</td><td class="nw"><span class="f f-e">电子</span></td><td>含钩子承接列，可筛选可复制</td></tr>
+          <tr><td class="nm">30 条空白选题表 ★</td><td class="nw"><span class="f f-p">纸质</span></td><td>现场手写，写不出钩子的划掉</td></tr>
+          <tr><td class="nm">脚本模板（三种结构）</td><td class="nw"><span class="f f-e">电子</span></td><td>可直接套用改写</td></tr>
+          <tr><td class="nm">账号搭建检查表</td><td class="nw"><span class="f f-p">纸质</span></td><td>现场逐项改完打勾</td></tr>
+          <tr><td class="nm">30 天起号流程</td><td class="nw"><span class="f f-b">双份</span></td><td>内容路径的日程表</td></tr>
+          <tr><td class="nm">出镜人合作说明与分工表</td><td class="nw"><span class="f f-b">双份</span></td><td>找人出镜的沟通工具，协议在第八站</td></tr>
+          <tr><td class="nm">违禁词速查表</td><td class="nw"><span class="f f-b">双份</span></td><td>口袋卡 + 电子版，随规则更新</td></tr>
+          <tr><td class="nm">拍摄设备与场景清单</td><td class="nw"><span class="f f-e">电子</span></td><td>分预算档给采购建议</td></tr>
+          <tr><td class="nm">投流 ROI 核算表</td><td class="nw"><span class="f f-e">电子</span></td><td>付费路径的账本</td></tr>
+          <tr><td class="nm">地推点位清单与踩点表</td><td class="nw"><span class="f f-p">纸质</span></td><td>本地路径现场用，跑一家填一行</td></tr>
+          <tr><td class="nm">闲鱼帖子模板（求购 / 出售）</td><td class="nw"><span class="f f-e">电子</span></td><td>平台路径直接改用</td></tr>
+          <tr><td class="nm">各渠道成本横评表</td><td class="nw"><span class="f f-b">双份</span></td><td>选路和加路的判断依据</td></tr>
+
+          <tr class="hd"><td colspan="3">三 承接</td></tr>
+          <tr><td class="nm">钩子话术表（四种钩子）</td><td class="nw"><span class="f f-b">双份</span></td><td>现场写完自己的四版</td></tr>
+          <tr><td class="nm">各路径导流 SOP</td><td class="nw"><span class="f f-e">电子</span></td><td>分平台的安全导流方式</td></tr>
+          <tr><td class="nm">微信标签体系模板</td><td class="nw"><span class="f f-b">双份</span></td><td>含路径来源标签，现场建完</td></tr>
+          <tr><td class="nm">加微对练评分卡</td><td class="nw"><span class="f f-p">纸质</span></td><td>两人互评</td></tr>
+
+          <tr class="hd"><td colspan="3">四 转化</td></tr>
+          <tr><td class="nm">30 天朋友圈内容表</td><td class="nw"><span class="f f-b">双份</span></td><td>照着发就行，纸质贴墙</td></tr>
+          <tr><td class="nm">问诊话术模板</td><td class="nw"><span class="f f-b">双份</span></td><td>先问什么后问什么</td></tr>
+          <tr><td class="nm">各品类要图清单 ★</td><td class="nw"><span class="f f-b">双份</span></td><td>口袋卡版 + 电子版</td></tr>
+          <tr><td class="nm">跟进节奏表</td><td class="nw"><span class="f f-b">双份</span></td><td>当天 / 三天 / 七天 / 三十天</td></tr>
+          <tr><td class="nm">高互动文案模板与反面案例</td><td class="nw"><span class="f f-e">电子</span></td><td>正反对照</td></tr>
+          <tr><td class="nm">问诊对练评分卡</td><td class="nw"><span class="f f-p">纸质</span></td><td>两人互评 + 录像回放</td></tr>
+
+          <tr class="hd"><td colspan="3">五 鉴定</td></tr>
+          <tr><td class="nm">三道防线决策表 ★</td><td class="nw"><span class="f f-b">双份</span></td><td>口袋卡 + 活页夹版</td></tr>
+          <tr><td class="nm">分品类判定动线卡 ★</td><td class="nw"><span class="f f-b">双份</span></td><td>包 / 表 / 金 / 钻 / 珠宝 / 服饰 / 潮牌 / 数码 / 杂项，每类一张</td></tr>
+          <tr><td class="nm">一眼假 30 秒排除清单</td><td class="nw"><span class="f f-b">双份</span></td><td>口袋卡</td></tr>
+          <tr><td class="nm">高仿案例图库</td><td class="nw"><span class="f f-e">电子</span></td><td>按档次分级，持续更新</td></tr>
+          <tr><td class="nm">上游兜底谈判话术与合作说明</td><td class="nw"><span class="f f-b">双份</span></td><td>第一次开口怎么说</td></tr>
+          <tr><td class="nm">可对接上游与机构清单</td><td class="nw"><span class="f f-e">电子</span></td><td><b>独家资源，最难被抄走的一项</b></td></tr>
+          <tr><td class="nm">第三方鉴定机构对照表</td><td class="nw"><span class="f f-b">双份</span></td><td>价格 / 时效 / 品类 / 送哪家</td></tr>
+          <tr><td class="nm">同行复核网络搭建指南</td><td class="nw"><span class="f f-e">电子</span></td><td>找谁、怎么开口、怎么互惠</td></tr>
+          <tr><td class="nm">鉴定工具采购清单</td><td class="nw"><span class="f f-e">电子</span></td><td>分阶段，别一次买齐</td></tr>
+          <tr><td class="nm">隔屏判定要图清单</td><td class="nw"><span class="f f-b">双份</span></td><td>与四站要图清单同源</td></tr>
+          <tr><td class="nm">鉴定表达话术</td><td class="nw"><span class="f f-b">双份</span></td><td>含"告诉客户是假的"专项</td></tr>
+          <tr><td class="nm">出事处理流程图</td><td class="nw"><span class="f f-b">双份</span></td><td>收到高仿之后的动线</td></tr>
+          <tr><td class="nm">盲测样本编号牌与四轮评分表</td><td class="nw"><span class="f f-p">纸质</span></td><td>现场实操</td></tr>
+
+          <tr class="hd"><td colspan="3">六 估价与报价</td></tr>
+          <tr><td class="nm">行情表模板 ★</td><td class="nw"><span class="f f-e">电子</span></td><td>每周更新，陪跑期检查</td></tr>
+          <tr><td class="nm">估价折算表</td><td class="nw"><span class="f f-b">双份</span></td><td>四类系数的折算逻辑</td></tr>
+          <tr><td class="nm">外部报价来源清单</td><td class="nw"><span class="f f-e">电子</span></td><td>上游 / 同行群 / 平台工具</td></tr>
+          <tr><td class="nm">分品类估价速查表</td><td class="nw"><span class="f f-b">双份</span></td><td>主流品牌热门款区间</td></tr>
+          <tr><td class="nm">十大场景成交话术库</td><td class="nw"><span class="f f-b">双份</span></td><td>电子全文 + 口袋卡要点版</td></tr>
+          <tr><td class="nm">报价决策卡</td><td class="nw"><span class="f f-p">纸质</span></td><td>报价前的检查动线</td></tr>
+          <tr><td class="nm">盲报评分表</td><td class="nw"><span class="f f-p">纸质</span></td><td>必须写估价依据</td></tr>
+          <tr><td class="nm">议价对练评分卡 + 个人录像</td><td class="nw"><span class="f f-b">双份</span></td><td>录像随课交付给本人</td></tr>
+          <tr><td class="nm">线下与异地交易安全流程</td><td class="nw"><span class="f f-b">双份</span></td><td>见面 / 上门 / 邮寄三套</td></tr>
+
+          <tr class="hd"><td colspan="3">七 成交</td></tr>
+          <tr><td class="nm">收货 SOP 流程卡 ★</td><td class="nw"><span class="f f-b">双份</span></td><td>桌面立牌 + 口袋卡</td></tr>
+          <tr><td class="nm">回收单 / 收据 / 交接单模板</td><td class="nw"><span class="f f-b">双份</span></td><td>可直接拿去印</td></tr>
+          <tr><td class="nm">入库登记表</td><td class="nw"><span class="f f-b">双份</span></td><td>编号规则一并给</td></tr>
+          <tr><td class="nm">分场景成交流程图</td><td class="nw"><span class="f f-b">双份</span></td><td>门店 / 上门 / 见面 / 邮寄 / 撮合</td></tr>
+          <tr><td class="nm">成交十场景判断卡组</td><td class="nw"><span class="f f-p">纸质</span></td><td>现场抽取判断</td></tr>
+
+          <tr class="hd"><td colspan="3">八 风控</td></tr>
+          <tr><td class="nm">风险总表与自查清单 ★</td><td class="nw"><span class="f f-b">双份</span></td><td>现场逐项标注</td></tr>
+          <tr><td class="nm">回收协议</td><td class="nw"><span class="f f-b">双份</span></td><td rowspan="8">全套协议现场填自己的信息。电子版可编辑，纸质版当场演练填写。<b>填过一遍，回去才会真用</b></td></tr>
+          <tr><td class="nm">寄卖协议</td><td class="nw"><span class="f f-b">双份</span></td></tr>
+          <tr><td class="nm">代收 / 撮合协议</td><td class="nw"><span class="f f-b">双份</span></td></tr>
+          <tr><td class="nm">异业合作协议</td><td class="nw"><span class="f f-b">双份</span></td></tr>
+          <tr><td class="nm">上游合作协议</td><td class="nw"><span class="f f-b">双份</span></td></tr>
+          <tr><td class="nm">出镜人合作协议</td><td class="nw"><span class="f f-b">双份</span></td></tr>
+          <tr><td class="nm">员工协议与保密竞业模板</td><td class="nw"><span class="f f-b">双份</span></td></tr>
+          <tr><td class="nm">合伙协议模板</td><td class="nw"><span class="f f-b">双份</span></td></tr>
+          <tr><td class="nm">身份登记表</td><td class="nw"><span class="f f-b">双份</span></td><td>可直接拿去印</td></tr>
+          <tr><td class="nm">存证规范手册</td><td class="nw"><span class="f f-e">电子</span></td><td>录什么、拍什么、存多久</td></tr>
+          <tr><td class="nm">进销存三本台账模板</td><td class="nw"><span class="f f-e">电子</span></td><td>进货 / 销售 / 库存</td></tr>
+          <tr><td class="nm">税务合规要点手册</td><td class="nw"><span class="f f-e">电子</span></td><td>注册 / 台账 / 开票 / 账户</td></tr>
+          <tr><td class="nm">平台合规与违禁词手册</td><td class="nw"><span class="f f-e">电子</span></td><td>含虚假宣传红线</td></tr>
+          <tr><td class="nm">用人与合作风险清单</td><td class="nw"><span class="f f-b">双份</span></td><td>员工 / 出镜人 / 合伙人</td></tr>
+          <tr><td class="nm">诈骗套路图鉴</td><td class="nw"><span class="f f-b">双份</span></td><td>图文对照，持续更新</td></tr>
+          <tr><td class="nm">危机应急卡</td><td class="nw"><span class="f f-p">纸质</span></td><td>每类危机的第一小时动作</td></tr>
+          <tr><td class="nm">风控十场景判断卡组</td><td class="nw"><span class="f f-p">纸质</span></td><td>现场抽取判断</td></tr>
+
+          <tr class="hd"><td colspan="3">九 出货</td></tr>
+          <tr><td class="nm">渠道对照表 ★</td><td class="nw"><span class="f f-b">双份</span></td><td>20 件货实操当场填满</td></tr>
+          <tr><td class="nm">出货渠道联系清单</td><td class="nw"><span class="f f-e">电子</span></td><td>平台 / 同行 / 上游 / 主播</td></tr>
+          <tr><td class="nm">各平台佣金账期对比表</td><td class="nw"><span class="f f-b">双份</span></td><td>算到手价用</td></tr>
+          <tr><td class="nm">库存周转表</td><td class="nw"><span class="f f-e">电子</span></td><td>含滞销预警线</td></tr>
+          <tr><td class="nm">滞销处理流程</td><td class="nw"><span class="f f-b">双份</span></td><td>降价 / 换渠道 / 拆件 / 调换</td></tr>
+          <tr><td class="nm">零售详情页模板</td><td class="nw"><span class="f f-e">电子</span></td><td>拍摄要求 + 文案结构</td></tr>
+          <tr><td class="nm">二十件货分渠道判断卡组</td><td class="nw"><span class="f f-p">纸质</span></td><td>现场实操</td></tr>
+
+          <tr class="hd"><td colspan="3">十 复购</td></tr>
+          <tr><td class="nm">客户台账模板</td><td class="nw"><span class="f f-e">电子</span></td><td>含路径来源字段</td></tr>
+          <tr><td class="nm">客户分层维护表</td><td class="nw"><span class="f f-b">双份</span></td><td>三层各多久触达一次</td></tr>
+          <tr><td class="nm">转介绍话术与奖励方案模板</td><td class="nw"><span class="f f-b">双份</span></td><td>给钱还是给服务</td></tr>
+          <tr><td class="nm">线人结算表</td><td class="nw"><span class="f f-e">电子</span></td><td>客户变渠道后用</td></tr>
+          <tr><td class="nm">周复盘表（分路径版）</td><td class="nw"><span class="f f-b">双份</span></td><td>六个数 + 路径来源拆分</td></tr>
+
+          <tr class="hd"><td colspan="3">结营与陪跑</td></tr>
+          <tr><td class="nm">落地导航卡</td><td class="nw"><span class="f f-p">纸质</span></td><td>回去第一天打开的那一张</td></tr>
+          <tr><td class="nm">30 天打卡本 ★</td><td class="nw"><span class="f f-p">纸质</span></td><td>每天一页，第 30 天拍照上交</td></tr>
+          <tr><td class="nm">所选路径的 30 天落地表</td><td class="nw"><span class="f f-b">双份</span></td><td>只发选中的那一份</td></tr>
+          <tr><td class="nm">AI 大脑入口卡与使用手册</td><td class="nw"><span class="f f-b">双份</span></td><td>二维码 + 五条常用提问示例</td></tr>
+          <tr><td class="nm">资料库入口二维码</td><td class="nw"><span class="f f-p">纸质</span></td><td>贴在活页夹封底</td></tr>
+          <tr><td class="nm">出课标准确认单</td><td class="nw"><span class="f f-p">纸质</span></td><td>十站逐项签收，缺项写进执行表</td></tr>
+          <tr><td class="nm">陪跑三节点检查表</td><td class="nw"><span class="f f-e">电子</span></td><td>第 7 / 14 / 30 天各一份</td></tr>
+          <tr><td class="nm">结业证书</td><td class="nw"><span class="f f-p">纸质</span></td><td>印上本人达成的出课标准项</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 六 工具全景 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">六</div>
+      <h2 class="sec-title">实用工具全景<span>六大方向 · 含必备与进阶分级</span></h2>
+    </div>
+    <p class="sec-goal">工具单独成表，注明<b>必备还是进阶、免费还是付费</b>。新手最容易犯的错是一次买齐，结果一半没用过。所有工具按阶段标注，什么时候添什么。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>工具</th><th>用途</th><th>分级</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr class="hd"><td colspan="4">鉴定与验货</td></tr>
+          <tr><td class="nm">紫光灯 / 强光手电</td><td>荧光反应、暗处细节</td><td class="nw">必备</td><td>几十元，入门礼包直接发</td></tr>
+          <tr><td class="nm">放大镜（10–30 倍）</td><td>钢印、走线、腰码</td><td class="nw">必备</td><td>带光源的更实用</td></tr>
+          <tr><td class="nm">游标卡尺</td><td>尺寸核对</td><td class="nw">必备</td><td>电子款读数更快</td></tr>
+          <tr><td class="nm">电子秤（0.01g）</td><td>金饰称重、五金重量</td><td class="nw">必备</td><td>做黄金的必须有</td></tr>
+          <tr><td class="nm">白手套 / 绒布 / 拍摄托盘</td><td>验货与拍摄</td><td class="nw">必备</td><td>成本极低，专业感很强</td></tr>
+          <tr><td class="nm">测金仪 / 测金笔</td><td>黄金成色</td><td class="nw">进阶</td><td>看主打品类决定，价格跨度大</td></tr>
+          <tr><td class="nm">钻石笔 / 莫桑石检测笔</td><td>区分钻与莫桑</td><td class="nw">进阶</td><td>做珠宝必备，做包表可不买</td></tr>
+          <tr><td class="nm">数码显微镜</td><td>微观工艺</td><td class="nw">进阶</td><td>可接手机，出内容素材也好用</td></tr>
+          <tr><td class="nm">开表工具组</td><td>看机芯</td><td class="nw">进阶</td><td>不会开就别开，先学再买</td></tr>
+          <tr><td class="nm">查验小程序与数据库</td><td>编码 / 证书核验</td><td class="nw">必备</td><td>清单随资料库更新</td></tr>
+
+          <tr class="hd"><td colspan="4">内容生产</td></tr>
+          <tr><td class="nm">补光灯（环形 / 柔光箱）</td><td>拍货与口播</td><td class="nw">必备</td><td>最影响成片质感的一件</td></tr>
+          <tr><td class="nm">手机支架 / 三脚架</td><td>固定机位</td><td class="nw">必备</td><td>带俯拍横臂的最实用</td></tr>
+          <tr><td class="nm">领夹麦 / 无线麦</td><td>口播收音</td><td class="nw">必备</td><td>声音比画质更影响完播</td></tr>
+          <tr><td class="nm">拍摄台与背景布</td><td>货品特写</td><td class="nw">必备</td><td>纯色两三块就够</td></tr>
+          <tr><td class="nm">提词器 App</td><td>出镜提词</td><td class="nw">必备</td><td>找人出镜时尤其重要</td></tr>
+          <tr><td class="nm">剪映 / 必剪</td><td>剪辑</td><td class="nw">必备</td><td>免费，课前录播已覆盖</td></tr>
+          <tr><td class="nm">AI 写稿工具</td><td>选题与脚本</td><td class="nw">必备</td><td>提示词库随课交付</td></tr>
+          <tr><td class="nm">AI 数字人 / 分身</td><td>不出镜方案</td><td class="nw">进阶</td><td>有短板，清单里注明适用边界</td></tr>
+          <tr><td class="nm">封面与图文设计工具</td><td>封面、笔记、物料</td><td class="nw">必备</td><td>模板随课交付</td></tr>
+          <tr><td class="nm">多平台分发工具</td><td>一稿多发</td><td class="nw">进阶</td><td>量起来之后才需要</td></tr>
+
+          <tr class="hd"><td colspan="4">查价与行情</td></tr>
+          <tr><td class="nm">各回收 / 寄卖平台 App</td><td>看成交价</td><td class="nw">必备</td><td>清单注明看挂价还是成交价</td></tr>
+          <tr><td class="nm">二奢查价小程序</td><td>快速比价</td><td class="nw">必备</td><td>准确度分级标注</td></tr>
+          <tr><td class="nm">同行报价群</td><td>实时行情</td><td class="nw">必备</td><td>怎么进、怎么甄别水分</td></tr>
+          <tr><td class="nm">金价与钻价查询</td><td>贵金属实时价</td><td class="nw">必备</td><td>做金饰的每天要看</td></tr>
+          <tr><td class="nm">拍卖行与档口价格参考</td><td>高端款参考</td><td class="nw">进阶</td><td>大货才用得上</td></tr>
+
+          <tr class="hd"><td colspan="4">获客与投放</td></tr>
+          <tr><td class="nm">各平台创作后台</td><td>数据复盘</td><td class="nw">必备</td><td>只看五个数，其余别看</td></tr>
+          <tr><td class="nm">DOU+ / 千川 / 薯条 / 聚光</td><td>内容投放</td><td class="nw">按路径</td><td>付费路径必备，其他路径了解即可</td></tr>
+          <tr><td class="nm">点评推广通 / 美团推广</td><td>本地投放</td><td class="nw">按路径</td><td>本地路径必备</td></tr>
+          <tr><td class="nm">地图商户后台</td><td>本地搜索</td><td class="nw">按路径</td><td>高德 / 百度</td></tr>
+          <tr><td class="nm">闲鱼 / 转转卖家后台</td><td>发帖与开发</td><td class="nw">按路径</td><td>平台路径必备</td></tr>
+          <tr><td class="nm">关键词工具</td><td>搜索卡位</td><td class="nw">进阶</td><td>做搜索流量才用</td></tr>
+
+          <tr class="hd"><td colspan="4">私域与客户管理</td></tr>
+          <tr><td class="nm">微信标签与分组</td><td>客户分层</td><td class="nw">必备</td><td>体系模板随课交付</td></tr>
+          <tr><td class="nm">企业微信</td><td>客户资产沉淀</td><td class="nw">进阶</td><td>有员工之后再上</td></tr>
+          <tr><td class="nm">客户台账（表格 / 多维表）</td><td>跟进记录</td><td class="nw">必备</td><td>含路径来源字段</td></tr>
+          <tr><td class="nm">群发与朋友圈管理工具</td><td>批量触达</td><td class="nw">进阶</td><td>注意封号风险，手册里标红</td></tr>
+          <tr><td class="nm">日程与提醒</td><td>跟进节奏</td><td class="nw">必备</td><td>跟进节奏表配套用</td></tr>
+
+          <tr class="hd"><td colspan="4">经营与台账</td></tr>
+          <tr><td class="nm">进销存台账（表格版）</td><td>三本账</td><td class="nw">必备</td><td>模板随课交付</td></tr>
+          <tr><td class="nm">进销存小程序 / 软件</td><td>货品管理</td><td class="nw">进阶</td><td>库存过一定量再上</td></tr>
+          <tr><td class="nm">电子签约工具</td><td>远程签协议</td><td class="nw">进阶</td><td>异地交易多的人用</td></tr>
+          <tr><td class="nm">云盘与素材归档</td><td>存证与素材</td><td class="nw">必备</td><td>存证规范手册配套</td></tr>
+          <tr><td class="nm">录像与拍照存证</td><td>纠纷证据</td><td class="nw">必备</td><td>手机即可，关键是规范</td></tr>
+          <tr><td class="nm">行业专属 AI 大脑</td><td>估价 / 话术 / 渠道问答</td><td class="nw">必备</td><td>随课开通，使用手册配套</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note"><b>建议把必备档里最便宜的几件做成实物礼包直接发。</b>紫光灯、放大镜、卡尺、白手套、绒布，加起来成本不高，但学员开营当天就能上手，第五站盲测直接用，回去也会继续用。交付感知远超发一份"采购清单"。</div>
+    </div>
+  </section>
+
+  <!-- 七 招生页版本 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n core">七</div>
+      <h2 class="sec-title">招生页版本<span>面向学员 · 可直接复制</span></h2>
+    </div>
+    <p class="sec-goal">前面六节是内部筹备用的。这一节是给报名的人看的——<b>不列清单，列他能带走的东西和它们的用处</b>。数量取整、说人话。</p>
+    <div class="sec-body">
+      <div class="pitch">
+        <h3>你会带走什么</h3>
+        <p class="sub">不是一堆发到微信里就再也没打开过的文件。以下每一件，你在课上都会亲手填过一遍。</p>
+        <dl>
+          <dt><em>1 本</em>属于你自己的经营手册</dt>
+          <dd>一本印着你名字的活页夹。十站的表格你会当场一张张填满——你的资源盘点、你的测算、你的路径选择书、你的行情表、你的判定动线卡。结营那天你带走的不是讲义，是一本写满你自己数据的手册。</dd>
+
+          <dt><em>8 张</em>随身速查卡</dt>
+          <dd>塑封小卡，串在一个环上。一眼假 30 秒排除、什么货该自己判什么货该送检、各品类要图清单、出货预判三问、议价十场景、红线清单、违禁词、AI 大脑入口。真去收货的时候，能从兜里掏出来的就是它们。</dd>
+
+          <dt><em>12 份</em>核心表格</dt>
+          <dd>资源盘点表、测算表、路径选择书、选题表、要图清单、决策表、动线卡、行情表、收货 SOP、风险自查表、渠道对照表、30 天打卡本。纸质电子双份，纸质用来现场填，电子用来回去改。</dd>
+
+          <dt><em>30+ 份</em>合同、协议与经营模板</dt>
+          <dd>回收协议、寄卖协议、撮合协议、异业协议、上游协议、出镜人协议、员工协议、合伙协议、身份登记表、三本台账、回收单据、入库表。课上现场填进你自己的信息，回去直接印了就能用。</dd>
+
+          <dt><em>25 本</em>渠道操作手册</dt>
+          <dd>按五条路径分册。走哪条路领哪几本，不用看无关的。平台规则变了我们改版推送，不用你自己去追。</dd>
+
+          <dt><em>1 套</em>异业地推物料</dt>
+          <dd>台卡、二维码贴、宣传单、样品册，印刷成品直接给你。第二天就能拎着去谈金店和典当行——不用你自己找设计、找印刷厂。</dd>
+
+          <dt><em>1 个</em>入门工具包</dt>
+          <dd>紫光灯、放大镜、卡尺、白手套、绒布。开营当天发，盲测课上直接用，回去接着用。</dd>
+
+          <dt><em>1 份</em>上游与鉴定机构对接清单</dt>
+          <dd>不会鉴定也能开始做，靠的就是这个。可对接的上游、能送检的机构、怎么建同行复核关系——把损失挡在你的能力边界之外。</dd>
+
+          <dt><em>1 个</em>持续更新的资料库</dt>
+          <dd>一个二维码进入，按路径和站点分好。行情、案例、违禁词、手册改版持续更新，不是发完就结束的压缩包。</dd>
+
+          <dt><em>1 个</em>行业专属 AI 大脑</dt>
+          <dd>把课上的行情表、动线卡、话术库、渠道数据都喂进去了。估价问它、话术问它、选题问它，回去随时能问。</dd>
+
+          <dt><em>30 天</em>陪跑</dt>
+          <dd>第 7 天、第 14 天、第 30 天三个节点，交作业、给反馈。课上填的表回去要真的用起来，这三个节点就是逼你用起来的。</dd>
+        </dl>
+      </div>
+      <div class="note">这一版刻意不写"价值 XX 元"。<b>写清楚每件东西用在哪一步，比标价格更能说服人</b>——尤其是"不会鉴定也能开始"和"物料你都会亲手填过一遍"这两句，是别家讲不出来的。</div>
+    </div>
+  </section>
+
+  <!-- 八 筹备提示 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">八</div>
+      <h2 class="sec-title">筹备优先级<span>先做什么，什么可以后补</span></h2>
+    </div>
+    <p class="sec-goal">全部做齐工作量不小。按对交付质量的影响排序，先把第一档做出来，第三档可以第二期再补。</p>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th>优先级</th><th>项目</th><th>理由</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="nm nw">第一档<br>必须先有</td>
+            <td>盲测样本库（真货 + 分档高仿）· 可对接上游与机构清单 · 十二件核心物料 · 活页夹 · 口袋卡组 · 行业基准区间数据</td>
+            <td>样本库和上游清单决定第五站能不能兑现，这两项是别人抄不走的部分；核心物料是教学流程本身，缺了课就走不下去</td>
+          </tr>
+          <tr>
+            <td class="nm nw">第二档<br>开课前完成</td>
+            <td>全套协议模板 · 五份分路径落地表 · 异业物料印刷 · 100 条选题库 · 分品类动线卡 · 现场物料 · 入门工具包采购</td>
+            <td>直接影响出课标准能否达成，也是招生页承诺的兑现项</td>
+          </tr>
+          <tr>
+            <td class="nm nw">第三档<br>可分期补</td>
+            <td>25 本渠道手册（先出所选路径最多的三本）· 高仿案例图库 · 诈骗套路图鉴 · AI 大脑数据喂养 · 学员见证素材</td>
+            <td>手册可以先出主流路径的，其余随第二期补；图库和案例本来就该持续积累</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">还有一件不在清单里但影响很大的事：<b>物料要留出版本号和更新日期。</b>违禁词、平台规则、行情、机构价格都在变。每份文件页脚标注版本和日期，学员才知道自己手上的是不是最新的，你推送更新时他也才会去换。</div>
+    </div>
+  </section>
+
+  <footer>
+    交付物料总清单 · 配套大纲 v4<br>
+    <b>待定项：</b>入门工具包的具体配置与采购成本 · 异业物料的印刷数量与单价 · 活页夹与口袋卡的印制方案 · 资料库承载平台的选择 · 手册更新的周期与责任人 · 结业证书上列出的达标项口径
+  </footer>
+
+</div>
+</body>
+</html>

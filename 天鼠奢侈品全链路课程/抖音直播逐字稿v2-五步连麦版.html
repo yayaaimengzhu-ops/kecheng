@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>抖音直播逐字稿 v2 · 五步连麦版</title>
+<style>
+:root{
+  --paper:#F1F2EC; --card:#FBFBF8;
+  --ink:#17231E; --ink2:#4A5951; --ink3:#78857C;
+  --line:#CBD0C6; --line2:#E0E3DA;
+  --brass:#8F6E30; --brass-soft:#EFE7D4;
+  --seal:#A5382A; --seal-soft:#F3E3DF;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+
+header.top{padding:58px 0 26px}
+.doc-title{font-family:var(--serif);font-size:34px;line-height:1.35;font-weight:600;margin:0 0 14px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 14px}
+.doc-sub b{color:var(--ink);font-weight:600}
+.doc-meta{display:flex;flex-wrap:wrap;gap:10px 22px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+
+.diag{border:1px solid var(--seal);background:#FCF8F7;padding:24px 26px;margin:30px 0 0}
+.diag h2{font-family:var(--serif);font-size:20px;font-weight:600;margin:0 0 12px;color:var(--seal)}
+.diag ol{margin:0;padding:0;counter-reset:d;list-style:none}
+.diag ol li{padding-left:28px;margin-bottom:12px;color:#6B2F25;counter-increment:d;position:relative}
+.diag ol li::before{
+  content:counter(d);position:absolute;left:0;top:.42em;
+  width:18px;height:18px;display:flex;align-items:center;justify-content:center;
+  background:var(--seal);color:#fff;font-family:var(--serif);font-size:11.5px;
+}
+.diag ol li b{color:var(--seal)}
+
+.claim{border:1px solid var(--ink);background:var(--card);padding:24px 26px;margin:26px 0 0}
+.claim .lb{font-family:var(--serif);font-size:12.5px;color:var(--brass);letter-spacing:.16em;display:block;margin-bottom:9px}
+.claim h2{font-family:var(--serif);font-size:20px;font-weight:600;margin:0 0 12px;line-height:1.55}
+.claim p{margin:0 0 11px;color:var(--ink2);max-width:44em}
+.claim p:last-child{margin-bottom:0}
+.claim b{color:var(--ink);font-weight:600}
+
+.map{border:1px solid var(--line);background:var(--card);padding:20px 22px;margin:24px 0 0}
+.mrow{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line2);font-size:14px}
+.mrow:last-child{border-bottom:none}
+.mrow .tm{flex:0 0 auto;width:74px;font-family:var(--serif);color:var(--brass);font-size:13.5px}
+.mrow .nm{flex:1;color:var(--ink)}
+.mrow .nm b{font-family:var(--serif);font-weight:600}
+.mrow .tag{flex:0 0 auto;font-size:12.5px;color:var(--ink3)}
+
+.sec{padding:50px 0 6px;border-top:1px solid var(--line);margin-top:42px}
+.sec:first-of-type{margin-top:36px}
+.sec-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:6px}
+.sec-n{
+  flex:0 0 auto;min-width:38px;height:34px;padding:0 8px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--ink);color:var(--card);font-family:var(--serif);font-size:14px;margin-top:5px;letter-spacing:.04em;
+}
+.sec-title{font-family:var(--serif);font-size:26px;font-weight:600;margin:0;letter-spacing:.03em}
+.sec-title span{color:var(--ink3);font-size:15px;font-weight:400;margin-left:12px;letter-spacing:0}
+.sec-goal{color:var(--ink2);margin:0 0 22px 54px;max-width:46em}
+.sec-goal b{color:var(--ink);font-weight:600}
+.sec-body{margin-left:54px}
+
+.line{margin:16px 0 0;padding-left:20px;border-left:2px solid var(--line2)}
+.line .lb{display:block;font-family:var(--serif);font-size:12.5px;color:var(--brass);letter-spacing:.1em;margin-bottom:6px}
+.line p{font-family:var(--serif);font-size:16.5px;line-height:1.92;color:var(--ink);margin:0 0 10px}
+.line p:last-child{margin-bottom:0}
+.line p.stage{font-family:var(--sans);font-size:13.5px;color:var(--ink3);margin:4px 0 10px}
+.line p.stage::before{content:"〔"}
+.line p.stage::after{content:"〕"}
+.line.key{border-left-color:var(--brass)}
+.line.wet{border-left-color:var(--seal)}
+.line.wet .lb{color:var(--seal)}
+.fill{background:var(--brass-soft);padding:0 4px;color:#5B4A22;font-weight:600}
+
+h3.grp{font-family:var(--serif);font-size:17px;font-weight:600;margin:30px 0 4px;padding-bottom:7px;border-bottom:1px solid var(--line2)}
+h3.grp span{font-family:var(--sans);font-size:12.5px;font-weight:400;color:var(--ink3);margin-left:10px}
+
+.steps{border:1px solid var(--line);background:var(--card);padding:18px 20px;margin-top:14px}
+.st{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line2)}
+.st:last-child{border-bottom:none}
+.st .n{flex:0 0 auto;width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:var(--brass);color:#FBFBF8;font-family:var(--serif);font-size:12px;margin-top:2px}
+.st .t{flex:1}
+.st .t b{display:block;color:var(--ink);font-family:var(--serif);font-size:16px;font-weight:600;margin-bottom:2px}
+.st .t p{margin:0;font-size:13.5px;color:var(--ink2);line-height:1.7}
+
+.note{background:var(--brass-soft);border-left:2px solid var(--brass);padding:13px 16px;margin:18px 0 0;font-size:14px;color:#5B4A22;line-height:1.75}
+.note b{color:#3E3216}
+.warn{background:#FCF8F7;border-left:2px solid var(--seal);padding:13px 16px;margin:18px 0 0;font-size:14px;color:#6B2F25;line-height:1.75}
+.warn b{color:var(--seal)}
+
+.tbl{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
+.tbl th,.tbl td{border:1px solid var(--line2);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--card);font-family:var(--serif);font-weight:600;color:var(--ink);font-size:14px}
+.tbl td{color:var(--ink2)}
+.tbl td.nm{color:var(--ink);font-weight:600;white-space:nowrap}
+
+ul.pl{margin:8px 0 0;padding:0;list-style:none}
+ul.pl li{position:relative;padding-left:16px;margin-bottom:6px;color:var(--ink2)}
+ul.pl li::before{content:"";position:absolute;left:1px;top:.85em;width:5px;height:1px;background:var(--line)}
+ul.pl li b{color:var(--ink);font-weight:600}
+
+footer{margin-top:54px;padding:24px 0 70px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
+footer b{color:var(--ink2);font-weight:500}
+
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .wrap{padding:0 18px}
+  header.top{padding:38px 0 22px}
+  .doc-title{font-size:25px}
+  .diag,.claim{padding:18px 20px}
+  .sec-title{font-size:21px}
+  .sec-title span{display:block;margin:4px 0 0;font-size:13.5px}
+  .sec-goal,.sec-body{margin-left:0}
+  .sec-n{min-width:32px;height:28px;font-size:13px}
+  .line{padding-left:14px}
+  .line p{font-size:15.5px}
+  .mrow{flex-wrap:wrap;gap:4px 12px}
+  .mrow .tm{width:auto}
+  .st{flex-direction:column;gap:4px}
+  .tbl,.tbl tbody,.tbl tr,.tbl td,.tbl th{display:block;width:100%}
+  .tbl thead{display:none}
+  .tbl tr{border:1px solid var(--line2);margin-bottom:12px}
+  .tbl td{border:none;border-bottom:1px solid var(--line2)}
+  .tbl td:last-child{border-bottom:none}
+  .tbl td.nm{background:var(--card);white-space:normal}
+}
+@media print{body{background:#fff;font-size:10.5pt}.sec{break-before:page;border-top:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <h1 class="doc-title">抖音直播逐字稿 v2<br>五步连麦版</h1>
+    <p class="doc-sub">按新的两份稿子重写。<b>主要改的是连麦，从五步变成七步（五步法 + 挖故事 + 共情上升）</b>，知识点循环也补了一段"湿"的。</p>
+    <p class="doc-sub"><span class="fill">高亮处</span>填你自己的真实数字和经历。</p>
+    <div class="doc-meta">
+      <div><b>平台</b> 抖音 · 不挂车 · 引流私域</div>
+      <div><b>核心改动</b> 连麦结构重写</div>
+      <div><b>来源</b> 五步连麦心法 + 现场演示</div>
+    </div>
+  </header>
+
+  <section class="diag">
+    <h2>v1 的五处病灶</h2>
+    <ol>
+      <li><b>太急。</b>第二步就开始判货。原稿的说法是——人家刚讲三句你就给解决方案，不了解就给药，那是庸医。</li>
+      <li><b>只有问题，没有故事。</b>纯解决问题，聊三天话题就聊干了、开始重复。观众真正想看的是<b>不同家庭遇到同一个问题</b>——做生意的、打工的、老人带的。只有结合不同场景，干货才有趣味。</li>
+      <li><b>全程是我在判，不是他在想。</b>人永远不希望别人说教自己，<b>人只相信自己找出来的答案</b>。尤其对"你说什么我都试过"的人，启发式是唯一解。</li>
+      <li><b>"提炼共性"只写了一句话。</b>那是顺口提一嘴，不是放大共性。真做法是<b>分类点名要互动</b>——一岁的扣一、两岁的扣二。</li>
+      <li><b>整套是"干"的。</b>没有共情、没有上升、没有感召——这正是"连麦转化反而低于口播"的根本原因。<b>你只是说清楚了，没有说动他。</b></li>
+    </ol>
+  </section>
+
+  <section class="claim">
+    <span class="lb">这一版的底层</span>
+    <h2>干货负责让人觉得你专业，<br>湿的部分负责让人下单。</h2>
+    <p>全国不缺专业的人。你讲专业，他永远能找到比你更专业的——<b>而且他在你这学完，会去别人直播间再学一遍。</b></p>
+    <p>买单是感性的。要让人<b>上头</b>，不是让人听完冷静下来、理性地觉得"嗯有点道理"——那种状态下他不会掏钱。</p>
+    <p>所以每次连麦、每个知识点结束，都要有<b>一波共情和上升</b>：把这件事抬到认知层和价值观层，再带一句自己的标杆案例。这就是"湿"的部分。</p>
+  </section>
+
+  <section class="map">
+    <div class="mrow"><div class="tm">0–4</div><div class="nm"><b>开场圈人</b></div><div class="tag">不变</div></div>
+    <div class="mrow"><div class="tm">4–20</div><div class="nm"><b>知识点循环 A</b> · 压货出不掉 <span style="color:var(--seal)">（末尾加共情上升）</span></div><div class="tag">改</div></div>
+    <div class="mrow"><div class="tm">20–50</div><div class="nm"><b>连麦 · 七步法</b> · 2–3 件</div><div class="tag">重写</div></div>
+    <div class="mrow"><div class="tm">50–54</div><div class="nm"><b>自我介绍</b> · 看流速插</div><div class="tag">不变</div></div>
+    <div class="mrow"><div class="tm">54–68</div><div class="nm"><b>知识点循环 B</b> · 不敢收 <span style="color:var(--seal)">（末尾加共情上升）</span></div><div class="tag">改</div></div>
+    <div class="mrow"><div class="tm">68–82</div><div class="nm"><b>连麦 · 七步法</b> · 1–2 件</div><div class="tag">重写</div></div>
+    <div class="mrow"><div class="tm">82–90</div><div class="nm"><b>收口</b></div><div class="tag">不变</div></div>
+  </section>
+
+  <!-- 七步 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">结构</div>
+      <h2 class="sec-title">连麦七步<span>五步法 + 挖故事 + 共情上升</span></h2>
+    </div>
+    <div class="sec-body">
+      <div class="steps">
+        <div class="st"><div class="n">0</div><div class="t"><b>挑麦 · 挑最痛的</b><p>先收集三五个问题，问直播间"哪个最想听"，挑最痛的那个。不痛的人你给了方案他也没感觉。<b>第一个连麦的问题会决定整场的走向。</b></p></div></div>
+        <div class="st"><div class="n">1</div><div class="t"><b>接情绪</b><p>他上来第一需求是寻求理解和支持，不是要方案。先说一句"这段时间不好受吧"，他才会把真话说出来。</p></div></div>
+        <div class="st"><div class="n">2</div><div class="t"><b>挖故事（看似闲篇）</b><p>怎么称呼、做多久了、全职还是兼职、哪个城市、谁在做决定、家里支不支持。<b>像老中医望闻问切</b>——看着无关，实际在摸他的资金、渠道、经验和支持系统。</p></div></div>
+        <div class="st"><div class="n">3</div><div class="t"><b>问题诊断 · 启发式</b><p>不要自己判。问"你自己觉得是什么原因"、"假设这不是你的货，你会怎么看"。<b>他自己说出来的，他才信。</b></p></div></div>
+        <div class="st"><div class="n">4</div><div class="t"><b>放大共性 · 分类点名</b><p>把个案扩成几类，每一类点名要互动。压一个月的扣 1、三个月的扣 2、半年以上的扣 3。<b>不扩，你就丢掉九成的人。</b></p></div></div>
+        <div class="st"><div class="n">5</div><div class="t"><b>共性讲解 + 共情上升</b><p>分类讲完之后，必须有一段"湿"的——抬到认知和价值观层，带一个自己的案例。<b>这一段决定他买不买。</b></p></div></div>
+        <div class="st"><div class="n">6</div><div class="t"><b>开方给药 · 回到这个人</b><p>"所以你这个情况，回去就做这一件事。"给具体动作，不给体系。</p></div></div>
+      </div>
+      <div class="warn"><b>少任何一步都会出问题：</b>不接情绪他不说真话 · 不挖故事就没有趣味性、话题三天聊干 · 不启发他会说"我都试过" · 不放大共性直播间流失九成 · <b>不上升就是白讲——专业他到处都能学</b> · 不回到个体他觉得你没解决他的事。</div>
+    </div>
+  </section>
+
+  <!-- 连麦范例一 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">范例一</div>
+      <h2 class="sec-title">压货出不掉<span>完整逐字稿 · 约 12 分钟</span></h2>
+    </div>
+    <div class="sec-body">
+
+      <div class="line">
+        <span class="lb">0 · 挑麦</span>
+        <p class="stage">评论区攒了几个问题</p>
+        <p>我看评论区有三个问题啊。一个是压着货出不掉的，一个是不敢收怕打眼的，还有一个是客户老说别家给得高的。</p>
+        <p>你们想先听哪个？想听哪个在评论区打给我，我挑最多的那个先讲。</p>
+        <p class="stage">停两秒，看弹幕</p>
+        <p>行，压货的最多。那位朋友你上麦吧。</p>
+      </div>
+
+      <div class="line key">
+        <span class="lb">1 · 接情绪（不要跳过）</span>
+        <p>来，你说你压了半年是吧。</p>
+        <p>……那这半年不好受吧。</p>
+        <p class="stage">等他说</p>
+        <p>我懂。最难受的不是这件货本身，是<b>后面来的单子你不敢接了</b>。人家拿东西来找你，你明明看着是好货，但你不敢收——因为你钱在柜子里。</p>
+        <p>是不是这样？</p>
+      </div>
+
+      <div class="note"><b>这一步是 v1 完全没有的，也是最不能省的。</b>他上来第一需求是被理解，不是要方案。你先说出他没说出口的那句难受，后面他才会跟你说真话。</div>
+
+      <div class="line key">
+        <span class="lb">2 · 挖故事（看着像闲聊，实际在望闻问切）</span>
+        <p>你怎么称呼？……<span class="fill">〔某某〕</span>哥是吧。</p>
+        <p>你做这行多久了？……<span class="fill">〔听〕</span></p>
+        <p>那你是全职在做，还是有别的生意？</p>
+        <p>哦你还开着店。那店是做什么的？</p>
+        <p>你在哪个城市？</p>
+        <p>你入行是自己摸索的，还是有人带你？</p>
+        <p>那家里人支不支持你做这个？……<span class="fill">〔听〕</span></p>
+        <p>你这个货是自己收的，还是同行手里拿的？</p>
+      </div>
+
+      <div class="note"><b>这八句看着在扯闲篇，其实每一句都有用：</b>做多久 → 经验层次；全职兼职 → 资金压力和退路；有没有店 → 有没有现成客流；自己摸索还是有人带 → 渠道有没有；家里支不支持 → 他还能撑多久；自己收还是同行拿 → 判断力还是渠道问题。<br><br>而且<b>故事本身就是内容</b>。"他还开着一家店，钱全压在包上了""家里人已经在劝他别做了"——<b>这些细节才是直播间会讨论的东西。</b>纯讲干货，你聊三天话题就聊干了。</div>
+
+      <div class="line key">
+        <span class="lb">3 · 问题诊断 · 启发式（关键：让他自己说）</span>
+        <p>行，我大概知道你的情况了。</p>
+        <p>那我先不说我的看法。<b>我想听听你自己怎么想的</b>——你觉得这件货为什么半年出不掉？</p>
+        <p class="stage">他大概率会说"行情不好"</p>
+        <p>行情不好。那我问你啊，同样这个款，这半年里有没有人出掉过？</p>
+        <p class="stage">他会说有</p>
+        <p>那就不全是行情的事，对吧。</p>
+        <p>我换个问法。<b>假设这件货不是你的，是我拿来问你的</b>，你是那个有经验的人，你会怎么判断它为什么卡住了？</p>
+      </div>
+
+      <div class="warn"><b>这一步是 v1 最大的缺口。</b>原稿是我直接给结论，现在是让他自己找。原因很硬——<b>人永远不希望别人说教自己，人只相信自己找出来的答案。</b>尤其压了半年的人，他大概率已经试过一堆办法，你直接给方案他第一反应是"这个我试过"。<br><br>"假设这不是你的货"这个问法特别好用，<b>一下把他从当事人切换成旁观者</b>，他就能说出平时说不出来的话。</div>
+
+      <div class="line key">
+        <span class="lb">4 · 放大共性 · 分类点名（不做这步就丢九成人）</span>
+        <p>好，先别急，我们把这个问题拉大一点讲。</p>
+        <p>因为我知道直播间不止他一个人压着货。<b>来，压着货的朋友都报一下</b>——</p>
+        <p>压<b>一个月以内</b>的，扣 1。</p>
+        <p>压<b>一到三个月</b>的，扣 2。</p>
+        <p>压<b>三个月以上</b>的，扣 3。</p>
+        <p>压<b>半年以上</b>的，扣 4。</p>
+        <p class="stage">看弹幕，念出来</p>
+        <p>哎哟，我看到好几个 3 和 4。<span class="fill">〔念一两个具体的：某某说压了八个月〕</span></p>
+        <p>那再报一个——你压的是<b>包</b>的打"包"，压<b>表</b>的打"表"，压<b>金</b>的打"金"。</p>
+        <p>还有，这些货是<b>你自己收的</b>扣 A，<b>从同行手里拿的</b>扣 B。</p>
+      </div>
+
+      <div class="note"><b>这一步是转化率的分水岭。</b>如果你只讲这一个人的包，直播间里做表的、做金的、压三个月的，全都觉得"跟我没关系"，当场划走——<b>你一个连麦丢掉九成人，连三个就没人了。</b><br><br>分类点名之后，每个人都对上了号，而且<b>每报一次就是一次弹幕互动</b>，节奏直接起来。</div>
+
+      <div class="line key">
+        <span class="lb">5-A · 共性讲解 · 分类给判断</span>
+        <p>行，我按几种情况分开讲。</p>
+        <p><b>压一个月以内的</b>——这不叫压货，这叫正常周转，别慌。这行没有秒出的东西。</p>
+        <p><b>压一到三个月的</b>——你的问题在定价，不在渠道。你手上是有出口的，只是你不甘心少赚那两千。</p>
+        <p><b>压三个月以上的</b>——你的问题在渠道。<b>你根本没有稳定的出口</b>，你收的时候就是赌一个"应该能卖掉"。</p>
+        <p><b>压半年以上的</b>——我说句实话可能不好听：<b>问题不在出货，在收货那一刻。</b>你收之前就没想过它从哪出去。</p>
+        <p>然后你们再看自己报的品类。压包的多半是款式选错了，你收的是你自己喜欢的，不是市场好出的。压表的多半是配件不全。压金的基本不该压——金子是这行最好出的东西，你压着金，说明你连最简单的渠道都没搭。</p>
+      </div>
+
+      <div class="line wet">
+        <span class="lb">5-B · 共情上升（"湿"的部分 · 决定他买不买）</span>
+        <p>我想跟直播间所有压着货的朋友说几句。</p>
+        <p>这行做不下去的人，九成不是因为看走眼。看走眼顶多亏一单，<b>真正压垮人的是柜子里那些拿不出来的钱。</b></p>
+        <p>你账面上没亏。你甚至还能跟家里人说这个月还行。但你自己知道——你不敢收新货了，好东西送到你面前你只能让它走。<b>你不是生意没了，你是被自己套住了。</b></p>
+        <p>我见过太多人是这么慢慢停掉的。不是某一天决定不做了，是货越压越多、胆子越来越小，最后自己就不动了。</p>
+        <p><span class="fill">〔你自己的经历：哪一年、压了什么、多久、当时什么状态、怎么出来的〕</span></p>
+        <p>所以我一直跟人说一句话：<b>这行不是比谁眼力好，是比谁的钱转得快。</b>周转决定生死，眼力只决定你亏多少。</p>
+        <p>你收一件货之前，如果答不出它从哪出、几天出、到手多少——<b>那不叫做生意，那叫赌。</b>赌赢几次没用，输一次就动不了了。</p>
+      </div>
+
+      <div class="warn"><b>这一段是整个连麦最值钱的部分，也是 v1 完全没有的。</b>前面全是"干"——分类、判断、方法，这些别人也能讲。<b>只有这一段是在说动人，不是说清楚人。</b><br><br>注意它的结构：<b>点出真正的代价（不是亏钱是停摆）→ 说出他没说出口的处境 → 带自己的经历 → 抬到一句价值观（周转决定生死）。</b>每次连麦、每个知识点结束，都要有这么一段。</div>
+
+      <div class="line">
+        <span class="lb">6 · 开方给药 · 回到这个人</span>
+        <p>好，<span class="fill">〔某某〕</span>哥，回到你这件货。</p>
+        <p>你现在别想着回本了，回本这个念头就是把你锁住的东西。<b>你现在的任务不是赚这一单的钱，是把这笔钱拿回来。</b></p>
+        <p>你今天回去做一件事就够了：<b>给这件货定一个出货截止日</b>，比如十五天。十五天之内，按你能接受的最低价挂出去，同行、平台、朋友圈同时走。十五天到了还没出，你就再降一档，直接走同行。</p>
+        <p>亏不亏？亏。但你这笔钱一回来，你后面能收三单。<b>你算的不是这一单的账，是这笔钱一年能转几次的账。</b></p>
+        <p>你做得到吗？</p>
+        <p class="stage">等他回答，这一句是让他承诺</p>
+      </div>
+
+      <div class="line">
+        <span class="lb">收口 · 钩子</span>
+        <p>刚才讲的分渠道那个事儿，我做了一张表——什么货走哪个渠道、大概几天能出、扣完到手多少。</p>
+        <p>直播间压着货的朋友，评论区扣"<b>渠道</b>"两个字，我发给你。</p>
+        <p>下一位。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 范例二 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">范例二</div>
+      <h2 class="sec-title">看货连麦<span>七步法的压缩版 · 约 8 分钟</span></h2>
+    </div>
+    <p class="sec-goal">看货连麦节奏更快，但<b>七步一步都不能少</b>，只是每步更短。最容易被省掉的还是挖故事和共情上升——那正好是最不该省的两步。</p>
+    <div class="sec-body">
+
+      <div class="line">
+        <span class="lb">1 · 接情绪 + 立规矩</span>
+        <p>来，你图发过来了，我先看一眼。</p>
+        <p>你先别告诉我多少钱收的，也别说哪来的。<b>我先看，看完再听你说</b>——你一说价，我的判断就不干净了。</p>
+      </div>
+
+      <div class="line key">
+        <span class="lb">2 · 挖故事（三四句就够）</span>
+        <p>你做这行多久了？</p>
+        <p>这件是自己收的还是同行拿的？</p>
+        <p>收的时候你心里有底吗，还是有点犹豫？</p>
+        <p>你平时主要做包还是也做表和金？</p>
+      </div>
+
+      <div class="line key">
+        <span class="lb">3 · 启发式诊断（先让他判）</span>
+        <p>我先不说我的看法。<b>你自己看这件，你觉得哪几处最让你不放心？</b></p>
+        <p class="stage">让他说，说完了你再接</p>
+        <p>行，你说的这两处我也在看。那我再问你一句——<b>你平时看这类货，是按一个固定顺序看，还是哪儿顺眼看哪儿？</b></p>
+      </div>
+
+      <div class="note">这一问特别狠。<b>多数人是"哪儿顺眼看哪儿"，而这正是他判不准的根本原因</b>——没有动线。他自己说出"我是随便看的"，你后面给动线卡就顺理成章，而且他会真的用。</div>
+
+      <div class="line">
+        <span class="lb">4 · 放大共性</span>
+        <p>直播间有多少人是<b>看货没有固定顺序</b>的？扣 1。</p>
+        <p>有<b>自己一套流程</b>的，扣 2。</p>
+        <p class="stage">看弹幕，念出来</p>
+        <p>1 比 2 多多了是吧。这不怪你们，这行没人教这个，大家都是看多了凭感觉。</p>
+        <p>再报一个：你们主要做<b>包</b>的打包，<b>表</b>的打表，<b>金和钻</b>的打金——我按品类分开讲。</p>
+      </div>
+
+      <div class="line key">
+        <span class="lb">5-A · 共性讲解</span>
+        <p><span class="fill">〔按你的真实动线，分品类各讲三处，边讲边在实物上指〕</span></p>
+        <p>你们注意啊，我不是让你们记住这几个点。<b>我是让你们记住"按顺序看"这件事本身。</b></p>
+        <p>顺序比知识点重要。因为知识点你会忘，顺序一旦形成习惯，你就不会漏。</p>
+      </div>
+
+      <div class="line wet">
+        <span class="lb">5-B · 共情上升</span>
+        <p>我跟你们说个实在的。</p>
+        <p>这行最怕的不是看走眼，是<b>不敢下判断</b>。</p>
+        <p>客户东西拿来了，你看了半天，心里其实七八分有数，但你就是不敢开口。最后你说一句"这个我不太确定，你再问问别家吧"。人家转身就走了，走了就再也没回来。</p>
+        <p>那一单你没亏钱，对吧？<b>但你亏的是你自己的胆子。</b>这种事发生三次五次，你就不敢收了；不敢收，你就没生意；没生意，你就更不敢。</p>
+        <p><span class="fill">〔你自己第一次不敢下判断的经历〕</span></p>
+        <p>所以我一直说：<b>这行真正的门槛不是看得准，是知道自己什么时候看得准、什么时候看不准。</b>看得准的你敢收，看不准的你知道该找谁——这两件事都做到，你就活下来了。</p>
+      </div>
+
+      <div class="line">
+        <span class="lb">6 · 开方 + 免责</span>
+        <p>回到你这件。我倾向于是<span class="fill">〔真 / 有问题 / 图不够判不了〕</span>，依据就是刚才说的那几处。</p>
+        <p>但我把话说前头：<b>我这是看图，看图能判到什么程度就判到什么程度。真要交易还是得上手，或者走机构。我今天给的是参考意见，不是鉴定结论。</b></p>
+        <p>你回去就做一件事：<b>把你主做的那个品类，固定下来先看哪三处。</b>写在纸上贴在桌子上，下次看货照着走一遍。就这一件事，你做一个月，感觉完全不一样。</p>
+      </div>
+
+      <div class="line">
+        <span class="lb">收口</span>
+        <p>分品类的动线卡我整理好了，扣"<b>动线</b>"两个字我发你。下一位。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 知识点循环改法 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">改动</div>
+      <h2 class="sec-title">知识点循环也要加"湿"<span>结构从四段变五段</span></h2>
+    </div>
+    <div class="sec-body">
+      <table class="tbl">
+        <thead><tr><th></th><th>v1</th><th>v2</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">结构</td><td>你有病 → 找病因 → 我有药 → 三不吃</td><td>你有病 → 找病因 → <b>放大共性</b> → 我有药 → 三不吃 → <b>共情上升</b></td></tr>
+          <tr><td class="nm">缺什么</td><td>全程是干货，讲完观众很理性</td><td>末尾一段"湿"的，把人带上头</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="grp">加在哪、怎么加</h3>
+      <ul class="pl">
+        <li><b>放大共性插在"找病因"之后</b>：讲完病因，先分类点名一轮，让各种情况的人都对上号，再给方法</li>
+        <li><b>共情上升放在最后</b>，紧接着才是钩子。顺序是：<b>方法 → 异议 → 上升 → 钩子</b></li>
+        <li>上升段的固定结构：<b>点出真正的代价 → 说出他没说出口的处境 → 带自己的一段经历 → 抬到一句价值观</b></li>
+      </ul>
+
+      <h3 class="grp">三条上升段，可以直接用</h3>
+      <div class="line wet">
+        <span class="lb">压货主题</span>
+        <p>这行不是比谁眼力好，是比谁的钱转得快。周转决定生死，眼力只决定你亏多少。</p>
+      </div>
+      <div class="line wet">
+        <span class="lb">不敢收主题</span>
+        <p>真正的门槛不是看得准，是知道自己什么时候看得准、什么时候看不准。</p>
+      </div>
+      <div class="line wet">
+        <span class="lb">获客主题</span>
+        <p>你缺的从来不是客户，是让客户想起你的那个理由。这行的生意不是你找来的，是人家想到你。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 表达 -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-n">表达</div>
+      <h2 class="sec-title">三个表达细节<span>稿子里专门点过的</span></h2>
+    </div>
+    <div class="sec-body">
+      <ul class="pl">
+        <li><b>别说"然后然后"。</b>新手爱说这个，根子是心急——怕观众跑。心态一不急，这个毛病自己就没了。</li>
+        <li><b>没想好下一句就停住。</b>刻意停顿会让表达有呼吸感。说完一句，空一下，想清楚了再说下一句——<b>比硬接一个"然后"好得多。</b></li>
+        <li><b>每一句都在卖。</b>但卖的不是商品：转粉在卖、连麦在卖、互动也在卖，<b>最后才轮到卖东西。</b>所以连麦全程要自然地穿插"没关注的点个关注""扣个 1 我看看"，这些不是打断，这些就是内容的一部分。</li>
+      </ul>
+      <div class="note"><b>还有一条关于挖故事的心理障碍：</b>很多人不敢问对方的收入、家庭、店面情况，觉得是打探隐私。稿子里的说法是——<b>医生问诊的时候在乎你的隐私吗？他的目的是治病。</b>你内心是公正的、是为了给出准确判断，对方就不会觉得被冒犯。<b>而且你不问，你给出的方案就是瞎给。</b></div>
+    </div>
+  </section>
+
+  <footer>
+    抖音直播逐字稿 v2 · 五步连麦版 · 结构来自五步连麦心法与现场演示两份稿子<br>
+    <b>待你填：</b>自我介绍的数字 · 判定动线的三处 · 两段自己的真实经历（压货 / 第一次不敢下判断）· 留资关键词定版
+  </footer>
+
+</div>
+</body>
+</html>
