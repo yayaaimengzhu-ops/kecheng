@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>专家与学员双视角评估</title>
+<style>
+:root{
+  --paper:#F1F2EC;--paper-glass:rgba(241,242,236,.94);--card:#FBFBF8;--hover:#F4F5EE;
+  --ink:#17231E;--ink2:#4A5951;--ink3:#626F66;--line:#CBD0C6;--line2:#E0E3DA;
+  --brass:#8F6E30;--brass-soft:#EFE7D4;--brass-wash:#F7F3E9;--note-ink:#5B4A22;
+  --seal:#A5382A;--seal-soft:#F0DAD4;--seal-wash:#FBF5F3;--on-accent:#FBFBF8;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+    --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+    --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+    --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+  --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+  --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+  --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+a{color:var(--brass);text-underline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header.top{padding:56px 0 30px}
+.doc-title{font-family:var(--serif);font-size:35px;line-height:1.35;font-weight:600;margin:0 0 12px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 12px}
+.claim{border:1px solid var(--ink);padding:20px 24px;margin:24px 0 20px;max-width:42em;background:var(--card)}
+.claim .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.16em;display:block;margin-bottom:6px}
+.claim p{font-family:var(--serif);font-size:21px;line-height:1.6;margin:0;font-weight:600}
+.claim small{display:block;margin-top:10px;font-size:14px;color:var(--ink2);line-height:1.8}
+.doc-meta{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--paper-glass);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px 18px;overflow-x:auto;white-space:nowrap;padding-top:9px;padding-bottom:9px;font-size:13.5px}
+nav.toc a{color:var(--ink2);text-decoration:none}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--brass)}
+section.sec{padding:44px 0 6px}
+.sec-n{font-family:var(--serif);color:var(--brass);font-size:13px;letter-spacing:.16em}
+h2{font-family:var(--serif);font-size:26px;font-weight:600;margin:2px 0 8px;line-height:1.4}
+h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:28px 0 8px}
+.lead{color:var(--ink2);max-width:46em;margin:0 0 12px}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:1.3em}
+li{margin:3px 0}
+.tbl{overflow-x:auto;margin:12px 0 18px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.7}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line2)}
+th{font-family:var(--serif);font-weight:600;color:var(--ink2);background:var(--brass-wash);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.t{white-space:nowrap;color:var(--ink3);font-variant-numeric:tabular-nums}
+td.k{white-space:nowrap;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);padding:16px 18px}
+.card h4{font-family:var(--serif);font-size:17px;margin:0 0 6px;font-weight:600}
+.card .who{display:inline-block;font-family:var(--serif);font-size:12.5px;padding:0 8px;background:var(--ink);color:var(--card);margin-bottom:8px}
+.card p,.card li{font-size:14px;color:var(--ink2)}
+.card .one{color:var(--ink);font-weight:600;border-top:1px solid var(--line2);padding-top:8px;margin-top:10px}
+.rail{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);background:var(--card);margin:14px 0}
+.stop{padding:16px 14px;border-right:1px solid var(--line2);text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.stop:last-child{border-right:none}
+.stop:hover,.stop:focus-visible{background:var(--hover)}
+.stop .n{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:22px;padding:0 6px;background:var(--brass);color:var(--on-accent);font-size:12.5px;font-family:var(--serif);margin-bottom:8px;align-self:flex-start}
+.stop.core .n{background:var(--ink);color:var(--card)}
+.stop b{font-family:var(--serif);font-size:17px;font-weight:600;display:block;margin-bottom:6px}
+.stop span{font-size:12.5px;line-height:1.6;color:var(--ink3)}
+.stop i{font-style:normal;margin-top:auto;padding-top:10px;font-size:12.5px;color:var(--ink)}
+.day{border-top:2px solid var(--ink);margin-top:46px;padding-top:18px}
+.day-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.day-h .d{font-family:var(--serif);font-size:15px;padding:1px 10px;background:var(--ink);color:var(--card)}
+.day-h h2{margin:0}
+.goal{font-size:16px;color:var(--ink);margin:10px 0 6px;max-width:44em}
+.tool{border:1px solid var(--line);background:var(--card);padding:14px 18px 10px;margin:16px 0}
+.tool .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.12em;display:block;margin-bottom:4px}
+.tool .tbl{margin:8px -18px 6px;border-left:none;border-right:none}
+.note{background:var(--brass-wash);border-left:3px solid var(--brass);padding:11px 16px;color:var(--note-ink);margin:14px 0;font-size:14.5px}
+.warn{background:var(--seal-wash);border-left:3px solid var(--seal);padding:11px 16px;margin:14px 0;font-size:14.5px}
+.warn b.lb{color:var(--seal);font-family:var(--serif)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.three div{background:var(--card);border:1px solid var(--line2);padding:10px 14px;font-size:14px;color:var(--ink2)}
+.three div b{display:block;font-family:var(--serif);color:var(--ink);font-size:14px}
+.redline{background:var(--card);border:1px solid var(--seal-soft);padding:12px 18px;margin:14px 0}
+.redline b.lb{font-family:var(--serif);color:var(--seal);letter-spacing:.1em;font-size:13px;display:block}
+.redline ol{margin:4px 0 2px}
+.hand{border:1px solid var(--ink);background:var(--card);padding:12px 18px;margin:14px 0}
+.hand b.lb{font-family:var(--serif);color:var(--brass);letter-spacing:.12em;font-size:13px;display:block}
+.skip{color:var(--ink3);font-size:14px}
+.bad{color:var(--seal)}
+footer{padding:46px 0 70px;color:var(--ink3);font-size:13px;border-top:1px solid var(--line);margin-top:50px}
+@media (max-width:760px){
+  .doc-title{font-size:27px}
+  .cards,.three{grid-template-columns:1fr}
+  .rail{grid-template-columns:1fr}
+  .stop{border-right:none;border-bottom:1px solid var(--line2)}
+  .stop:last-child{border-bottom:none}
+  h2{font-size:22px}
+}
+@media print{nav.toc{display:none}.day{break-before:page}}
+</style>
+<style>
+.lv{display:inline-block;font-size:12px;line-height:1.6;padding:0 7px;border:1px solid;white-space:nowrap}
+.lv.a{color:var(--on-accent);background:var(--seal);border-color:var(--seal)}
+.lv.b{color:var(--brass);border-color:var(--brass)}
+.lv.c{color:var(--ink3);border-color:var(--line)}
+.fd{border:1px solid var(--line);background:var(--card);margin:14px 0;padding:12px 16px}
+.fd-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.fd-h .id{font-family:var(--serif);color:var(--brass);font-size:13px;letter-spacing:.06em}
+.fd-h b{font-family:var(--serif);font-size:17px;font-weight:600}
+.fd dl{display:grid;grid-template-columns:76px 1fr;gap:4px 12px;margin:10px 0 0;font-size:14.5px}
+.fd dt{color:var(--ink3);font-size:13px;padding-top:2px}
+.fd dd{margin:0}
+.fd dd ul{margin:0;padding-left:1.2em}
+.stu{border-left:3px solid var(--brass)}
+.stu .q{font-family:var(--serif);font-size:15.5px;margin:8px 0 0;color:var(--ink)}
+.stu .q::before{content:"学员：";color:var(--brass);font-size:13px}
+td.n{white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.fd dl{grid-template-columns:1fr;gap:0}.fd dt{margin-top:6px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1 class="doc-title">专家与学员双视角评估</h1>
+  <p class="doc-sub">一位课程设计专家、一位零基础学员，分别把当前版本的课程从头读一遍。不客套，只说问题和改法。</p>
+  <div class="claim">
+    <span class="lb">一句话结论</span>
+    <p>这门课能讲，但还不能保证学员学完会做：短视频和私域写得细，鉴定和估价两门硬功夫只有骨架；几个关键词一词多义、没有定义，零基础的人第一天就会掉队。</p>
+    <small>专家建议 10 条，学员反馈 14 条。分级：<span class="lv a">先改</span> 会让学员学不会，或让评估的人一眼挑出硬伤；<span class="lv b">要改</span> 影响效果；<span class="lv c">可改</span> 锦上添花。</small>
+  </div>
+  <div class="doc-meta">
+    <span><b>评估对象</b> <a href="课程大纲v8-九大板块.html">课程大纲 v8</a> · <a href="教案大纲v8.html">教案大纲</a> · <a href="学员手册.html">学员手册初稿</a>（处理完复核意见之后的版本）</span>
+    <span><b>学员视角</b> 按"做过别的生意、没碰过二奢"的人来读，这是三类人里基础最弱的</span>
+    <span><b>状态</b> 只提意见，课程文件没有改动</span>
+  </div>
+</div></header>
+
+<nav class="toc" aria-label="目录"><div class="wrap">
+  <a href="#ex">一 专家建议</a><a href="#st">二 学员反馈</a><a href="#todo">三 修改清单</a>
+</div></nav>
+
+<main class="wrap">
+
+<section class="sec" id="ex">
+  <div class="sec-n">第一部分</div>
+  <h2>专家建议：课程设计维度</h2>
+  <p class="lead">看四件事：逻辑结构严不严谨、教学目标明不明确、知识体系完不完整、内容深度够不够专业。和上一轮复核报告重复的问题不再展开，只写新发现的，和改了以后还没解决的。</p>
+
+  <div class="fd"><div class="fd-h"><span class="id">E1</span><span class="lv a">先改</span><b>知识体系失衡：软技能写得细，硬技能只有骨架</b></div><dl>
+    <dt>问题</dt><dd>学员手册里，短视频一件约 2000 字、私域约 1300 字，都写得很完整；鉴定一件约 800 字，里面有 7 处【讲师补】，最核心的"分品类动线卡"整张是空的；估价的折算参考 4 处全是【讲师补】。教案里鉴定那一块，讲的基本是"判不准怎么办"的思路，看货本身怎么看，只有"五个维度"一句话。</dd>
+    <dt>后果</dt><dd>这门课 4980 元，学员最想学、最怕学不会的，正是"真假怎么看、价格怎么估"。评估的专家只要翻到这两件，就会判定"核心内容缺失"。</dd>
+    <dt>改法</dt><dd>评估之前，由鉴定讲师补齐：①本期主打的 1–2 个品类各一张动线卡（按顺序看什么、每一步看哪里、常见破绽配图）；②估价折算表，给出区间就行（比如缺盒子大约扣几成）；③每个品类一个从看货到报价的完整例子。宁可只做透一个品类，也不要每个品类都空着。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">E2</span><span class="lv a">先改</span><b>缺"品类入门"：零基础的人连哪些款好出都不知道</b></div><dl>
+    <dt>问题</dt><dd>全课没有一处讲品牌分几档、主打品类里哪些是热门款、二手价大致是新品价的几成。v5 有"课前资料包：品牌基础资料与款式图册"，v8 把它丢了。</dd>
+    <dt>后果</dt><dd>做过别的生意的人，听得懂"好出的货让一点去抢"，可他不知道哪只算好出。估价、盲报、选品类，都建立在这个常识上。</dd>
+    <dt>改法</dt><dd>加一份课前预习包（手册第 0 件）：主打品类的品牌分档、热门款 20 个（配图）、二手价大致是新品价的几成。开营后用 20 分钟过一遍，D5 盲报就用这 20 个款。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">E3</span><span class="lv a">先改</span><b>第一天就要选"主路"和"人设"，可选项要到第二、三天才讲</b></div><dl>
+    <dt>问题</dt><dd>板块一要学员写"我主要靠【主路】找客户"、在三个人设里选一个。可有哪些找客户的路（短视频、老客户、门店、异业、转介绍），要到 D2、D3 才讲；人设怎么立，D2 才讲。全课"主路"一词出现 6 次，没有一次列出可选项。</dd>
+    <dt>后果</dt><dd>学员第一天只能瞎填，结营再"校准"等于重填。这是逻辑顺序问题，评估的专家会抓。</dd>
+    <dt>改法</dt><dd>板块一 第 3 节加一张"四条找客户的路"一页图：短视频 · 老客户和熟人 · 门店和异业 · 转介绍，每条写适合谁、要什么牌、多久见效。人设加一句建议：刚入行的人别选"鉴定师"，选"回收老板"或"上门服务"，和第三块"不能编人设"对上。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">E4</span><span class="lv a">先改</span><b>九块各练各的，没有一次把整单串起来，也没有毕业标准</b></div><dl>
+    <dt>问题</dt><dd>课程主线是"一单生意怎么做成"，可每块的练习都只练自己那一段：问诊练问诊，盲测练盲测，填单练填单。没有一个环节让学员从头到尾走完一单。全课也没写"学完五天，你能做到什么"。</dd>
+    <dt>后果</dt><dd>学员学的是零件，回去第一次真碰到客户，不知道下一步接哪一步。评估时也没有一个总的标准，判断"这门课交付到位了没有"。</dd>
+    <dt>改法</dt><dd>①写一句毕业标准："能按流程，独立做完一单熟悉品类、单笔上限以内的回收"。②D5 加 60–90 分钟"一单全流程演练"：搭档扮卖家，学员从私信接起，走问诊要图 → 判真假（或找兜底）→ 线上报区间 → 见面给准确价 → 收货流程 → 选出货渠道 → 填复盘表，搭档按清单打分，作为毕业考核。时间从盲报挪到 D4、结营压缩里出（见 E9）。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">E5</span><span class="lv a">先改</span><b>兜底只管真假，不管价格</b></div><dl>
+    <dt>问题</dt><dd>课程现在要学员"先做回收"，而且"线下见了实物给准确的价"。可兜底三条路写的都是"判不准真假找谁"。一个新手学完五天、盲报过 20 件，价格同样会拿不准，这时候找谁，没有写。</dd>
+    <dt>后果</dt><dd>报错一次价，要么亏钱，要么失信，正好撞上课上讲的坑。</dd>
+    <dt>改法</dt><dd>兜底的范围写明"真假和价格都可以找"；第一单回收的规矩加一条："价格拿不准，先给区间、约第二次，或者找兜底帮看价"。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">E6</span><span class="lv b">要改</span><b>"先做回收"和"压货是最大死因"之间缺一句话</b></div><dl>
+    <dt>问题</dt><dd>板块一用整整一节讲"这行死人的是压货"；板块二紧接着说"我们建议先做回收"，可回收正是会压货的那种做法。中间的道理（小额、先想好出口）散在规矩里，没有正面回答。同样，"不会鉴定也能做"和"先做回收"之间，靠的是兜底，可兜底找谁要到 D4 才讲。</dd>
+    <dt>改法</dt><dd>板块二"为什么先做回收"开头加一句："回收会压货，所以我们只做小额、只收想好了卖给谁的货。你怕的不该是回收，是没想清楚就收。"再加一句："判不准真假和价格，来找我们兜底，不收费，第四天细讲。"让学员第一天就放心。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">E7</span><span class="lv b">要改</span><b>单块内容超载，违背"一节讲三件事"</b></div><dl>
+    <dt>问题</dt><dd>板块三一个上午 28 个必讲点，加 14 个坑；板块四 24 个必讲点，加 21 个坑。合并重复以后还是太多。陈静课的做法是一节课把方法压成"三件事"。</dd>
+    <dt>后果</dt><dd>学员记不住，下午实操时什么都想用，什么都用不好；讲师也赶时间。</dd>
+    <dt>改法</dt><dd>每节标出"今天只要你记住的三件事"。板块三课上只练人群、选题、开头，外加一种拍法（口播）；六种呈现形式、vlog 六步、抖加、违规自查都进手册和短视频密训。板块四只练合规加微信、破冰、问诊三件事，朋友圈和分级进手册。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">E8</span><span class="lv b">要改</span><b>目标写了，但多数没法打分，考核没闭环</b></div><dl>
+    <dt>问题</dt><dd>每块的"学完能做到"多用"说清""说出"，检验多是"主讲当场改"，没有合格线。课前和结营也没有前后对比的测试。</dd>
+    <dt>改法</dt><dd>每块定一个能打分的检验：定位一句话按三条标准过；盲测第三轮 20 个场景答对几个算过（讲师定）；盲报误差在多少以内算过（讲师定）；收货流程按 10 项清单全对。课前和结营各做一次同样的 10 题自测，这也是你接下来学员调研最好用的数据。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">E9</span><span class="lv b">要改</span><b>五天的时间还没调</b></div><dl>
+    <dt>问题</dt><dd>复核报告里"开课前要补"的时间问题还在：D5 390 分钟，最满，还没排休息；D4 只有 300 分钟。加上 E4 的全流程演练，D5 会更挤。</dd>
+    <dt>改法</dt><dd>盲报挪到 D4 盲测之后（先判真假再报价，正好衔接）；结营从 90 分钟压到 60 分钟；腾出来的时间放全流程演练。每 90 分钟排 10 分钟休息。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">E10</span><span class="lv c">可改</span><b>硬技能板块的"怎么做"可以再多一点</b></div><dl>
+    <dt>问题</dt><dd>全课讲课按 5:3:2 设计，加上约 610 分钟的实操，动手时间占三分之一，整体是合适的。但鉴定和估价两块，学员要的是"会做"，不是"被说服"。</dd>
+    <dt>改法</dt><dd>这两块的"怎么做"提到三成左右，少讲一两个"为什么"，多一个现场示范。是否需要调，用学员调研里"学完会不会做"那道题来验证。</dd>
+  </dl></div>
+</section>
+
+<section class="sec" id="st">
+  <div class="sec-n">第二部分</div>
+  <h2>学员反馈：学习体验维度</h2>
+  <p class="lead">以下是一个做过别的生意、没碰过二奢的学员，跟着课从第一天听到第五天，会卡住的地方。每条写清：哪里听不懂，为什么听不懂，希望怎么讲。</p>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S1</span><span class="lv a">先改</span><b>"开口服务"和"开口"，是两件事吗？</b></div>
+    <p class="q">第一天讲"开口服务"，我以为是"教我怎么开口说话"；第三天又说"老客户第二周再开口"，我才反应过来，前面那个是"免费送的服务"，后面这个是"第一次去联系人"。</p>
+    <dl><dt>为什么不懂</dt><dd>同一个词，两种意思，前后隔了两天，中间没有任何提示。</dd>
+    <dt>希望</dt><dd>"开口服务"改名，比如"免费体检"或者"见面礼"；"开口"改成"第一次联系"。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S2</span><span class="lv a">先改</span><b>"兜底"到底是谁兜、兜什么、要不要钱？</b></div>
+    <p class="q">我听到"兜底"，第一反应是"出了事有人赔我"。后来又听到"找我们兜底不收费"，可另一处又说"找上游兜底要让出一部分利润"。那到底收不收钱？看走眼了，兜底的人赔不赔？</p>
+    <dl><dt>为什么不懂</dt><dd>这个词全课出现四十多次，一直没有一个清楚的定义；"免费"和"让利"两种说法同时存在。</dd>
+    <dt>希望</dt><dd>第一次出现就讲清楚：兜底是你判不准真假（或价格）的时候，帮你下判断、必要时把货接过去的人。我们帮你看，免费；上游把货接过去，你要让一点利；同行帮你看，要欠人情。兜底不等于替你赔钱。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S3</span><span class="lv a">先改</span><b>"上游"怎么是收我货的人？</b></div>
+    <p class="q">我做生意的时候，"上游"是给我供货的。这里的"上游"是我把货卖给他、请他帮我看货的大商家，方向正好反了，我听了半天才对上。</p>
+    <dl><dt>希望</dt><dd>第一次出现时加一句："这一行说的上游，是比你大的回收商和批发商：你收来的货卖给他，你判不准的货请他看。"</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S4</span><span class="lv a">先改</span><b>第一天就让我写"主路"和"人设"，可我还不知道有哪些路</b></div>
+    <p class="q">"我主要靠【主路】找客户"，主路有哪几条？没人告诉我。人设三选一里有"鉴定师"，我刚学，能选吗？第三天又说不能编人设。</p>
+    <dl><dt>希望</dt><dd>见专家建议 E3：先给一页"四条路"让我选，再告诉我刚入行别选"鉴定师"。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S5</span><span class="lv a">先改</span><b>"压货最危险"，又让我"先做回收"；我不会鉴定，第一单真假谁判？</b></div>
+    <p class="q">第一天上午听完"压货会要命"，下午就说"先做回收"，我心里打鼓。而且我不会看真假，第一单谁帮我看，要等到第四天才讲，前三天一直慌。</p>
+    <dl><dt>希望</dt><dd>见专家建议 E6：第一天就把这两句讲在一起。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S6</span><span class="lv b">要改</span><b>抖音的术语，我一个都没听过</b></div>
+    <p class="q">报白、蓝 V、留资组件、合集、限流、判引流、起号、抖加……讲师说得很快，我只能记下来回去查。还有"打标签"：第三天说的是"账号的标签"，第四天又是"给微信好友打标签"，我以为是同一件事。</p>
+    <dl><dt>为什么不懂</dt><dd>没做过抖音的人，这些词没有任何画面。"限流"在教案里用了 4 次，"报白"用了 1 次，都没解释。</dd>
+    <dt>希望</dt><dd>手册加一页术语表，每个词一句大白话；讲到时投屏手机截图，指给我看在哪里。两种"标签"分开叫：账号的叫"账号标签"（平台给你的号贴的），微信里的叫"客户备注"。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S7</span><span class="lv b">要改</span><b>拍摄形式光听名字，想不出是什么样</b></div>
+    <p class="q">打枪、内心 OS、偷窥视角、一人分饰两角，名字很有意思，但我想象不出画面，下午实操也不知道该拍哪种。</p>
+    <dl><dt>希望</dt><dd>每种放一条 15 秒的样片。按专家建议 E7，课上先只教口播一种，其余看样片自学。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S8</span><span class="lv b">要改</span><b>鉴定的词，没有实物和图，我听不明白</b></div>
+    <p class="q">动线、动线卡、特征点、封签、火试、破坏性检测、芯片、日期码、内标刻印、表冠表扣……"按动线看"到底先看哪儿？手册里的动线卡是空的。</p>
+    <dl><dt>希望</dt><dd>每个词配一张图；动线卡写满（见专家建议 E1）；"特征点"举个例子，比如"五金上的一道划痕、内标上的一个字母"。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S9</span><span class="lv b">要改</span><b>"出口""走同行""降一档"，都是行话</b></div>
+    <p class="q">"出口先行"我以为是做外贸；"走同行"是卖给同行吗？"到期降一档"，一档是降多少钱，还是降几个百分点？</p>
+    <dl><dt>希望</dt><dd>"出口"改成"卖给谁"或"出货渠道"；"走同行"写成"卖给同行"；"降一档"给一个具体比例，由讲师定。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S10</span><span class="lv b">要改</span><b>算账那几个词，我会算，但看不懂例子怎么来的</b></div>
+    <p class="q">"全口径"是什么口径？示意里"资金压一个月按 1% 算"，1% 是怎么来的？</p>
+    <dl><dt>希望</dt><dd>"全口径"直接说成"所有成本都算上"；1% 那句改成"这笔钱如果拿去干别的，一个月大概能赚 1%，压在货上就少赚了这么多"。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S11</span><span class="lv b">要改</span><b>第一单我到底能收多少钱的货？</b></div>
+    <p class="q">手册里单笔上限写着"讲师补"，课上也没说一个数，我回去不知道该拿多少钱出来收第一单。</p>
+    <dl><dt>希望</dt><dd>给一个简单的算法，比如"不超过你亏得起的那笔钱的几分之一"，再给每个阶段一个参考范围。具体数由讲师定。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S12</span><span class="lv b">要改</span><b>"线下见了货给准确的价"，我学了五天就敢给吗？</b></div>
+    <p class="q">我只盲报过 20 件，见了客户真要给一个准数，我没底。给错了怎么办？</p>
+    <dl><dt>希望</dt><dd>见专家建议 E5：告诉我拿不准的时候可以先给区间、约第二次，或者请兜底帮看价。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S13</span><span class="lv b">要改</span><b>东西太多，我只想知道今天记住哪三件</b></div>
+    <p class="q">短视频那天，一个上午听了二十多个"必须知道"，下午就让我拍。我拍的时候脑子里全是词，不知道先顾哪个。</p>
+    <dl><dt>希望</dt><dd>每节最后一张图："今天只要记住这三件事"。其余的我回去翻手册。</dd></dl></div>
+
+  <div class="fd stu"><div class="fd-h"><span class="id">S14</span><span class="lv c">可改</span><b>手册表格多，填好的样子少</b></div>
+    <p class="q">起步方案、定位一句话、开口话术、测算表，都是空表。我不知道填到什么程度算对。私域分级说"年消费 10 万以上算 S 级"，我还没有客户；年消费是指在我这里，还是他一年总共花的？</p>
+    <dl><dt>希望</dt><dd>每张表给一个填好的样子，按三类人各一个（比如"做过餐饮的人怎么填"）；S 级那句写明是"在你这里的年消费"，并说明新手刚开始不用急着分级。</dd></dl></div>
+</section>
+
+<section class="sec" id="todo">
+  <div class="sec-n">第三部分</div>
+  <h2>修改清单</h2>
+  <p class="lead">"谁来做"：标"我"的我可以直接改；标"你们"的需要你们的专业内容或决定。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>级别</th><th>改什么</th><th>谁来做</th></tr></thead>
+    <tbody>
+      <tr><td class="n">E1</td><td><span class="lv a">先改</span></td><td>补主打品类的动线卡、估价折算表、看货到报价的完整例子</td><td>你们（鉴定讲师），我整理成稿</td></tr>
+      <tr><td class="n">E2</td><td><span class="lv a">先改</span></td><td>课前预习包：品牌分档、热门款 20 个、二手价大致几成</td><td>你们出内容，我排版</td></tr>
+      <tr><td class="n">E3 · S4</td><td><span class="lv a">先改</span></td><td>板块一加"四条找客户的路"一页图；人设建议别选鉴定师</td><td>我</td></tr>
+      <tr><td class="n">E4</td><td><span class="lv a">先改</span></td><td>毕业标准一句话；D5 一单全流程演练和打分清单</td><td>我设计，你们确认</td></tr>
+      <tr><td class="n">E5 · S12</td><td><span class="lv a">先改</span></td><td>兜底范围写明含价格；第一单规矩加"价格拿不准"的做法</td><td>我；兜底帮不帮看价你们定</td></tr>
+      <tr><td class="n">S1 · S2 · S3</td><td><span class="lv a">先改</span></td><td>"开口服务"改名；"兜底""上游"第一次出现就给定义</td><td>我；新名字你们挑</td></tr>
+      <tr><td class="n">E6 · S5</td><td><span class="lv b">要改</span></td><td>第一天讲清"为什么先做回收还不怕压货"和"判不准有我们兜底"</td><td>我</td></tr>
+      <tr><td class="n">E7 · S13</td><td><span class="lv b">要改</span></td><td>每节标"只记三件事"；板块三、四课上内容瘦身，其余进手册</td><td>我</td></tr>
+      <tr><td class="n">E8</td><td><span class="lv b">要改</span></td><td>每块一个能打分的检验；课前和结营 10 题自测</td><td>我起草，合格线你们定</td></tr>
+      <tr><td class="n">E9</td><td><span class="lv b">要改</span></td><td>盲报挪 D4，结营压到 60 分钟，加休息</td><td>我</td></tr>
+      <tr><td class="n">S6 · S9 · S10</td><td><span class="lv b">要改</span></td><td>手册加术语表；两种"标签"分开叫；"出口""走同行""全口径"改成大白话</td><td>我</td></tr>
+      <tr><td class="n">S7 · S8</td><td><span class="lv b">要改</span></td><td>拍摄形式样片；鉴定术语配图</td><td>你们（素材），我标位置</td></tr>
+      <tr><td class="n">S9 · S11</td><td><span class="lv b">要改</span></td><td>"降一档"的比例；单笔上限的算法和参考范围</td><td>你们定数，我写进去</td></tr>
+      <tr><td class="n">E10</td><td><span class="lv c">可改</span></td><td>鉴定和估价两块的"怎么做"提到三成左右</td><td>看学员调研再定</td></tr>
+      <tr><td class="n">S14</td><td><span class="lv c">可改</span></td><td>每张表给三类人各一个填好的样子；S 级的说法写清楚</td><td>我</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+</main>
+<footer><div class="wrap">
+  专家与学员双视角评估 · 评估对象为课程大纲 v8、教案大纲和学员手册初稿。文中字数、出现次数等数字来自对课程源文件的统计。
+</div></footer>
+</body>
+</html>
