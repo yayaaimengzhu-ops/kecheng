@@ -166,9 +166,22 @@ footer{padding:46px 0 70px;color:var(--ink3);font-size:13px;border-top:1px solid
 .note-l.ask{border-left:2px solid var(--ink3);padding-left:10px;color:var(--ink2)}
 .legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;margin:10px 0}
 .legend span{display:inline-flex;align-items:center}
+.pits{margin:10px 0 4px;padding:10px 12px;background:var(--seal-wash);border:1px solid var(--seal-soft)}
+.pits-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:13.5px;color:var(--ink2);margin-bottom:4px}
+.pits-h .tg{font-family:var(--serif);font-size:13px;background:var(--seal);color:var(--on-accent);padding:0 10px}
+.pit{padding:8px 0;border-top:1px dashed var(--seal-soft)}
+.pit:nth-child(2){border-top:none}
+.pit-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
+.pit-h b{font-weight:600;font-size:15px}
+.pit-h b::before{content:"坑　";color:var(--seal);font-family:var(--serif);font-size:13px}
+.pit-h .t{font-size:12px;color:var(--ink3);margin-left:auto}
+.pit dl{display:grid;grid-template-columns:72px 1fr;gap:2px 10px;margin:4px 0 0;font-size:14px}
+.pit dt{color:var(--ink3);font-size:13px}
+.pit dd{margin:0}
+tr.grp td{background:var(--hover);font-weight:600;font-family:var(--serif)}
 td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
 tr.tot td{font-weight:600}
-@media (max-width:760px){.lec-m .r{margin-left:0}.pt-h .t{margin-left:0;width:100%}}
+@media (max-width:760px){.pit dl{grid-template-columns:1fr;gap:0}.pit dt{margin-top:4px}.pit-h .t{margin-left:0;width:100%}.lec-m .r{margin-left:0}.pt-h .t{margin-left:0;width:100%}}
 </style>
 </head>
 <body>
@@ -178,17 +191,18 @@ tr.tot td{font-weight:600}
   <div class="claim">
     <span class="lb">先看这一句</span>
     <p>必讲的点，按正常语速大约能填满课表时间；你说话快，必讲讲完多半只用一半，剩下的时间从选讲里挑，或者多问学员几句。</p>
-    <small>全课课表讲课时间 1100 分钟；必讲约 1015 分钟，加上选讲约 1646 分钟。待填的真实素材 47 处，汇总在最后一节。</small>
+    <small>全课课表讲课时间 1100 分钟；必讲约 1015 分钟，加上选讲约 1790 分钟。待填的真实素材 47 处，汇总在最后一节。</small>
   </div>
   <div class="doc-meta">
     <span><b>对应</b> <a href="课程大纲v8-九大板块.html">课程大纲 v8 九大板块版</a></span>
     <span><b>用的材料</b> v5 大纲和教案、短视频密训逐字稿 Day1–Day5、三份直播稿、陈静课的讲法</span>
+    <span><b>避坑</b> 原课程 134 条错误和误解全部放进了对应的节，另加 6 个新的坑</span>
     <span><b>状态</b> 待确认</span>
   </div>
 </div></header>
 
 <nav class="toc" aria-label="目录"><div class="wrap">
-  <a href="#use">怎么用</a><a href="#m0">开营</a><a href="#m1">一 定位</a><a href="#m2">二 生意模型</a><a href="#m3">三 短视频获客</a><a href="#m4">四 私域成交</a><a href="#m5">五 线下获客</a><a href="#m6">六 鉴定避损</a><a href="#m7">七 收与出</a><a href="#m8">八 成交风控</a><a href="#m9">九 结营</a><a href="#todo">待填素材</a>
+  <a href="#use">怎么用</a><a href="#m0">开营</a><a href="#m1">一 定位</a><a href="#m2">二 生意模型</a><a href="#m3">三 短视频获客</a><a href="#m4">四 私域成交</a><a href="#m5">五 线下获客</a><a href="#m6">六 鉴定避损</a><a href="#m7">七 收与出</a><a href="#m8">八 成交风控</a><a href="#m9">九 结营</a><a href="#pits">坑的去向</a><a href="#todo">待填素材</a>
 </div></nav>
 
 <main class="wrap">
@@ -214,6 +228,15 @@ tr.tot td{font-weight:600}
   </ol>
   <h3>一个案例按这五步讲完整</h3>
   <p>当时是什么情况 → 我是怎么做的 → 结果怎样（讲到具体的钱和时间）→ 做对或做错在哪 → 留给你的一句话。五步讲全了，一个案例自然就能讲五分钟以上。</p>
+  <h3>每一节后面的"避坑"怎么讲</h3>
+  <p>每一节讲完为什么、证明、怎么做之后，有一张红底的避坑卡，属于"为什么"的一部分。一个坑按四步讲：</p>
+  <ol>
+    <li><b>坑</b>：先问学员"你们是不是也这么做？"让做过的人举手。</li>
+    <li><b>为什么不能</b>：讲到最坏的结果，讲到钱、讲到出局；有真实的翻车案例就讲案例。</li>
+    <li><b>换成</b>：一句话说清应该怎么做。</li>
+    <li><b>好处</b>：讲这么做以后能得到什么。学员听到好处，才会真的改。</li>
+  </ol>
+  <p>标"课上讲"的，每个约 2 分钟，已经算进"加上选讲和避坑"的时间里；标"手册自查"的，课上点一下名字就行，原文汇总进学员手册的避坑自查表，结营时每人对着打勾。每块最好给一两个"课上讲"的坑配上你们自己的真实翻车案例，比讲十条道理都管用。</p>
   <h3>怕讲太快，用这三个办法放慢</h3>
   <ul>
     <li>每讲完一个点，停下来问："你们有没有遇到过？"点一个人说。</li>
@@ -222,19 +245,19 @@ tr.tot td{font-weight:600}
   </ul>
   <h3>每块的时间</h3>
   <div class="tbl"><table>
-    <thead><tr><th>板块</th><th>内容</th><th>课表讲课</th><th>必讲约</th><th>加选讲约</th><th>待填</th></tr></thead>
+    <thead><tr><th>板块</th><th>内容</th><th>课表讲课</th><th>必讲约</th><th>加选讲和避坑约</th><th>坑（课上讲）</th><th>待填</th></tr></thead>
     <tbody>
-      <tr><td class="k"><a href="#m0">开营</a></td><td>我们是谁，五天怎么上</td><td class="n">30</td><td class="n">25</td><td class="n">45</td><td class="n">2</td></tr>
-      <tr><td class="k"><a href="#m1">板块一</a></td><td>定位</td><td class="n">120</td><td class="n">111</td><td class="n">177</td><td class="n">9</td></tr>
-      <tr><td class="k"><a href="#m2">板块二</a></td><td>生意模型</td><td class="n">120</td><td class="n">119</td><td class="n">180</td><td class="n">5</td></tr>
-      <tr><td class="k"><a href="#m3">板块三</a></td><td>短视频获客</td><td class="n">150</td><td class="n">150</td><td class="n">226</td><td class="n">3</td></tr>
-      <tr><td class="k"><a href="#m4">板块四</a></td><td>私域成交</td><td class="n">150</td><td class="n">129</td><td class="n">225</td><td class="n">8</td></tr>
-      <tr><td class="k"><a href="#m5">板块五</a></td><td>线下获客</td><td class="n">100</td><td class="n">98</td><td class="n">150</td><td class="n">3</td></tr>
-      <tr><td class="k"><a href="#m6">板块六</a></td><td>鉴定避损</td><td class="n">120</td><td class="n">117</td><td class="n">178</td><td class="n">7</td></tr>
-      <tr><td class="k"><a href="#m7">板块七</a></td><td>收与出</td><td class="n">150</td><td class="n">126</td><td class="n">225</td><td class="n">6</td></tr>
-      <tr><td class="k"><a href="#m8">板块八</a></td><td>成交风控</td><td class="n">100</td><td class="n">87</td><td class="n">150</td><td class="n">3</td></tr>
-      <tr><td class="k"><a href="#m9">板块九</a></td><td>结营</td><td class="n">60</td><td class="n">53</td><td class="n">90</td><td class="n">1</td></tr>
-      <tr class="tot"><td class="k">合计</td><td></td><td class="n">1100</td><td class="n">1015</td><td class="n">1646</td><td class="n">47</td></tr>
+      <tr><td class="k"><a href="#m0">开营</a></td><td>我们是谁，五天怎么上</td><td class="n">30</td><td class="n">25</td><td class="n">45</td><td class="n">0（0）</td><td class="n">2</td></tr>
+      <tr><td class="k"><a href="#m1">板块一</a></td><td>定位</td><td class="n">120</td><td class="n">111</td><td class="n">191</td><td class="n">9（7）</td><td class="n">9</td></tr>
+      <tr><td class="k"><a href="#m2">板块二</a></td><td>生意模型</td><td class="n">120</td><td class="n">119</td><td class="n">192</td><td class="n">9（6）</td><td class="n">5</td></tr>
+      <tr><td class="k"><a href="#m3">板块三</a></td><td>短视频获客</td><td class="n">150</td><td class="n">150</td><td class="n">240</td><td class="n">14（7）</td><td class="n">3</td></tr>
+      <tr><td class="k"><a href="#m4">板块四</a></td><td>私域成交</td><td class="n">150</td><td class="n">129</td><td class="n">245</td><td class="n">21（10）</td><td class="n">8</td></tr>
+      <tr><td class="k"><a href="#m5">板块五</a></td><td>线下获客</td><td class="n">100</td><td class="n">98</td><td class="n">164</td><td class="n">12（7）</td><td class="n">3</td></tr>
+      <tr><td class="k"><a href="#m6">板块六</a></td><td>鉴定避损</td><td class="n">120</td><td class="n">117</td><td class="n">200</td><td class="n">17（11）</td><td class="n">7</td></tr>
+      <tr><td class="k"><a href="#m7">板块七</a></td><td>收与出</td><td class="n">150</td><td class="n">126</td><td class="n">251</td><td class="n">27（13）</td><td class="n">6</td></tr>
+      <tr><td class="k"><a href="#m8">板块八</a></td><td>成交风控</td><td class="n">100</td><td class="n">87</td><td class="n">172</td><td class="n">17（11）</td><td class="n">3</td></tr>
+      <tr><td class="k"><a href="#m9">板块九</a></td><td>结营</td><td class="n">60</td><td class="n">53</td><td class="n">90</td><td class="n">0（0）</td><td class="n">1</td></tr>
+      <tr class="tot"><td class="k">合计</td><td></td><td class="n">1100</td><td class="n">1015</td><td class="n">1790</td><td class="n">126（72）</td><td class="n">47</td></tr>
     </tbody>
   </table></div>
   <p class="skip">课表时间只算讲课，作业上台、对练、实操另算。选讲大约多出一半，够你挑。</p>
@@ -247,7 +270,7 @@ tr.tot td{font-weight:600}
   <p class="hook">不先讲课。先让学员知道台上每个人做到过什么，有问题找谁，五天要走完哪九站。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">开营</span><b>我们是谁，五天怎么上</b></div>
-    <div class="lec-m"><span>课表 <b>30</b> 分钟</span><span>必讲约 <b>25</b></span><span>加上选讲约 <b>45</b></span><span class="r">全部是证明</span></div>
+    <div class="lec-m"><span>课表 <b>30</b> 分钟</span><span>必讲约 <b>25</b></span><span>加上选讲和避坑约 <b>45</b></span><span class="r">全部是证明</span></div>
     <p class="open"><span class="cl">开场</span>主持人开场，不讲行业，不讲课程有多好，直接请工作人员上台。</p>
     <div class="row proof"><span class="tg">证明</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>立规矩</b><span class="t">约 3 分钟</span></div>
@@ -285,7 +308,7 @@ tr.tot td{font-weight:600}
   <p class="hook">做过别的生意、做过回收、做过二奢没做成，三种人起点不一样，第一步走错的方式也不一样。这一块不讲行业有多好，只帮你找到属于你自己的起跑点：照抄别人的打法，正是很多人第一年就亏掉的原因。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">开场</span><b>先看我们做到了什么</b></div>
-    <div class="lec-m"><span>课表 <b>15</b> 分钟</span><span>必讲约 <b>13</b></span><span>加上选讲约 <b>20</b></span><span class="r">全部是证明</span></div>
+    <div class="lec-m"><span>课表 <b>15</b> 分钟</span><span>必讲约 <b>13</b></span><span>加上选讲和避坑约 <b>20</b></span><span class="r">全部是证明</span></div>
     <p class="open"><span class="cl">开场</span>不按时间线讲经历，从小讲到大没人听。只回答一个问题：你为什么该跟我学。</p>
     <div class="row proof"><span class="tg">证明</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>三条最硬的证据打在第一页</b><span class="t">约 6 分钟</span></div>
@@ -308,7 +331,7 @@ tr.tot td{font-weight:600}
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 1 节</span><b>低买高卖？这么想的人，第一年都压在货上</b></div>
-    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>36</b></span><span>加上选讲约 <b>60</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 8 / 7</span></div>
+    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>36</b></span><span>加上选讲和避坑约 <b>64</b></span><span>坑 <b>2</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 8 / 7</span></div>
     <p class="open"><span class="cl">开场</span>先问："你觉得二奢赚的是什么钱？"答案写在白板上，不评价，这一节讲完回来对照。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>先说学员心里怎么想</b><span class="t">约 5 分钟</span></div>
@@ -354,11 +377,15 @@ tr.tot td{font-weight:600}
         <p>圈完拍照留着，结营时拿出来对照。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 2 个：2 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>收得越多赚得越多，先压钱进一批货</b><span class="t">原 1.2 误解7</span></div><dl><dt>为什么不能</dt><dd>压货是这行最大的死因：钱压在货上，下一单就不敢收；行情一跌，整批货一起套住。</dd><dt>换成</dt><dd>先做撮合和寄卖；自己收之前，先想好卖给谁、几天能卖掉。</dd><dt>好处</dt><dd>钱一直在转。同样的本金，一年能多转好几次；判断错了也只是少赚一点，不会伤元气。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>以为二奢是暴利，一单能赚一大笔</b><span class="t">原 1.2 误解5</span></div><dl><dt>为什么不能</dt><dd>只看到差价，没看到物流、送检、佣金、退货和压货把毛利一点点吃掉。带着暴利的预期进来，第一个月赚得少就放弃了，或者为了"暴利"去收自己判不了的大货。</dd><dt>换成</dt><dd>按全口径算账，用一年的周转去看利润。</dd><dt>好处</dt><dd>预期准了，心态就稳：不会因为头一个月赚得少就走人，也不会为了一单大的去冒险。</dd></dl></div>
+    </div>
     <p class="bridge"><span class="cl">过渡</span>知道了钱怎么赚，下一个问题是：凭什么是你来赚。</p>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 2 节</span><b>你以前的本事，能直接搬进来几成</b></div>
-    <div class="lec-m"><span>课表 <b>35</b> 分钟</span><span>必讲约 <b>34</b></span><span>加上选讲约 <b>52</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 8 / 7</span></div>
+    <div class="lec-m"><span>课表 <b>35</b> 分钟</span><span>必讲约 <b>34</b></span><span>加上选讲和避坑约 <b>56</b></span><span>坑 <b>3</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 8 / 7</span></div>
     <p class="open"><span class="cl">开场</span>问："你们觉得入行最需要什么？"多数人会说钱、眼力、资源。写在白板上。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>别先找对标，先看自己</b><span class="t">约 6 分钟</span></div>
@@ -396,11 +423,16 @@ tr.tot td{font-weight:600}
         <p>人脉和老客户 · 门店和本地资源 · 线上账号 · 时间和亏得起的钱。每类写一个数字，写不出来就写 0，0 也是数据。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 3 个：2 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>看别人哪条路火，就跟哪条路</b><span class="t">原 1.11-01</span></div><dl><dt>为什么不能</dt><dd>你没有那条路需要的资源：别人有十年积累、有门店、有团队。三个月零产出，钱和信心一起耗光。</dd><dt>换成</dt><dd>按自己校验过的三张牌选路。</dd><dt>好处</dt><dd>起步用的是你本来就有的东西：见效快，成本低，也更难被别人抄走。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>把形容词当资源："我人脉广""我有客户"</b><span class="t">原 1.11-02</span></div><dl><dt>为什么不能</dt><dd>all in 一条其实不存在的路，比分散做还危险。等发现时，几个月已经过去了。</dd><dt>换成</dt><dd>形容词一律换成数字：能直接打电话的有几个，家里确定有包的有几个。</dd><dt>好处</dt><dd>数字能检验，选错了也能很快发现；后面的测算表也有了真实的底。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>把 all in 当成押上全部身家</b><span class="t">原 1.11-12</span></div><dl><dt>为什么不能</dt><dd>输一次，就没有第二次机会。</dd><dt>换成</dt><dd>all in 的是时间和注意力；钱只动亏掉也不影响生活的那一部分。</dd><dt>好处</dt><dd>输得起，才敢坚持到跑出数据。</dd></dl></div>
+    </div>
     <p class="bridge"><span class="cl">过渡</span>牌看清了，接下来定三件事：做什么品类、在哪做、以什么身份做。</p>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 3 节</span><b>什么都收，就什么都判不准：选一个品类、一个人设</b></div>
-    <div class="lec-m"><span>课表 <b>30</b> 分钟</span><span>必讲约 <b>28</b></span><span>加上选讲约 <b>45</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 15 / 5 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>30</b> 分钟</span><span>必讲约 <b>28</b></span><span>加上选讲和避坑约 <b>51</b></span><span>坑 <b>4</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 15 / 5 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："你们现在收哪些品类？"多数人会说"包、表、首饰都收"。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>全品类，就是每一类都判不准、估不准、出不掉</b><span class="t">约 5 分钟</span></div>
@@ -441,6 +473,12 @@ tr.tot td{font-weight:600}
         <p>这个品类我能找到兜底的人吗？本地有人卖这个品类吗？这条主路我手上有牌吗？任何一个答"不"，就再想一下。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 4 个：3 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>一上来就做全品类</b><span class="t">原 1.11-03、1.2 误解6</span></div><dl><dt>为什么不能</dt><dd>每一类都判不准、估不准、出不掉，看走眼的概率成倍放大。</dd><dt>换成</dt><dd>先做透一个品类。</dd><dt>好处</dt><dd>同一个款看得多了，判得准、估得准，出货渠道也熟；客户也一下就记住你是做什么的。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>新手从高价腕表、彩宝玉石、文玩字画入手</b><span class="t">原 1.11-04</span></div><dl><dt>为什么不能</dt><dd>这些品类鉴定难、价格不透明，一单看走眼就是几个月的利润。</dd><dt>换成</dt><dd>先选货源多、好判断、好出手的品类，按安全通道一步步放开。</dd><dt>好处</dt><dd>起步阶段犯错的代价小，你有时间把眼力练出来。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>鉴定师、回收老板、上门服务几个人设混着做</b><span class="t">原 1.11-09</span></div><dl><dt>为什么不能</dt><dd>客户记不住你是谁，信任建立不起来，转介绍的人也不知道该怎么介绍你。</dd><dt>换成</dt><dd>三个里选一个。</dd><dt>好处</dt><dd>一句话就能让人记住你；别人转介绍时，一句话就能说清你是干什么的。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>把暂定的定位当成最终答案，或者三天一换</b><span class="t">原 1.11-13</span></div><dl><dt>为什么不能</dt><dd>前者选错了不回头；后者永远停在起步阶段。</dd><dt>换成</dt><dd>暂定 → 结营时校准 → 回去用 30 天的数据验证。</dd><dt>好处</dt><dd>既有时间跑出数据，又不会一条路走到黑。</dd></dl></div>
+    </div>
   </div>
   <div class="prac"><b>作业上台 · 30 分钟</b>写四类底牌的数字和定位一句话，组内互相追问。抽 2 人上台，主讲当场改：先把形容词全换成数字，再看定位是不是太宽。</div>
 </section>
@@ -452,7 +490,7 @@ tr.tot td{font-weight:600}
   <p class="hook">新人最常见的死法不是没客户，是第一个月压大钱收了一件判不准、卖不掉的货。这一块讲怎么用不压钱的做法跑出第一单，再一步步放开金额。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 1 节</span><b>同一件货，换个做法，亏的就不是你</b></div>
-    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>40</b></span><span>加上选讲约 <b>60</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 12 / 8</span></div>
+    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>40</b></span><span>加上选讲和避坑约 <b>66</b></span><span>坑 <b>5</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 12 / 8</span></div>
     <p class="open"><span class="cl">开场</span>问："你们的第一单，打算怎么做？"多数人会说"收一件进来卖"。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>三种做法：撮合、寄卖、回收</b><span class="t">约 7 分钟</span></div>
@@ -500,10 +538,17 @@ tr.tot td{font-weight:600}
         <div class="note-l fill"><span class="cl">填</span>主讲建议的第一阶段单笔上限。</div>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 5 个：3 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>先租店、装修、囤货，再去找客户</b><span class="t">原 1.11-05、1.2 误解3</span></div><dl><dt>为什么不能</dt><dd>房租、装修和库存压死现金流，还没开张就先亏。</dd><dt>换成</dt><dd>零库存起步：先做撮合和寄卖，门店是跑通以后的事。</dd><dt>好处</dt><dd>起步几乎不花钱，试错便宜；等跑通了再开店，店一开就有客户。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>跳过安全通道，第一个月就自己收大单</b><span class="t">原 1.11-08</span></div><dl><dt>为什么不能</dt><dd>一单的损失就超过你能承受的范围。</dd><dt>换成</dt><dd>按三个阶段放开金额：撮合和低价货 → 有上限的自收 → 放开。</dd><dt>好处</dt><dd>每个阶段犯的错都在你承受得起的范围内；眼力和渠道跟着金额一起长。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>没写止损线就开始收货</b><span class="t">原 1.11-07</span></div><dl><dt>为什么不能</dt><dd>一单大货直接出局；连续亏的时候停不下来，越亏越想翻本。</dd><dt>换成</dt><dd>收第一件货之前，写下单笔上限和止损线，签字。</dd><dt>好处</dt><dd>亏到线就停，不会在情绪里越陷越深；停下来复盘，下一步才走得对。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>撮合时不签协议</b><span class="t">原 6.4.9-08</span></div><dl><dt>为什么不能</dt><dd>买卖双方见过面以后，绕开你私下成交。</dd><dt>换成</dt><dd>先收定金，或者签代收撮合协议，交易在你这里完成。</dd><dt>好处</dt><dd>辛苦找来的买家和卖家不会被截胡，撮合才能成为一门稳定的生意。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>和亲友合伙不签协议</b><span class="t">原 1.11-11</span></div><dl><dt>为什么不能</dt><dd>闹掰的时候，货、客户、账号都分不清，生意和关系一起没了。</dd><dt>换成</dt><dd>开工之前先签合伙协议。</dd><dt>好处</dt><dd>丑话说在前面，生意和关系都保得住。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 2 节</span><b>不喊"高价回收"，让客户主动来问你</b></div>
-    <div class="lec-m"><span>课表 <b>45</b> 分钟</span><span>必讲约 <b>43</b></span><span>加上选讲约 <b>68</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 12 / 8</span></div>
+    <div class="lec-m"><span>课表 <b>45</b> 分钟</span><span>必讲约 <b>43</b></span><span>加上选讲和避坑约 <b>72</b></span><span>坑 <b>2</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 12 / 8</span></div>
     <p class="open"><span class="cl">开场</span>问："你们现在怎么让客户知道你收包？"多数人会说发朋友圈、发视频，写"高价回收"。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>主动推销很难成交</b><span class="t">约 6 分钟</span></div>
@@ -550,10 +595,14 @@ tr.tot td{font-weight:600}
         <p>用在私域和门店。短视频里不说"来找我估价"，会被判引流（板块三讲）。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 2 个：2 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>开口服务只图人多："免费鉴定"</b><span class="t">原 3.5-01</span></div><dl><dt>为什么不能</dt><dd>吸来一堆只鉴不卖的人和同行，时间被耗光，真正的卖家反而接不住。</dd><dt>换成</dt><dd>开口服务对准卖家：价格区间、成色诊断、行情表。</dd><dt>好处</dt><dd>来的人本来就有货想出手，聊几句就能进入看货。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>承诺兑现不了："秒回""最高价""秒到账"</b><span class="t">原 3.5-02</span></div><dl><dt>为什么不能</dt><dd>差评、投诉，严重的算虚假宣传。</dd><dt>换成</dt><dd>只承诺做得到的条件："当天给区间""先看后付"。</dd><dt>好处</dt><dd>说到做到一次，客户就敢把第二件、第三件交给你。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 3 节</span><b>你以为赚了的单，扣完可能是亏的</b></div>
-    <div class="lec-m"><span>课表 <b>35</b> 分钟</span><span>必讲约 <b>36</b></span><span>加上选讲约 <b>52</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 15 / 12 / 8</span></div>
+    <div class="lec-m"><span>课表 <b>35</b> 分钟</span><span>必讲约 <b>36</b></span><span>加上选讲和避坑约 <b>54</b></span><span>坑 <b>2</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 15 / 12 / 8</span></div>
     <p class="open"><span class="cl">开场</span>问："你上一单赚了多少？"等学员答完再问："物流、鉴定费、平台佣金扣了吗？"</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>一单毛利要全口径算</b><span class="t">约 6 分钟</span></div>
@@ -593,6 +642,10 @@ tr.tot td{font-weight:600}
         <p>手册第 1 件。没有基准的数据标"假设"，结营前校准。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 2 个：1 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>只算差价，不算周转、损耗和风险</b><span class="t">原 1.11-06、6.2.7-04</span></div><dl><dt>为什么不能</dt><dd>账面上赚钱，实际上在亏。送检费、物流、保价、平台佣金、资金占用，漏一项就看不出来。</dd><dt>换成</dt><dd>全口径算账，风险成本按比例算进去；从到手价往回倒推。</dd><dt>好处</dt><dd>你知道哪类单真赚钱，以后就专做这类单。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>个人账户大额收付，公私混用</b><span class="t">原 1.11-10、6.4.9-11</span></div><dl><dt>为什么不能</dt><dd>流水异常，被银行风控冻卡；税务上说不清。</dd><dt>换成</dt><dd>起步就把经营账户和生活账户分开；大额转账写备注。具体以会计意见为准。</dd><dt>好处</dt><dd>账清清楚楚，出事时能说清每一笔钱的来龙去脉。</dd></dl></div>
+    </div>
   </div>
   <div class="prac"><b>作业上台 · 30 分钟</b>选起步模式、写止损线、设计开口服务、填测算表。抽 2 人上台改。晚上交一页起步方案。</div>
 </section>
@@ -604,7 +657,7 @@ tr.tot td{font-weight:600}
   <p class="hook">有人播放不高，却天天有人私信要出包；有人播放几万，来的全是问真假的。差的不是剪辑和设备，是你在讲给谁听。你每多拍一条讲错人群的视频，账号标签就偏一点。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">开场</span><b>九百多万播放的人，第一条也犹豫了两个月</b></div>
-    <div class="lec-m"><span>课表 <b>10</b> 分钟</span><span>必讲约 <b>10</b></span><span>加上选讲约 <b>16</b></span><span class="r">全部是证明</span></div>
+    <div class="lec-m"><span>课表 <b>10</b> 分钟</span><span>必讲约 <b>10</b></span><span>加上选讲和避坑约 <b>16</b></span><span class="r">全部是证明</span></div>
     <p class="open"><span class="cl">开场</span>这一段由短视频讲师自己讲，打开手机后台，投屏给学员看。</p>
     <div class="row proof"><span class="tg">证明</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>讲师的起步</b><span class="t">约 5 分钟</span></div>
@@ -627,7 +680,7 @@ tr.tot td{font-weight:600}
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 1 节</span><b>播放不低、私信全是问真假的？问题出在你讲什么</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>49</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 10 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>49</b></span><span>加上选讲和避坑约 <b>81</b></span><span>坑 <b>4</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 10 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："你们拍过的视频里，私信最多的人在问什么？"多数人会说：问真假，让帮忙看，问完回收价就消失。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>先学学员现在怎么拍</b><span class="t">约 5 分钟</span></div>
@@ -688,10 +741,16 @@ tr.tot td{font-weight:600}
         <div class="note-l ok"><span class="cl">现成</span>短视频密训逐字稿 Day5。</div>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 4 个：3 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>只看播放、粉丝、点赞</b><span class="t">原 2.8-05</span></div><dl><dt>为什么不能</dt><dd>以为自己在进步，实际上一个客户都没有。</dd><dt>换成</dt><dd>盯三个数：私信量、加微信数、成交是从哪条视频来的。</dd><dt>好处</dt><dd>你知道哪条视频真带来了钱，下一条就照着拍。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>拍鉴定、拍段子，吸来同行和看热闹的人</b><span class="t">原 新增</span></div><dl><dt>为什么不能</dt><dd>账号标签被带偏，两三百个不对的粉丝就能把号带歪，之后再拍对的内容也推不准。</dd><dt>换成</dt><dd>只对着两种人拍：手里有闲置想出手的，想买二奢的。</dd><dt>好处</dt><dd>来的就是客户，播放不高也能成交。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>把全部身家压在一个账号上</b><span class="t">原 2.8-11</span></div><dl><dt>为什么不能</dt><dd>一次封号，归零。</dd><dt>换成</dt><dd>准备备用号；客户沉淀到微信；素材存在自己电脑里。</dd><dt>好处</dt><dd>号出事了，客户还在，换个号接着做。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>抖加乱投，想靠投钱救一条不行的视频</b><span class="t">原 新增</span></div><dl><dt>为什么不能</dt><dd>把垃圾变成大垃圾，买来的都是看热闹的人。</dd><dt>换成</dt><dd>24 小时自然播放过一万，再小额投。</dd><dt>好处</dt><dd>钱只花在已经被证明有人看的内容上。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 2 节</span><b>口才不好也能拍：能来客户的视频是写出来的</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>51</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>51</b></span><span>加上选讲和避坑约 <b>79</b></span><span>坑 <b>5</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："你们拍视频最难的是什么？"多半是"不知道拍什么""对着镜头说不出话"。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>人说不出自己没写过的话</b><span class="t">约 5 分钟</span></div>
@@ -745,10 +804,17 @@ tr.tot td{font-weight:600}
         <p>干货知识：打标签、要流量；vlog 记录：展示服务、带转化；故事：建立信任；观点情绪：既拿流量也拿信任。工具卡见手册第 4 件。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 5 个：2 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>文案写"最高价""保真""行业第一"</b><span class="t">原 2.8-06</span></div><dl><dt>为什么不能</dt><dd>限流封号，还会被投诉虚假宣传。</dd><dt>换成</dt><dd>按违禁词表换成替代说法。</dd><dt>好处</dt><dd>账号活得久，也不会因为一句话被投诉。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>视频里现场估价报高，实际收货时压价</b><span class="t">原 2.8-09</span></div><dl><dt>为什么不能</dt><dd>价格对不上，被投诉，口碑一下就崩。</dd><dt>换成</dt><dd>公开估价只给区间和前提。</dd><dt>好处</dt><dd>你在视频里说的每个价都经得起客户拿来对质，信任就是这么一点点攒下来的。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>用品牌官图、别人的视频和音乐</b><span class="t">原 2.8-07</span></div><dl><dt>为什么不能</dt><dd>侵权投诉、下架，严重的被索赔。</dd><dt>换成</dt><dd>自己拍；用别人的素材要授权并留档。</dd><dt>好处</dt><dd>内容是你自己的，不怕被投诉。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>做真假对比的内容，点名别人的店和货</b><span class="t">原 新增</span></div><dl><dt>为什么不能</dt><dd>说错一次就是纠纷，可能被起诉。</dd><dt>换成</dt><dd>只讲特征，不点名，不对别人的货公开下结论。</dd><dt>好处</dt><dd>内容照样有用，又不给自己惹官司。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>只抄台词</b><span class="t">原 新增</span></div><dl><dt>为什么不能</dt><dd>容易判重限流，也学不到真东西。</dd><dt>换成</dt><dd>往深了抄：结构、选题、人群。</dd><dt>好处</dt><dd>学会的是能反复用的方法，不是一条用完就没的稿子。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 3 节</span><b>一样的价格，客户凭什么把包交给你</b></div>
-    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>40</b></span><span>加上选讲约 <b>60</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 10 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>40</b></span><span>加上选讲和避坑约 <b>64</b></span><span>坑 <b>5</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 10 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："两家报价一样，你会把包卖给谁？"让学员说理由。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>客户分不清专业高低，分得清人可不可信</b><span class="t">约 5 分钟</span></div>
@@ -804,6 +870,13 @@ tr.tot td{font-weight:600}
         <p>知识打标签 → vlog 带转化 → 每 1–2 周一条故事或观点，一个月至少 4 条。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 5 个：2 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>编人设："刚学完鉴定就叫自己十年鉴定师"</b><span class="t">原 新增</span></div><dl><dt>为什么不能</dt><dd>被扒一次就翻车，前面攒下的信任全赔进去。</dd><dt>换成</dt><dd>可以润色，不能编。</dd><dt>好处</dt><dd>真实的人设不怕查，越做越稳。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>成交实拍、客户的脸、身份证不打码，也不问授权</b><span class="t">原 2.8-08、4.6-02</span></div><dl><dt>为什么不能</dt><dd>隐私投诉，严重的要吃官司。</dd><dt>换成</dt><dd>先问授权，再打码。</dd><dt>好处</dt><dd>客户敢在你这里成交，因为知道你不会把他晒出去。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>出镜的人没签协议就开拍</b><span class="t">原 2.8-10</span></div><dl><dt>为什么不能</dt><dd>人一走，号就废了，素材不能用，粉丝也跟着人走。</dd><dt>换成</dt><dd>开拍之前先签出镜人协议。</dd><dt>好处</dt><dd>号和内容都是你的，换人也能接着做。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>以为必须自己出镜才能做内容</b><span class="t">原 1.2 误解2</span></div><dl><dt>为什么不能</dt><dd>不敢露脸的人干脆不做，错过最便宜的获客方式。</dd><dt>换成</dt><dd>图文、不露脸的形式、找人出镜都可以，也可以不走内容这条路。</dd><dt>好处</dt><dd>不露脸也能起步，等熟了再慢慢露脸。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>发表观点时站在商家那边</b><span class="t">原 新增</span></div><dl><dt>为什么不能</dt><dd>消费者不爱看，觉得你在替自己说话。</dd><dt>换成</dt><dd>观点永远站在消费者那边。</dd><dt>好处</dt><dd>你替谁说话，谁就愿意把钱交给你。</dd></dl></div>
+    </div>
   </div>
   <div class="prac"><b>作业上台 · 30 分钟</b>改账号五件套，写 10 个选题。抽 3 人上台，讲师当场改选题和开头。下午实操从这 10 个里挑一个拍。</div>
   <div class="prac"><b>短视频实操 · 150 分钟 · 不计比例（D2 下午）</b>写稿 30 分钟 → 两人一组互相拍 40 分钟 → 逐条投屏点评 80 分钟。点评只看三件事：选题对不对准卖家、开头前三秒有没有让人留下的理由、有没有体现你的服务。发布规则、违规自查、抖加规则见手册第 4 件，课上不讲。晚上按点评改完，发出第一条。</div>
@@ -816,7 +889,7 @@ tr.tot td{font-weight:600}
   <p class="hook">账号会封，平台会变，唯一带得走的是微信里的人。一加上就发产品图、一天十条货、一键群发，你以为在维护客户，其实是在一个个把他们推走。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">开场</span><b>一个老客户，这些年成交了几次</b></div>
-    <div class="lec-m"><span>课表 <b>10</b> 分钟</span><span>必讲约 <b>6</b></span><span>加上选讲约 <b>15</b></span><span class="r">全部是证明</span></div>
+    <div class="lec-m"><span>课表 <b>10</b> 分钟</span><span>必讲约 <b>6</b></span><span>加上选讲和避坑约 <b>15</b></span><span class="r">全部是证明</span></div>
     <p class="open"><span class="cl">开场</span>由私域负责人讲，打开自己的微信给学员看（打码）。</p>
     <div class="row proof"><span class="tg">证明</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>私域负责人的账</b><span class="t">约 6 分钟</span></div>
@@ -835,7 +908,7 @@ tr.tot td{font-weight:600}
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 1 节</span><b>一加上就发产品图，客户已经把你屏蔽了</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>45</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 10 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>45</b></span><span>加上选讲和避坑约 <b>81</b></span><span>坑 <b>8</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 10 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："加上一个新客户，你发的第一句话是什么？"请三个人念出来。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>先说学员常见的做法</b><span class="t">约 5 分钟</span></div>
@@ -893,10 +966,20 @@ tr.tot td{font-weight:600}
         <p>S：年消费十万以上，一对一，新货先发，生日问候；A：私聊加定向朋友圈；B：朋友圈加每月一次群发；C：批量，每月一两次。见手册第 5 件。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 8 个：3 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>在私信里直接甩微信号，在评论区留联系方式</b><span class="t">原 3.5-03</span></div><dl><dt>为什么不能</dt><dd>限流、封号。</dd><dt>换成</dt><dd>用主页、粉丝群、门店这些合规的入口。</dd><dt>好处</dt><dd>号能一直用，引来的人也更稳。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>私域号挂在员工或出镜人名下；员工用自己的号私下跟客户</b><span class="t">原 3.5-07、4.6-14</span></div><dl><dt>为什么不能</dt><dd>人一走，客户全被带走；员工私收私卖也是从这里开始的。</dd><dt>换成</dt><dd>号归老板或公司，登记在册；跟进客户统一用公司的号。</dd><dt>好处</dt><dd>客户是你自己的资产，不会随人走。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>所有客户压在一个微信号上</b><span class="t">原 3.5-08</span></div><dl><dt>为什么不能</dt><dd>一次封号，全部归零。</dd><dt>换成</dt><dd>分几个号，定期备份通讯录和聊天记录。</dd><dt>好处</dt><dd>号出问题，客户还找得回来。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>加了好友不打标签，不记来源</b><span class="t">原 3.5-05</span></div><dl><dt>为什么不能</dt><dd>算不出哪条路有效，all in 的对错没法验证。</dd><dt>换成</dt><dd>用标签体系，来源记到具体渠道。</dd><dt>好处</dt><dd>月底一看就知道哪条路带来的客户最好，下个月往哪加力。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>加进来隔两天才回</b><span class="t">原 3.5-06</span></div><dl><dt>为什么不能</dt><dd>线索冷掉，客户已经去了别家。</dd><dt>换成</dt><dd>定一个回复时限，比如 30 分钟内破冰。</dd><dt>好处</dt><dd>趁对方还记得为什么加你，话最好接。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>用外挂、群发软件、多开</b><span class="t">原 3.5-09</span></div><dl><dt>为什么不能</dt><dd>封号。</dd><dt>换成</dt><dd>手动操作；量大了用企业微信。</dd><dt>好处</dt><dd>号安全，客户也不会觉得被群发。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>客户身份证、住址存在相册里，随手转发</b><span class="t">原 3.5-10、6.6.5-05</span></div><dl><dt>为什么不能</dt><dd>信息泄露，违法。</dd><dt>换成</dt><dd>敏感信息单独存放，限定谁能看。</dd><dt>好处</dt><dd>客户放心把身份信息交给你。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>建客户群，在群里发货</b><span class="t">原 3.5-12</span></div><dl><dt>为什么不能</dt><dd>同行潜进来截胡；客户在意隐私；群里出了纠纷还会怪到你头上。</dd><dt>换成</dt><dd>不建群，只做朋友圈和私聊。</dd><dt>好处</dt><dd>每个客户都是一对一的关系，不会被别人截走。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 2 节</span><b>朋友圈是存折：你一直在取，没在存</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>46</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>46</b></span><span>加上选讲和避坑约 <b>81</b></span><span>坑 <b>4</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
     <p class="open"><span class="cl">开场</span>征得一个学员同意，投屏他的朋友圈，全场一起数：最近十条里几条在卖货。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>信任存折</b><span class="t">约 6 分钟</span></div>
@@ -949,10 +1032,16 @@ tr.tot td{font-weight:600}
         <p>到了他要的货 · 他点了赞 · 节日 · 行情变了 · 店里有活动。开口不说"在吗"。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 4 个：3 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>朋友圈天天刷硬广</b><span class="t">原 4.6-01</span></div><dl><dt>为什么不能</dt><dd>被屏蔽、被删，朋友圈等于没发。</dd><dt>换成</dt><dd>多存少取：科普、生活、互动为主，产品少发。</dd><dt>好处</dt><dd>客户愿意看你的朋友圈，有需要时第一个想到你。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>编造成交记录、编造客户好评</b><span class="t">原 4.6-04</span></div><dl><dt>为什么不能</dt><dd>被识破一次，信任全部归零。</dd><dt>换成</dt><dd>只发真实成交（授权、打码）。</dd><dt>好处</dt><dd>每一条都经得起问，客户越看越信。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>跟进变成骚扰；激活老客户靠制造焦虑："再不卖就跌了"</b><span class="t">原 4.6-12、4.6-13</span></div><dl><dt>为什么不能</dt><dd>被删、被投诉；客户发现以后，再也不信你说的任何行情。</dd><dt>换成</dt><dd>按触发点跟进，用真实的行情说话。</dd><dt>好处</dt><dd>你每次出现都对他有用，客户愿意回你。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>朋友圈写"保真""全网最高价"</b><span class="t">原 4.6-03</span></div><dl><dt>为什么不能</dt><dd>被投诉虚假宣传。</dd><dt>换成</dt><dd>换成合规的表述。</dd><dt>好处</dt><dd>不留把柄。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 3 节</span><b>前三十秒说错一句，客户就不发图了</b></div>
-    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>32</b></span><span>加上选讲约 <b>60</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 10 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>32</b></span><span>加上选讲和避坑约 <b>68</b></span><span>坑 <b>9</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 10 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："客户第一句话就问'这包你们收多少钱'，你怎么回？"请两三个人当场回答。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>没看到货就报数</b><span class="t">约 6 分钟</span></div>
@@ -1000,6 +1089,17 @@ tr.tot td{font-weight:600}
         <p>来源上的异常信号，记进标签。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 9 个：4 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>加上好友第一句话就报价，没看到货就给数字</b><span class="t">原 3.5-04、4.6-06</span></div><dl><dt>为什么不能</dt><dd>被锚定在高位，后面每次调价都在削信任，见了货再压价就成了"骗子"。</dd><dt>换成</dt><dd>前三十秒只问品类、要图、约好给价时间。</dd><dt>好处</dt><dd>给出的价一次就准，客户觉得你专业。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>私信里随口说"保证这个价""肯定收"</b><span class="t">原 4.6-07</span></div><dl><dt>为什么不能</dt><dd>截图就是纠纷时的证据。</dd><dt>换成</dt><dd>只给前提和区间。</dd><dt>好处</dt><dd>说出去的每句话都不怕被截图。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>忽略来源异常的信号：急着出手、价格随便谈、说不清来路</b><span class="t">原 4.6-08</span></div><dl><dt>为什么不能</dt><dd>收进赃物，货被扣，钱追不回来。</dd><dt>换成</dt><dd>把信号记进标签，成交前逐条复核。</dd><dt>好处</dt><dd>危险在聊天阶段就被挡在门外，不用等到出事。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>以为客户都想卖高价，只会拼价</b><span class="t">原 1.2 误解8</span></div><dl><dt>为什么不能</dt><dd>拼不过别家就没单，拼过了又不赚钱。</dd><dt>换成</dt><dd>先弄清卖家为什么卖：换新、急用钱、清闲置、继承受赠，只有一类最在乎价格。</dd><dt>好处</dt><dd>你能赢在速度、省事、放心上，不用每单都拼价。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>问诊顺序乱，上来就问"最低多少卖"</b><span class="t">原 4.6-05</span></div><dl><dt>为什么不能</dt><dd>客户立刻警觉，聊不下去。</dd><dt>换成</dt><dd>按问诊顺序来：品类、来源、成色、要图。</dd><dt>好处</dt><dd>客户觉得你在帮他，不是在砍他。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>聊着聊着发现是未成年人，还继续谈</b><span class="t">原 4.6-09</span></div><dl><dt>为什么不能</dt><dd>交易可能无效，还要退货担责。</dd><dt>换成</dt><dd>发现就停。</dd><dt>好处</dt><dd>不给自己留隐患。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>图没要全就下判断</b><span class="t">原 4.6-10</span></div><dl><dt>为什么不能</dt><dd>看走眼，或者把真货判成假货得罪客户。</dd><dt>换成</dt><dd>按各品类的要图清单要齐。</dd><dt>好处</dt><dd>判断有依据，客户也服气。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>不查图片来源</b><span class="t">原 4.6-11</span></div><dl><dt>为什么不能</dt><dd>被盗图、借真图卖假货骗到。</dd><dt>换成</dt><dd>以图搜图；让对方带手写日期拍。</dd><dt>好处</dt><dd>一眼就能挡掉盗图骗局。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>分不出装成客户的同行</b><span class="t">原 3.5-11</span></div><dl><dt>为什么不能</dt><dd>图、价格、客户都被套走。</dd><dt>换成</dt><dd>记住几个信号：只问价不发图、专挑底价问、问完就消失。</dd><dt>好处</dt><dd>行情和客户留在你自己手里。</dd></dl></div>
+    </div>
   </div>
   <div class="prac"><b>对练 · 30 分钟</b>两人一组练破冰和问诊，录像回放，主讲挑两组改，重点纠"忍不住报价"。晚上：给三个真实好友发破冰消息；给 20 个好友打标签、分级；要回至少 3 件货的图（板块六要用）。</div>
 </section>
@@ -1011,7 +1111,7 @@ tr.tot td{font-weight:600}
   <p class="hook">做过生意、做过回收的人，原来那一行的老客户家里多半就有闲置的包和表。还没挖过这批人就去投流，等于花钱去买别人的客户。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 1 节</span><b>你原来那一行的老客户，家里多半有闲置包</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>50</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>50</b></span><span>加上选讲和避坑约 <b>81</b></span><span>坑 <b>3</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："你的手机里，能直接打电话、对方一定会接的人，有多少？"让每个人写一个数字。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>没流量就想投钱</b><span class="t">约 6 分钟</span></div>
@@ -1061,10 +1161,15 @@ tr.tot td{font-weight:600}
         <p>朋友圈先发两周跟二奢有关的内容，让人知道你在做这个，再一对一开口。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 3 个：3 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>把熟人名单一次群发硬广</b><span class="t">原 2.8-16</span></div><dl><dt>为什么不能</dt><dd>被当成微商，攒了多年的信任一次烧光。</dd><dt>换成</dt><dd>朋友圈先铺垫两周，再一对一开口。</dd><dt>好处</dt><dd>熟人觉得你在做一件靠谱的事，愿意帮你，也愿意介绍。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>老客户、熟人的货就不验了</b><span class="t">原 6.6.5-01</span></div><dl><dt>为什么不能</dt><dd>熟客最容易让你省步骤，出事的往往就是熟客的货。</dd><dt>换成</dt><dd>老客户照样走全流程。</dd><dt>好处</dt><dd>规矩对谁都一样，出了事你有证据，熟人关系也不会因为一单货闹翻。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>以为短视频是唯一的路</b><span class="t">原 1.2 误解4</span></div><dl><dt>为什么不能</dt><dd>没有内容能力的人干等，错过了身边现成的客户。</dd><dt>换成</dt><dd>关系、门店、异业、平台都能单独出单，看你手上有什么牌。</dd><dt>好处</dt><dd>第一单往往来得更快，成本也更低。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 2 节</span><b>不花一分投放钱：门店、异业和转介绍</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>48</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>48</b></span><span>加上选讲和避坑约 <b>83</b></span><span>坑 <b>9</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问有店的学员："你们店门口一天走过多少人？进店的人有几个加了微信？"</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>门店本身就是获客工具</b><span class="t">约 5 分钟</span></div>
@@ -1120,6 +1225,17 @@ tr.tot td{font-weight:600}
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>成交后 48 小时回访，再开口要转介绍</b><span class="t">约 3 分钟</span></div>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 9 个：4 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>几条路同时铺</b><span class="t">原 2.8-01</span></div><dl><dt>为什么不能</dt><dd>每条都在冷启动，一条也跑不出数据。</dd><dt>换成</dt><dd>选一条，八成的时间和预算压上去。</dd><dt>好处</dt><dd>一条路跑通了，才有数据告诉你下一条该不该加。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>承接还没跑通就开始投钱引流</b><span class="t">原 2.8-04</span></div><dl><dt>为什么不能</dt><dd>人来了接不住，钱全漏掉。</dd><dt>换成</dt><dd>先把私域承接跑通，再加量。</dd><dt>好处</dt><dd>花出去的每一分钱都能接住客户。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>和异业口头约定分成</b><span class="t">原 2.8-12</span></div><dl><dt>为什么不能</dt><dd>跳单、结算扯皮，合作破裂。</dd><dt>换成</dt><dd>签异业合作协议，分成和记录方式写清楚。</dd><dt>好处</dt><dd>合作能长期做下去，双方都放心带客户。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>转介绍奖励层层往上返</b><span class="t">原 6.6.5-02</span></div><dl><dt>为什么不能</dt><dd>变味成拉人头，有合规风险。</dd><dt>换成</dt><dd>奖励只给直接介绍人一层。</dd><dt>好处</dt><dd>转介绍来的是真心推荐的客户，不会变成一个传销式的网。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>两周没反馈就换路；或者在已经证伪的路上"再坚持一下"</b><span class="t">原 2.8-02、2.8-03</span></div><dl><dt>为什么不能</dt><dd>前者永远停在冷启动；后者时间和钱继续漏。</dd><dt>换成</dt><dd>事先定好判断口径，到了就换，没到就坚持。</dd><dt>好处</dt><dd>不凭感觉做决定，该坚持的坚持，该换的换。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>刷好评、买粉、刷数据</b><span class="t">原 2.8-13</span></div><dl><dt>为什么不能</dt><dd>平台处罚降权，被发现后信任归零。</dd><dt>换成</dt><dd>一个个攒真评价。</dd><dt>好处</dt><dd>评价是真的，客户看了才信。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>找代运营代投，账户开在别人名下</b><span class="t">原 2.8-14</span></div><dl><dt>为什么不能</dt><dd>钱花了，账户和数据都不在自己手里。</dd><dt>换成</dt><dd>账户和数据必须在自己名下。</dd><dt>好处</dt><dd>随时能换人，积累的东西都是你的。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>闲鱼上跟着"买家"去站外交易、点陌生链接</b><span class="t">原 2.8-15</span></div><dl><dt>为什么不能</dt><dd>被骗钱、被封号。</dd><dt>换成</dt><dd>只走平台流程。</dd><dt>好处</dt><dd>平台的保障还在，骗子无从下手。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>让线人用你的名义在外面收货，不写授权范围；结算只靠口头</b><span class="t">原 6.6.5-03、6.6.5-04</span></div><dl><dt>为什么不能</dt><dd>他收错的货、欠的钱，最后找你算账；分成扯皮。</dd><dt>换成</dt><dd>书面写清授权范围，结算记表。</dd><dt>好处</dt><dd>线人帮你扩大货源，风险又不会落到你头上。</dd></dl></div>
+    </div>
   </div>
   <div class="prac"><b>作业 · 20 分钟 ＋ 前三天作业复盘 · 60 分钟</b>写老客户分层名单（不少于 30 人）和第一条开口话术。之后 60 分钟复盘前三天的作业，主讲挑典型的当场改。</div>
 </section>
@@ -1131,7 +1247,7 @@ tr.tot td{font-weight:600}
   <p class="hook">不会鉴定的人，怕得不敢做；学了点鉴定的人，敢硬判，后一种往往亏得更多。这一块讲的是判不准的时候怎么不亏，而不是让你三天变成鉴定师。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">开场</span><b>七八年迭代出一本白皮书的人</b></div>
-    <div class="lec-m"><span>课表 <b>10</b> 分钟</span><span>必讲约 <b>10</b></span><span>加上选讲约 <b>13</b></span><span class="r">全部是证明</span></div>
+    <div class="lec-m"><span>课表 <b>10</b> 分钟</span><span>必讲约 <b>10</b></span><span>加上选讲和避坑约 <b>13</b></span><span class="r">全部是证明</span></div>
     <p class="open"><span class="cl">开场</span>由鉴定讲师讲。桌上摆好今天要用的样本，先不揭晓真假。</p>
     <div class="row proof"><span class="tg">证明</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>鉴定课是怎么来的</b><span class="t">约 5 分钟</span></div>
@@ -1150,7 +1266,7 @@ tr.tot td{font-weight:600}
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 1 节</span><b>判不准的时候，你还有四条路不用自己扛</b></div>
-    <div class="lec-m"><span>课表 <b>48</b> 分钟</span><span>必讲约 <b>48</b></span><span>加上选讲约 <b>72</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 8 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>48</b> 分钟</span><span>必讲约 <b>48</b></span><span>加上选讲和避坑约 <b>78</b></span><span>坑 <b>7</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 8 / 10</span></div>
     <p class="open"><span class="cl">开场</span>举手："觉得不会鉴定就不能做这行的？""觉得再多学点鉴定就不会亏的？"两类人通常都有。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>两种想法都只对一半</b><span class="t">约 6 分钟</span></div>
@@ -1200,10 +1316,19 @@ tr.tot td{font-weight:600}
         <p>每个人回去都要有：1 个上游、2 个复核同行、1 家机构。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 7 个：3 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>以为不会鉴定就不能入行</b><span class="t">原 1.2 误解1</span></div><dl><dt>为什么不能</dt><dd>很多有资源的人卡在门口，迟迟不敢开始。</dd><dt>换成</dt><dd>上游兜底、机构送检、转撮合，三条路都能绕开。</dd><dt>好处</dt><dd>不会鉴定也能先做起来，边做边练眼力。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>判不了还硬判，怕丢单、怕显得不专业</b><span class="t">原 5.13-01</span></div><dl><dt>为什么不能</dt><dd>一单看走眼要白干几十单。</dd><dt>换成</dt><dd>判不了就按决策表转兜底。</dd><dt>好处</dt><dd>你说"这件我要送检"，客户反而觉得你靠谱；亏的钱也省下了。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>迷信机构报告</b><span class="t">原 5.13-06</span></div><dl><dt>为什么不能</dt><dd>报告会错，也能伪造。</dd><dt>换成</dt><dd>到官方渠道核验；报告只当证据之一。</dd><dt>好处</dt><dd>多一层核验，就少一次被假报告骗。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>上游兜底只凭口头约定</b><span class="t">原 5.13-07</span></div><dl><dt>为什么不能</dt><dd>出了事，上游不认。</dd><dt>换成</dt><dd>签上游合作协议，写清兜底范围和退换条件。</dd><dt>好处</dt><dd>出事时有据可依。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>找同行复核，把客户信息一起发出去；在同行群问价，把客户的图原样发出去</b><span class="t">原 5.13-08、6.2.7-05</span></div><dl><dt>为什么不能</dt><dd>客户被截胡。</dd><dt>换成</dt><dd>去掉一切能认出客户的信息再发。</dd><dt>好处</dt><dd>借到同行的眼力，又不丢客户。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>客户在催、价格又很诱人时，照样自己判</b><span class="t">原 5.13-15</span></div><dl><dt>为什么不能</dt><dd>压力下判断会变形。</dd><dt>换成</dt><dd>定一条压力规则：越急、越便宜，越要降一级走兜底。</dd><dt>好处</dt><dd>最危险的时候，有规矩替你踩刹车。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>出了事只认赔，不复盘</b><span class="t">原 5.13-16</span></div><dl><dt>为什么不能</dt><dd>同样的错犯第二次。</dd><dt>换成</dt><dd>复盘错在哪一道防线。</dd><dt>好处</dt><dd>一次学费只交一次。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 2 节</span><b>看货有顺序，成了习惯就不会漏</b></div>
-    <div class="lec-m"><span>课表 <b>42</b> 分钟</span><span>必讲约 <b>39</b></span><span>加上选讲约 <b>63</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 12 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>42</b> 分钟</span><span>必讲约 <b>39</b></span><span>加上选讲和避坑约 <b>71</b></span><span>坑 <b>6</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 12 / 10</span></div>
     <p class="open"><span class="cl">开场</span>拿起一只包，问："你们拿到一只包，第一眼看哪里？"答案通常各不相同，这就是问题。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>知识点会忘，顺序不会</b><span class="t">约 6 分钟</span></div>
@@ -1245,10 +1370,18 @@ tr.tot td{font-weight:600}
         <p>这里说清边界即可，不展开。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 6 个：4 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>只凭一个特征下结论：芯片、日期码、小票、专柜袋</b><span class="t">原 5.13-02</span></div><dl><dt>为什么不能</dt><dd>芯片能复制，小票能伪造。</dd><dt>换成</dt><dd>走完整条动线再下结论。</dd><dt>好处</dt><dd>一个特征骗得了你，整条动线骗不了。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>看到"全套"就放松警惕</b><span class="t">原 5.13-03</span></div><dl><dt>为什么不能</dt><dd>真票配假货、真盒装假表，最常见。</dd><dt>换成</dt><dd>配件只加分，不定案。</dd><dt>好处</dt><dd>骗子最爱用的那一招，对你没用。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>只查真假，不查翻新、改色、换件、后加钻</b><span class="t">原 5.13-04</span></div><dl><dt>为什么不能</dt><dd>按原厂价收进改装货，出货时被下游打回。</dd><dt>换成</dt><dd>单独检查非真假的问题。</dd><dt>好处</dt><dd>收价准，出货不会被退。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>隔着屏幕判断太自信</b><span class="t">原 5.13-05</span></div><dl><dt>为什么不能</dt><dd>图是真的，寄来的是假的。</dd><dt>换成</dt><dd>隔屏只给意向，见到实物才定。</dd><dt>好处</dt><dd>图片骗局对你失效。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>拿 AI 工具的结论直接收货</b><span class="t">原 5.13-13</span></div><dl><dt>为什么不能</dt><dd>AI 答错了，你买单。</dd><dt>换成</dt><dd>AI 只做辅助筛查。</dd><dt>好处</dt><dd>用上工具的快，又不担它的错。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>动线卡一年不更新</b><span class="t">原 5.13-14</span></div><dl><dt>为什么不能</dt><dd>去年的破绽，今年的高仿已经修掉了。</dd><dt>换成</dt><dd>定期更新动线卡和图库。</dd><dt>好处</dt><dd>眼力跟着高仿一起升级。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 3 节</span><b>一句"你这是假的"，可能让你被反咬调包</b></div>
-    <div class="lec-m"><span>课表 <b>20</b> 分钟</span><span>必讲约 <b>20</b></span><span>加上选讲约 <b>30</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 10 / 6 / 4</span></div>
+    <div class="lec-m"><span>课表 <b>20</b> 分钟</span><span>必讲约 <b>20</b></span><span>加上选讲和避坑约 <b>38</b></span><span>坑 <b>4</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 10 / 6 / 4</span></div>
     <p class="open"><span class="cl">开场</span>问："如果客户的包是假的，你会怎么跟他说？"</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>当面说"假的"</b><span class="t">约 5 分钟</span></div>
@@ -1281,6 +1414,12 @@ tr.tot td{font-weight:600}
         <p>验完当场封签，拍下特征点。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 4 个：4 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>当面直接说"你这是假的"</b><span class="t">原 5.13-11</span></div><dl><dt>为什么不能</dt><dd>客户翻脸闹事，反咬你调包。</dd><dt>换成</dt><dd>只说"不收"或"无法确认"，讲清依据。</dd><dt>好处</dt><dd>不得罪人，也不惹事；客户以后还可能来找你。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>书面上替客户下"假货"的结论</b><span class="t">原 5.13-12</span></div><dl><dt>为什么不能</dt><dd>结论错了要担责任。</dd><dt>换成</dt><dd>书面只写"无法确认"和依据。</dd><dt>好处</dt><dd>就算判断有误，也没有法律风险。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>不打招呼就开表盖、火试黄金</b><span class="t">原 5.13-09</span></div><dl><dt>为什么不能</dt><dd>弄坏客户的货，要赔。</dd><dt>换成</dt><dd>破坏性检测先征得同意，签字留记录。</dd><dt>好处</dt><dd>检测有依据，出了问题责任清楚。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>验完不封签、不拍特征点</b><span class="t">原 5.13-10</span></div><dl><dt>为什么不能</dt><dd>交割时被调包，说不清。</dd><dt>换成</dt><dd>验完当场封签，拍下特征点。</dd><dt>好处</dt><dd>交到你手上的，一定是你验过的那一件。</dd></dl></div>
+    </div>
   </div>
   <div class="prac"><b>现场看货 · 60 分钟</b>用板块四要回来的客户图判一轮，图不全的当场暴露出来。</div>
   <div class="prac"><b>盲测实操 · 120 分钟 · 不计比例（D4 下午）</b>实物盲测 → 30 秒排除 → 20 个场景选五种处理方式里的哪一种。讲师每轮讲答案。第三轮是真正的考点：知不知道什么时候不该自己判。晚上整理兜底清单。</div>
@@ -1293,7 +1432,7 @@ tr.tot td{font-weight:600}
   <p class="hook">压货的人最常说"再等等，能回本"。等到钱全压在货上，下一单都不敢收，生意就停了。做过回收的人还要小心老习惯：线上报高、见面压价，在二奢会直接变成差评。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">开场</span><b>主讲压货最狠的那一次</b></div>
-    <div class="lec-m"><span>课表 <b>10</b> 分钟</span><span>必讲约 <b>7</b></span><span>加上选讲约 <b>15</b></span><span class="r">全部是证明</span></div>
+    <div class="lec-m"><span>课表 <b>10</b> 分钟</span><span>必讲约 <b>7</b></span><span>加上选讲和避坑约 <b>15</b></span><span class="r">全部是证明</span></div>
     <p class="open"><span class="cl">开场</span>主讲直接讲故事，不铺垫。</p>
     <div class="row proof"><span class="tg">证明</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>压货自救</b><span class="t">约 7 分钟</span></div>
@@ -1311,7 +1450,7 @@ tr.tot td{font-weight:600}
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 1 节</span><b>收之前答不出"卖给谁"，那就是在赌</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>40</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 10 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>40</b></span><span>加上选讲和避坑约 <b>83</b></span><span>坑 <b>8</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 10 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："你们报价的时候参考什么？"多数人会说"去平台搜同款"。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>挂价不是到手价</b><span class="t">约 7 分钟</span></div>
@@ -1366,10 +1505,20 @@ tr.tot td{font-weight:600}
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>三问写在白板上，整个板块不擦</b><span class="t">约 2 分钟</span></div>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 8 个：4 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>看挂价，不看成交价</b><span class="t">原 6.2.7-01</span></div><dl><dt>为什么不能</dt><dd>估高了，收进来就亏。</dd><dt>换成</dt><dd>只认成交价。</dd><dt>好处</dt><dd>报价有底，收进来就有利润。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>出货三问答不上来就开始估价、开始收</b><span class="t">原 6.2.7-10、6.4.9-13</span></div><dl><dt>为什么不能</dt><dd>估出来的价没有出口撑着，收进来出不掉。</dd><dt>换成</dt><dd>先过三问：从哪出、几天出、到手多少。</dd><dt>好处</dt><dd>每一件货收进来之前，就已经知道它会去哪里。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>难出的货按好出的货估</b><span class="t">原 6.2.7-03</span></div><dl><dt>为什么不能</dt><dd>压货。</dd><dt>换成</dt><dd>把流通速度算进估价：难出的货必须压价，或者转撮合。</dd><dt>好处</dt><dd>好货抢得到，难货压不住你。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>翻新、改色、换件的货不单独折价</b><span class="t">原 6.2.7-09</span></div><dl><dt>为什么不能</dt><dd>按原品估，出货时被下游打回来。</dd><dt>换成</dt><dd>非真假问题单独折价。</dd><dt>好处</dt><dd>收价和出价对得上，不会被下游砍一刀。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>行情表不更新</b><span class="t">原 6.2.7-02</span></div><dl><dt>为什么不能</dt><dd>品牌调价、金价波动的时候，在高位收货。</dd><dt>换成</dt><dd>每周更新，大事件当天更新。</dd><dt>好处</dt><dd>行情变了你第一个知道。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>同行群报的价照单全收</b><span class="t">原 6.2.7-06</span></div><dl><dt>为什么不能</dt><dd>被带偏，或者被故意报低。</dd><dt>换成</dt><dd>至少两个来源交叉验证。</dd><dt>好处</dt><dd>自己的判断不被别人左右。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>永远只用上游给的价</b><span class="t">原 6.2.7-07</span></div><dl><dt>为什么不能</dt><dd>利润被上游锁死，自己永远建不起判断。</dd><dt>换成</dt><dd>先自己报，再对上游的答案。</dd><dt>好处</dt><dd>慢慢有了自己的定价能力。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>把平台的在线估价当真</b><span class="t">原 6.2.7-08</span></div><dl><dt>为什么不能</dt><dd>在线估价常常偏高，验货后才压价，拿它当基准就估高了。</dd><dt>换成</dt><dd>只当参考，以成交价为准。</dd><dt>好处</dt><dd>不会被虚高的数字带着走。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 2 节</span><b>线上报高、见面压价，在二奢是自断后路</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>43</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>43</b></span><span>加上选讲和避坑约 <b>85</b></span><span>坑 <b>10</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问做过回收的学员："你们原来那一行，线上报价和见面成交价一般差多少？"</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>做过回收的人的老习惯</b><span class="t">约 7 分钟</span></div>
@@ -1419,10 +1568,22 @@ tr.tot td{font-weight:600}
         <p>成色哪里扣分，渠道到手多少，为什么是这个数。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 10 个：5 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>不看货就报死价</b><span class="t">原 6.3.3-01</span></div><dl><dt>为什么不能</dt><dd>看了货只能往下压，客户觉得被骗。</dd><dt>换成</dt><dd>没看货最多给区间。</dd><dt>好处</dt><dd>见货以后的价只会更准，不会变成"先抬后压"。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>区间口子留得太大</b><span class="t">原 6.3.3-02</span></div><dl><dt>为什么不能</dt><dd>客户只记住上限，落差一大，你就是"骗子"。</dd><dt>换成</dt><dd>区间窄一点，条件说清楚。</dd><dt>好处</dt><dd>客户的预期和最后的价对得上。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>二次压价不给理由</b><span class="t">原 6.3.3-03</span></div><dl><dt>为什么不能</dt><dd>信任当场崩掉。</dd><dt>换成</dt><dd>指着实物一处一处讲折价，给客户一个能下台的理由。</dd><dt>好处</dt><dd>价格降了，客户也服气。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>为了抢单报高价</b><span class="t">原 6.3.3-04</span></div><dl><dt>为什么不能</dt><dd>收进来就亏，或者出不掉。</dd><dt>换成</dt><dd>报价上限 ＝ 到手价 − 自己要赚的。</dd><dt>好处</dt><dd>抢来的单也是赚钱的单。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>客户一说"别家给得更高"就跟价</b><span class="t">原 6.3.3-08</span></div><dl><dt>为什么不能</dt><dd>利润被一步步挤光，客户还觉得你有水分。</dd><dt>换成</dt><dd>按依据守价，该放的单就放。</dd><dt>好处</dt><dd>守住价的人，客户反而更信你的价。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>嘴上说"最高价""保证这个价"</b><span class="t">原 6.3.3-05</span></div><dl><dt>为什么不能</dt><dd>做不到，就是投诉和纠纷。</dd><dt>换成</dt><dd>只承诺条件，不承诺结果。</dd><dt>好处</dt><dd>说出去的话都兑现得了。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>报价只在嘴上，不留记录</b><span class="t">原 6.3.3-06</span></div><dl><dt>为什么不能</dt><dd>纠纷时说不清报过多少。</dd><dt>换成</dt><dd>报价写进客户标签和档案。</dd><dt>好处</dt><dd>有据可查。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>被同行套价还认真报</b><span class="t">原 6.3.3-07</span></div><dl><dt>为什么不能</dt><dd>你的行情被拿去截你的客户。</dd><dt>换成</dt><dd>识别信号，对方不发图就不给细价。</dd><dt>好处</dt><dd>行情是你的资产，不白送人。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>真假还没定就先报了价</b><span class="t">原 6.3.3-09</span></div><dl><dt>为什么不能</dt><dd>再改口，客户觉得你先抬后压。</dd><dt>换成</dt><dd>真假没定，不报价。</dd><dt>好处</dt><dd>报出去的价不用收回。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>说不出依据硬报</b><span class="t">原 6.3.3-10</span></div><dl><dt>为什么不能</dt><dd>被客户追问两句就崩。</dd><dt>换成</dt><dd>先讲鉴定结论和估价依据，再说数字。</dd><dt>好处</dt><dd>有依据，数字就有底气。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 3 节</span><b>压着的货怎么出，卖过的客户怎么回头</b></div>
-    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>36</b></span><span>加上选讲约 <b>60</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 10 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>40</b> 分钟</span><span>必讲约 <b>36</b></span><span>加上选讲和避坑约 <b>68</b></span><span>坑 <b>9</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 20 / 10 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："你们手上现在有压了三个月以上的货吗？"举手的人通常不少。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>"再等等，能回本"</b><span class="t">约 7 分钟</span></div>
@@ -1463,6 +1624,17 @@ tr.tot td{font-weight:600}
         <p>记进客户台账。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 9 个：4 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>滞销的货舍不得降价</b><span class="t">原 6.5.6-09</span></div><dl><dt>为什么不能</dt><dd>越压越亏，现金流被卡死。</dd><dt>换成</dt><dd>每件压货定截止日，到期降一档走同行。</dd><dt>好处</dt><dd>钱回来了，下一单又能收。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>真假存疑的货包装成正品卖出去</b><span class="t">原 6.5.6-01</span></div><dl><dt>为什么不能</dt><dd>知假售假，有刑事风险。</dd><dt>换成</dt><dd>退回、送检，或者转撮合。</dd><dt>好处</dt><dd>不拿身家去赌一件货。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>瑕疵、翻新、换件不写明</b><span class="t">原 6.5.6-02</span></div><dl><dt>为什么不能</dt><dd>被认定欺诈，要退款还要赔。</dd><dt>换成</dt><dd>卖货时如实写明。</dd><dt>好处</dt><dd>买家知道你说的都是真的，回头率更高。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>成交以后就不联系了</b><span class="t">原 6.6.5-06</span></div><dl><dt>为什么不能</dt><dd>卖家下次找了别人。</dd><dt>换成</dt><dd>48 小时回访，记进客户台账。</dd><dt>好处</dt><dd>一个客户能做好几单，还会帮你介绍。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>零售写"保真""假一赔十"，却兑现不了</b><span class="t">原 6.5.6-03</span></div><dl><dt>为什么不能</dt><dd>虚假宣传，还要赔付。</dd><dt>换成</dt><dd>承诺写成做得到的条件。</dd><dt>好处</dt><dd>承诺越实在，越不怕被追究。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>寄售平台一压就是几个月</b><span class="t">原 6.5.6-08</span></div><dl><dt>为什么不能</dt><dd>资金被锁住，行情也过了。</dd><dt>换成</dt><dd>设寄售期限和撤回线。</dd><dt>好处</dt><dd>货和钱都在你能控制的范围里。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>和同行合作，分成只靠口头</b><span class="t">原 6.5.6-12</span></div><dl><dt>为什么不能</dt><dd>分成纠纷，合作破裂。</dd><dt>换成</dt><dd>分成写清楚。</dd><dt>好处</dt><dd>合作能长久。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>只看成交单数，不拆是哪条路来的，也不看周转</b><span class="t">原 6.6.5-07</span></div><dl><dt>为什么不能</dt><dd>all in 的对错没法判断。</dd><dt>换成</dt><dd>每周看六个数，按渠道拆开。</dd><dt>好处</dt><dd>知道钱从哪来，下个月往哪加力。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>复盘只算钱，不查风控</b><span class="t">原 6.6.5-08</span></div><dl><dt>为什么不能</dt><dd>同一个漏洞一直漏。</dd><dt>换成</dt><dd>每周复盘加三个风控问题：有没有没登记的、没录像的、没过三问就收的。</dd><dt>好处</dt><dd>小漏洞在变成大事故之前就被补上。</dd></dl></div>
+    </div>
   </div>
   <div class="prac"><b>盲报 · 30 分钟</b>二十件真货，每人独立报价，对答案，讲差在哪。</div>
 </section>
@@ -1474,7 +1646,7 @@ tr.tot td{font-weight:600}
   <p class="hook">调包、假转账截图、异地寄空盒，新人第一个月就可能碰上。出事那一刻你手里有没有证据，决定你还做不做得下去。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 1 节</span><b>钱打出去之前，必须做完的三件事</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>47</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>47</b></span><span>加上选讲和避坑约 <b>91</b></span><span>坑 <b>12</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："你们收货的时候，会登记对方的身份证吗？"</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>学员的想法</b><span class="t">约 6 分钟</span></div>
@@ -1524,10 +1696,24 @@ tr.tot td{font-weight:600}
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>异地先验后付</b><span class="t">约 4 分钟</span></div>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 12 个：8 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>以为风控是做大以后的事</b><span class="t">原 1.2 误解9</span></div><dl><dt>为什么不能</dt><dd>第一单就可能碰上赃物、调包、假转账截图，出一次事就可能直接出局。</dd><dt>换成</dt><dd>从第一单开始，就按流程走。</dd><dt>好处</dt><dd>习惯从第一天养成，以后不用改；真出事时，你手里有证据。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>不问来源、不登记身份证就收</b><span class="t">原 6.4.9-01</span></div><dl><dt>为什么不能</dt><dd>收进赃物：货被扣，钱追不回，还要配合调查。</dd><dt>换成</dt><dd>核查来源，登记身份。</dd><dt>好处</dt><dd>真出了事，你能证明自己是正常收货。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>先付款后验货，尤其是异地交易</b><span class="t">原 6.4.9-02</span></div><dl><dt>为什么不能</dt><dd>钱出去了，货是假的，或者根本不来。</dd><dt>换成</dt><dd>验完货再付款，或者走担保交易。</dd><dt>好处</dt><dd>主动权一直在你手里。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>不录像、不拍照</b><span class="t">原 6.4.9-03</span></div><dl><dt>为什么不能</dt><dd>纠纷时说不清，还会被反咬调包。</dd><dt>换成</dt><dd>全程录像，关键部位拍照。</dd><dt>好处</dt><dd>一段录像能省掉一场官司。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>不签协议、不签字</b><span class="t">原 6.4.9-04</span></div><dl><dt>为什么不能</dt><dd>客户反悔要回货，你拿不出凭据。</dd><dt>换成</dt><dd>签回收协议，关键项让客户签字确认。</dd><dt>好处</dt><dd>反悔怎么办，事先就写清楚了。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>验完的货离开视线再交割</b><span class="t">原 6.4.9-05</span></div><dl><dt>为什么不能</dt><dd>被调包。</dd><dt>换成</dt><dd>验完封签，当场交割。</dd><dt>好处</dt><dd>你付钱买的，就是你验过的那一件。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>被价格诱惑，收下该拒的货</b><span class="t">原 6.4.9-07</span></div><dl><dt>为什么不能</dt><dd>收进赃物、问题货、出不掉的货。</dd><dt>换成</dt><dd>按必拒清单，价格再低也不收。</dd><dt>好处</dt><dd>最大的亏损，都是被"太便宜"引进门的。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>一个人带大额现金上门收货</b><span class="t">原 6.4.9-06</span></div><dl><dt>为什么不能</dt><dd>人身和财产安全出问题。</dd><dt>换成</dt><dd>两人同行，出发前报备，少带现金。</dd><dt>好处</dt><dd>人安全，钱安全，生意才做得下去。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>寄卖不写丢损和降价授权</b><span class="t">原 6.4.9-09</span></div><dl><dt>为什么不能</dt><dd>货丢了、卖不动的时候说不清。</dd><dt>换成</dt><dd>签寄卖协议，写清丢损赔偿、期限和降价授权。</dd><dt>好处</dt><dd>寄卖的货出了任何情况，都有约定可依。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>和未成年人或者不是物主的人交易</b><span class="t">原 6.4.9-10</span></div><dl><dt>为什么不能</dt><dd>交易可能无效，还要退货担责。</dd><dt>换成</dt><dd>核验身份，确认东西是他本人的。</dd><dt>好处</dt><dd>不收来路不清的货。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>邮寄收货不要求保价，不录开箱</b><span class="t">原 6.4.9-12</span></div><dl><dt>为什么不能</dt><dd>丢件或收到空盒，没法索赔。</dd><dt>换成</dt><dd>足额保价，从快递单号开始录开箱。</dd><dt>好处</dt><dd>出事能索赔，也能自证清白。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>客户情绪激动时还继续谈</b><span class="t">原 6.4.9-14</span></div><dl><dt>为什么不能</dt><dd>冲突升级，现场失控。</dd><dt>换成</dt><dd>停止谈判，先保全证据，必要时报警。</dd><dt>好处</dt><dd>不在气头上做决定，也不给对方留把柄。</dd></dl></div>
+    </div>
   </div>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 2 节</span><b>熟客的货最容易出事：骗局和出事后的第一小时</b></div>
-    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>40</b></span><span>加上选讲约 <b>75</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
+    <div class="lec-m"><span>课表 <b>50</b> 分钟</span><span>必讲约 <b>40</b></span><span>加上选讲和避坑约 <b>81</b></span><span>坑 <b>5</b> 个</span><span class="r">为什么 / 证明 / 怎么做 ＝ 25 / 15 / 10</span></div>
     <p class="open"><span class="cl">开场</span>问："你们或者身边的同行，被骗过吗？"让愿意讲的人讲一句。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>常见骗局</b><span class="t">约 8 分钟</span></div>
@@ -1574,6 +1760,13 @@ tr.tot td{font-weight:600}
         <p>封存货品，固定聊天和付款记录，暂停同一来源的交易，需要时报警。应急卡见手册第 9 件。</p>
       </div>
     </div></div>
+    <div class="pits"><div class="pits-h"><span class="tg">避坑</span><span>这一节的坑 5 个：3 个课上讲，每个约 2 分钟；其余进手册自查表</span></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>没见到钱就先发货；只看转账截图就发货</b><span class="t">原 6.5.6-04、6.5.6-05</span></div><dl><dt>为什么不能</dt><dd>截图是假的，货款两空。</dd><dt>换成</dt><dd>先款后货，以银行到账为准。</dd><dt>好处</dt><dd>货不会白白送出去。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>给同行、上游放账期，不设上限</b><span class="t">原 6.5.6-06</span></div><dl><dt>为什么不能</dt><dd>对方一跑，钱全没了。</dd><dt>换成</dt><dd>每家设账期上限，超过就先款后货。</dd><dt>好处</dt><dd>最坏情况下，损失也在你算好的范围内。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd must">课上讲</span><b>发货前不拍特征点、不录打包</b><span class="t">原 6.5.6-07</span></div><dl><dt>为什么不能</dt><dd>买家退回一件假货，说是你发的。</dd><dt>换成</dt><dd>发货前拍特征点，录打包过程。</dd><dt>好处</dt><dd>退回来的是不是你发的那一件，一看就知道。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>货和现金放在一起，没有监控也没有保险</b><span class="t">原 6.5.6-10</span></div><dl><dt>为什么不能</dt><dd>一次失窃，就是全部家当。</dd><dt>换成</dt><dd>保险柜、分开存放、上保险。</dd><dt>好处</dt><dd>一次意外不会让你从头再来。</dd></dl></div>
+      <div class="pit"><div class="pit-h"><span class="bd opt">手册自查</span><b>高价货寄出去不保价</b><span class="t">原 6.5.6-11</span></div><dl><dt>为什么不能</dt><dd>丢件只赔运费。</dd><dt>换成</dt><dd>足额保价。</dd><dt>好处</dt><dd>丢了也能赔回来。</dd></dl></div>
+    </div>
   </div>
   <div class="prac"><b>填单 · 20 分钟</b>回收单和寄卖协议，当场填上自己的信息。</div>
 </section>
@@ -1585,7 +1778,7 @@ tr.tot td{font-weight:600}
   <p class="hook">多数人不是不会，是回去就停在第二步：账号没改完，老客户没开口。这一块只做一件事，让你走出教室时，手里有一张接下来 30 天每天做什么的表。</p>
   <div class="lec">
     <div class="lec-h"><span class="ln">第 1 节</span><b>回去 30 天，每天做什么</b></div>
-    <div class="lec-m"><span>课表 <b>60</b> 分钟</span><span>必讲约 <b>53</b></span><span>加上选讲约 <b>90</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 18 / 12</span></div>
+    <div class="lec-m"><span>课表 <b>60</b> 分钟</span><span>必讲约 <b>53</b></span><span>加上选讲和避坑约 <b>90</b></span><span class="r">为什么 / 证明 / 怎么做 ＝ 30 / 18 / 12</span></div>
     <p class="open"><span class="cl">开场</span>让学员拿出第一天写的定位一句话和圈过的最弱一环。</p>
     <div class="row why"><span class="tg">为什么</span><div>
       <div class="pt"><div class="pt-h"><span class="bd must">必讲</span><b>多数人回去停在第二步</b><span class="t">约 8 分钟</span></div>
@@ -1639,6 +1832,162 @@ tr.tot td{font-weight:600}
     </div></div>
   </div>
   <div class="prac"><b>填计划和签收 · 30 分钟</b>写 30 天四周计划，把第 7、14、30 天要交的东西写进自己的日历。领学员手册，签收。</div>
+</section>
+
+<section class="sec" id="pits">
+  <div class="sec-n">倒数第二节</div>
+  <h2>原课程里的坑，现在都在哪</h2>
+  <p class="lead">原来的课程大纲 v5 里有九个误解和十张错误清单，一共 134 条。这里逐条列出它现在放在哪一节、是课上讲还是手册自查。已覆盖 134 / 134。意思相近的几条合成了一个坑讲，所以坑的数量比条数少。另外加了 6 个原来没有、来自短视频密训逐字稿的坑。全课一共 126 个坑：72 个课上讲，54 个手册自查。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>原编号</th><th>原来的错误</th><th>现在在哪</th><th>怎么讲</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="4">九个误解 · 9 条</td></tr>
+      <tr><td class="n">1.2 误解1</td><td>以为不会鉴定就不能入行</td><td class="n"><a href="#m6">板块六</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.2 误解2</td><td>以为必须自己出镜</td><td class="n"><a href="#m3">板块三</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">1.2 误解3</td><td>以为必须有店有钱</td><td class="n"><a href="#m2">板块二</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.2 误解4</td><td>以为短视频是唯一的路</td><td class="n"><a href="#m5">板块五</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.2 误解5</td><td>以为这行暴利</td><td class="n"><a href="#m1">板块一</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.2 误解6</td><td>以为要做全品类</td><td class="n"><a href="#m1">板块一</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.2 误解7</td><td>以为收得越多赚得越多</td><td class="n"><a href="#m1">板块一</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.2 误解8</td><td>以为客户都想卖高价</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.2 误解9</td><td>以为风控是做大以后的事</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr class="grp"><td colspan="4">定位 · 13 条</td></tr>
+      <tr><td class="n">1.11-01</td><td>看别人哪条路火就跟哪条</td><td class="n"><a href="#m1">板块一</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.11-02</td><td>把形容词当资源："我人脉广""我有客户"</td><td class="n"><a href="#m1">板块一</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.11-03</td><td>一上来做全品类</td><td class="n"><a href="#m1">板块一</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.11-04</td><td>新手从高价腕表、彩宝玉石、文玩字画切入</td><td class="n"><a href="#m1">板块一</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.11-05</td><td>先租店、装修、囤货，再找客户</td><td class="n"><a href="#m2">板块二</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.11-06</td><td>只算差价，不算周转、损耗和风险</td><td class="n"><a href="#m2">板块二</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.11-07</td><td>没写止损线就开始收货</td><td class="n"><a href="#m2">板块二</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.11-08</td><td>跳过安全通道，第一个月就自收大单</td><td class="n"><a href="#m2">板块二</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.11-09</td><td>鉴定师、回收老板、上门服务几个人设混着做</td><td class="n"><a href="#m1">板块一</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">1.11-10</td><td>个人账户大额收付，公私混用</td><td class="n"><a href="#m2">板块二</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">1.11-11</td><td>和亲友合伙不签协议</td><td class="n"><a href="#m2">板块二</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">1.11-12</td><td>把 all in 当成押上身家</td><td class="n"><a href="#m1">板块一</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">1.11-13</td><td>暂定定位当成最终答案，或者三天一换</td><td class="n"><a href="#m1">板块一</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr class="grp"><td colspan="4">获客 · 16 条</td></tr>
+      <tr><td class="n">2.8-01</td><td>五条路同时铺</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">2.8-02</td><td>两周没反馈就换路</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">2.8-03</td><td>在已经证伪的路上"再坚持一下"</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">2.8-04</td><td>承接没跑通就引流、投钱</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">2.8-05</td><td>只看播放、粉丝、曝光</td><td class="n"><a href="#m3">板块三</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">2.8-06</td><td>文案写"最高价""保真""行业第一"</td><td class="n"><a href="#m3">板块三</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">2.8-07</td><td>用品牌官图、别人的视频和音乐</td><td class="n"><a href="#m3">板块三</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">2.8-08</td><td>成交实拍、客户、身份证不打码不授权</td><td class="n"><a href="#m3">板块三</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">2.8-09</td><td>视频里现场估价报高，实际收货压价</td><td class="n"><a href="#m3">板块三</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">2.8-10</td><td>出镜人没签协议就开拍</td><td class="n"><a href="#m3">板块三</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">2.8-11</td><td>身家压在一个账号上</td><td class="n"><a href="#m3">板块三</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">2.8-12</td><td>异业口头约定分成</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">2.8-13</td><td>刷好评、买粉、刷数据</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">2.8-14</td><td>找代运营代投，账户开在别人名下</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">2.8-15</td><td>闲鱼上跟着"买家"去站外交易、点陌生链接</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">2.8-16</td><td>熟人名单一次群发硬广</td><td class="n"><a href="#m5">板块五</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr class="grp"><td colspan="4">私域承接 · 12 条</td></tr>
+      <tr><td class="n">3.5-01</td><td>钩子只图量，"免费鉴定"吸来一堆只鉴不卖的人</td><td class="n"><a href="#m2">板块二</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">3.5-02</td><td>钩子承诺兑现不了："秒回""当天给价""最高价"</td><td class="n"><a href="#m2">板块二</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">3.5-03</td><td>私信直接甩微信号、评论区留联系方式</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">3.5-04</td><td>通过好友第一句话就报价</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">3.5-05</td><td>加了不打标签，不记来源</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">3.5-06</td><td>加进来隔两天才回</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">3.5-07</td><td>私域号挂在员工或出镜人名下</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">3.5-08</td><td>所有客户压在一个号上</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">3.5-09</td><td>用外挂、群发软件、多开</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">3.5-10</td><td>客户身份证、住址存在相册里、随手转发</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">3.5-11</td><td>分不出伪装成客户的同行</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">3.5-12</td><td>社群没有群规</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr class="grp"><td colspan="4">私域转化 · 14 条</td></tr>
+      <tr><td class="n">4.6-01</td><td>朋友圈天天刷硬广</td><td class="n"><a href="#m4">板块四</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">4.6-02</td><td>成交实拍不打码、不问授权</td><td class="n"><a href="#m3">板块三</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">4.6-03</td><td>朋友圈写"保真""全网最高价"</td><td class="n"><a href="#m4">板块四</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">4.6-04</td><td>编造成交、编造客户反馈</td><td class="n"><a href="#m4">板块四</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">4.6-05</td><td>问诊顺序乱，上来就问"最低多少卖"</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">4.6-06</td><td>没看到货就给数字</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">4.6-07</td><td>私信里随口说"保证这个价""肯定收"</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">4.6-08</td><td>忽略来源异常的信号</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">4.6-09</td><td>聊着聊着发现是未成年人，还继续谈</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">4.6-10</td><td>图要不全就下判断</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">4.6-11</td><td>不查图片来源</td><td class="n"><a href="#m4">板块四</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">4.6-12</td><td>跟进变骚扰</td><td class="n"><a href="#m4">板块四</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">4.6-13</td><td>死单激活靠制造焦虑</td><td class="n"><a href="#m4">板块四</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">4.6-14</td><td>员工用个人号私下跟进客户</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr class="grp"><td colspan="4">鉴定 · 16 条</td></tr>
+      <tr><td class="n">5.13-01</td><td>判不了硬判，怕丢单、怕显得不专业</td><td class="n"><a href="#m6">板块六</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-02</td><td>只凭一个特征下结论：芯片、日期码、小票、专柜袋</td><td class="n"><a href="#m6">板块六</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-03</td><td>看到"全套"就放松</td><td class="n"><a href="#m6">板块六</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-04</td><td>只查真假，不查翻新、换件、拼装、后加钻</td><td class="n"><a href="#m6">板块六</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-05</td><td>隔屏判定太自信</td><td class="n"><a href="#m6">板块六</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-06</td><td>迷信机构报告</td><td class="n"><a href="#m6">板块六</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-07</td><td>上游兜底只凭口头</td><td class="n"><a href="#m6">板块六</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">5.13-08</td><td>同行复核时把客户信息一起发出去</td><td class="n"><a href="#m6">板块六</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">5.13-09</td><td>没打招呼就开表盖、火试黄金</td><td class="n"><a href="#m6">板块六</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-10</td><td>验完不封签、不拍特征点</td><td class="n"><a href="#m6">板块六</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-11</td><td>当面直接说"你这是假的"</td><td class="n"><a href="#m6">板块六</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-12</td><td>书面上替客户下"假货"定论</td><td class="n"><a href="#m6">板块六</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">5.13-13</td><td>拿 AI 工具的结论直接收货</td><td class="n"><a href="#m6">板块六</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">5.13-14</td><td>动线卡一年不更新</td><td class="n"><a href="#m6">板块六</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">5.13-15</td><td>客户催、价格诱人时照样自己判</td><td class="n"><a href="#m6">板块六</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">5.13-16</td><td>出了事只认赔，不复盘</td><td class="n"><a href="#m6">板块六</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr class="grp"><td colspan="4">估价 · 10 条</td></tr>
+      <tr><td class="n">6.2.7-01</td><td>看挂价，不看成交价</td><td class="n"><a href="#m7">板块七</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.2.7-02</td><td>行情表不更新</td><td class="n"><a href="#m7">板块七</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.2.7-03</td><td>难出的货按好出的货估</td><td class="n"><a href="#m7">板块七</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.2.7-04</td><td>成本漏算：送检费、物流、保价、平台佣金、资金占用</td><td class="n"><a href="#m2">板块二</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.2.7-05</td><td>在同行群问价，把客户的图原样发出去</td><td class="n"><a href="#m6">板块六</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.2.7-06</td><td>同行群的价照单全收</td><td class="n"><a href="#m7">板块七</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.2.7-07</td><td>永远只用上游的价</td><td class="n"><a href="#m7">板块七</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.2.7-08</td><td>把平台在线估价当真</td><td class="n"><a href="#m7">板块七</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.2.7-09</td><td>翻新、改色、换件不单独折价</td><td class="n"><a href="#m7">板块七</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.2.7-10</td><td>出货预判三问答不上来就开始估</td><td class="n"><a href="#m7">板块七</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr class="grp"><td colspan="4">报价 · 10 条</td></tr>
+      <tr><td class="n">6.3.3-01</td><td>不看货就报死价</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.3.3-02</td><td>区间口子留得太大</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.3.3-03</td><td>二次压价不给理由</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.3.3-04</td><td>为抢单报高价</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.3.3-05</td><td>口头说"最高价""保证这个价"</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.3.3-06</td><td>报价只在嘴上，不留记录</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.3.3-07</td><td>被同行套价还认真报</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.3.3-08</td><td>客户一说"别家更高"就跟</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.3.3-09</td><td>真假还有疑问就先报了价</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.3.3-10</td><td>说不出依据硬报</td><td class="n"><a href="#m7">板块七</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr class="grp"><td colspan="4">成交 · 14 条</td></tr>
+      <tr><td class="n">6.4.9-01</td><td>不问来源、不登记身份证就收</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.4.9-02</td><td>先付款后验货，尤其是异地</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.4.9-03</td><td>不录像、不拍照</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.4.9-04</td><td>不签协议、不签字</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.4.9-05</td><td>验完的货离开视线再交割</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.4.9-06</td><td>一个人带大额现金上门</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.4.9-07</td><td>被价格诱惑，收下该拒的货</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.4.9-08</td><td>撮合时不签三方协议</td><td class="n"><a href="#m2">板块二</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.4.9-09</td><td>寄卖不写丢损和降价授权</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.4.9-10</td><td>和未成年人或非所有人交易</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.4.9-11</td><td>大额转账不备注、不走对公</td><td class="n"><a href="#m2">板块二</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.4.9-12</td><td>邮寄收货不要求保价、不录开箱</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.4.9-13</td><td>出货预判三问答不上来也收</td><td class="n"><a href="#m7">板块七</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.4.9-14</td><td>客户情绪激动时继续谈</td><td class="n"><a href="#m8">板块八</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr class="grp"><td colspan="4">出货 · 12 条</td></tr>
+      <tr><td class="n">6.5.6-01</td><td>真假存疑的货包装成正品出</td><td class="n"><a href="#m7">板块七</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.5.6-02</td><td>瑕疵、翻新、换件不写明</td><td class="n"><a href="#m7">板块七</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.5.6-03</td><td>零售写"保真""假一赔十"，却兑现不了</td><td class="n"><a href="#m7">板块七</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.5.6-04</td><td>没见到钱先发货</td><td class="n"><a href="#m8">板块八</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.5.6-05</td><td>只看转账截图就发货</td><td class="n"><a href="#m8">板块八</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.5.6-06</td><td>给同行、上游放账期不设上限</td><td class="n"><a href="#m8">板块八</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.5.6-07</td><td>发货前不拍特征点、不录打包</td><td class="n"><a href="#m8">板块八</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.5.6-08</td><td>寄售平台一压就是几个月</td><td class="n"><a href="#m7">板块七</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.5.6-09</td><td>滞销货舍不得降价</td><td class="n"><a href="#m7">板块七</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.5.6-10</td><td>货和现金放在一处，没有监控和保险</td><td class="n"><a href="#m8">板块八</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.5.6-11</td><td>高价货寄出不保价</td><td class="n"><a href="#m8">板块八</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.5.6-12</td><td>同行合作分成只靠口头</td><td class="n"><a href="#m7">板块七</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr class="grp"><td colspan="4">复购 · 8 条</td></tr>
+      <tr><td class="n">6.6.5-01</td><td>老客户的货就不验了</td><td class="n"><a href="#m5">板块五</a> · 第 1 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.6.5-02</td><td>转介绍奖励层层往上返</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.6.5-03</td><td>线人以你的名义在外收货，没有授权边界</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.6.5-04</td><td>线人结算只靠口头</td><td class="n"><a href="#m5">板块五</a> · 第 2 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.6.5-05</td><td>客户台账随手存，谁都能看</td><td class="n"><a href="#m4">板块四</a> · 第 1 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.6.5-06</td><td>成交后就不联系</td><td class="n"><a href="#m7">板块七</a> · 第 3 节</td><td class="n">课上讲</td></tr>
+      <tr><td class="n">6.6.5-07</td><td>只看成交数，不拆路径、不看周转</td><td class="n"><a href="#m7">板块七</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+      <tr><td class="n">6.6.5-08</td><td>复盘只算钱，不查风控</td><td class="n"><a href="#m7">板块七</a> · 第 3 节</td><td class="n">手册自查</td></tr>
+    </tbody>
+  </table></div>
 </section>
 
 <section class="sec" id="todo">
