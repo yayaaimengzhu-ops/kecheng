@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全链路课学员手册</title>
+<style>
+:root{
+  --paper:#F1F2EC;--paper-glass:rgba(241,242,236,.94);--card:#FBFBF8;--hover:#F4F5EE;
+  --ink:#17231E;--ink2:#4A5951;--ink3:#626F66;--line:#CBD0C6;--line2:#E0E3DA;
+  --brass:#8F6E30;--brass-soft:#EFE7D4;--brass-wash:#F7F3E9;--note-ink:#5B4A22;
+  --seal:#A5382A;--seal-soft:#F0DAD4;--seal-wash:#FBF5F3;--on-accent:#FBFBF8;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+    --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+    --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+    --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+  --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+  --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+  --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+a{color:var(--brass);text-underline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header.top{padding:56px 0 30px}
+.doc-title{font-family:var(--serif);font-size:35px;line-height:1.35;font-weight:600;margin:0 0 12px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 12px}
+.claim{border:1px solid var(--ink);padding:20px 24px;margin:24px 0 20px;max-width:42em;background:var(--card)}
+.claim .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.16em;display:block;margin-bottom:6px}
+.claim p{font-family:var(--serif);font-size:21px;line-height:1.6;margin:0;font-weight:600}
+.claim small{display:block;margin-top:10px;font-size:14px;color:var(--ink2);line-height:1.8}
+.doc-meta{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--paper-glass);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px 18px;overflow-x:auto;white-space:nowrap;padding-top:9px;padding-bottom:9px;font-size:13.5px}
+nav.toc a{color:var(--ink2);text-decoration:none}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--brass)}
+section.sec{padding:44px 0 6px}
+.sec-n{font-family:var(--serif);color:var(--brass);font-size:13px;letter-spacing:.16em}
+h2{font-family:var(--serif);font-size:26px;font-weight:600;margin:2px 0 8px;line-height:1.4}
+h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:28px 0 8px}
+.lead{color:var(--ink2);max-width:46em;margin:0 0 12px}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:1.3em}
+li{margin:3px 0}
+.tbl{overflow-x:auto;margin:12px 0 18px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.7}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line2)}
+th{font-family:var(--serif);font-weight:600;color:var(--ink2);background:var(--brass-wash);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.t{white-space:nowrap;color:var(--ink3);font-variant-numeric:tabular-nums}
+td.k{white-space:nowrap;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);padding:16px 18px}
+.card h4{font-family:var(--serif);font-size:17px;margin:0 0 6px;font-weight:600}
+.card .who{display:inline-block;font-family:var(--serif);font-size:12.5px;padding:0 8px;background:var(--ink);color:var(--card);margin-bottom:8px}
+.card p,.card li{font-size:14px;color:var(--ink2)}
+.card .one{color:var(--ink);font-weight:600;border-top:1px solid var(--line2);padding-top:8px;margin-top:10px}
+.rail{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);background:var(--card);margin:14px 0}
+.stop{padding:16px 14px;border-right:1px solid var(--line2);text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.stop:last-child{border-right:none}
+.stop:hover,.stop:focus-visible{background:var(--hover)}
+.stop .n{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:22px;padding:0 6px;background:var(--brass);color:var(--on-accent);font-size:12.5px;font-family:var(--serif);margin-bottom:8px;align-self:flex-start}
+.stop.core .n{background:var(--ink);color:var(--card)}
+.stop b{font-family:var(--serif);font-size:17px;font-weight:600;display:block;margin-bottom:6px}
+.stop span{font-size:12.5px;line-height:1.6;color:var(--ink3)}
+.stop i{font-style:normal;margin-top:auto;padding-top:10px;font-size:12.5px;color:var(--ink)}
+.day{border-top:2px solid var(--ink);margin-top:46px;padding-top:18px}
+.day-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.day-h .d{font-family:var(--serif);font-size:15px;padding:1px 10px;background:var(--ink);color:var(--card)}
+.day-h h2{margin:0}
+.goal{font-size:16px;color:var(--ink);margin:10px 0 6px;max-width:44em}
+.tool{border:1px solid var(--line);background:var(--card);padding:14px 18px 10px;margin:16px 0}
+.tool .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.12em;display:block;margin-bottom:4px}
+.tool .tbl{margin:8px -18px 6px;border-left:none;border-right:none}
+.note{background:var(--brass-wash);border-left:3px solid var(--brass);padding:11px 16px;color:var(--note-ink);margin:14px 0;font-size:14.5px}
+.warn{background:var(--seal-wash);border-left:3px solid var(--seal);padding:11px 16px;margin:14px 0;font-size:14.5px}
+.warn b.lb{color:var(--seal);font-family:var(--serif)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.three div{background:var(--card);border:1px solid var(--line2);padding:10px 14px;font-size:14px;color:var(--ink2)}
+.three div b{display:block;font-family:var(--serif);color:var(--ink);font-size:14px}
+.redline{background:var(--card);border:1px solid var(--seal-soft);padding:12px 18px;margin:14px 0}
+.redline b.lb{font-family:var(--serif);color:var(--seal);letter-spacing:.1em;font-size:13px;display:block}
+.redline ol{margin:4px 0 2px}
+.hand{border:1px solid var(--ink);background:var(--card);padding:12px 18px;margin:14px 0}
+.hand b.lb{font-family:var(--serif);color:var(--brass);letter-spacing:.12em;font-size:13px;display:block}
+.skip{color:var(--ink3);font-size:14px}
+.bad{color:var(--seal)}
+footer{padding:46px 0 70px;color:var(--ink3);font-size:13px;border-top:1px solid var(--line);margin-top:50px}
+@media (max-width:760px){
+  .doc-title{font-size:27px}
+  .cards,.three{grid-template-columns:1fr}
+  .rail{grid-template-columns:1fr}
+  .stop{border-right:none;border-bottom:1px solid var(--line2)}
+  .stop:last-child{border-bottom:none}
+  h2{font-size:22px}
+}
+@media print{nav.toc{display:none}.day{break-before:page}}
+</style>
+<style>
+.fillb{display:inline-block;min-width:4.5em;border-bottom:1px solid var(--ink3);margin:0 3px}
+.fillw{display:inline-block;min-width:12em;border-bottom:1px solid var(--ink3);margin:0 3px}
+.mk{color:var(--brass);font-weight:600}
+.tch{color:var(--seal);font-weight:600}
+.box{border:1px solid var(--line);background:var(--card);padding:12px 16px;margin:12px 0}
+.box h4{margin:0 0 6px;font-family:var(--serif);font-size:16px}
+.no{color:var(--seal)}
+.yes{color:var(--brass)}
+.say-l{border-left:3px solid var(--brass);background:var(--brass-wash);padding:8px 12px;margin:8px 0;font-size:14.5px}
+.say-l b{color:var(--brass);font-family:var(--serif);margin-right:6px}
+.chk{list-style:none;padding-left:0}
+.chk li::before{content:"□ ";color:var(--ink3)}
+.sign{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:10px;font-size:14px}
+td.n{white-space:nowrap}
+.pk{white-space:nowrap;color:var(--seal);font-size:13px}
+@media print{nav.toc{display:none}.sec{break-inside:avoid-page}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1 class="doc-title">二手奢侈品回收 · 全链路实战课 · 学员手册</h1>
+  <p class="doc-sub">课上讲的是为什么，这本手册给的是怎么做。开营时发，五天都用，回去以后照着做。一共 11 件，每件对应课上的一个板块。</p>
+  <div class="claim">
+    <span class="lb">怎么用</span>
+    <p>画横线的空格你自己填；标<span class="mk">【填】</span>的是要你按自己城市、自己生意查清楚再填的数；标<span class="tch">【讲师补】</span>的由讲师在开课前补齐。</p>
+    <small>法律、税务相关内容只讲风险，具体以当地规定和律师、会计的意见为准；平台规则以开课当期为准；协议模板使用前请律师审核。</small>
+  </div>
+  <div class="doc-meta">
+    <span><b>对应</b> <a href="课程大纲v8-九大板块.html">课程大纲 v8</a> · <a href="教案大纲v8.html">教案大纲</a></span>
+    <span><b>姓名</b> <span class="fillb"></span></span>
+    <span><b>期数</b> <span class="fillb"></span></span>
+    <span><b>状态</b> 初稿，待讲师补齐和律师审核</span>
+  </div>
+</div></header>
+
+<nav class="toc" aria-label="目录"><div class="wrap">
+  <a href="#h1">1 起步方案</a><a href="#h2">2 开口服务</a><a href="#h3">3 账号五件套</a><a href="#h4">4 短视频</a><a href="#h5">5 私域</a><a href="#h6">6 要图和线下</a><a href="#h7">7 鉴定和兜底</a><a href="#h8">8 收与出</a><a href="#h9">9 收货流程</a><a href="#h10">10 30 天</a><a href="#h11">11 避坑自查</a>
+</div></nav>
+
+<main class="wrap">
+
+<section class="sec" id="h1">
+  <div class="sec-n">第 1 件 · 板块一、二</div>
+  <h2>一页起步方案</h2>
+  <p class="lead">D1 晚上交。结营时重填一次，和第一天的对比，看自己改了什么。</p>
+
+  <h3>① 四类底牌：只写数字，写不出就写 0</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>底牌</th><th>要写的数字</th><th>我的</th></tr></thead>
+    <tbody>
+      <tr><td class="k">人脉和老客户</td><td>能直接打电话、对方一定会接的人；其中家里确定有包、表的人</td><td><span class="fillb"></span> 人 / <span class="fillb"></span> 人</td></tr>
+      <tr><td class="k">门店和本地资源</td><td>有没有店；每天进店多少人；能谈的异业（金店、修表、洗护、美容）几家</td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">线上账号</td><td>哪个平台；多少粉丝；粉丝主要是谁</td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">时间和钱</td><td>每天能投入几小时；亏掉也不影响生活的钱有多少</td><td><span class="fillb"></span> 小时 / <span class="fillb"></span> 元</td></tr>
+    </tbody>
+  </table></div>
+  <p>圈出最经得起数字检验的三张牌：① <span class="fillw"></span> ② <span class="fillw"></span> ③ <span class="fillw"></span></p>
+
+  <h3>② 定位一句话（暂定）</h3>
+  <div class="say-l">我在 <span class="fillb"></span> 专做 <span class="fillb"></span>，我是 <span class="fillb"></span>（鉴定师 / 回收老板 / 上门服务，三选一），主要靠 <span class="fillb"></span> 找客户。</div>
+  <p>自检：品类只有一个 · 人设只有一个 · 主路是自己手上有牌的那条。</p>
+
+  <h3>③ 第一单回收的五条规矩</h3>
+  <ul class="chk">
+    <li>只收自己主打的那个品类</li>
+    <li>单笔不超过上限（见下面的三个阶段）</li>
+    <li>判不准就找兜底，不硬判（第 7 件）</li>
+    <li>收之前答出三个问题：卖给谁、几天出、扣完费用到手多少（第 8 件）</li>
+    <li>身份登记、全程录像、签回收单以后再付款（第 9 件）</li>
+  </ul>
+  <div class="tbl"><table>
+    <thead><tr><th>阶段</th><th>做什么</th><th>单笔上限</th><th>什么时候进下一阶段</th></tr></thead>
+    <tbody>
+      <tr><td class="k">一</td><td>熟悉品类的小额回收，判不准的转撮合或找兜底</td><td><span class="tch">【讲师补】建议值</span>；我的：<span class="fillb"></span> 元</td><td>连续 <span class="fillb"></span> 单没看走眼、都在 <span class="fillb"></span> 天内出掉</td></tr>
+      <tr><td class="k">二</td><td>放开金额，品类不变</td><td><span class="fillb"></span> 元</td><td>有稳定的出货渠道和兜底</td></tr>
+      <tr><td class="k">三</td><td>放开品类</td><td><span class="fillb"></span> 元</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>撮合和寄卖什么时候用</b>：判不准、金额超过上限、客户急着出你又吃不下，转撮合；货不急、客户想卖高一点、你暂时没有出口，做寄卖。</p>
+
+  <h3>④ 止损线（签字）</h3>
+  <div class="box">
+    <p>单笔最多亏 <span class="fillb"></span> 元。连续 <span class="fillb"></span> 单看走眼，就停下来复盘，复盘完再收。</p>
+    <div class="sign"><span>本人签字 <span class="fillb"></span></span><span>日期 <span class="fillb"></span></span></div>
+  </div>
+
+  <h3>⑤ 测算表</h3>
+  <p><b>一单的真实毛利</b> ＝ 卖出价 − 收价 − 物流 − 保价 − 送检 − 平台佣金 − 退货预留 − 资金占用</p>
+  <p class="skip">示意（假设数字）：卖出 1 万，收价 8000，物流和保价 150，送检 200，平台佣金 10%（1000），退货预留 200，资金压一个月按 1% 算 80，真实毛利约 370，不是 2000。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>月目标倒推</th><th>我的数</th></tr></thead>
+    <tbody>
+      <tr><td>想赚多少（元 / 月）</td><td><span class="fillb"></span></td></tr>
+      <tr><td>÷ 每单真实毛利 ＝ 要成交几单</td><td><span class="fillb"></span></td></tr>
+      <tr><td>÷ 成交率（谈 10 个成几个，<span class="mk">【填】</span>）＝ 要谈几个客户</td><td><span class="fillb"></span></td></tr>
+      <tr><td>÷ 加微信后真来谈的比例（<span class="mk">【填】</span>）＝ 要加几个精准微信</td><td><span class="fillb"></span></td></tr>
+      <tr><td>÷ 30 ＝ 每天要加几个；换算成每天拍几条视频、打几个电话、跑几家店</td><td><span class="fillb"></span></td></tr>
+    </tbody>
+  </table></div>
+  <p><b>一个客户值多少</b> ＝ 成交率 × 每单毛利 × 回头次数。养护、寄卖、转介绍，能让一个客户值好几单。</p>
+</section>
+
+<section class="sec" id="h2">
+  <div class="sec-n">第 2 件 · 板块二</div>
+  <h2>开口服务设计模板</h2>
+  <p class="lead">开口服务就是"免费的体检"：让客户自己看到那只包现在值多少、哪里有问题，他就会接着问你。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>三问</th><th>我的设计</th></tr></thead>
+    <tbody>
+      <tr><td class="k">免费给什么</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">要他做什么</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">下一步去哪</td><td><span class="fillw"></span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>三个示例</h3>
+  <ol>
+    <li><b>免费估价区间</b>：发四张图 → 当天给一个区间和条件 → 约时间看实物，见了货给准确的价。</li>
+    <li><b>成色诊断</b>：拍几处细节 → 告诉他哪里加分、哪里扣分、能不能修 → 想卖的时候来找你。</li>
+    <li><b>本月行情表 / 买包避坑清单</b>：加微信领取 → 他看完会问自己那只包 → 进入估价。</li>
+  </ol>
+  <h3>别这样做</h3>
+  <ul>
+    <li>"免费鉴定"：来的都是白嫖的和同行。</li>
+    <li>几十页的资料包：没人看，等于没开口。</li>
+    <li>"高价回收"：客户默认你后面要压价。</li>
+  </ul>
+  <h3>承诺用语对照</h3>
+  <div class="tbl"><table>
+    <thead><tr><th class="yes">可以说（做得到）</th><th class="no">别说（做不到就是投诉）</th></tr></thead>
+    <tbody>
+      <tr><td>当天给区间</td><td>秒到账、秒回</td></tr>
+      <tr><td>见了货给准确的价，每一处都讲清楚</td><td>全网最高价、保证这个价</td></tr>
+      <tr><td>先看后付</td><td>保真、假一赔十（兑现不了的时候）</td></tr>
+    </tbody>
+  </table></div>
+  <p>用在哪：私域、门店、抖音粉丝群的资料包。短视频里不说"来找我估价"，那会被判引流。</p>
+</section>
+
+<section class="sec" id="h3">
+  <div class="sec-n">第 3 件 · 板块三</div>
+  <h2>账号五件套和置顶三条</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>五件套</th><th>怎么做</th><th>我的</th></tr></thead>
+    <tbody>
+      <tr><td class="k">头像</td><td>真人日常照，不用 logo、不用卡通</td><td>□ 已改</td></tr>
+      <tr><td class="k">昵称</td><td>有人味，"X 哥 / X 姐"加一个品类词</td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">简介</td><td>从业年限 · 实力（几家店、收过多少）· 一句价值观 · 服务（当天给区间、上门、打款快）· 个人号可以写微信号</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">背景图</td><td>展示实力（店、货、团队），和简介不重复</td><td>□ 已改</td></tr>
+      <tr><td class="k">置顶三条</td><td>见下</td><td>□ □ □</td></tr>
+    </tbody>
+  </table></div>
+  <h3>置顶三条</h3>
+  <ol>
+    <li><b>个人故事</b>，建立感情：钩子 → 背景 → 低谷 → 转折 → 现在。真实，不编；夜晚、户外，分段拍。</li>
+    <li><b>我怎么对客户</b>，建立信任：一个你怎么对客户好的真实片段，或者你最高赞的那条。</li>
+    <li><b>服务流程</b>，让人知道找你做什么：回收、寄卖、养护各是怎么走的。</li>
+  </ol>
+  <p>微信的头像、昵称、简介、朋友圈封面，和抖音保持一致。客户加了你，第一件事就是翻你的朋友圈。</p>
+</section>
+
+<section class="sec" id="h4">
+  <div class="sec-n">第 4 件 · 板块三</div>
+  <h2>短视频工具卡</h2>
+
+  <h3>一条视频的七步</h3>
+  <p>人群 → 选题（用八大元素改）→ 呈现形式（按要讲几个点选）→ 填内容 → 开头（否定句最强）→ 拍 → 发。写完拿"成交三角"对一遍：有人看（流量）、信你这个人（人设）、知道你提供什么服务（产品），至少占一到两样。</p>
+  <p><b>人群只有一个</b>：手里有闲置想出手的人，或者想买二奢的人。不用年龄、性别、城市去定位。</p>
+
+  <h3>四类脚本，各管一件事</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>类型</th><th>管什么</th><th>什么时候拍</th></tr></thead>
+    <tbody>
+      <tr><td class="k">知识干货</td><td>流量、涨粉、把标签打准</td><td>新号前 2–4 周主拍</td></tr>
+      <tr><td class="k">vlog 记录</td><td>展示服务，带转化</td><td>起号以后</td></tr>
+      <tr><td class="k">故事</td><td>人设和信任</td><td>每 1–2 周一条，全程穿插</td></tr>
+      <tr><td class="k">观点情绪</td><td>让同频的人站到你这边</td><td>同上，一个月故事加观点不少于 4 条</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>八大爆款元素：把普通选题改成想看的选题</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>元素</th><th>怎么用</th><th>普通 → 改后</th></tr></thead>
+    <tbody>
+      <tr><td class="k">成本</td><td>要有具体的钱或时间</td><td>我们收包很快 → 挑战一小时收完 50 只包</td></tr>
+      <tr><td class="k">人群</td><td>点名一类具体的人</td><td>推荐几款上班背的包 → 月薪五千的 95 后，第一只大牌包怎么选</td></tr>
+      <tr><td class="k">奇葩</td><td>站在消费者角度出乎意料</td><td>收了一只成色差的包 → 客户把 LV 扔进洗衣机洗完拿来卖</td></tr>
+      <tr><td class="k">最差</td><td>说到极致</td><td>这几款包不建议买 → 八大品牌里最不保值的包</td></tr>
+      <tr><td class="k">反差</td><td>同一维度对比</td><td>这款包很保值 → 同一只包，挂三天就出和挂三个月没人问</td></tr>
+      <tr><td class="k">怀旧</td><td>老款、老一辈</td><td>客户拿来一块旧表 → 老父亲留下的上海牌手表</td></tr>
+      <tr><td class="k">荷尔蒙</td><td>慎用</td><td>这包适合约会 → 第一次去高档餐厅，背这只就够</td></tr>
+      <tr><td class="k">头牌</td><td>明星同款、顶级品牌</td><td>店里新到几只包 → 盘点明星同款，我店里有三只</td></tr>
+    </tbody>
+  </table></div>
+  <p>回收类选题把钱拔高、时间压紧；卖货类选题把预算压低。所有选题站在客户有利的那一边。</p>
+
+  <h3>干货选题六类，和三条避雷</h3>
+  <p>避坑 · 省钱 · 谈资 · 内幕揭秘 · 行业黑话 · 解决问题。<br>
+  避雷：①别拿鉴定教学当选题，吸来的是同行和白嫖的；②别揭自己行业的利润，别讲"开一家店要多少钱"；③别拍段子、别炫富，来的是看热闹的，标签会乱。</p>
+
+  <h3>呈现形式：按要讲几个点选</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>点数</th><th>形式</th><th>拍法</th></tr></thead>
+    <tbody>
+      <tr><td class="n">3 点以内</td><td>内心 OS</td><td>提问 → "我要不要告诉他" → 方法 → "算了算了，我不告诉他"。先录音，拍的时候听着录音，神态自然。</td></tr>
+      <tr><td class="n">3 点以内</td><td>偷窥视角</td><td>有遮挡或低机位，和人对话、不对镜头："我不要 A，因为……不要 B……"</td></tr>
+      <tr><td class="n">3 点以内</td><td>口播</td><td>痛点 → 方法 → 引导；或者反常识、揭秘、清单盘点。</td></tr>
+      <tr><td class="n">5 点以上</td><td>打枪</td><td>一图一句，人从画面一侧走进来说完再走出去；头顶打标题。</td></tr>
+      <tr><td class="n">5 点以上</td><td>一人分饰两角</td><td>一左一右、一问一答；同一机位先说完一侧，再换另一侧。</td></tr>
+      <tr><td class="n">记录类</td><td>vlog</td><td>起因（为什么要看）→ 见客户 → 为什么卖 → 报价 → 客户反应 → 收没收。没好货就拍人和事。</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>开头五类句式（否定句 > 肯定句 > 疑问句）</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>类型</th><th>句式</th><th>例</th></tr></thead>
+    <tbody>
+      <tr><td class="k">好奇</td><td>花 X 买到 Y 是什么体验 / 如何不……也能……</td><td>如何不攒半年工资，也能背上一线大牌</td></tr>
+      <tr><td class="k">痛点</td><td>不知道……你一定会亏 / 别再……了</td><td>卖包之前不知道这三件事，你一定会亏</td></tr>
+      <tr><td class="k">利益</td><td>没想到……就能…… / 教你用 X 的价格拿下 Y</td><td>教你用轻奢的预算拿下一线大牌</td></tr>
+      <tr><td class="k">借势</td><td>在……之后我发现</td><td>做了五年回收，我发现大多数人卖包都亏在同一个地方</td></tr>
+      <tr><td class="k">恐吓</td><td>千万不要……否则……（一定要给出结果）</td><td>千万别用湿纸巾擦老花，擦一次就回不去了</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>选题示例（先照着改，再用 AI 生成更多）</h3>
+  <ul>
+    <li><b>避坑</b>：去二奢店买包，第一句别问"能不能专柜验货" · 卖包之前，先别做这三件事 · 同一只包，有盒子和没盒子差多少</li>
+    <li><b>省钱</b>：预算五千，能买到哪几只大牌包 · 第一只大牌包，买新的还是二手的</li>
+    <li><b>谈资</b>：为什么有钱人反而爱买中古 · 二奢行业黑话：大全套、裸包、几成新是什么意思</li>
+    <li><b>解决问题</b>：包放衣柜里怎么放，五金才不氧化 · 手表进水，第一时间该做什么</li>
+    <li><b>vlog</b>：上门收包，客户说这是前男友送的 · 一下午收了几只包，最后一只没收，为什么（要用真实发生的事）</li>
+    <li><b>故事</b>：我为什么从 <span class="fillb"></span> 转行收包 · 做二奢这些年，最后悔的一单</li>
+    <li><b>观点</b>：背假包的成本，比背真包高 · 别把二手包当投资</li>
+  </ul>
+  <div class="say-l"><b>AI 提示词</b>我做二手奢侈品回收，客户是"手里有闲置奢侈品想出手的人"和"想买二奢的人"。请用成本、人群、奇葩、最差、反差、怀旧、头牌这几个元素，帮我把这个选题改成 5 个版本：<span class="fillw"></span>。每个都站在客户有利的一边，不要讲鉴定教学，不要揭行业利润。</div>
+
+  <h3>拍和发</h3>
+  <div class="tbl"><table>
+    <tbody>
+      <tr><td class="k">记不住词</td><td>提词器，一句一行，读错就重来；身边人念一句你说一句；531 练法：5 分钟随便讲 → 按结构改稿 → 3 分钟再讲 → 1 分钟脱稿录。</td></tr>
+      <tr><td class="k">情绪上不来</td><td>开口前加语气词或称呼（"哈哈""唉""我跟你说"），剪的时候剪掉；每天对着镜头录 5–10 分钟。</td></tr>
+      <tr><td class="k">构图</td><td>眼睛放在画面上三分之一那条线，人别居中。</td></tr>
+      <tr><td class="k">标题和话题</td><td>写给搜索看：城市或商圈 ＋ 事件 ＋ 品牌；话题加自己的 IP 词。"回收"两个字不写。</td></tr>
+      <tr><td class="k">定位和时间</td><td>做本地就定本地，想跑全国就不加定位；发布时间不用挑。</td></tr>
+      <tr><td class="k">违规自查</td><td>三处查：作品"数据分析"里的作品状态、消息通知、创作者中心的"账号检测"。能申诉就申诉（200 字以内，别骂人）；申诉不过就隐藏，改掉违规点再发。</td></tr>
+      <tr><td class="k">抖加</td><td>只在一种情况投：自然播放 24 小时过 1 万。内容加热 → 点赞评论 → 自定义 24 小时 → 100 元 → 保证播放量 → 智能投放，小额多次。不过 1 万不投。</td></tr>
+      <tr><td class="k">换号</td><td>翻拍几条爆过的知识类还是起不来，说明标签已经歪了，换号比硬扳快。</td></tr>
+    </tbody>
+  </table></div>
+  <p class="skip">平台规则会变，以开课当期为准。</p>
+</section>
+
+<section class="sec" id="h5">
+  <div class="sec-n">第 5 件 · 板块四</div>
+  <h2>私域 SOP</h2>
+
+  <h3>① 合规地把人加到微信：让对方来找你，不是你去找他</h3>
+  <ol>
+    <li>个人号在主页简介或合集里写微信号；企业号用主页自带的联系方式。</li>
+    <li>抖音粉丝群里放资料包（避坑清单、行情表），设好不许在群里聊天，想要的人自己来加你。</li>
+    <li>蓝 V 号用官方留资组件，让对方自己填电话。</li>
+    <li>视频号、公众号、门店门头、地图和点评，这些入口可以直接加。</li>
+  </ol>
+  <div class="box"><h4>私信里守三条</h4>
+    <ul>
+      <li>不聊买卖，只引导对方留资。回收报白的号，别在私信里聊卖货。</li>
+      <li>绝不主动发自己的联系方式，用语音、表情、图片发也算。</li>
+      <li>视频里不说"来找我估价""看我主页"，会判引流。</li>
+    </ul>
+  </div>
+  <p>加人节奏：个人微信每天不超过 30 个，新号 10 个左右。客户多了就慢慢加，或者多个号分着加。</p>
+
+  <h3>② 破冰：加好友 30 分钟内发第一条</h3>
+  <div class="say-l"><b class="no">✗</b>"亲爱的欢迎加我，我们专营包包腕表首饰……"加九宫格产品图</div>
+  <div class="say-l"><b class="yes">✓</b>"我整理了一份买包避坑清单（或：这个月的行情表），发你一份？"先给东西，他回了，话就接上了。</div>
+
+  <h3>③ 标签和分级</h3>
+  <p><b>标签五个字段</b>：来源（哪条视频、老客户、门店、异业）· 想买还是想卖 · 品牌偏好 · 预算 · 禁忌。<br>
+  <b>四种身份</b>：买家 · 卖家 · 同行 · 羊毛党（羊毛党不用花力气）。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>级别</th><th>参考（按自己的客单改）</th><th>怎么维护</th></tr></thead>
+    <tbody>
+      <tr><td class="k">S</td><td>年消费 10 万以上</td><td>一对一，带称呼或发语音；新货先给他看；生日节日问候，寄小礼物；单独报价。</td></tr>
+      <tr><td class="k">A</td><td>3–10 万</td><td>主动私聊 ＋ 定向可见的朋友圈。</td></tr>
+      <tr><td class="k">B</td><td>有消费能力、频率低</td><td>朋友圈触达，每月或每季度私发一次。</td></tr>
+      <tr><td class="k">C</td><td>很少消费</td><td>批量管理，每月 1–2 次活动消息。</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>不建微信客户群</b>：客户在意隐私，同行会潜进来截胡，在群里发货也显得廉价。抖音粉丝群放资料包是另一回事。</p>
+
+  <h3>④ 朋友圈</h3>
+  <p><b>信任存折</b>：科普、日常、互动是往里存；广告和产品是往外取。产品少发，生活多发。<br>
+  <b>七类内容</b>：人设日常 · 产品 · 客户反馈（买家秀、好评截图，先问授权再打码）· 科普 · 互动（猜价）· 稀缺 · 反向种草（"这只好看，但不一定适合你"）。<br>
+  <b>格式</b>：第一行 20 字以内；配图 1–3 张，不发九宫格；别堆表情；一天 2–5 条。不写"保真""全网最高价"，不编成交和好评。</p>
+
+  <h3>⑤ 私聊和跟进</h3>
+  <p><b>五个触发点</b>：到了他要的货 · 他给你点了赞 · 节日和生日 · 行情变了 · 店里有活动（活动要真给到实惠）。<br>
+  按标签推，不一键群发，不用"在吗"开头；大约一个月一次，每次都要有事说。<br>
+  <b>跟进节奏</b>：当天 · 三天 · 七天 · 三十天各一次；三十天还没回的打"死单"标签，等触发点再激活。不制造焦虑，不说"今天不卖明天就跌"；客户明确拒绝就停。</p>
+
+  <h3>⑥ 问诊前三十秒</h3>
+  <p>问品类、要图、约好给价时间："发我这几张图，今天几点前先给你一个区间；见了货，按实物给你一个准确的价。"图没齐，给时间，不给数字。来源上的异常信号记进标签（第 6 件）。</p>
+
+  <h3>⑦ 碰到真客户，四句话怎么接</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>客户说</th><th>你这样接</th><th>别这样</th></tr></thead>
+    <tbody>
+      <tr><td>"这包能卖多少？"</td><td>"你发我这几张图，今天几点前先给你一个区间；见了货，我按实物给你一个准确的价，每一处都跟你讲清楚。"</td><td class="no">看一张图就报一个死数</td></tr>
+      <tr><td>"你现在就给个价，给得高我就卖。"</td><td>"没看到实物，我现在报高了是骗你，报低了你也不信。你方便哪天，我当面看，看完给你准确的价。"</td><td class="no">跟着别家的价往上加</td></tr>
+      <tr><td>"我现在就拿过来" / "你上门来收"</td><td>先看图、约好时间；判不准就说："这件我想请老师一起看一下，稳妥一点。"</td><td class="no">判不准也硬收</td></tr>
+      <tr><td>"你什么时候做这个的，靠谱吗？"</td><td>讲你自己是谁、做过什么、你的服务是怎么走的，讲真实的。</td><td class="no">吹"十年经验""行业第一"</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sec" id="h6">
+  <div class="sec-n">第 6 件 · 板块四、五</div>
+  <h2>要图清单 · 来源异常信号 · 线下获客</h2>
+
+  <h3>① 各品类要图清单</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>品类</th><th>要哪几张</th></tr></thead>
+    <tbody>
+      <tr><td class="k">包</td><td>正面 · 背面 · 底部 · 侧面 · 内标和刻印 · 五金（拉链头、扣、铆钉）· 内里 · 配件（盒、防尘袋、票、卡）· 每一处瑕疵的特写</td></tr>
+      <tr><td class="k">表</td><td>表盘正面 · 表背 · 表冠 · 表扣 · 侧面 · 表带 · 保卡和配件 · 走时情况（拍一段视频）</td></tr>
+      <tr><td class="k">黄金珠宝</td><td>整体 · 印记和刻字 · 放在秤上的克重 · 证书 · 镶嵌和细节特写</td></tr>
+      <tr><td class="k">其他</td><td><span class="tch">【讲师补】</span>本期主打品类、各品牌必须拍的位置</td></tr>
+    </tbody>
+  </table></div>
+  <p>高价件，请对方放一张写了今天日期的纸一起拍。收到图先用以图搜图查一下，防盗图。客户拍不好，发一张示范图教他怎么拍。</p>
+
+  <h3>② 来源异常信号：记进标签，成交前逐条复核</h3>
+  <ul class="chk">
+    <li>急着出手，价格随便谈</li>
+    <li>说不清东西怎么来的，或者前后说法不一样</li>
+    <li>不愿意留身份信息，不愿意视频</li>
+    <li>一次出好几件同款的新货</li>
+    <li>看着像学生，或者说自己未成年</li>
+    <li>说是替别人卖，又说不清和物主的关系</li>
+    <li>要求先付款、只收现金</li>
+  </ul>
+  <p>有任何一条，不是一定不收，是要复核清楚；拿不准，就不收。</p>
+
+  <h3>③ 线下获客渠道</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>渠道</th><th>怎么做</th></tr></thead>
+    <tbody>
+      <tr><td class="k">通讯录和老客户</td><td>分三层：能直接打电话的 / 说得上话的 / 只加过微信的。第 1 周朋友圈铺垫，第 2 周开始一对一开口，不群发。</td></tr>
+      <tr><td class="k">原行业的老客户</td><td>卖过车、手机，寄卖过东西的人，家里多半有闲置包表。回访时加一句"家里有不用的包表，也可以拿来帮你看看"。</td></tr>
+      <tr><td class="k">门店</td><td>门头加一块"奢侈品回收 · 寄卖 · 养护"；地图、点评认领；进店的人先加微信，不管这次成不成。</td></tr>
+      <tr><td class="k">异业</td><td>先谈三类：金店典当、修表洗护、美容医美。送一次养护或清洗，换一个本地微信。分成写进协议。</td></tr>
+      <tr><td class="k">集市、沙龙</td><td>摆一张"免费估价"的桌子，换本地精准微信，不现场卖货。</td></tr>
+      <tr><td class="k">转介绍</td><td>成交后 48 小时回访再开口；奖励只给直接介绍人一层，送小礼物或服务折扣。</td></tr>
+      <tr><td class="k">投放和闲鱼</td><td>加速器，不是主路：承接没跑通前不投；闲鱼只走平台流程，不跟"买家"去站外。</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>④ 老客户分层名单（不少于 30 人）</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>层</th><th>名单</th><th>人数</th></tr></thead>
+    <tbody>
+      <tr><td class="k">能直接打电话的</td><td><span class="fillw"></span></td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">说得上话的</td><td><span class="fillw"></span></td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">只加过微信的</td><td><span class="fillw"></span></td><td><span class="fillb"></span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>⑤ 三段话术</h3>
+  <div class="say-l"><b>老客户开口</b>"我最近在做二奢的回收和寄卖，你家里要是有不用的包和表，我可以免费帮你看看现在值多少。"先给价值，再说生意。</div>
+  <div class="say-l"><b>找异业</b>先说能给对方带来什么："你的客户有闲置的包，可以在我这里变现，变现的钱很多会回到你店里消费。"再说要什么：放一块牌子，或者每月办一次免费估价日。</div>
+  <div class="say-l"><b>要转介绍</b>"上次的包还满意吗？身边有朋友想出闲置，也可以直接找我，我按一样的标准给价。"</div>
+</section>
+
+<section class="sec" id="h7">
+  <div class="sec-n">第 7 件 · 板块六</div>
+  <h2>鉴定：五种处理方式和兜底</h2>
+
+  <h3>① 这件货该怎么处理</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>情况</th><th>处理</th></tr></thead>
+    <tbody>
+      <tr><td>低价、常见款、自己主打品类、配件齐</td><td><b>自己判</b>，走完整条动线再收</td></tr>
+      <tr><td>高价、疑难款、客户有争议、下家要报告</td><td><b>送机构</b>，鉴定费算进成本；报告到官方渠道核验</td></tr>
+      <tr><td>大货、不熟的品类、客户急着出</td><td><b>找上游兜底</b>，让出一部分利润</td></tr>
+      <tr><td>常见款但没把握、时间来得及</td><td><b>同行复核</b>，图里去掉一切能认出客户的信息</td></tr>
+      <tr><td>完全没把握，或超过自己的单笔上限</td><td><b>转撮合</b>，不碰货权</td></tr>
+    </tbody>
+  </table></div>
+  <p>压力规则：客户越催、价格越诱人，越要降一级走兜底，不自己硬判。</p>
+
+  <h3>② 兜底找谁：三条路</h3>
+  <ol>
+    <li><b>我们给的同行资源群和靠谱上游</b>：从里面挑。进群方式和推荐名单：<span class="tch">【讲师补】</span></li>
+    <li><b>在群里求助</b>：多找几个人看，不要只认一个固定的兜底。</li>
+    <li><b>直接来找我们</b>：兜底不收费。图发到哪里、多久回复：<span class="tch">【讲师补】</span></li>
+  </ol>
+  <div class="tbl"><table>
+    <thead><tr><th>我的兜底清单</th><th>名字</th><th>联系方式</th><th>擅长品类</th></tr></thead>
+    <tbody>
+      <tr><td class="k">上游 1</td><td><span class="fillb"></span></td><td><span class="fillb"></span></td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">上游 2</td><td><span class="fillb"></span></td><td><span class="fillb"></span></td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">复核同行 1</td><td><span class="fillb"></span></td><td><span class="fillb"></span></td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">复核同行 2</td><td><span class="fillb"></span></td><td><span class="fillb"></span></td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">机构</td><td><span class="fillb"></span></td><td><span class="fillb"></span></td><td>费用 <span class="fillb"></span> · 时效 <span class="fillb"></span></td></tr>
+      <tr><td class="k">我们</td><td colspan="3"><span class="tch">【讲师补】</span></td></tr>
+    </tbody>
+  </table></div>
+  <p>和上游的兜底范围、退换条件，至少在聊天里确认清楚；做得多了，签上游合作协议。</p>
+
+  <h3>③ 看货的顺序</h3>
+  <p><b>30 秒排除</b>：一眼假的东西，30 秒内排除，不在上面浪费时间；"感觉不对"的时候停下来，不要说服自己。<br>
+  <b>通用五个维度</b>：材质 · 做工 · 五金 · 标识 · 配件。每个品类都按这五个维度走一遍，只凭一个特征（芯片、日期码、小票、专柜袋）不下结论；配件只加分，不定案。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>分品类动线卡</th><th>按顺序看什么</th></tr></thead>
+    <tbody>
+      <tr><td class="k">包</td><td><span class="tch">【讲师补】</span></td></tr>
+      <tr><td class="k">表</td><td><span class="tch">【讲师补】</span></td></tr>
+      <tr><td class="k">黄金珠宝</td><td><span class="tch">【讲师补】</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="skip">动线卡由讲师按本期样本和最新的高仿破绽补齐，每期更新。</p>
+
+  <h3>④ 比真假更常见的问题</h3>
+  <ul class="chk">
+    <li>翻新、补色、改色</li>
+    <li>换过五金、换过件、拼装</li>
+    <li>表开过盖、换过零件；首饰后加的钻</li>
+  </ul>
+  <p>这些不单独折价，按原品收进来一样亏，出货时还会被下家打回来。能修的瑕疵，修完能多卖多少、修一次多少钱：<span class="tch">【讲师补】</span></p>
+
+  <h3>⑤ 跟客户怎么说结论</h3>
+  <div class="say-l"><b>不收的时候</b>"这件我这边没法确认，建议你去机构检测一下，有结果了随时来找我。"只说"不收"或"无法确认"，讲清依据，不说"你这是假的"，书面上也不写"假货"。</div>
+  <p>验完当场封签，拍下特征点。开表盖、火试黄金这类会动到货的检测，先征得同意并签字。AI 工具只做辅助筛查，结论不能只信它。</p>
+</section>
+
+<section class="sec" id="h8">
+  <div class="sec-n">第 8 件 · 板块七</div>
+  <h2>收与出：估价、报价、出货</h2>
+
+  <h3>① 出货预判三问（答不上来就不收）</h3>
+  <div class="say-l"><b>三问</b>走哪个渠道出？几天能出掉？扣完费用到手多少？</div>
+
+  <h3>② 从到手价倒推报价上限</h3>
+  <p>到手价 ＝ 渠道成交价 − 佣金 − 运费 − 送检 − 退货预留 − 资金占用<br>报价上限 ＝ 到手价 − 你想赚的</p>
+  <p class="skip">示意（假设数字）：成交价 1 万，佣金 15%，运费和送检 300，退货预留 300，到手约 7900；想赚 800，报价上限就是 7100。</p>
+
+  <h3>③ 渠道对照表</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>渠道</th><th>价格</th><th>速度</th><th>佣金和回款<span class="mk">【填】</span></th><th>适合什么货</th><th>我的联系人</th></tr></thead>
+    <tbody>
+      <tr><td class="k">同行和上游</td><td>最低</td><td>最快</td><td><span class="fillb"></span></td><td>急着周转的、难出的</td><td><span class="fillb"></span></td></tr>
+      <tr><td class="k">寄卖平台</td><td>中</td><td>慢</td><td><span class="fillb"></span></td><td>不急、想卖高一点的</td><td>—</td></tr>
+      <tr><td class="k">自己的私域</td><td>高</td><td>看客户</td><td>无佣金</td><td>热门款、有人点名要的</td><td>—</td></tr>
+      <tr><td class="k">门店零售</td><td>最高</td><td>最慢</td><td>有店才有</td><td>成色好、全套的</td><td>—</td></tr>
+      <tr><td class="k">闲鱼</td><td>中</td><td>中</td><td><span class="fillb"></span></td><td>中低价位</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p>同行和上游的账期，每家设一个上限：<span class="fillb"></span> 元，超过就先款后货。寄卖平台设一个期限和撤回线：<span class="fillb"></span> 天。</p>
+
+  <h3>④ 估价看什么</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>因素</th><th>怎么影响价格</th><th>折算参考</th></tr></thead>
+    <tbody>
+      <tr><td class="k">成色</td><td>几成新，有没有明显磨损</td><td><span class="tch">【讲师补】</span></td></tr>
+      <tr><td class="k">配件</td><td>盒、防尘袋、票、卡，少一样就有价差</td><td><span class="tch">【讲师补】</span></td></tr>
+      <tr><td class="k">瑕疵和修复</td><td>能修的和不能修的，差别很大</td><td><span class="tch">【讲师补】</span></td></tr>
+      <tr><td class="k">年份和热度</td><td>热门款好出，冷门款要压价</td><td><span class="tch">【讲师补】</span></td></tr>
+      <tr><td class="k">城市</td><td>大城市渠道多、买家多，价格高一些、出得快；按你所在城市能卖到的价算</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p>行情从哪来：同行报价群、寄卖平台的成交记录、拍卖结果、自己的成交台账。只信成交价，不信挂价；平台的在线估价只当参考。行情表每周更新，品牌调价、金价大动的时候当天更新。</p>
+
+  <h3>⑤ 报价口径</h3>
+  <div class="say-l"><b>线上</b>只给区间和条件："按这几张图，大概在 X 到 Y 之间；配件齐、没有修过，会靠上限。"</div>
+  <div class="say-l"><b>线下</b>见了实物，按你所在城市的行情给一个准确的价，一处一处讲清依据："成色九成，缺了盒子，近三个月这个款的成交在 X 到 Y，所以我给你……"</div>
+  <p>真假没定，不报价。报出去的价，写进客户标签。</p>
+
+  <h3>⑥ 议价时客户常说的话</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>客户说</th><th>你这样接</th></tr></thead>
+    <tbody>
+      <tr><td>"你报得太低了。"</td><td>把依据再讲一遍：成色哪里扣、渠道到手多少；"你觉得哪一处我算得不对，我们一起看。"</td></tr>
+      <tr><td>"别家给得更高。"</td><td>不跟价："他看过实物了吗？见了货还给这个价，你就卖给他，这是好事。"</td></tr>
+      <tr><td>"我再想想。"</td><td>不追，给期限："这个价我能保留到明天晚上，行情有变我会告诉你。"</td></tr>
+      <tr><td>"我急用钱。"</td><td>说清到账时间和流程，不因为他急就压价，也不因为他急就省掉登记和录像。</td></tr>
+      <tr><td>"我是老客户了。"</td><td>可以在服务上让（上门、快打款），价格按同一个标准。</td></tr>
+      <tr><td>"能不能先打一半给我？"</td><td>不行；登记、验货、签单以后一次付清。</td></tr>
+    </tbody>
+  </table></div>
+  <p>谈不拢就礼貌收尾，留着关系。只问价不发图、反复问底价、问完就消失的，多半是同行来套价，不给细价。</p>
+
+  <h3>⑦ 压货了怎么办</h3>
+  <ol>
+    <li>每件压货定一个出货截止日：<span class="fillb"></span></li>
+    <li>第一个月按正常价挂；到期降一档；再到期走同行。</li>
+    <li>该动了的信号：挂了两周没人问；问的人都在砍价；同行都不收。</li>
+    <li>其他出路：换渠道、转撮合、能修的修完再卖。</li>
+    <li>真假存疑的货：退回、送检或转撮合，绝不包装成正品卖。卖的时候瑕疵、翻新、换件都写明。</li>
+  </ol>
+
+  <h3>⑧ 客户台账和每周六个数</h3>
+  <p><b>客户台账记</b>：买过什么、卖过什么、价格、偏好、下次可能的需求、生日；成交后 48 小时回访一次。<br>
+  <b>每周看六个数</b>：新增客户 · 成交客户 · 成交单数 · 每单毛利 · 复购客户 · 转介绍客户。哪个数掉了，就回到对应的板块找原因。复盘时再问三句：这周有没有没登记的？没录像的？没过三问就收的？</p>
+</section>
+
+<section class="sec" id="h9">
+  <div class="sec-n">第 9 件 · 板块八</div>
+  <h2>收货流程卡和应急卡</h2>
+
+  <h3>① 收货流程</h3>
+  <p>看货 → 过出货三问 → 报价 → 客户确认 → 核查来源、登记身份 → 全程录像（告知对方在录像）→ 封签、拍特征点 → 签回收单 → 付款（转账备注写清货品）→ 交付。</p>
+  <p>上门收货：两人同行，出发前报备，少带现金。异地收货：先收货、验完再付款；足额保价；从快递单号开始录开箱。</p>
+
+  <h3>② 必拒清单：价格再低也不收</h3>
+  <ul class="chk">
+    <li>不愿意登记身份</li>
+    <li>说不清东西怎么来的</li>
+    <li>未成年人，或者不是物主、又说不清关系的人</li>
+    <li>价格低得离谱，又急着出</li>
+    <li>判不准，又找不到兜底</li>
+    <li>超过自己的单笔上限</li>
+    <li>要求先付款、后看货</li>
+  </ul>
+
+  <h3>③ 单据要点（模板使用前请律师审核）</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>单据</th><th>必须写清的内容</th></tr></thead>
+    <tbody>
+      <tr><td class="k">回收单</td><td>双方身份信息 · 货品描述和特征点 · 成色和瑕疵 · 价格和付款方式 · 卖方确认是物主、来源合法 · 卖后反悔怎么办 · 双方签字和日期</td></tr>
+      <tr><td class="k">寄卖协议</td><td>货品描述 · 期限 · 定价和降价授权 · 佣金 · 丢失、损坏怎么赔 · 到期怎么撤回 · 回款时间</td></tr>
+      <tr><td class="k">撮合协议</td><td>三方关系 · 定金 · 交易在你这里完成 · 服务费 · 真假和争议怎么处理</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>④ 出货的规矩</h3>
+  <p>先款后货，以银行到账为准，不认截图；发货前拍特征点、录打包；高价货足额保价。</p>
+
+  <h3>⑤ 出事后的第一小时</h3>
+  <div class="box">
+    <ol>
+      <li>封存货品，不再动它。</li>
+      <li>固定证据：聊天记录、转账记录、录像、单据，全部备份。</li>
+      <li>暂停同一个来源的所有交易。</li>
+      <li>需要的时候报警；涉及法律问题找律师。</li>
+      <li>别做三件事：别删聊天记录，别私下威胁对方，别把货先卖了。</li>
+    </ol>
+  </div>
+  <p class="skip">身份信息单独存放，限定谁能看；录像至少保存到货卖出去以后。具体保存要求以当地规定为准。</p>
+</section>
+
+<section class="sec" id="h10">
+  <div class="sec-n">第 10 件 · 板块九</div>
+  <h2>30 天计划 · 第一单复盘 · 课后咨询</h2>
+
+  <h3>① 30 天四周计划</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>周</th><th>做什么</th><th>我的安排</th></tr></thead>
+    <tbody>
+      <tr><td class="k">第 1 周</td><td>账号五件套定稿；知识视频（翻拍爆过的选题）；朋友圈铺垫；整理老客户分层名单</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">第 2 周</td><td>第一层老客户一对一开口；开始拍 vlog；新加的人全部打标签分级</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">第 3 周</td><td>拍置顶个人故事；谈一家异业；按触发点私聊一轮</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">第 4 周</td><td>私域分级整理；跑完第一单，做完整复盘</td><td><span class="fillw"></span></td></tr>
+    </tbody>
+  </table></div>
+  <p>第 7、14、30 天各自查一次：计划做完了几成？卡在哪一步？卡住的问题带到课后咨询里问。</p>
+
+  <h3>② 第一单复盘表</h3>
+  <div class="tbl"><table>
+    <tbody>
+      <tr><td class="k">客户从哪来</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">鉴定怎么处理的（自己判 / 送机构 / 上游 / 同行 / 撮合）</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">收价 · 卖出价 · 真实毛利</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">走的哪个渠道 · 几天出掉</td><td><span class="fillw"></span></td></tr>
+      <tr><td class="k">登记、录像、签单齐不齐</td><td>□ 登记 □ 录像 □ 签单</td></tr>
+      <tr><td class="k">下一单要改的一件事</td><td><span class="fillw"></span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>③ 课后咨询怎么用</h3>
+  <ul>
+    <li>课程包含课后咨询（半年或一年，按报名时的约定），不含陪跑。</li>
+    <li>问的时候带着具体的东西来：哪条视频、哪段聊天、哪件货的图。</li>
+    <li>真实的货判不准，来找我们兜底，不收费。</li>
+    <li>咨询的方式和时间：<span class="tch">【讲师补】</span></li>
+  </ul>
+</section>
+
+<section class="sec" id="h11">
+  <div class="sec-n">第 11 件 · 结营</div>
+  <h2>避坑自查表</h2>
+  <p class="lead">课上讲到的坑全部在这里，按板块排。结营时每人对着打勾：□ 表示"我以前这样做过"，看完右边的"换成"，回去照着改。标 <span class="pk">课上讲过</span> 的，课上已经详细讲过。</p>
+  <h3>板块一 · 定位</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>坑</th><th>换成</th></tr></thead>
+    <tbody>
+      <tr><td class="n">□</td><td>收得越多赚得越多，先压钱进一批货 <span class="pk">课上讲过</span></td><td>从小额回收做起；每一件收之前，先想好卖给谁、几天能卖掉。</td></tr>
+      <tr><td class="n">□</td><td>以为二奢是暴利，一单能赚一大笔 <span class="pk">课上讲过</span></td><td>按全口径算账，用一年的周转去看利润。</td></tr>
+      <tr><td class="n">□</td><td>看别人哪条路火，就跟哪条路 <span class="pk">课上讲过</span></td><td>按自己校验过的三张牌选路。</td></tr>
+      <tr><td class="n">□</td><td>把形容词当资源："我人脉广""我有客户" <span class="pk">课上讲过</span></td><td>形容词一律换成数字：能直接打电话的有几个，家里确定有包的有几个。</td></tr>
+      <tr><td class="n">□</td><td>把 all in 当成押上全部身家</td><td>all in 的是时间和注意力；钱只动亏掉也不影响生活的那一部分。</td></tr>
+      <tr><td class="n">□</td><td>一上来就做全品类 <span class="pk">课上讲过</span></td><td>先做透一个品类。</td></tr>
+      <tr><td class="n">□</td><td>新手从高价腕表、彩宝玉石、文玩字画入手 <span class="pk">课上讲过</span></td><td>先选货源多、好判断、好出手的品类，按三个阶段一步步放开。</td></tr>
+      <tr><td class="n">□</td><td>鉴定师、回收老板、上门服务几个人设混着做 <span class="pk">课上讲过</span></td><td>三个里选一个。</td></tr>
+      <tr><td class="n">□</td><td>把暂定的定位当成最终答案，或者三天一换</td><td>暂定 → 结营时校准 → 回去用 30 天的数据验证。</td></tr>
+    </tbody>
+  </table></div>
+  <h3>板块二 · 生意模型</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>坑</th><th>换成</th></tr></thead>
+    <tbody>
+      <tr><td class="n">□</td><td>先租店、装修、囤货，再去找客户 <span class="pk">课上讲过</span></td><td>不先租店囤货：从小额回收做起，收一件、出一件，门店是跑通以后的事。</td></tr>
+      <tr><td class="n">□</td><td>跳过三个阶段，第一个月就收大单 <span class="pk">课上讲过</span></td><td>按三个阶段放开：熟悉品类的小额回收 → 放开金额 → 放开品类。</td></tr>
+      <tr><td class="n">□</td><td>没写止损线就开始收货 <span class="pk">课上讲过</span></td><td>收第一件货之前，写下单笔上限和止损线，签字。</td></tr>
+      <tr><td class="n">□</td><td>撮合时不签协议</td><td>先收定金，或者签代收撮合协议，交易在你这里完成。</td></tr>
+      <tr><td class="n">□</td><td>和亲友合伙不签协议</td><td>开工之前先签合伙协议。</td></tr>
+      <tr><td class="n">□</td><td>开口服务只图人多："免费鉴定" <span class="pk">课上讲过</span></td><td>开口服务对准卖家：价格区间、成色诊断、行情表。</td></tr>
+      <tr><td class="n">□</td><td>承诺兑现不了："秒回""最高价""秒到账" <span class="pk">课上讲过</span></td><td>只承诺做得到的条件："当天给区间""先看后付"。</td></tr>
+      <tr><td class="n">□</td><td>只算差价，不算周转、损耗和风险 <span class="pk">课上讲过</span></td><td>全口径算账，风险成本按比例算进去；从到手价往回倒推。</td></tr>
+      <tr><td class="n">□</td><td>个人账户大额收付，公私混用</td><td>起步就把经营账户和生活账户分开；大额转账写备注。具体以会计意见为准。</td></tr>
+    </tbody>
+  </table></div>
+  <h3>板块三 · 短视频获客</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>坑</th><th>换成</th></tr></thead>
+    <tbody>
+      <tr><td class="n">□</td><td>只看播放、粉丝、点赞 <span class="pk">课上讲过</span></td><td>盯三个数：私信量、加微信数、成交是从哪条视频来的。</td></tr>
+      <tr><td class="n">□</td><td>拍鉴定、拍段子，吸来同行和看热闹的人 <span class="pk">课上讲过</span></td><td>只对着两种人拍：手里有闲置想出手的，想买二奢的。</td></tr>
+      <tr><td class="n">□</td><td>把全部身家压在一个账号上 <span class="pk">课上讲过</span></td><td>准备备用号；客户沉淀到微信；素材存在自己电脑里。</td></tr>
+      <tr><td class="n">□</td><td>抖加乱投，想靠投钱救一条不行的视频</td><td>24 小时自然播放过一万，再小额投。</td></tr>
+      <tr><td class="n">□</td><td>文案写"最高价""保真""行业第一" <span class="pk">课上讲过</span></td><td>按违禁词表换成替代说法。</td></tr>
+      <tr><td class="n">□</td><td>视频里现场估价报高，实际收货时压价 <span class="pk">课上讲过</span></td><td>公开估价只给区间和前提。</td></tr>
+      <tr><td class="n">□</td><td>用品牌官图、别人的视频和音乐</td><td>自己拍；用别人的素材要授权并留档。</td></tr>
+      <tr><td class="n">□</td><td>做真假对比的内容，点名别人的店和货</td><td>只讲特征，不点名，不对别人的货公开下结论。</td></tr>
+      <tr><td class="n">□</td><td>只抄台词</td><td>往深了抄：结构、选题、人群。</td></tr>
+      <tr><td class="n">□</td><td>编人设："刚学完鉴定就叫自己十年鉴定师" <span class="pk">课上讲过</span></td><td>可以润色，不能编。</td></tr>
+      <tr><td class="n">□</td><td>成交实拍、客户的脸、身份证不打码，也不问授权 <span class="pk">课上讲过</span></td><td>先问授权，再打码。</td></tr>
+      <tr><td class="n">□</td><td>出镜的人没签协议就开拍</td><td>开拍之前先签出镜人协议。</td></tr>
+      <tr><td class="n">□</td><td>以为必须自己出镜才能做内容</td><td>图文、不露脸的形式、找人出镜都可以，也可以不走内容这条路。</td></tr>
+      <tr><td class="n">□</td><td>发表观点时站在商家那边</td><td>观点永远站在消费者那边。</td></tr>
+    </tbody>
+  </table></div>
+  <h3>板块四 · 私域成交</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>坑</th><th>换成</th></tr></thead>
+    <tbody>
+      <tr><td class="n">□</td><td>在私信里直接甩微信号，在评论区留联系方式 <span class="pk">课上讲过</span></td><td>用主页、粉丝群、门店这些合规的入口。</td></tr>
+      <tr><td class="n">□</td><td>私域号挂在员工或出镜人名下；员工用自己的号私下跟客户 <span class="pk">课上讲过</span></td><td>号归老板或公司，登记在册；跟进客户统一用公司的号。</td></tr>
+      <tr><td class="n">□</td><td>所有客户压在一个微信号上 <span class="pk">课上讲过</span></td><td>分几个号，定期备份通讯录和聊天记录。</td></tr>
+      <tr><td class="n">□</td><td>加了好友不打标签，不记来源</td><td>用标签体系，来源记到具体渠道。</td></tr>
+      <tr><td class="n">□</td><td>加进来隔两天才回</td><td>定一个回复时限，比如 30 分钟内破冰。</td></tr>
+      <tr><td class="n">□</td><td>用外挂、群发软件、多开</td><td>手动操作；量大了用企业微信。</td></tr>
+      <tr><td class="n">□</td><td>客户身份证、住址存在相册里，随手转发</td><td>敏感信息单独存放，限定谁能看。</td></tr>
+      <tr><td class="n">□</td><td>建客户群，在群里发货</td><td>不建群，只做朋友圈和私聊。</td></tr>
+      <tr><td class="n">□</td><td>朋友圈天天刷硬广 <span class="pk">课上讲过</span></td><td>多存少取：科普、生活、互动为主，产品少发。</td></tr>
+      <tr><td class="n">□</td><td>编造成交记录、编造客户好评 <span class="pk">课上讲过</span></td><td>只发真实成交（授权、打码）。</td></tr>
+      <tr><td class="n">□</td><td>跟进变成骚扰；激活老客户靠制造焦虑："再不卖就跌了" <span class="pk">课上讲过</span></td><td>按触发点跟进，用真实的行情说话。</td></tr>
+      <tr><td class="n">□</td><td>朋友圈写"保真""全网最高价"</td><td>换成合规的表述。</td></tr>
+      <tr><td class="n">□</td><td>加上好友第一句话就报价，没看到货就给数字 <span class="pk">课上讲过</span></td><td>前三十秒只问品类、要图、约好给价时间。</td></tr>
+      <tr><td class="n">□</td><td>私信里随口说"保证这个价""肯定收" <span class="pk">课上讲过</span></td><td>只给前提和区间。</td></tr>
+      <tr><td class="n">□</td><td>忽略来源异常的信号：急着出手、价格随便谈、说不清来路 <span class="pk">课上讲过</span></td><td>把信号记进标签，成交前逐条复核。</td></tr>
+      <tr><td class="n">□</td><td>以为客户都想卖高价，只会拼价 <span class="pk">课上讲过</span></td><td>先弄清卖家为什么卖：换新、急用钱、清闲置、继承受赠，只有一类最在乎价格。</td></tr>
+      <tr><td class="n">□</td><td>问诊顺序乱，上来就问"最低多少卖"</td><td>按问诊顺序来：品类、来源、成色、要图。</td></tr>
+      <tr><td class="n">□</td><td>聊着聊着发现是未成年人，还继续谈</td><td>发现就停。</td></tr>
+      <tr><td class="n">□</td><td>图没要全就下判断</td><td>按各品类的要图清单要齐。</td></tr>
+      <tr><td class="n">□</td><td>不查图片来源</td><td>以图搜图；让对方带手写日期拍。</td></tr>
+      <tr><td class="n">□</td><td>分不出装成客户的同行</td><td>记住几个信号：只问价不发图、专挑底价问、问完就消失。</td></tr>
+    </tbody>
+  </table></div>
+  <h3>板块五 · 线下获客</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>坑</th><th>换成</th></tr></thead>
+    <tbody>
+      <tr><td class="n">□</td><td>把熟人名单一次群发硬广 <span class="pk">课上讲过</span></td><td>朋友圈先铺垫一周，第二周再一对一开口。</td></tr>
+      <tr><td class="n">□</td><td>老客户、熟人的货就不验了 <span class="pk">课上讲过</span></td><td>老客户照样走全流程。</td></tr>
+      <tr><td class="n">□</td><td>以为短视频是唯一的路 <span class="pk">课上讲过</span></td><td>关系、门店、异业、平台都能单独出单，看你手上有什么牌。</td></tr>
+      <tr><td class="n">□</td><td>几条路同时铺 <span class="pk">课上讲过</span></td><td>选一条，八成的时间和预算压上去。</td></tr>
+      <tr><td class="n">□</td><td>承接还没跑通就开始投钱引流 <span class="pk">课上讲过</span></td><td>先把私域承接跑通，再加量。</td></tr>
+      <tr><td class="n">□</td><td>和异业口头约定分成 <span class="pk">课上讲过</span></td><td>签异业合作协议，分成和记录方式写清楚。</td></tr>
+      <tr><td class="n">□</td><td>转介绍奖励层层往上返 <span class="pk">课上讲过</span></td><td>奖励只给直接介绍人一层。</td></tr>
+      <tr><td class="n">□</td><td>两周没反馈就换路；或者在已经证伪的路上"再坚持一下"</td><td>事先定好判断口径，到了就换，没到就坚持。</td></tr>
+      <tr><td class="n">□</td><td>刷好评、买粉、刷数据</td><td>一个个攒真评价。</td></tr>
+      <tr><td class="n">□</td><td>找代运营代投，账户开在别人名下</td><td>账户和数据必须在自己名下。</td></tr>
+      <tr><td class="n">□</td><td>闲鱼上跟着"买家"去站外交易、点陌生链接</td><td>只走平台流程。</td></tr>
+      <tr><td class="n">□</td><td>让线人用你的名义在外面收货，不写授权范围；结算只靠口头</td><td>书面写清授权范围，结算记表。</td></tr>
+    </tbody>
+  </table></div>
+  <h3>板块六 · 鉴定避损</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>坑</th><th>换成</th></tr></thead>
+    <tbody>
+      <tr><td class="n">□</td><td>以为不会鉴定就不能入行 <span class="pk">课上讲过</span></td><td>判不准有兜底：我们给的资源群和上游、在群里求助、直接来找我们；再加上机构送检和转撮合。</td></tr>
+      <tr><td class="n">□</td><td>判不了还硬判，怕丢单、怕显得不专业 <span class="pk">课上讲过</span></td><td>判不了就按决策表转兜底。</td></tr>
+      <tr><td class="n">□</td><td>迷信机构报告 <span class="pk">课上讲过</span></td><td>到官方渠道核验；报告只当证据之一。</td></tr>
+      <tr><td class="n">□</td><td>上游兜底只凭口头约定</td><td>签上游合作协议，写清兜底范围和退换条件。</td></tr>
+      <tr><td class="n">□</td><td>找同行复核，把客户信息一起发出去；在同行群问价，把客户的图原样发出去</td><td>去掉一切能认出客户的信息再发。</td></tr>
+      <tr><td class="n">□</td><td>客户在催、价格又很诱人时，照样自己判</td><td>定一条压力规则：越急、越便宜，越要降一级走兜底。</td></tr>
+      <tr><td class="n">□</td><td>出了事只认赔，不复盘</td><td>复盘错在哪一道防线。</td></tr>
+      <tr><td class="n">□</td><td>只凭一个特征下结论：芯片、日期码、小票、专柜袋 <span class="pk">课上讲过</span></td><td>走完整条动线再下结论。</td></tr>
+      <tr><td class="n">□</td><td>看到"全套"就放松警惕 <span class="pk">课上讲过</span></td><td>配件只加分，不定案。</td></tr>
+      <tr><td class="n">□</td><td>只查真假，不查翻新、改色、换件、后加钻 <span class="pk">课上讲过</span></td><td>单独检查非真假的问题。</td></tr>
+      <tr><td class="n">□</td><td>隔着屏幕判断太自信 <span class="pk">课上讲过</span></td><td>隔屏只给意向，见到实物才定。</td></tr>
+      <tr><td class="n">□</td><td>拿 AI 工具的结论直接收货</td><td>AI 只做辅助筛查。</td></tr>
+      <tr><td class="n">□</td><td>动线卡一年不更新</td><td>定期更新动线卡和图库。</td></tr>
+      <tr><td class="n">□</td><td>当面直接说"你这是假的" <span class="pk">课上讲过</span></td><td>只说"不收"或"无法确认"，讲清依据。</td></tr>
+      <tr><td class="n">□</td><td>书面上替客户下"假货"的结论 <span class="pk">课上讲过</span></td><td>书面只写"无法确认"和依据。</td></tr>
+      <tr><td class="n">□</td><td>不打招呼就开表盖、火试黄金 <span class="pk">课上讲过</span></td><td>破坏性检测先征得同意，签字留记录。</td></tr>
+      <tr><td class="n">□</td><td>验完不封签、不拍特征点 <span class="pk">课上讲过</span></td><td>验完当场封签，拍下特征点。</td></tr>
+    </tbody>
+  </table></div>
+  <h3>板块七 · 收与出</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>坑</th><th>换成</th></tr></thead>
+    <tbody>
+      <tr><td class="n">□</td><td>看挂价，不看成交价 <span class="pk">课上讲过</span></td><td>只认成交价。</td></tr>
+      <tr><td class="n">□</td><td>出货三问答不上来就开始估价、开始收 <span class="pk">课上讲过</span></td><td>先过三问：从哪出、几天出、到手多少。</td></tr>
+      <tr><td class="n">□</td><td>难出的货按好出的货估 <span class="pk">课上讲过</span></td><td>把流通速度算进估价：难出的货必须压价，或者转撮合。</td></tr>
+      <tr><td class="n">□</td><td>翻新、改色、换件的货不单独折价 <span class="pk">课上讲过</span></td><td>非真假问题单独折价。</td></tr>
+      <tr><td class="n">□</td><td>行情表不更新</td><td>每周更新，大事件当天更新。</td></tr>
+      <tr><td class="n">□</td><td>同行群报的价照单全收</td><td>至少两个来源交叉验证。</td></tr>
+      <tr><td class="n">□</td><td>永远只用上游给的价</td><td>先自己报，再对上游的答案。</td></tr>
+      <tr><td class="n">□</td><td>把平台的在线估价当真</td><td>只当参考，以成交价为准。</td></tr>
+      <tr><td class="n">□</td><td>不看货就报死价 <span class="pk">课上讲过</span></td><td>线上没看货，最多给区间；见了实物再给准确的价。</td></tr>
+      <tr><td class="n">□</td><td>区间口子留得太大 <span class="pk">课上讲过</span></td><td>区间窄一点，条件说清楚。</td></tr>
+      <tr><td class="n">□</td><td>二次压价不给理由 <span class="pk">课上讲过</span></td><td>指着实物一处一处讲折价，给客户一个能下台的理由。</td></tr>
+      <tr><td class="n">□</td><td>为了抢单报高价 <span class="pk">课上讲过</span></td><td>报价上限 ＝ 到手价 − 自己要赚的。</td></tr>
+      <tr><td class="n">□</td><td>客户一说"别家给得更高"就跟价 <span class="pk">课上讲过</span></td><td>按依据守价，该放的单就放。</td></tr>
+      <tr><td class="n">□</td><td>嘴上说"最高价""保证这个价"</td><td>只承诺条件，不承诺结果。</td></tr>
+      <tr><td class="n">□</td><td>报价只在嘴上，不留记录</td><td>报价写进客户标签和档案。</td></tr>
+      <tr><td class="n">□</td><td>被同行套价还认真报</td><td>识别信号，对方不发图就不给细价。</td></tr>
+      <tr><td class="n">□</td><td>真假还没定就先报了价</td><td>真假没定，不报价。</td></tr>
+      <tr><td class="n">□</td><td>说不出依据硬报</td><td>先讲鉴定结论和估价依据，再说数字。</td></tr>
+      <tr><td class="n">□</td><td>滞销的货舍不得降价 <span class="pk">课上讲过</span></td><td>每件压货定截止日，到期降一档走同行。</td></tr>
+      <tr><td class="n">□</td><td>真假存疑的货包装成正品卖出去 <span class="pk">课上讲过</span></td><td>退回、送检，或者转撮合。</td></tr>
+      <tr><td class="n">□</td><td>瑕疵、翻新、换件不写明 <span class="pk">课上讲过</span></td><td>卖货时如实写明。</td></tr>
+      <tr><td class="n">□</td><td>成交以后就不联系了 <span class="pk">课上讲过</span></td><td>48 小时回访，记进客户台账。</td></tr>
+      <tr><td class="n">□</td><td>零售写"保真""假一赔十"，却兑现不了</td><td>承诺写成做得到的条件。</td></tr>
+      <tr><td class="n">□</td><td>寄售平台一压就是几个月</td><td>设寄售期限和撤回线。</td></tr>
+      <tr><td class="n">□</td><td>和同行合作，分成只靠口头</td><td>分成写清楚。</td></tr>
+      <tr><td class="n">□</td><td>只看成交单数，不拆是哪条路来的，也不看周转</td><td>每周看六个数，按渠道拆开。</td></tr>
+      <tr><td class="n">□</td><td>复盘只算钱，不查风控</td><td>每周复盘加三个风控问题：有没有没登记的、没录像的、没过三问就收的。</td></tr>
+    </tbody>
+  </table></div>
+  <h3>板块八 · 成交风控</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>坑</th><th>换成</th></tr></thead>
+    <tbody>
+      <tr><td class="n">□</td><td>以为风控是做大以后的事 <span class="pk">课上讲过</span></td><td>从第一单开始，就按流程走。</td></tr>
+      <tr><td class="n">□</td><td>不问来源、不登记身份证就收 <span class="pk">课上讲过</span></td><td>核查来源，登记身份。</td></tr>
+      <tr><td class="n">□</td><td>先付款后验货，尤其是异地交易 <span class="pk">课上讲过</span></td><td>验完货再付款，或者走担保交易。</td></tr>
+      <tr><td class="n">□</td><td>不录像、不拍照 <span class="pk">课上讲过</span></td><td>全程录像，关键部位拍照。</td></tr>
+      <tr><td class="n">□</td><td>不签协议、不签字 <span class="pk">课上讲过</span></td><td>签回收协议，关键项让客户签字确认。</td></tr>
+      <tr><td class="n">□</td><td>验完的货离开视线再交割 <span class="pk">课上讲过</span></td><td>验完封签，当场交割。</td></tr>
+      <tr><td class="n">□</td><td>被价格诱惑，收下该拒的货 <span class="pk">课上讲过</span></td><td>按必拒清单，价格再低也不收。</td></tr>
+      <tr><td class="n">□</td><td>一个人带大额现金上门收货 <span class="pk">课上讲过</span></td><td>两人同行，出发前报备，少带现金。</td></tr>
+      <tr><td class="n">□</td><td>寄卖不写丢损和降价授权</td><td>签寄卖协议，写清丢损赔偿、期限和降价授权。</td></tr>
+      <tr><td class="n">□</td><td>和未成年人或者不是物主的人交易</td><td>核验身份，确认东西是他本人的。</td></tr>
+      <tr><td class="n">□</td><td>邮寄收货不要求保价，不录开箱</td><td>足额保价，从快递单号开始录开箱。</td></tr>
+      <tr><td class="n">□</td><td>客户情绪激动时还继续谈</td><td>停止谈判，先保全证据，必要时报警。</td></tr>
+      <tr><td class="n">□</td><td>没见到钱就先发货；只看转账截图就发货 <span class="pk">课上讲过</span></td><td>先款后货，以银行到账为准。</td></tr>
+      <tr><td class="n">□</td><td>给同行、上游放账期，不设上限 <span class="pk">课上讲过</span></td><td>每家设账期上限，超过就先款后货。</td></tr>
+      <tr><td class="n">□</td><td>发货前不拍特征点、不录打包 <span class="pk">课上讲过</span></td><td>发货前拍特征点，录打包过程。</td></tr>
+      <tr><td class="n">□</td><td>货和现金放在一起，没有监控也没有保险</td><td>保险柜、分开存放、上保险。</td></tr>
+      <tr><td class="n">□</td><td>高价货寄出去不保价</td><td>足额保价。</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+</main>
+<footer><div class="wrap">
+  全链路实战课 · 学员手册（初稿）· 对应课程大纲 v8 和教案大纲。标【讲师补】的内容请讲师在开课前补齐；协议和单据模板使用前请律师审核。<br>
+  法律、税务相关内容只讲风险，具体以当地规定和律师、会计意见为准；平台规则以开课当期为准。
+</div></footer>
+</body>
+</html>
