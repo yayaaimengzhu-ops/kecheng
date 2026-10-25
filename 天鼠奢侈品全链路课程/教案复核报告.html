@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>教案复核报告</title>
+<style>
+:root{
+  --paper:#F1F2EC;--paper-glass:rgba(241,242,236,.94);--card:#FBFBF8;--hover:#F4F5EE;
+  --ink:#17231E;--ink2:#4A5951;--ink3:#626F66;--line:#CBD0C6;--line2:#E0E3DA;
+  --brass:#8F6E30;--brass-soft:#EFE7D4;--brass-wash:#F7F3E9;--note-ink:#5B4A22;
+  --seal:#A5382A;--seal-soft:#F0DAD4;--seal-wash:#FBF5F3;--on-accent:#FBFBF8;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+    --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+    --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+    --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+  --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+  --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+  --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+a{color:var(--brass);text-underline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header.top{padding:56px 0 30px}
+.doc-title{font-family:var(--serif);font-size:35px;line-height:1.35;font-weight:600;margin:0 0 12px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 12px}
+.claim{border:1px solid var(--ink);padding:20px 24px;margin:24px 0 20px;max-width:42em;background:var(--card)}
+.claim .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.16em;display:block;margin-bottom:6px}
+.claim p{font-family:var(--serif);font-size:21px;line-height:1.6;margin:0;font-weight:600}
+.claim small{display:block;margin-top:10px;font-size:14px;color:var(--ink2);line-height:1.8}
+.doc-meta{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--paper-glass);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px 18px;overflow-x:auto;white-space:nowrap;padding-top:9px;padding-bottom:9px;font-size:13.5px}
+nav.toc a{color:var(--ink2);text-decoration:none}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--brass)}
+section.sec{padding:44px 0 6px}
+.sec-n{font-family:var(--serif);color:var(--brass);font-size:13px;letter-spacing:.16em}
+h2{font-family:var(--serif);font-size:26px;font-weight:600;margin:2px 0 8px;line-height:1.4}
+h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:28px 0 8px}
+.lead{color:var(--ink2);max-width:46em;margin:0 0 12px}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:1.3em}
+li{margin:3px 0}
+.tbl{overflow-x:auto;margin:12px 0 18px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.7}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line2)}
+th{font-family:var(--serif);font-weight:600;color:var(--ink2);background:var(--brass-wash);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.t{white-space:nowrap;color:var(--ink3);font-variant-numeric:tabular-nums}
+td.k{white-space:nowrap;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);padding:16px 18px}
+.card h4{font-family:var(--serif);font-size:17px;margin:0 0 6px;font-weight:600}
+.card .who{display:inline-block;font-family:var(--serif);font-size:12.5px;padding:0 8px;background:var(--ink);color:var(--card);margin-bottom:8px}
+.card p,.card li{font-size:14px;color:var(--ink2)}
+.card .one{color:var(--ink);font-weight:600;border-top:1px solid var(--line2);padding-top:8px;margin-top:10px}
+.rail{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);background:var(--card);margin:14px 0}
+.stop{padding:16px 14px;border-right:1px solid var(--line2);text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.stop:last-child{border-right:none}
+.stop:hover,.stop:focus-visible{background:var(--hover)}
+.stop .n{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:22px;padding:0 6px;background:var(--brass);color:var(--on-accent);font-size:12.5px;font-family:var(--serif);margin-bottom:8px;align-self:flex-start}
+.stop.core .n{background:var(--ink);color:var(--card)}
+.stop b{font-family:var(--serif);font-size:17px;font-weight:600;display:block;margin-bottom:6px}
+.stop span{font-size:12.5px;line-height:1.6;color:var(--ink3)}
+.stop i{font-style:normal;margin-top:auto;padding-top:10px;font-size:12.5px;color:var(--ink)}
+.day{border-top:2px solid var(--ink);margin-top:46px;padding-top:18px}
+.day-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.day-h .d{font-family:var(--serif);font-size:15px;padding:1px 10px;background:var(--ink);color:var(--card)}
+.day-h h2{margin:0}
+.goal{font-size:16px;color:var(--ink);margin:10px 0 6px;max-width:44em}
+.tool{border:1px solid var(--line);background:var(--card);padding:14px 18px 10px;margin:16px 0}
+.tool .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.12em;display:block;margin-bottom:4px}
+.tool .tbl{margin:8px -18px 6px;border-left:none;border-right:none}
+.note{background:var(--brass-wash);border-left:3px solid var(--brass);padding:11px 16px;color:var(--note-ink);margin:14px 0;font-size:14.5px}
+.warn{background:var(--seal-wash);border-left:3px solid var(--seal);padding:11px 16px;margin:14px 0;font-size:14.5px}
+.warn b.lb{color:var(--seal);font-family:var(--serif)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.three div{background:var(--card);border:1px solid var(--line2);padding:10px 14px;font-size:14px;color:var(--ink2)}
+.three div b{display:block;font-family:var(--serif);color:var(--ink);font-size:14px}
+.redline{background:var(--card);border:1px solid var(--seal-soft);padding:12px 18px;margin:14px 0}
+.redline b.lb{font-family:var(--serif);color:var(--seal);letter-spacing:.1em;font-size:13px;display:block}
+.redline ol{margin:4px 0 2px}
+.hand{border:1px solid var(--ink);background:var(--card);padding:12px 18px;margin:14px 0}
+.hand b.lb{font-family:var(--serif);color:var(--brass);letter-spacing:.12em;font-size:13px;display:block}
+.skip{color:var(--ink3);font-size:14px}
+.bad{color:var(--seal)}
+footer{padding:46px 0 70px;color:var(--ink3);font-size:13px;border-top:1px solid var(--line);margin-top:50px}
+@media (max-width:760px){
+  .doc-title{font-size:27px}
+  .cards,.three{grid-template-columns:1fr}
+  .rail{grid-template-columns:1fr}
+  .stop{border-right:none;border-bottom:1px solid var(--line2)}
+  .stop:last-child{border-bottom:none}
+  h2{font-size:22px}
+}
+@media print{nav.toc{display:none}.day{break-before:page}}
+</style>
+<style>
+.lv{display:inline-block;font-size:12px;line-height:1.6;padding:0 7px;border:1px solid;white-space:nowrap;font-family:var(--sans)}
+.lv.a{color:var(--on-accent);background:var(--seal);border-color:var(--seal)}
+.lv.b{color:var(--brass);border-color:var(--brass)}
+.lv.c{color:var(--ink3);border-color:var(--line)}
+.fd{border:1px solid var(--line);background:var(--card);margin:14px 0;padding:12px 16px}
+.fd-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.fd-h .id{font-family:var(--serif);color:var(--brass);font-size:13px;letter-spacing:.06em}
+.fd-h b{font-family:var(--serif);font-size:17px;font-weight:600}
+.fd dl{display:grid;grid-template-columns:64px 1fr;gap:4px 12px;margin:10px 0 0;font-size:14.5px}
+.fd dt{color:var(--ink3);font-size:13px;padding-top:2px}
+.fd dd{margin:0}
+.fd dd ul,.fd dd ol{margin:0;padding-left:1.2em}
+.ok{color:var(--ink2)}
+.ok::before{content:"✓ ";color:var(--brass);font-weight:600}
+.bad::before{content:"✗ ";color:var(--seal);font-weight:600}
+.mid::before{content:"△ ";color:var(--brass);font-weight:600}
+td.n{white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.fd dl{grid-template-columns:1fr;gap:0}.fd dt{margin-top:6px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1 class="doc-title">教案大纲 v8 · 复核报告</h1>
+  <p class="doc-sub">按三个维度复核《教案大纲 v8》：内容是否合理、细节是否到位、逻辑是否严密。复核时对照了课程大纲 v8、原课程大纲 v5 和原教案、短视频密训逐字稿，能用数字核对的地方都跑了一遍。</p>
+  <div class="claim">
+    <span class="lb">结论</span>
+    <p>骨架是成立的，但还不建议直接交给学员和专家评：有 3 处说法前后矛盾、2 条关键路径没讲怎么做、讲点和坑卡大量重复，而且缺教学目标，评估的人会没有标准可对。</p>
+    <small>下面一共 23 条意见，分三级：<span class="lv a">评估前先改</span> 9 条，会误导评估的人，或者让学员听完做不下去；<span class="lv b">开课前要补</span> 10 条；<span class="lv c">可以再优化</span> 4 条。每条都写了位置、依据和建议改法。</small>
+  </div>
+  <div class="doc-meta">
+    <span><b>复核对象</b> <a href="教案大纲v8.html">教案大纲 v8</a>（含避坑卡）</span>
+    <span><b>对照</b> <a href="课程大纲v8-九大板块.html">课程大纲 v8</a> · 课程大纲 v5 · 原教案 9.28 · 短视频密训逐字稿 Day1–Day5</span>
+    <span><b>状态</b> 本轮只给意见，教案没有改动</span>
+  </div>
+</div></header>
+
+<nav class="toc" aria-label="目录"><div class="wrap">
+  <a href="#s1">一 体检结果</a><a href="#s2">二 内容合理性</a><a href="#s3">三 细节完备度</a><a href="#s4">四 逻辑严密性</a><a href="#s5">五 给评估的建议</a><a href="#s6">六 修改清单</a>
+</div></nav>
+
+<main class="wrap">
+
+<section class="sec" id="s1">
+  <div class="sec-n">第一节</div>
+  <h2>体检结果：能用数字核的先核一遍</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>检查项</th><th>结果</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>板块和节的标题、课表时长，和课程大纲 v8 是否一致</td><td class="n ok">28 / 28 一致</td><td>九个板块、28 节，没有对不上的。</td></tr>
+      <tr><td>板块顺序是否沿着"一单生意"走</td><td class="n ok">成立</td><td>定位 → 生意模型 → 获客（短视频、私域、线下）→ 鉴定 → 收与出 → 风控 → 结营。私域作业收的图第二天鉴定课接着用，结营回头校准第一天的定位，前后是扣上的。</td></tr>
+      <tr><td>必讲内容的 5:3:2</td><td class="n ok">48 : 31 : 20</td><td>必讲合计 1015 分钟：为什么 492、证明 318、怎么做 205。</td></tr>
+      <tr><td>必讲的"证明"有多少要靠【填】</td><td class="n bad">167 / 318 分钟</td><td>一半以上的证明要等你们补真实经历和数据。如果【填】没补上，必讲比例会变成 58 : 18 : 24，"证明"这一块就塌了。见 R6。</td></tr>
+      <tr><td>加上选讲和避坑以后的比例</td><td class="n mid">52 : 23 : 25</td><td>选讲里证明偏少。讲师越往里加选讲，离 5:3:2 越远。见 R6。</td></tr>
+      <tr><td>原课程的坑是否全部有去处</td><td class="n ok">134 / 134</td><td>九个误解加十张错误清单，全部放进了对应的节。</td></tr>
+      <tr><td>讲点和坑卡是否重复</td><td class="n bad">38 处</td><td>同一节里，必讲点和坑卡讲的是同一件事；另有 9 处是选讲点重复。见 L2。</td></tr>
+      <tr><td>前后说法是否一致</td><td class="n bad">3 处矛盾</td><td>报价口径、老客户开口的时间、陪跑包不包含。见 L1。</td></tr>
+      <tr><td>"见板块 X"的引用是否兑现</td><td class="n mid">1 处落空</td><td>板块二说"短视频里不能说来找我估价，板块三讲"，板块三没有讲。见 L4。</td></tr>
+      <tr><td>学员手册 11 件是否都在课上用到</td><td class="n mid">7 / 11 被引用</td><td>第 2、3、10、11 件在教案里没有出现在任何一节。手册本身还没写。见 D3。</td></tr>
+      <tr><td>每天的课时</td><td class="n mid">300–390 分钟</td><td>D1 330、D2 330、D3 360、D4 300、D5 390，没有排休息；最累的是最后一天。见 D5。</td></tr>
+      <tr><td>节与节之间的过渡</td><td class="n bad">只有 2 处</td><td>28 节里只有板块一的两节写了过渡句；每块的开头回顾和结尾小结都没有。见 L3。</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sec" id="s2">
+  <div class="sec-n">第二节</div>
+  <h2>内容合理性：讲的东西对不对、够不够</h2>
+  <p class="lead">课程的主线是"先不压钱跑出第一单，再一步步放开"。按这个目标看，下面几处是"告诉了学员要这么做，却没教怎么做"。</p>
+
+  <div class="fd"><div class="fd-h"><span class="id">R1</span><span class="lv a">评估前先改</span><b>推荐的起步方式是撮合和寄卖，却没教怎么做</b></div><dl>
+    <dt>位置</dt><dd>板块二 第 1 节；板块八 填单</dd>
+    <dt>问题</dt><dd>整门课反复说"先用撮合、寄卖跑出第一单"，但撮合和寄卖只在板块二用一两句话下了定义。撮合的买家从哪找、定金怎么收、三方怎么约定，寄卖的佣金怎么定、放多久、什么时候降价，都没有讲。板块七讲的估价、报价、出货，基本都是按"自己收"来讲的。板块八填单只填回收单和寄卖协议，撮合协议没有填。</dd>
+    <dt>影响</dt><dd>做过别的生意的人和做过二奢没成的人，回去照着"先撮合"去做，第一步就卡住；最后还是回到自己收货，正好掉进课上反复讲的坑。</dd>
+    <dt>建议</dt><dd>板块二 第 1 节的"怎么做"补两个必讲点："撮合一单五步"和"寄卖一单五步"，各约 5 分钟，细节放进手册第 1 件。板块八填单加上撮合协议。这样板块七讲"自己收"、板块二讲"不压钱"，两头就齐了。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">R2</span><span class="lv a">评估前先改</span><b>短视频来的人怎么加到微信，这一步断了</b></div><dl>
+    <dt>位置</dt><dd>板块二 第 2 节、板块三全部、板块四 第 1 节</dd>
+    <dt>问题</dt><dd>板块三讲完怎么拍视频，板块四直接从"人加进微信以后"讲起。中间这一步，也就是怎么合规地把看视频的人引到微信，只在板块四一张坑卡的"换成"里写了半句"用主页、粉丝群、门店这些合规的入口"。逐字稿 Day5 讲得很具体：个人号主页可以放什么，粉丝群里放资料包，私信里不主动留联系方式、让对方留。这些都没进教案。</dd>
+    <dt>影响</dt><dd>做过二奢没成的人最大的卡点就在这里："有播放，没加微"。课上讲了"不能做什么"，没讲"该怎么做"。</dd>
+    <dt>建议</dt><dd>板块三 第 3 节或板块四 第 1 节加一个必讲点："短视频来的人，怎么合规地到你微信里"，约 6 分钟，用逐字稿 Day5 的做法。同时说清一件容易混的事：抖音粉丝群可以用来放资料，和"二奢不建微信客户群"不是一回事。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">R3</span><span class="lv a">评估前先改</span><b>"判不准就找兜底"，兜底的人从哪来没说</b></div><dl>
+    <dt>位置</dt><dd>板块六 第 1 节；D4 晚上作业"整理兜底清单"</dd>
+    <dt>问题</dt><dd>鉴定这一块的核心是"判不了有五种办法"，其中三种要靠上游、机构和复核同行。作业要求每个人回去有"1 个上游、2 个复核同行、1 家机构"，可做过别的生意、刚入行的人一个都不认识。教案里唯一相关的是一个选讲点下的【填】："你们可以介绍给学员的上游、机构、复核同行"。</dd>
+    <dt>影响</dt><dd>这条安全线是整门课"不亏"的前提。它要是落空，"不会鉴定也能做"这句话就站不住。</dd>
+    <dt>建议</dt><dd>先由你们定：天鼠是否给学员提供兜底和对接名单？是课程直接交付，还是后续的付费服务？定了以后，把答案写进板块六 第 1 节的必讲，兜底清单作业也改成"从我们给的名单里选"。这一条需要你们拍板，我改不了。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">R4</span><span class="lv b">开课前要补</span><b>经营底座没了：主体、登记、分账、进项凭证</b></div><dl>
+    <dt>位置</dt><dd>原 v5 1.9、6.7 有专门小节；v8 只剩两张"手册自查"的坑卡（合伙不签协议、公私混用）</dd>
+    <dt>问题</dt><dd>个体户还是公司、本地旧货经营要不要登记备案、收个人的货没有进项凭证怎么记账，这些都没有讲。</dd>
+    <dt>影响</dt><dd>做过别的生意的人会问，而且是刚创业时最先碰到的问题。课上答不出来，会伤专业感。</dd>
+    <dt>建议</dt><dd>板块二 第 3 节或板块八 第 1 节加 5–8 分钟必讲，只讲"要考虑哪几件事"，固定说一句"具体以当地规定和律师、会计意见为准"。这部分列进专家核查（见第五节）。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">R5</span><span class="lv b">开课前要补</span><b>估价的基础对零基础的人偏薄</b></div><dl>
+    <dt>位置</dt><dd>板块七 第 1 节；盲报 30 分钟</dd>
+    <dt>问题</dt><dd>"行情从哪来"是选讲；盲报只有 30 分钟，要报 20 件货；盲报放在 D5，和 D4 的看货、盲测分开了。</dd>
+    <dt>影响</dt><dd>对做过回收的人问题不大；做过别的生意的人连基准价去哪查都不知道，盲报会变成瞎猜。</dd>
+    <dt>建议</dt><dd>"行情从哪来"升为必讲。盲报挪到 D4 盲测之后：同一批货先判真假再报价，正好把鉴定和估价接上，D5 也能轻一点（见 D5）。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">R6</span><span class="lv b">开课前要补</span><b>5:3:2 里的"3"不稳</b></div><dl>
+    <dt>位置</dt><dd>全课</dd>
+    <dt>问题</dt><dd>两个原因。第一，必讲证明的一半以上（167 / 318 分钟）要靠【填】。第二，选讲素材里证明偏少：加上全部选讲后比例是 52 : 23 : 25。你说过自己讲得快，必讲讲完会用选讲来补，补得越多，证明的比重越低。</dd>
+    <dt>影响</dt><dd>上陈静这种课，学员信不信靠的就是证明。证明少了，课就又回到"空"。</dd>
+    <dt>建议</dt><dd>①开课前把必讲证明里的【填】排在第一优先（清单在教案最后一节）。②每节补一个不依赖【填】的现场演示，做成选讲证明，比如当场改、当场估、当场演。③在"怎么用"里写一句：时间多出来，先加证明和互动，再加道理。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">R7</span><span class="lv a">评估前先改</span><b>课上的作业会碰到真实客户，学员接不住</b></div><dl>
+    <dt>位置</dt><dd>板块四 D3 晚上作业"要回至少 3 件货的图"；板块五作业"第一条开口话术"；板块三 D2 晚上"发出第一条视频"</dd>
+    <dt>问题</dt><dd>D3 晚上学员去找真实的好友要货的图，好友自然会问"能卖多少"。可估价要到 D5 才讲，而且课上教的是"约好时间给价"，学员到点给不出来。D2 晚上发出的视频，如果有人私信，私域承接要第二天才讲。</dd>
+    <dt>影响</dt><dd>学员在课程期间就失信于身边的第一批客户。这和课上讲的"说到做到"正好相反。</dd>
+    <dt>建议</dt><dd>①作业话术改成"我在学二奢，想拿你的包练练手，学完给你讲讲它现在大概值多少"，不承诺给价时间。②课程期间开一个"真实货求助"通道（助教群），学员接到真实的货或私信，讲师代看代估，顺便当课上的案例。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">R8</span><span class="lv c">可以再优化</span><b>结营"不促销"和商业模型的后端，要统一口径</b></div><dl>
+    <dt>位置</dt><dd>板块九"对应后续课程：只讲路径，不在现场促销"</dd>
+    <dt>问题</dt><dd>《商业模型定盘》里有组合档、线上陪跑、技术课、线下陪跑这些后端；陈静的课也是在课中埋后端。教案现在写的是不促销。这本身没有错，但需要你们定一个口径。</dd>
+    <dt>建议</dt><dd>你们定。如果要埋后端，建议埋在"知道边界"的地方，比如板块六的"疑难件交给技术课"、板块九的路径规划，只讲"什么情况下需要"，不讲价格。</dd>
+  </dl></div>
+</section>
+
+<section class="sec" id="s3">
+  <div class="sec-n">第三节</div>
+  <h2>细节完备度：拿着教案能不能直接开课</h2>
+  <p class="lead">教案现在回答了"讲什么、讲多久、用什么案例"，但还没回答"学完要达到什么、要准备什么东西、谁来讲"。原 v5 教案里这些都有，这一版丢了。</p>
+
+  <div class="fd"><div class="fd-h"><span class="id">D1</span><span class="lv a">评估前先改</span><b>没有教学目标和出课标准</b></div><dl>
+    <dt>问题</dt><dd>每个板块有主张、开头话和作业，但没有写"学完能做到什么、交出什么、怎么检验"。</dd>
+    <dt>影响</dt><dd>你马上要请学员和专家评估。没有目标，评估的人只能凭感觉说"好"或"不好"，没法判断内容安排符不符合目标。</dd>
+    <dt>建议</dt><dd>每个板块开头加三行：学完能做到（2–3 件事）· 交出什么（作业成品）· 怎么检验（上台改，还是盲测、盲报打分）。可以从 v5 每站的"知道 / 会做 / 交出"里改写，量不大，我可以先起草。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">D2</span><span class="lv b">开课前要补</span><b>没有课前准备和物料清单</b></div><dl>
+    <dt>问题</dt><dd>教案里很多证明和练习都要实物，但没有汇总要准备什么：
+      <ul>
+        <li>板块二：学员带来的包或照片（做"体检"）、测算表</li>
+        <li>板块三：违禁词表、投屏、收视频用的共享文件夹</li>
+        <li>板块六：样本库（真货加不同档次的高仿）、分品类动线卡、20 张场景卡、工具</li>
+        <li>板块七：20 件盲报用的真货、议价场景卡</li>
+        <li>板块八：封签、录像设备、回收单和寄卖协议模板、真假转账截图</li>
+      </ul>
+      还有给学员的课前通知（带 1–3 件货、预填四类底牌的数字、截好账号主页），也没有了。</dd>
+    <dt>建议</dt><dd>每个板块加一行"课前准备"，最后汇总成一张物料表，替换仓库里按 v5 写的《开课筹备清单》和《课程交付物料总清单》。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">D3</span><span class="lv a">评估前先改</span><b>学员手册还没写，发放时间也写错了</b></div><dl>
+    <dt>问题</dt><dd>按 5:3:2 的设计，方法细节都放在手册里，可手册 11 件现在只有一张目录。教案第一天就说"细节在手册里，不用抄"，板块九却写"领学员手册，签收"，等于最后一天才发。手册第 2、3、10、11 件在教案里也没有对应位置。</dd>
+    <dt>影响</dt><dd>评估的人看不到"怎么做"的部分，会觉得课只讲道理不给方法；学员前四天也拿不到手册。</dd>
+    <dt>建议</dt><dd>手册改成开营时发，结营只做签收确认。评估前至少写出 2–3 件样章（建议第 1、5、9 件），一并给评估的人看。v6 里的工具卡可以直接改成第 3、4、5 件。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">D4</span><span class="lv b">开课前要补</span><b>讲师和助教的分工没写</b></div><dl>
+    <dt>问题</dt><dd>教案里出现了主讲、短视频讲师、私域负责人、鉴定讲师、助教五种角色，但没写每一节由谁讲。很多演示要助教配合：扮客户（板块四、五、七、八）、计时、收作业、投屏，也没写。</dd>
+    <dt>建议</dt><dd>每节标题旁加"谁讲 · 助教做什么"。你说过自己不太会表达，正好借这一步，把你最有把握的几节和需要别人讲的几节分开。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">D5</span><span class="lv b">开课前要补</span><b>时间安排：没有休息，最后一天最满</b></div><dl>
+    <dt>问题</dt><dd>五天分别是 330、330、360、300、390 分钟，都没算休息。D5 最满，而且结营排在最后，学员最累的时候；D4 最松。前几天的晚上作业，只在 D3 下午集中复盘一次（60 分钟）。</dd>
+    <dt>建议</dt><dd>①课表上每 90 分钟写一个 10 分钟休息。②盲报挪到 D4（理由见 R5），D5 降到 360。③D3 那 60 分钟的复盘拆开：每天早上 15 分钟点评前一晚的作业。这也是陈静课的做法，作业当天交、第二天抽人上台改。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">D6</span><span class="lv b">开课前要补</span><b>按 20–25 人算，几个实操的时间偏紧</b></div><dl>
+    <dt>问题</dt><dd>短视频实操 80 分钟逐条点评，25 条视频每条只有 3 分钟出头，还要换投屏；对练 30 分钟"录像回放"，只够看两组；现场看货 60 分钟要看全班要回来的图。</dd>
+    <dt>建议</dt><dd>写明做法：短视频只当场点评 10–12 条，其余由助教书面点评；视频统一传到共享文件夹，按顺序播放；对练和看货按组进行，每组派一个代表上台。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">D7</span><span class="lv b">开课前要补</span><b>作业没有合格标准</b></div><dl>
+    <dt>问题</dt><dd>定位一句话、起步方案、10 个选题、开口话术、兜底清单，都没写"什么算合格"。上台点评看什么，只有短视频实操写了"看三件事"。</dd>
+    <dt>建议</dt><dd>每个作业写 3 条检查标准。例如定位一句话：品类只有一个 · 人设只有一个 · 主路是自己手上有牌的那条。组长和助教可以照着先筛一遍。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">D8</span><span class="lv b">开课前要补</span><b>法律和合规的口径要固定下来</b></div><dl>
+    <dt>问题</dt><dd>"法律和税务只讲风险意识，具体以律师、会计意见为准"这句话，在板块八是选讲，应该是每次讲到法律时都必须说的。"全程录像"没写要告知对方；"身份登记"没写保存多久、谁能看。</dd>
+    <dt>建议</dt><dd>这句免责说法改成固定口径，写进"怎么用"。录像告知、身份信息保存这两点补进板块八，并交给专家核（见第五节）。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">D9</span><span class="lv c">可以再优化</span><b>互动提示太少</b></div><dl>
+    <dt>问题</dt><dd>全教案除了每节的开场提问，只有 3 处"问学员"。你担心自己讲得快，最好的办法就是多停下来问。</dd>
+    <dt>建议</dt><dd>每个必讲点配一个提问，比如"你们有没有遇到过""你会怎么回"，写在讲点下面。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">D10</span><span class="lv c">可以再优化</span><b>同一节里，选讲多得难挑</b></div><dl>
+    <dt>问题</dt><dd>有的节选讲加坑卡超过 15 条，比如板块七 第 2 节。上课时要临场挑，对讲得不熟的讲师有负担。</dd>
+    <dt>建议</dt><dd>每节给选讲排个序，标出"时间多先讲这两个"。</dd>
+  </dl></div>
+</section>
+
+<section class="sec" id="s4">
+  <div class="sec-n">第四节</div>
+  <h2>逻辑严密性：前后对不对得上，听不听得懂</h2>
+
+  <div class="fd"><div class="fd-h"><span class="id">L1</span><span class="lv a">评估前先改</span><b>三处说法前后矛盾</b></div><dl>
+    <dt>报价口径</dt><dd>板块四 第 3 节必讲："发我这几张图，今天几点前给你一个<b>准价</b>。"可板块二（当天给区间）、板块三（公开估价只给区间和前提）、板块七（线上给区间和条件，没看全不报死价）都说只给区间。看图就给"准价"，正是课上要学员别踩的坑。<br><b>改法</b>：改成"今天几点前给你一个区间，告诉你哪些情况会往上、哪些会往下"。</dd>
+    <dt>开口时间</dt><dd>老客户什么时候开口，有三种说法：板块五必讲"先铺垫两周，再分批开口"；板块九选讲"回去第一周，先开口，再拍视频"；30 天计划写"第 2 周老客户开口"。<br><b>改法</b>：建议统一成"铺垫一周，第 2 周开口"。30 天计划不用动，把板块五的"两周"改成"一周"，板块九那句改成"不用等视频起量，铺垫一周就开口"。</dd>
+    <dt>陪跑</dt><dd>板块九一边说"只讲路径，不在现场促销"，一边在选讲里写"第 7、14、30 天交作业，没交助教会来找你"。学员会理解为课程包含 30 天陪跑；可《商业模型定盘》里线上陪跑是单独收费的。<br><b>改法</b>：先由你们定陪跑包不包含，再统一说法。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">L2</span><span class="lv a">评估前先改</span><b>讲点和坑卡重复，同一件事讲两遍</b></div><dl>
+    <dt>问题</dt><dd>加避坑卡的时候，没有和已有的讲点合并。同一节里有 38 处必讲点和坑卡说的是同一件事，另有 9 处是选讲点重复。例子：
+      <ul>
+        <li>板块一 第 3 节：必讲"全品类，就是每一类都判不准"和坑"一上来就做全品类"；必讲"人设只选一个"和坑"几个人设混着做"</li>
+        <li>板块四 第 3 节：三个必讲点（没看货就报数、说出去的话就是证据、三种信号要记下来）和三张课上讲的坑卡，一一对应</li>
+        <li>板块五 第 1 节：必讲"熟人的货也要照样验"和坑"老客户的货就不验了"</li>
+        <li>板块六 第 3 节：必讲"当面说假的""书面写假货"和两张同名的坑卡</li>
+        <li>板块八 第 1 节：必讲"出事的三种情况""不愿意登记身份""赃物"，和五张课上讲的坑卡</li>
+      </ul></dd>
+    <dt>影响</dt><dd>讲师会把同一个道理讲两遍；时间也重复算了约 70 分钟，"加上选讲和避坑约 1790 分钟"这个数是虚的。评估的人一眼就能看出来。</dd>
+    <dt>建议</dt><dd>合并。讲点已经讲过的坑，"为什么"里不再单独讲，只在讲点下面标一句"这就是坑卡 X"；"怎么做"末尾的"换成 + 好处"保留，正好做总结。坑卡只保留讲点没覆盖的那些。合并以后每节会短一截，也更好讲。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">L3</span><span class="lv b">开课前要补</span><b>块与块、节与节之间缺承上启下</b></div><dl>
+    <dt>问题</dt><dd>28 节里只有 2 处过渡句；九个板块都没有开头回顾和结尾小结。单看每一节都清楚，连起来听，学员不知道"为什么现在讲这个"。</dd>
+    <dt>建议</dt><dd>每个板块加两段固定话：开头 30 秒"上一块解决了 ×，还剩一个问题：×，这一块就讲它"；结尾 1 分钟"三句话总结 + 今晚作业 + 明天讲什么"。另外，可以多做几处"回扣"：板块三讲自我介绍时，回看第一天主讲是怎么介绍自己的；板块六算看走眼的账，拿出板块二的测算表；结营重填第一天的定位。后两处已经有了，第一处还没有。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">L4</span><span class="lv a">评估前先改</span><b>一处"见板块 X"落空</b></div><dl>
+    <dt>问题</dt><dd>板块二 第 2 节："短视频里不说'来找我估价'，会被判引流（板块三讲）。"板块三里没有这一条。其余十几处"板块 X 讲"都核对过，能对上。</dd>
+    <dt>建议</dt><dd>和 R2 一起改：在新加的"怎么合规地加到微信"里讲这一条。</dd>
+  </dl></div>
+
+  <div class="fd"><div class="fd-h"><span class="id">L5</span><span class="lv c">可以再优化</span><b>几处容易听岔的地方</b></div><dl>
+    <dt>问题</dt><dd><ul>
+      <li>板块六 第 1 节的标题是"还有四条路"，正文是"五种办法"。数字没错（五种减去自己判），但讲的时候要点明，不然学员会以为数错了。</li>
+      <li>"二奢不建群"和"用粉丝群"同时出现，见 R2。</li>
+      <li>课表写"前三天作业复盘"，排在 D3 下午，实际复盘的是 D1、D2 两晚的作业。</li>
+      <li>有些内容跨板块重复：熟客的货（板块五、八）、不露脸（板块三 第 1 节和第 3 节）、报价（板块四、七）。可以保留，但第二次讲的时候用"前面讲过……今天讲为什么"来回扣，别当新内容讲。</li>
+    </ul></dd>
+  </dl></div>
+</section>
+
+<section class="sec" id="s5">
+  <div class="sec-n">第五节</div>
+  <h2>给学员和专家评估的建议</h2>
+  <h3>评估之前</h3>
+  <ul>
+    <li>先改完第六节里 9 条"评估前先改"的，免得评估的人把时间花在我们已经知道的问题上。</li>
+    <li>只发课程大纲 v8、教案和 2–3 件手册样章。v5、v6、v7、诊断表、第一站 PPT 都是旧结构，先不要给，以免评估的人混淆。</li>
+  </ul>
+  <h3>请专家重点核的内容</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>方向</th><th>要核的点</th><th>在教案哪里</th></tr></thead>
+    <tbody>
+      <tr><td class="k">法律合规</td><td>收到赃物的后果和处理；旧货经营要不要登记备案；知假售假的刑事风险；瑕疵不写明的赔偿责任；录像要不要告知、身份信息怎么存；回收、寄卖、撮合协议模板</td><td>板块七 第 3 节、板块八、手册第 9 件</td></tr>
+      <tr><td class="k">平台规则</td><td>抖音违禁词和"回收"二字；导流方式；抖加的投放建议；微信每天加好友的上限</td><td>板块三、板块四 第 1 节</td></tr>
+      <tr><td class="k">鉴定</td><td>"芯片能复制""真票配假货最常见"的说法；高仿档次；新手要避开的品类和款；五种处理方式的费用和时效</td><td>板块六</td></tr>
+      <tr><td class="k">数据</td><td>7 处来自逐字稿的数字，比如九百多万播放、转介绍七八成、搜索流量转化率 5%–15%</td><td>教案最后一节"要请讲师本人确认的现成素材"</td></tr>
+    </tbody>
+  </table></div>
+  <h3>学员调研怎么做</h3>
+  <ul>
+    <li>三类人各找 2–3 位：做过别的生意的、做过回收的、做过二奢没做成的。</li>
+    <li>问四类问题：哪个标题最想听、哪个最无感；哪个坑说中了自己；哪一块听完还是不知道怎么做；哪里嫌长、哪里嫌短。</li>
+    <li>可以把 v5 的"课前风险自测十题"拿回来，开课前做一次、结营再做一次，就能看出课到底有没有改变学员的做法。</li>
+  </ul>
+</section>
+
+<section class="sec" id="s6">
+  <div class="sec-n">第六节</div>
+  <h2>修改清单</h2>
+  <p class="lead">"谁来改"一栏：标"我"的我可以直接改；标"你们定"的需要你们先拍板或提供信息，我再落到教案里。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>级别</th><th>改什么</th><th>谁来改</th></tr></thead>
+    <tbody>
+      <tr><td class="n">L1</td><td><span class="lv a">评估前</span></td><td>统一报价口径和开口时间；陪跑说法</td><td>我；陪跑包不包含你们定</td></tr>
+      <tr><td class="n">L2</td><td><span class="lv a">评估前</span></td><td>合并重复的讲点和坑卡，重算时间</td><td>我</td></tr>
+      <tr><td class="n">L4</td><td><span class="lv a">评估前</span></td><td>补上落空的引用</td><td>我（和 R2 一起）</td></tr>
+      <tr><td class="n">R1</td><td><span class="lv a">评估前</span></td><td>补"撮合一单五步""寄卖一单五步"，填单加撮合协议</td><td>我起草，你们核实际流程</td></tr>
+      <tr><td class="n">R2</td><td><span class="lv a">评估前</span></td><td>补"短视频来的人怎么合规加到微信"</td><td>我</td></tr>
+      <tr><td class="n">R3</td><td><span class="lv a">评估前</span></td><td>兜底资源由谁提供</td><td>你们定</td></tr>
+      <tr><td class="n">R7</td><td><span class="lv a">评估前</span></td><td>改作业话术，开课期"真实货求助"通道</td><td>我改话术；通道你们安排</td></tr>
+      <tr><td class="n">D1</td><td><span class="lv a">评估前</span></td><td>每个板块写教学目标和出课标准</td><td>我起草，你们确认</td></tr>
+      <tr><td class="n">D3</td><td><span class="lv a">评估前</span></td><td>手册改为开营发放；写 2–3 件样章</td><td>我改发放时间、起草样章</td></tr>
+      <tr><td class="n">R4</td><td><span class="lv b">开课前</span></td><td>补经营底座 5–8 分钟</td><td>我起草，专家核</td></tr>
+      <tr><td class="n">R5</td><td><span class="lv b">开课前</span></td><td>"行情从哪来"升必讲，盲报挪到 D4</td><td>我</td></tr>
+      <tr><td class="n">R6</td><td><span class="lv b">开课前</span></td><td>补【填】；每节加一个现场演示的证明</td><td>【填】你们补；演示我设计</td></tr>
+      <tr><td class="n">D2</td><td><span class="lv b">开课前</span></td><td>每块写课前准备，汇总物料表和课前通知</td><td>我</td></tr>
+      <tr><td class="n">D4</td><td><span class="lv b">开课前</span></td><td>每节写谁讲、助教做什么</td><td>你们定</td></tr>
+      <tr><td class="n">D5</td><td><span class="lv b">开课前</span></td><td>加休息；调整 D4、D5；每天早上 15 分钟点评作业</td><td>我</td></tr>
+      <tr><td class="n">D6</td><td><span class="lv b">开课前</span></td><td>写明实操和对练按人数怎么组织</td><td>我</td></tr>
+      <tr><td class="n">D7</td><td><span class="lv b">开课前</span></td><td>每个作业写 3 条合格标准</td><td>我</td></tr>
+      <tr><td class="n">D8</td><td><span class="lv b">开课前</span></td><td>免责说法固定；补录像告知、信息保存</td><td>我起草，专家核</td></tr>
+      <tr><td class="n">L3</td><td><span class="lv b">开课前</span></td><td>每块加开头回顾、结尾小结</td><td>我</td></tr>
+      <tr><td class="n">R8</td><td><span class="lv c">优化</span></td><td>后端的口径</td><td>你们定</td></tr>
+      <tr><td class="n">D9</td><td><span class="lv c">优化</span></td><td>每个必讲点配一个提问</td><td>我</td></tr>
+      <tr><td class="n">D10 · L5</td><td><span class="lv c">优化</span></td><td>选讲排序；几处容易听岔的说法</td><td>我</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+</main>
+<footer><div class="wrap">
+  教案大纲 v8 复核报告 · 本轮只提意见，没有改动教案。数字来自对教案源文件的统计：必讲和选讲按讲点标注的分钟数加总，坑卡按每个 2 分钟计。<br>
+  涉及法律、税务和平台规则的判断，以专家核查和开课当期规则为准。
+</div></footer>
+</body>
+</html>
