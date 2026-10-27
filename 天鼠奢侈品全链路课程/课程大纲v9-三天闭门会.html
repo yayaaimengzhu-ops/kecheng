@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>三天闭门会课表</title>
+<style>
+:root{
+  --paper:#F1F2EC;--paper-glass:rgba(241,242,236,.94);--card:#FBFBF8;--hover:#F4F5EE;
+  --ink:#17231E;--ink2:#4A5951;--ink3:#626F66;--line:#CBD0C6;--line2:#E0E3DA;
+  --brass:#8F6E30;--brass-soft:#EFE7D4;--brass-wash:#F7F3E9;--note-ink:#5B4A22;
+  --seal:#A5382A;--seal-soft:#F0DAD4;--seal-wash:#FBF5F3;--on-accent:#FBFBF8;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+    --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+    --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+    --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121815;--paper-glass:rgba(18,24,21,.93);--card:#19211D;--hover:#1F2924;
+  --ink:#E3E8E1;--ink2:#B4BEB6;--ink3:#8E9A92;--line:#35433C;--line2:#28332D;
+  --brass:#CFAA69;--brass-soft:#2C2718;--brass-wash:#1E1D16;--note-ink:#DCC99C;
+  --seal:#E5806E;--seal-soft:#452722;--seal-wash:#201816;--on-accent:#121815;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}
+a{color:var(--brass);text-underline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header.top{padding:56px 0 30px}
+.doc-title{font-family:var(--serif);font-size:35px;line-height:1.35;font-weight:600;margin:0 0 12px;letter-spacing:.02em}
+.doc-sub{max-width:40em;color:var(--ink2);font-size:15.5px;margin:0 0 12px}
+.claim{border:1px solid var(--ink);padding:20px 24px;margin:24px 0 20px;max-width:42em;background:var(--card)}
+.claim .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.16em;display:block;margin-bottom:6px}
+.claim p{font-family:var(--serif);font-size:21px;line-height:1.6;margin:0;font-weight:600}
+.claim small{display:block;margin-top:10px;font-size:14px;color:var(--ink2);line-height:1.8}
+.doc-meta{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+.doc-meta b{color:var(--ink2);font-weight:500}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--paper-glass);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px 18px;overflow-x:auto;white-space:nowrap;padding-top:9px;padding-bottom:9px;font-size:13.5px}
+nav.toc a{color:var(--ink2);text-decoration:none}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--brass)}
+section.sec{padding:44px 0 6px}
+.sec-n{font-family:var(--serif);color:var(--brass);font-size:13px;letter-spacing:.16em}
+h2{font-family:var(--serif);font-size:26px;font-weight:600;margin:2px 0 8px;line-height:1.4}
+h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:28px 0 8px}
+.lead{color:var(--ink2);max-width:46em;margin:0 0 12px}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:1.3em}
+li{margin:3px 0}
+.tbl{overflow-x:auto;margin:12px 0 18px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.7}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line2)}
+th{font-family:var(--serif);font-weight:600;color:var(--ink2);background:var(--brass-wash);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.t{white-space:nowrap;color:var(--ink3);font-variant-numeric:tabular-nums}
+td.k{white-space:nowrap;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);padding:16px 18px}
+.card h4{font-family:var(--serif);font-size:17px;margin:0 0 6px;font-weight:600}
+.card .who{display:inline-block;font-family:var(--serif);font-size:12.5px;padding:0 8px;background:var(--ink);color:var(--card);margin-bottom:8px}
+.card p,.card li{font-size:14px;color:var(--ink2)}
+.card .one{color:var(--ink);font-weight:600;border-top:1px solid var(--line2);padding-top:8px;margin-top:10px}
+.rail{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);background:var(--card);margin:14px 0}
+.stop{padding:16px 14px;border-right:1px solid var(--line2);text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.stop:last-child{border-right:none}
+.stop:hover,.stop:focus-visible{background:var(--hover)}
+.stop .n{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:22px;padding:0 6px;background:var(--brass);color:var(--on-accent);font-size:12.5px;font-family:var(--serif);margin-bottom:8px;align-self:flex-start}
+.stop.core .n{background:var(--ink);color:var(--card)}
+.stop b{font-family:var(--serif);font-size:17px;font-weight:600;display:block;margin-bottom:6px}
+.stop span{font-size:12.5px;line-height:1.6;color:var(--ink3)}
+.stop i{font-style:normal;margin-top:auto;padding-top:10px;font-size:12.5px;color:var(--ink)}
+.day{border-top:2px solid var(--ink);margin-top:46px;padding-top:18px}
+.day-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.day-h .d{font-family:var(--serif);font-size:15px;padding:1px 10px;background:var(--ink);color:var(--card)}
+.day-h h2{margin:0}
+.goal{font-size:16px;color:var(--ink);margin:10px 0 6px;max-width:44em}
+.tool{border:1px solid var(--line);background:var(--card);padding:14px 18px 10px;margin:16px 0}
+.tool .lb{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.12em;display:block;margin-bottom:4px}
+.tool .tbl{margin:8px -18px 6px;border-left:none;border-right:none}
+.note{background:var(--brass-wash);border-left:3px solid var(--brass);padding:11px 16px;color:var(--note-ink);margin:14px 0;font-size:14.5px}
+.warn{background:var(--seal-wash);border-left:3px solid var(--seal);padding:11px 16px;margin:14px 0;font-size:14.5px}
+.warn b.lb{color:var(--seal);font-family:var(--serif)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.three div{background:var(--card);border:1px solid var(--line2);padding:10px 14px;font-size:14px;color:var(--ink2)}
+.three div b{display:block;font-family:var(--serif);color:var(--ink);font-size:14px}
+.redline{background:var(--card);border:1px solid var(--seal-soft);padding:12px 18px;margin:14px 0}
+.redline b.lb{font-family:var(--serif);color:var(--seal);letter-spacing:.1em;font-size:13px;display:block}
+.redline ol{margin:4px 0 2px}
+.hand{border:1px solid var(--ink);background:var(--card);padding:12px 18px;margin:14px 0}
+.hand b.lb{font-family:var(--serif);color:var(--brass);letter-spacing:.12em;font-size:13px;display:block}
+.skip{color:var(--ink3);font-size:14px}
+.bad{color:var(--seal)}
+footer{padding:46px 0 70px;color:var(--ink3);font-size:13px;border-top:1px solid var(--line);margin-top:50px}
+@media (max-width:760px){
+  .doc-title{font-size:27px}
+  .cards,.three{grid-template-columns:1fr}
+  .rail{grid-template-columns:1fr}
+  .stop{border-right:none;border-bottom:1px solid var(--line2)}
+  .stop:last-child{border-bottom:none}
+  h2{font-size:22px}
+}
+@media print{nav.toc{display:none}.day{break-before:page}}
+</style>
+<style>
+.slogan{font-family:var(--serif);font-size:17px;margin:10px 0 0;color:var(--ink)}
+.dayhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin:6px 0 4px}
+.dayhead .d{font-family:var(--serif);background:var(--ink);color:var(--card);padding:2px 12px;font-size:15px}
+.dayhead h2{margin:0}
+.daygoal{font-size:14.5px;color:var(--ink2);margin:6px 0 12px}
+.slot{display:grid;grid-template-columns:112px 1fr;gap:4px 16px;border-top:1px solid var(--line2);padding:12px 0}
+.slot .tm{font-variant-numeric:tabular-nums;font-size:13.5px;color:var(--ink3);padding-top:3px}
+.slot .tm b{display:block;font-family:var(--serif);color:var(--brass);font-size:13px;font-weight:600;margin-top:2px}
+.slot h3{margin:0 0 4px;font-size:16.5px;font-family:var(--serif)}
+.slot h3 .src{font-size:12px;color:var(--ink3);font-family:var(--sans);font-weight:400;margin-left:8px}
+.slot ul{margin:4px 0 0;padding-left:1.2em;font-size:14.5px}
+.slot li{margin:2px 0}
+.slot .lb{display:inline-block;font-size:12px;line-height:1.6;padding:0 6px;margin-right:6px;border:1px solid var(--line);color:var(--ink2)}
+.slot .lb.w{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.slot .lb.p{background:var(--brass);color:var(--on-accent);border-color:var(--brass)}
+.slot .k3{margin:6px 0 0;padding:6px 10px;background:var(--brass-wash);border-left:3px solid var(--brass);font-size:14px}
+.slot.brk{padding:6px 0;color:var(--ink3);font-size:13.5px}
+.slot.brk h3{font-size:14px;color:var(--ink3);font-family:var(--sans);font-weight:400}
+.slot.prac h3::before{content:"练";display:inline-block;font-size:12px;background:var(--seal);color:var(--on-accent);padding:0 6px;margin-right:8px;font-family:var(--sans);vertical-align:2px}
+.slot.night{background:var(--hover);padding:12px 10px;margin:4px -10px}
+.slot.night h3::before{content:"晚上";display:inline-block;font-size:12px;background:var(--ink);color:var(--card);padding:0 6px;margin-right:8px;font-family:var(--sans);vertical-align:2px}
+td.n{white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.slot{grid-template-columns:1fr;gap:0}.slot.night{margin:4px 0}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1 class="doc-title">天鼠奢侈品商学院 · 二奢轻创业闭门会</h1>
+  <p class="doc-sub">三天线下 · 2980 元。第一天定位和估价，第二天公域短视频获客和私域成交，第三天鉴定，下午结业。内容来自之前的课程大纲 v8、教案和学员手册，按三天重新排过。</p>
+  <div class="claim">
+    <span class="lb">我们的发心</span>
+    <p class="slogan">背得轻，走得远；入圈子，多路子；遇难处，有人接。</p>
+    <small><b>学完能做到</b>：说清自己凭什么做二奢、先做什么；收一件货之前，算得出该报多少；知道怎么把人从短视频引到微信，再聊到成交；判不准真假的时候，知道找谁、怎么不亏。</small>
+  </div>
+  <div class="doc-meta">
+    <span><b>版本</b> v9 · 三天版（课程名暂定）</span>
+    <span><b>每节怎么讲</b> 先讲为什么（约五成）→ 拿证明（约三成）→ 给方法（约两成），细节放进学员手册</span>
+    <span><b>配套</b> <a href="课程大纲v8-九大板块.html">v8 五天版大纲</a> · <a href="教案大纲v8.html">教案</a> · <a href="学员手册.html">学员手册</a>（这三份还是五天版，待按三天调整）</span>
+  </div>
+</div></header>
+
+<nav class="toc" aria-label="目录"><div class="wrap">
+  <a href="#all">三天总览</a><a href="#d1">第一天</a><a href="#d2">第二天</a><a href="#d3">第三天</a><a href="#cut">和五天版比</a>
+</div></nav>
+
+<main class="wrap">
+
+<section class="sec" id="all">
+  <div class="sec-n">第一节</div>
+  <h2>三天总览</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>天</th><th>上午</th><th>下午</th><th>晚上</th></tr></thead>
+    <tbody>
+      <tr><td class="k">第一天<br>定位 · 估价</td><td>开营 · 行业认知 · 行业链路和做法 · 行业风险</td><td>你的定位 · 估价（上、下）· 盲报实操</td><td>学员定位工作坊：一人一份起步方案</td></tr>
+      <tr><td class="k">第二天<br>公域 · 私域</td><td>短视频获客（上、下）· 人设、账号和合规加微信</td><td>私域承接 · 私域转化 · 成交和收货流程 · 真客户演练</td><td>短视频诊断：账号定位和选题，逐个改</td></tr>
+      <tr><td class="k">第三天<br>鉴定 · 结业</td><td>鉴定认知和兜底 · 看货动线 · 鉴定话术和留证</td><td>鉴定实操：盲测三轮 · 结业</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="skip">每天上午 9:00 开始，下午 13:30 开始，晚上 19:00 到 21:00。每 50 到 60 分钟休息 10 分钟。第二、三天早上先用 15 分钟点评前一晚的作业。课前一周发预习包（学员手册第 0 件）和 10 题自测。</p>
+</section>
+
+<!-- ======================= 第一天 ======================= -->
+<section class="day" id="d1">
+  <div class="dayhead"><span class="d">第一天</span><h2>定位 · 估价：先想清楚凭什么做，再学会一件货值多少</h2></div>
+  <p class="daygoal">今天结束时，学员要能说清：二奢赚的是什么钱、这行会在哪出事、自己手上有什么牌、先做什么；拿到一件确认是真的货，能算出最多报多少。</p>
+
+  <div class="slot brk"><div class="tm">08:30–09:00</div><div><h3>签到：收课前自测、预填的四类底牌、账号截图；发学员手册</h3></div></div>
+
+  <div class="slot"><div class="tm">09:00–09:30<b>开营</b></div><div>
+    <h3>我们是谁，三天怎么上</h3>
+    <ul>
+      <li><span class="lb p">证明</span>主讲和搭档上台，每人一条真实战绩：做了多少年、几家店、经手多少货、带出过什么样的学员。</li>
+      <li>立规矩：作业当晚交，上台不说"我不会"。</li>
+      <li>三天地图：一单生意的全过程，人从哪来 → 聊到肯卖 → 看货 → 出价收进 → 卖出去 → 客户回头。</li>
+      <li>讲发心，全体喊一遍口号："背得轻，走得远；入圈子，多路子；遇难处，有人接。"</li>
+    </ul>
+  </div></div>
+
+  <div class="slot"><div class="tm">09:30–10:20<b>第 1 讲</b></div><div>
+    <h3>行业认知：二奢到底赚的是什么钱<span class="src">来自 v8 板块一</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>"低买高卖"只对一半：这么想的人，第一年都压在货上。你卖的不是包，是服务，像房产中介，赚的是信息差和周转。</li>
+      <li><span class="lb w">为什么</span>货流一张图：卖家 → 回收商 → 同行、上游、平台 → 买家。让每个人在图上标出自己在哪。</li>
+      <li><span class="lb w">为什么</span>这行死人的不是看走眼，是压货；真正的门槛只有两道：有人来找你卖，收了能卖掉。</li>
+      <li><span class="lb p">证明</span>主讲自己一年的账：周转几次，压得最久的一件压了多久、怎么出的。现场用学员的本金算"一个月转一次"和"三个月转一次"差多少。</li>
+    </ul>
+    <div class="k3">只记三件事：你卖的是服务 · 压货比看走眼更要命 · 门槛只有两道</div>
+  </div></div>
+
+  <div class="slot brk"><div class="tm">10:20–10:30</div><div><h3>休息</h3></div></div>
+
+  <div class="slot"><div class="tm">10:30–11:20<b>第 2 讲</b></div><div>
+    <h3>行业链路：回收、寄卖、撮合，第一单怎么做<span class="src">来自 v8 板块二</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>三种做法，真假风险和压货风险落在不同的人身上。新人最容易死在第一个月：压大钱收了一件判不准、卖不掉的货。</li>
+      <li><span class="lb w">为什么</span>为什么先做回收：卖家要的就是快拿钱；看货、出价、找买家的本事都在回收里练出来。回收会压货，所以只做小额、只收想好卖给谁的货。撮合和寄卖是补充。</li>
+      <li><span class="lb p">证明</span>当场算一件看走眼要白干几单；讲一个从小额回收起步的学员。</li>
+      <li><span class="lb">怎么做</span>第一单五条规矩：只收主打品类 · 单笔不超过上限 · 真假或价格拿不准就找兜底 · 收之前答出卖给谁、几天出、到手多少 · 登记录像签单再付款。单笔上限默认是亏得起的钱的五分之一，止损线是上限的三成。</li>
+    </ul>
+    <div class="k3">只记三件事：先做小额回收 · 五条规矩 · 单笔上限和止损线写下来签字</div>
+  </div></div>
+
+  <div class="slot"><div class="tm">11:20–12:00<b>第 3 讲</b></div><div>
+    <h3>行业风险：这门生意会在哪里出事<span class="src">来自 v5 风险地图和 v8 板块八</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>风险不是做大以后的事，第一单就可能碰上。六类风险：真假和翻新 · 来源（赃物、不是物主）· 估高和压货 · 调包和假转账 · 平台违规封号 · 口头约定扯皮。</li>
+      <li><span class="lb p">证明</span>讲一次真实的翻车：当时怎么做的，亏了多少，错在哪一步。</li>
+      <li><span class="lb">怎么做</span>三条红线：登记、录像、签单以后再付款 · 以到账为准，不认截图 · 真假存疑的货不包装成正品卖。每一条后面两天还会细讲。</li>
+    </ul>
+    <div class="k3">只记三件事：风控从第一单开始 · 六类风险 · 三条红线</div>
+  </div></div>
+
+  <div class="slot brk"><div class="tm">12:00–13:30</div><div><h3>午饭</h3></div></div>
+
+  <div class="slot"><div class="tm">13:30–14:20<b>第 4 讲</b></div><div>
+    <h3>定位：你以前的本事，在二奢里值多少钱<span class="src">来自 v8 板块一</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>别先找对标，先看自己手上的牌。做过生意的、做过回收的、做过二奢没成的，起点不一样。形容词不是资源，数字才是。</li>
+      <li><span class="lb w">为什么</span>全品类就是每一类都判不准、卖不掉；人设只选一个，刚入行别选"鉴定师"。</li>
+      <li><span class="lb p">证明</span>抽一个学员上台，主讲当场把他的形容词换成数字，圈出三张牌。</li>
+      <li><span class="lb">怎么做</span>四类底牌写成数字；三条主路选一条（短视频 / 老客户和熟人 / 门店和异业）；写一句定位："我在【城市】专做【品类】，我是【人设】，主要靠【主路】找客户。"</li>
+    </ul>
+    <div class="k3">只记三件事：从自己的牌出发 · 一个品类、一个人设 · 主路先暂定</div>
+  </div></div>
+
+  <div class="slot"><div class="tm">14:20–15:10<b>第 5 讲</b></div><div>
+    <h3>估价（上）：收之前答不出"卖给谁"，就是在赌<span class="src">来自 v8 板块七</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>挂价不是到手价；收之前答不出三个问题（卖给谁、几天出、到手多少），就是在赌。好出的货可以让一点去抢，难出的必须压价。</li>
+      <li><span class="lb w">为什么</span>同一件货，不同渠道、不同城市，到手价差很多。只信成交价，不信挂价。</li>
+      <li><span class="lb p">证明</span>同一件货在五个渠道的真实到手价对比；现场拿一件样本查行情、倒推报价上限。</li>
+      <li><span class="lb">怎么做</span>到手价 ＝ 成交价 − 佣金 − 运费 − 送检 − 退货预留；报价上限 ＝ 到手价 − 你想赚的。</li>
+    </ul>
+    <div class="k3">只记三件事：先答三问 · 只信成交价 · 从到手价倒推报价上限</div>
+  </div></div>
+
+  <div class="slot brk"><div class="tm">15:10–15:20</div><div><h3>休息</h3></div></div>
+
+  <div class="slot"><div class="tm">15:20–16:10<b>第 6 讲</b></div><div>
+    <h3>估价（下）：报得出、守得住、卖得掉<span class="src">来自 v8 板块二、板块七</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>你以为赚了的单，把所有成本算上可能是亏的。做过回收的人的老习惯：线上报高、见面压价，在二奢就是差评。客户一说"别家更高"你就跟，利润就被挤光。</li>
+      <li><span class="lb p">证明</span>主讲和搭档当场演议价："你报得太低""别家更高""我再想想"。</li>
+      <li><span class="lb">怎么做</span>折价看四样：成色、配件、瑕疵、热度（参考比例见手册第 8 件）。报价口径：线上只给区间，线下见了实物按本城市行情给准确价、讲清依据，拿不准就约第二次或找兜底。压货：每两周降一档（5%），降满三档卖给同行。</li>
+    </ul>
+    <div class="k3">只记三件事：所有成本都算上 · 线上区间、线下准确价 · 不跟价，说依据</div>
+  </div></div>
+
+  <div class="slot prac"><div class="tm">16:10–17:00</div><div>
+    <h3>盲报实操</h3>
+    <ul>
+      <li>20 件确认是真的货（主打品类），每人独立报价，再对讲师给的参考价。</li>
+      <li>合格线：20 件里至少 14 件误差在 15% 以内。讲师挑差得最多的三件，讲差在哪。</li>
+    </ul>
+  </div></div>
+
+  <div class="slot night"><div class="tm">19:00–21:00</div><div>
+    <h3>学员定位工作坊：一人一份起步方案</h3>
+    <ul>
+      <li>每人当场填：四类底牌（只写数字）· 三条主路选一条 · 定位一句话 · 第一阶段单笔上限和止损线（签字）· 月目标倒推到每天做什么。</li>
+      <li>三人一组互相追问，追到数字为止；主讲和搭档逐组巡场。</li>
+      <li>抽 3 到 4 人上台，主讲当场改：形容词换成数字，定位收窄到一个品类、一个人设。</li>
+      <li>交出：一页起步方案（手册第 1 件）。合格线：底牌全是数字，定位只有一个品类、一个人设，主路是手上有牌的那条。</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- ======================= 第二天 ======================= -->
+<section class="day" id="d2">
+  <div class="dayhead"><span class="d">第二天</span><h2>公域 · 私域：让手里有货的人来找你，再聊到成交</h2></div>
+  <p class="daygoal">今天结束时，学员要能判断自己的视频吸来的是谁、写出一条能来客户的稿；能合规地把人加到微信；能接住真客户的第一句话，并按流程收下一件货。</p>
+
+  <div class="slot brk"><div class="tm">09:00–09:15</div><div><h3>点评昨晚的起步方案，抽两三个人上台改</h3></div></div>
+
+  <div class="slot"><div class="tm">09:15–10:10<b>第 7 讲</b></div><div>
+    <h3>短视频（上）：拍了几十条，为什么一个卖包的都没来<span class="src">来自 v8 板块三</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>你讲什么，就来什么人：讲鉴定来的是同行和白嫖的，拍段子来的是看热闹的，讲买卖二奢的坑才来卖家和买家。</li>
+      <li><span class="lb w">为什么</span>流量八成看选题；账号标签由谁在看你决定；成交要三样齐：有人看、信你、知道你提供什么服务。</li>
+      <li><span class="lb p">证明</span>讲师自己的账号：第一条视频犹豫了两个月；"珍珠是塑料"拍了五遍才爆；两条视频的后台对比。</li>
+      <li><span class="lb">怎么做</span>人群只写两种：有闲置想卖的、想买二奢的。新号先拍知识干货 2 到 4 周，把账号标签打准。</li>
+    </ul>
+    <div class="k3">只记三件事：只对两种人讲 · 选题定八成 · 三样齐才成交</div>
+  </div></div>
+
+  <div class="slot brk"><div class="tm">10:10–10:20</div><div><h3>休息</h3></div></div>
+
+  <div class="slot"><div class="tm">10:20–11:15<b>第 8 讲</b></div><div>
+    <h3>短视频（下）：能来客户的视频是写出来的<span class="src">来自 v8 板块三</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>人说不出自己没写过的话；抄要抄结构、选题和人群，不抄台词；爆过的选题还会再爆。</li>
+      <li><span class="lb p">证明</span>学员报一个普通选题，讲师当场用八大元素改，配上开头，改两三个。</li>
+      <li><span class="lb">怎么做</span>七步：人群 → 选题（八大元素改）→ 呈现形式 → 填内容 → 开头（否定句最强）→ 拍 → 发。四类脚本各管一件事。工具卡见手册第 4 件。</li>
+    </ul>
+    <div class="k3">只记三件事：先写稿 · 用八大元素改选题 · 开头用否定句</div>
+  </div></div>
+
+  <div class="slot"><div class="tm">11:15–12:00<b>第 9 讲</b></div><div>
+    <h3>人设、账号和合规加微信<span class="src">来自 v8 板块三、板块四</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>客户分不清专业高低，分得清人可不可信；人设可以润色，不能编。视频里说"来找我估价"会判引流，私信里自己发微信号会被封号。</li>
+      <li><span class="lb p">证明</span>放讲师的置顶个人故事视频，讲它带来了什么客户。</li>
+      <li><span class="lb">怎么做</span>账号五件套和置顶三条。合规加微信四条路，都是让对方来找你：主页简介或合集写微信号 · 抖音粉丝群放资料包 · 蓝 V 留资组件 · 视频号、公众号、门店直接加。</li>
+    </ul>
+    <div class="k3">只记三件事：人设不能编 · 五件套和置顶三条 · 让对方来找你</div>
+  </div></div>
+
+  <div class="slot brk"><div class="tm">12:00–13:30</div><div><h3>午饭</h3></div></div>
+
+  <div class="slot"><div class="tm">13:30–14:20<b>第 10 讲</b></div><div>
+    <h3>私域承接：一加上就发产品图，客户已经把你屏蔽了<span class="src">来自 v8 板块四</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>私域是唯一带得走的资产；被动成交比主动推销好成；二奢不建微信客户群；号要在自己名下。</li>
+      <li><span class="lb p">证明</span>打开一段从加微信到成交的完整聊天（打码），一句一句讲每一步在干什么。</li>
+      <li><span class="lb">怎么做</span>加好友 30 分钟内送资料破冰 → 打微信标签（来源、想买还是想卖、品牌、预算、禁忌）→ 分四级维护 → 按触发点私聊。</li>
+    </ul>
+    <div class="k3">只记三件事：先送东西再聊 · 打好微信标签 · 号在自己名下</div>
+  </div></div>
+
+  <div class="slot"><div class="tm">14:20–15:10<b>第 11 讲</b></div><div>
+    <h3>私域转化：朋友圈是存折，老客户是第一批客户<span class="src">来自 v8 板块四、板块五</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>科普、日常、互动是往里存，广告是往外取；群发一眼就能看出来。大多数人的第一单来自老客户和熟人，不是短视频。</li>
+      <li><span class="lb p">证明</span>主讲的朋友圈截图，指出哪几条带来过私信；现场写一条第一次联系老客户的话术。</li>
+      <li><span class="lb">怎么做</span>朋友圈第一行 20 字以内，一天 2 到 5 条；私聊五个触发点；老客户分三层，朋友圈铺垫一周，第二周一对一联系。门店、异业、转介绍见手册第 6 件。</li>
+    </ul>
+    <div class="k3">只记三件事：多存少取 · 按微信标签一对一聊 · 老客户铺垫一周再联系</div>
+  </div></div>
+
+  <div class="slot brk"><div class="tm">15:10–15:20</div><div><h3>休息</h3></div></div>
+
+  <div class="slot"><div class="tm">15:20–16:10<b>第 12 讲</b></div><div>
+    <h3>成交：从第一句话，到钱货两清<span class="src">来自 v8 板块四、板块八</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>没看到货就报数，后面每改一次价都在掉信任；说出去的话就是证据；急着出手、说不清来路的，记下来复核。出事的往往是省掉的那一步。</li>
+      <li><span class="lb p">证明</span>现场演示一次完整收货：登记、全程录像（告诉对方在录）、封签、拍特征点、签回收单，到账后交割。</li>
+      <li><span class="lb">怎么做</span>前三十秒问品类、要图、约给价时间；线上只给区间。必拒清单：不愿登记、来源说不清、未成年人、低得离谱又急着出、超过单笔上限。出事第一小时：封存货品、固定证据、暂停同一来源。</li>
+    </ul>
+    <div class="k3">只记三件事：前三十秒三件事 · 登记录像签单再付款 · 以到账为准</div>
+  </div></div>
+
+  <div class="slot prac"><div class="tm">16:10–17:00</div><div>
+    <h3>真客户演练</h3>
+    <ul>
+      <li>搭档扮客户，两人一组练四个场景："这包能卖多少""你现在就给个价""我现在就拿过来""你靠谱吗"。</li>
+      <li>最后抽一组，从一条私信接起，一直走到收货流程填完回收单。</li>
+      <li>合格线：四个场景都不报死价、不乱承诺；收货流程的四条红线全对。</li>
+    </ul>
+  </div></div>
+
+  <div class="slot night"><div class="tm">19:00–21:00</div><div>
+    <h3>短视频诊断：账号定位和选题，逐个改</h3>
+    <ul>
+      <li>每人带上自己的账号（没有就现场注册）。先对照手册第 3 件，自己改账号五件套。</li>
+      <li>每人写 10 个选题，用八大元素改，挑一个写好开头。</li>
+      <li>逐个诊断：人群对不对、人设靠不靠得住、选题能不能来卖家。人多就分组，主讲当场改 10 到 12 人，其余由搭档书面点评。</li>
+      <li>交出：改好的账号五件套截图、10 个选题、一个写好的开头。选做：当晚按这个开头拍一条口播。</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- ======================= 第三天 ======================= -->
+<section class="day" id="d3">
+  <div class="dayhead"><span class="d">第三天</span><h2>鉴定：判不准的时候，怎么不亏</h2></div>
+  <p class="daygoal">今天结束时，学员要能按顺序看一件常见款，30 秒排除明显的假货；判不准时知道该走哪一种办法、找谁兜底；能跟客户说结论而不惹事。下午结业。</p>
+
+  <div class="slot brk"><div class="tm">09:00–09:15</div><div><h3>点评昨晚的账号和选题，抽两三个人上台改</h3></div></div>
+
+  <div class="slot"><div class="tm">09:15–10:05<b>第 13 讲</b></div><div>
+    <h3>鉴定认知：一单看走眼，要白干几十单<span class="src">来自 v8 板块六</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>"不会鉴定就不能做"和"多学点鉴定就不会亏"都只对一半。判不了还硬判，是怕丢单、怕显得不专业。有票有卡不等于真，机构报告也会错。</li>
+      <li><span class="lb p">证明</span>鉴定讲师是谁：从业年限、鉴定件数；讲一次差点看走眼，是哪一步救回来的。</li>
+      <li><span class="lb">怎么做</span>判不准的五种办法：自己判 · 送机构 · 找上游兜底 · 同行复核 · 转撮合。兜底三条路：我们给的同行资源群和靠谱上游 · 在群里求助 · 直接找我们（不收费）。</li>
+    </ul>
+    <div class="k3">只记三件事：判不准有五种办法 · 兜底三条路 · 有票有卡不等于真</div>
+  </div></div>
+
+  <div class="slot brk"><div class="tm">10:05–10:15</div><div><h3>休息</h3></div></div>
+
+  <div class="slot"><div class="tm">10:15–11:10<b>第 14 讲</b></div><div>
+    <h3>看货动线：按顺序看，成了习惯就不会漏<span class="src">来自 v8 板块六</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>知识点会忘，顺序不会；比假货更常见的是翻新、改色、换件，按原品价收进来一样亏。只凭一个特征（芯片、日期码、小票）不下结论。</li>
+      <li><span class="lb p">证明</span>现场盲判学员带来的货，边看边讲为什么这么判；判不了的当场说"这件我会送检"。</li>
+      <li><span class="lb">怎么做</span>包的动线：整体 → 材质 → 做工 → 五金 → 标识 → 配件；表的动线：整体 → 表盘 → 表壳表背 → 表冠表扣 → 走时 → 机芯 → 配件。一眼假的 30 秒排除。动线卡见手册第 7 件。</li>
+    </ul>
+    <div class="k3">只记三件事：按动线看 · 翻新改色换件比假货更常见 · 一眼假 30 秒排除</div>
+  </div></div>
+
+  <div class="slot"><div class="tm">11:10–12:00<b>第 15 讲</b></div><div>
+    <h3>鉴定话术和留证：一句"你这是假的"，可能被反咬调包<span class="src">来自 v8 板块六</span></h3>
+    <ul>
+      <li><span class="lb w">为什么</span>当面说"假的"，客户会反咬你调包；书面写"假货"，判错了要担责。</li>
+      <li><span class="lb p">证明</span>主讲和搭档演一次"这件我不收"：怎么说、讲依据、留关系。</li>
+      <li><span class="lb">怎么做</span>只说"不收"或"无法确认"，讲清依据；验完当场封签、拍特征点；开表盖、火试之前先征得同意并签字。</li>
+    </ul>
+    <div class="k3">只记三件事：只说"不收"或"无法确认" · 验完封签拍特征点 · 动货之前先征得同意</div>
+  </div></div>
+
+  <div class="slot brk"><div class="tm">12:00–13:30</div><div><h3>午饭</h3></div></div>
+
+  <div class="slot prac"><div class="tm">13:30–15:30</div><div>
+    <h3>鉴定实操：盲测三轮</h3>
+    <ul>
+      <li>第一轮：实物盲测，主打品类的真货和不同档次的高仿，逐件编号，每人独立判。</li>
+      <li>第二轮：30 秒排除，一眼假的快速挑出来。</li>
+      <li>第三轮：20 个场景卡，每个场景选五种办法里的哪一种。这是真正的考点：知不知道什么时候不该自己判。</li>
+      <li>每轮之后讲答案。合格线：第三轮 20 个场景答对 16 个以上。当场写好兜底清单：资源群里的上游和同行各 2 个以上，再加上我们。</li>
+    </ul>
+  </div></div>
+
+  <div class="slot brk"><div class="tm">15:30–15:40</div><div><h3>休息</h3></div></div>
+
+  <div class="slot"><div class="tm">15:40–17:00<b>结业</b></div><div>
+    <h3>回去第一周，决定你是不是又停在原地</h3>
+    <ul>
+      <li><span class="lb w">为什么</span>多数人回去就停在第二步：账号没改完，老客户没联系。知道了鉴定和估价有多难，第一天的定位要重看一遍。</li>
+      <li><span class="lb p">证明</span>往期学员交满作业的和没交的，第一单差多少；现场给一两个学员做路径规划。</li>
+      <li><span class="lb">怎么做</span>重填定位一句话，和第一晚那份对比；写 30 天四周计划；把课前的 10 题自测再做一遍。讲清课后咨询怎么用、真实的货判不准怎么找我们兜底。</li>
+      <li>接下来三条路：自己干（30 天计划 ＋ 课后咨询 ＋ 兜底）· 补短板（短视频密训、技术课）· 要人带（线上陪跑、线下陪跑）。后续产品只在这里集中讲，有意向的课后单独约。</li>
+      <li>颁发结业证书，合影，全体喊口号："背得轻，走得远；入圈子，多路子；遇难处，有人接。"</li>
+    </ul>
+  </div></div>
+</section>
+
+<section class="sec" id="cut">
+  <div class="sec-n">第五节</div>
+  <h2>和五天版比，改了什么</h2>
+  <p class="lead">五天版的九个板块都还在，只是压到了三天里。下面几处压得最多，开课前你可以再看一眼，决定要不要补回来。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>五天版的内容</th><th>三天版里在哪</th><th>压掉了什么</th></tr></thead>
+    <tbody>
+      <tr><td>定位、生意模型</td><td>第一天上午、第 4 讲</td><td>"免费体检"设计、一个客户值多少钱，只在手册里</td></tr>
+      <tr><td>收与出（估价）</td><td>第一天下午，第 5、6 讲和盲报</td><td>估价提前到第一天，学员还没学鉴定，所以盲报只用确认是真的货</td></tr>
+      <tr><td>风控</td><td>第一天第 3 讲（认知）＋ 第二天第 12 讲（收货流程）</td><td>骗局细节、出货端风险，只在手册第 9 件</td></tr>
+      <tr><td>短视频获客</td><td>第二天上午，第 7 到 9 讲</td><td>下午 150 分钟的短视频实操，改成第二天晚上的诊断，拍摄改为选做</td></tr>
+      <tr><td>私域成交</td><td>第二天下午，第 10 到 12 讲</td><td>基本完整</td></tr>
+      <tr><td>线下获客</td><td>并进第 11 讲（老客户）</td><td>门店、异业、转介绍只在手册第 6 件</td></tr>
+      <tr><td>鉴定</td><td>第三天全天</td><td>基本完整</td></tr>
+      <tr><td>一单全流程演练</td><td>缩进第二天的真客户演练</td><td>75 分钟的毕业考核没了，只抽一组走完整流程</td></tr>
+      <tr><td>结营</td><td>第三天下午</td><td>基本完整</td></tr>
+    </tbody>
+  </table></div>
+  <p class="skip">教案和学员手册目前还是五天版的结构，这份课表定下来以后再按三天调整。</p>
+</section>
+
+</main>
+<footer><div class="wrap">
+  天鼠奢侈品商学院 · 二奢轻创业闭门会 · 课程大纲和课表 v9（三天版）· 时间是建议值，按开课实际调整。<br>
+  涉及法律、税务的内容只讲风险，具体以当地规定和律师、会计意见为准；平台规则以开课当期为准。
+</div></footer>
+</body>
+</html>
