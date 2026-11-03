@@ -1,0 +1,385 @@
+<title>二奢轻创业闭门会</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500&display=swap">
+<style>
+/* Layout: 一份精品店的会员邀请函——深瓶绿皮革底、香槟金缝线、吊牌式价签，手机竖屏优先 */
+:root{
+  --ground:#0E1915;      /* 深瓶绿，像皮具内衬 */
+  --leather:#14231D;     /* 分区底色 */
+  --panel:#1A2C25;       /* 卡片 */
+  --bone:#ECE4D4;        /* 正文，骨白 */
+  --bone-dim:#B5AE9F;    /* 次要文字 */
+  --gold:#C9A86A;        /* 香槟金，唯一强调色 */
+  --gold-deep:#8F7442;
+  --seal:#8C2F2A;        /* 封签红，只用在封签 */
+  --rule:rgba(201,168,106,.26);
+  --display:"Noto Serif SC","Songti SC","STSong",serif;
+  --body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --latin:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--ground);color:var(--bone);font-family:var(--body);font-size:15px;line-height:1.8;margin:0}
+a{color:var(--gold)}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:720px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;font-weight:700}
+.eyebrow{font-family:var(--latin);font-style:italic;color:var(--gold);letter-spacing:.06em;font-size:14px}
+.cn-eyebrow{font-size:12px;letter-spacing:.32em;color:var(--gold)}
+.stitch{border:1px dashed var(--rule);border-radius:2px}
+section.band{padding-block:56px}
+.sec-head{display:grid;gap:6px;margin-bottom:26px}
+.sec-head h2{font-size:clamp(24px,6vw,32px);line-height:1.3}
+.sec-head p{margin:0;color:var(--bone-dim);max-width:34em}
+
+/* ---------- 封面 ---------- */
+.hero{position:relative;overflow:hidden;padding-block:40px 56px;
+  background:
+    radial-gradient(120% 70% at 50% 0%,rgba(201,168,106,.14),transparent 60%),
+    repeating-linear-gradient(45deg,transparent 0 27px,rgba(201,168,106,.06) 27px 28px),
+    repeating-linear-gradient(-45deg,transparent 0 27px,rgba(201,168,106,.06) 27px 28px),
+    var(--leather)}
+.hero .inner{display:grid;gap:22px;position:relative}
+.house{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:12px}
+.house b{font-family:var(--display);font-weight:500;letter-spacing:.24em;font-size:13px}
+.house span{font-family:var(--latin);font-size:12px;color:var(--bone-dim);letter-spacing:.12em}
+.hero-main{display:grid;grid-template-columns:1fr 200px;gap:20px;align-items:center}
+.hero-main>div{min-width:0}
+.hero h1{font-size:clamp(38px,11vw,64px);line-height:1.12;font-weight:900;letter-spacing:.02em}
+.hero h1 small{display:block;font-size:.42em;font-weight:500;letter-spacing:.3em;color:var(--gold);margin-bottom:10px}
+.slogan{font-family:var(--display);font-size:clamp(18px,4.8vw,23px);font-weight:500;line-height:1.7;margin:14px 0 0;color:var(--bone)}
+.slogan span{display:inline-block}
+.bag{width:100%;max-width:200px;height:auto;justify-self:center}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.facts div{padding:14px 6px;text-align:center;min-width:0}
+.facts div+div{border-left:1px solid var(--rule)}
+.facts b{display:block;font-family:var(--latin);font-size:clamp(22px,6vw,30px);font-weight:600;color:var(--gold);line-height:1.2;font-variant-numeric:lining-nums}
+.facts span{font-size:12.5px;color:var(--bone-dim)}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:var(--ground);font-weight:500;text-decoration:none;padding:13px 26px;border-radius:2px;letter-spacing:.12em;font-size:15px}
+.cta:focus-visible,.bar a:focus-visible,summary:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-cta small{color:var(--bone-dim);font-size:13px}
+
+/* ---------- 动线条 ---------- */
+.route{background:var(--ground);padding-block:18px;border-bottom:1px solid var(--rule)}
+.route ol{list-style:none;margin:0 auto;padding:0;max-width:720px;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 0;font-size:13px;color:var(--bone-dim)}
+.route li{display:flex;align-items:center}
+.route li+li::before{content:"";width:22px;height:0;border-top:1px dashed var(--gold-deep);margin:0 8px}
+.route li b{color:var(--gold);font-weight:500;margin-right:4px;font-family:var(--latin)}
+
+/* ---------- 适合谁 ---------- */
+.who{display:grid;gap:14px}
+.who article{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;padding:18px;background:var(--panel)}
+.who .no{font-family:var(--latin);font-size:34px;line-height:1;color:var(--gold);grid-row:span 2}
+.who h3{font-size:18px}
+.who p{margin:0;color:var(--bone-dim);font-size:14.5px}
+
+/* ---------- 你会带走 ---------- */
+.take{background:var(--leather)}
+.take-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.take-grid div{background:var(--leather);padding:20px 18px;display:grid;gap:6px;align-content:start;min-width:0}
+.take-grid h3{font-size:17px;color:var(--bone)}
+.take-grid h3 i{font-style:normal;color:var(--gold);font-family:var(--latin);margin-right:6px}
+.take-grid p{margin:0;color:var(--bone-dim);font-size:14px}
+
+/* ---------- 课表 ---------- */
+.days{display:grid;gap:22px}
+.day{background:var(--panel);padding:22px 20px 8px;position:relative}
+.day-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--rule);padding-bottom:12px}
+.day-top h3{font-size:21px}
+.day-top h3 em{font-style:normal;color:var(--gold);font-family:var(--latin);font-weight:600;font-size:15px;letter-spacing:.08em;margin-right:10px}
+.day-top span{font-family:var(--latin);color:var(--bone-dim);font-size:14px;font-variant-numeric:lining-nums}
+.slot{display:grid;grid-template-columns:118px 1fr;gap:4px 14px;padding:14px 0;border-bottom:1px dashed var(--rule)}
+.slot:last-child{border-bottom:none}
+.slot .t{font-size:13px;color:var(--bone-dim);font-variant-numeric:tabular-nums}
+.slot .t b{display:block;color:var(--gold);font-weight:500;font-size:13px;letter-spacing:.2em}
+.slot p{margin:0;min-width:0}
+.slot .tags{display:flex;flex-wrap:wrap;gap:6px 8px}
+.slot .tags span{font-size:14.5px}
+.slot .tags span+span::before{content:"·";color:var(--gold-deep);margin-right:8px}
+.slot.off p{color:var(--bone-dim)}
+.badge{display:inline-block;font-size:11.5px;letter-spacing:.12em;color:var(--ground);background:var(--gold);padding:0 7px;margin-left:8px;vertical-align:2px;border-radius:1px}
+
+/* ---------- 为什么是我们 ---------- */
+.why{background:var(--leather)}
+.why-list{display:grid;gap:0;border-top:1px solid var(--rule)}
+.why-list div{display:grid;grid-template-columns:150px 1fr;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.why-list h3{font-size:19px;line-height:1.4}
+.why-list h3 small{display:block;font-family:var(--latin);font-style:italic;font-weight:400;color:var(--gold);font-size:13px;margin-top:4px}
+.why-list p{margin:0;color:var(--bone-dim);min-width:0}
+
+/* ---------- 讲师 ---------- */
+
+/* ---------- 带走的东西 ---------- */
+.kit{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kit div{padding:16px 14px;text-align:center;display:grid;gap:4px;align-content:start;min-width:0}
+.kit b{font-family:var(--display);font-size:16px}
+.kit span{color:var(--bone-dim);font-size:13px}
+
+/* ---------- 价签 / 报名 ---------- */
+.signup{background:
+  radial-gradient(90% 60% at 50% 100%,rgba(201,168,106,.12),transparent 70%),var(--leather)}
+.tag-wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.hangtag{position:relative;width:210px;max-width:100%;background:var(--bone);color:var(--ground);padding:34px 22px 22px;clip-path:polygon(18% 0,82% 0,100% 12%,100% 100%,0 100%,0 12%);text-align:center}
+.hangtag::before{content:"";position:absolute;top:12px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--leather);box-shadow:inset 0 0 0 2px var(--gold-deep)}
+.hangtag::after{content:"";position:absolute;inset:8px;border:1px dashed rgba(14,25,21,.35);pointer-events:none;clip-path:inherit}
+.hangtag small{display:block;font-size:11px;letter-spacing:.3em;color:#5b5446}
+.hangtag strong{display:block;font-family:var(--latin);font-size:52px;font-weight:600;line-height:1.1;margin:6px 0 2px;font-variant-numeric:lining-nums}
+.hangtag strong sup{font-size:20px;vertical-align:22px;margin-right:2px}
+.hangtag s{display:block;font-family:var(--latin);font-size:15px;color:#7a7262;margin-top:4px;font-variant-numeric:lining-nums}
+.hangtag span{font-size:12.5px;color:#4a4438}
+.terms{display:grid;gap:0;margin:0}
+.terms div{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:9px 0;border-bottom:1px dashed var(--rule)}
+.terms dt{color:var(--gold);font-size:13.5px}
+.terms dd{margin:0;min-width:0}
+.contact{margin-top:22px;padding:18px;display:grid;gap:8px;justify-items:start}
+.contact p{margin:0;color:var(--bone-dim);font-size:14px}
+
+/* ---------- 问答 ---------- */
+.faq details{border-bottom:1px solid var(--rule);padding:14px 0}
+.faq summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-family:var(--latin);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq p{margin:10px 0 0;color:var(--bone-dim)}
+
+/* ---------- 尾页 ---------- */
+.end{text-align:center;padding-block:64px 120px;background:var(--ground)}
+.seal{width:76px;height:76px;margin:0 auto 22px;border:2px solid var(--seal);color:var(--seal);display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:22px;line-height:1.05;transform:rotate(-6deg);letter-spacing:.06em}
+.end p.big{font-family:var(--display);font-size:clamp(22px,6vw,30px);margin:0;line-height:1.6}
+.end small{display:block;margin-top:16px;color:var(--bone-dim);letter-spacing:.24em;font-size:12px}
+
+/* ---------- 底部报名条 ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(14,25,21,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--rule);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.bar .inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar p{margin:0;font-size:13px;color:var(--bone-dim);line-height:1.4}
+.bar p s{margin-right:8px;opacity:.65;font-variant-numeric:lining-nums}
+.bar p b{font-family:var(--latin);color:var(--gold);font-size:22px;font-weight:600;margin-right:6px;font-variant-numeric:lining-nums}
+.bar a{background:var(--gold);color:var(--ground);text-decoration:none;padding:10px 22px;border-radius:2px;letter-spacing:.14em;font-weight:500;white-space:nowrap}
+
+@media (max-width:560px){
+  .hero-main{grid-template-columns:1fr}
+  .bag{max-width:150px;justify-self:start;order:-1}
+  .take-grid{grid-template-columns:1fr}
+  .slot{grid-template-columns:1fr;gap:2px}
+  .slot .t b{display:inline;margin-right:8px}
+  .why-list div{grid-template-columns:1fr}
+  .kit{grid-template-columns:1fr 1fr}
+  .tag-wrap{grid-template-columns:1fr;justify-items:center}
+  .terms{width:100%}
+}
+@media (prefers-reduced-motion:no-preference){
+  .bag .shine{animation:shine 6s ease-in-out infinite}
+  @keyframes shine{0%,100%{opacity:.25}50%{opacity:.7}}
+}
+</style>
+
+<!-- ================= 封面 ================= -->
+<header class="hero band">
+  <div class="inner">
+    <div class="house"><b>天鼠奢侈品商学院</b><span>TIANSHU · CLOSED SESSION</span></div>
+    <div class="hero-main">
+      <div>
+        <h1><small>南京 · 三天线下 · 20 人小班</small>二奢轻创业<br>闭门会</h1>
+        <p class="slogan"><span>背得轻，走得远；</span><span>好圈子，有未来。</span></p>
+      </div>
+      <svg class="bag" viewBox="0 0 200 200" role="img" aria-label="一只手提包的线描">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#C9A86A"/><stop offset="1" stop-color="#8F7442"/>
+          </linearGradient>
+        </defs>
+        <path d="M70 70 C70 34 130 34 130 70" fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M40 72 H160 L172 172 H28 Z" fill="#14231D" stroke="url(#g)" stroke-width="2.5"/>
+        <path d="M47 80 H153 L163 164 H37 Z" fill="none" stroke="#C9A86A" stroke-opacity=".55" stroke-width="1" stroke-dasharray="4 4"/>
+        <path d="M40 72 H160 L154 112 Q100 126 46 112 Z" fill="#1A2C25" stroke="url(#g)" stroke-width="2"/>
+        <rect x="90" y="108" width="20" height="16" rx="2" fill="url(#g)"/>
+        <rect x="96" y="112" width="8" height="8" rx="1" fill="#14231D"/>
+        <line class="shine" x1="58" y1="140" x2="72" y2="154" stroke="#ECE4D4" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="facts">
+      <div><b>11.25–27</b><span>周三至周五</span></div>
+      <div><b>3 天</b><span>白天上课<br>两晚工作坊</span></div>
+      <div><b>¥2980</b><span>原价 <s>¥5980</s></span></div>
+    </div>
+    <div class="hero-cta">
+      <a class="cta" href="#signup">预留席位</a>
+      <small>每期限 20 人，按报名先后安排</small>
+    </div>
+  </div>
+</header>
+
+<nav class="route band" aria-label="一单生意的全过程">
+  <ol>
+    <li><b>I</b>定位</li><li><b>II</b>估价</li><li><b>III</b>获客</li><li><b>IV</b>成交</li><li><b>V</b>鉴定</li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ================= 适合谁 ================= -->
+<section class="band" id="who">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="cn-eyebrow">这门课为谁准备</span>
+      <h2>想把二奢做成一门轻生意的三种人</h2>
+    </div>
+    <div class="who">
+      <article><span class="no">01</span><h3>做过别的生意，想进二奢</h3><p>会经营、会算账，手里有老客户和圈子，但不懂货、不懂行情，怕一进来就交学费。</p></article>
+      <article><span class="no">02</span><h3>做过回收，想加一个品类</h3><p>收过车、手机、数码，做过寄卖。流程你都熟，缺的是二奢的看货、估价和出货渠道。</p></article>
+      <article><span class="no">03</span><h3>做过二奢，还没做起来</h3><p>拍了视频没客户，收了货卖不掉，压着几件不知道怎么办。想找出问题，换个方法重新来。</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 你会带走 ================= -->
+<section class="band take" id="take">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="cn-eyebrow">三天以后</span>
+      <h2>你会带走这四样本事</h2>
+    </div>
+    <div class="take-grid">
+      <div><h3><i>I</i>看清自己的起点</h3><p>说清这行赚的是什么钱、会在哪里出事；写出自己的定位和起步方案，第一单该收什么、收多大。</p></div>
+      <div><h3><i>II</i>一件货，估得出</h3><p>收之前先想好卖给谁、几天出、到手多少，从到手价倒推出报价，线上给区间，见了货给准价。</p></div>
+      <div><h3><i>III</i>让卖家来找你</h3><p>用短视频吸来手里有货的人，合规地加到微信，从第一句话聊到钱货两清。</p></div>
+      <div><h3><i>IV</i>判不准，也不亏</h3><p>按顺序看货，一眼假的 30 秒排除；拿不准的知道找谁兜底，跟客户怎么说才不惹事。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 课表 ================= -->
+<section class="band" id="schedule">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="cn-eyebrow">三天课表</span>
+      <h2>白天讲透，晚上落地到你自己身上</h2>
+      <p>每天上午 9:30–12:30，下午 14:00–17:30；前两天晚上 19:00–21:00 是一对一落地的工作坊。</p>
+    </div>
+    <div class="days">
+
+      <article class="day">
+        <div class="day-top"><h3><em>DAY 1</em>定位 · 估价</h3><span>11.25 周三</span></div>
+        <div class="slot"><div class="t"><b>上午</b>9:30–12:30</div><div class="tags"><span>开营</span><span>行业认知：赚什么钱、货流链路</span></div></div>
+        <div class="slot"><div class="t"><b>下午</b>14:00–17:30</div><div class="tags"><span>你的定位</span><span>估价</span><span>行业风险</span></div></div>
+        <div class="slot"><div class="t"><b>晚上</b>19:00–21:00</div><p>学员定位工作坊：一人一份起步方案<span class="badge">工作坊</span></p></div>
+      </article>
+
+      <article class="day">
+        <div class="day-top"><h3><em>DAY 2</em>获客 · 成交</h3><span>11.26 周四</span></div>
+        <div class="slot"><div class="t"><b>上午</b>9:30–12:30</div><div class="tags"><span>短视频（上、下）</span><span>破圈</span><span>获客</span><span>人设、账号</span></div></div>
+        <div class="slot"><div class="t"><b>下午</b>14:00–17:30</div><div class="tags"><span>私域承接</span><span>私域转化（含老客户）</span><span>成交和收货流程</span></div></div>
+        <div class="slot"><div class="t"><b>晚上</b>19:00–21:00</div><p>短视频诊断：账号定位和选题，逐个改<span class="badge">工作坊</span></p></div>
+      </article>
+
+      <article class="day">
+        <div class="day-top"><h3><em>DAY 3</em>鉴定 · 结业</h3><span>11.27 周五</span></div>
+        <div class="slot"><div class="t"><b>上午</b>9:30–12:30</div><div class="tags"><span>鉴定认知和技巧</span></div></div>
+        <div class="slot"><div class="t"><b>下午</b>14:00–17:30</div><div class="tags"><span>兜底</span><span>看货动线</span><span>鉴定话术和留证</span><span>17:00 起结业</span></div></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= 为什么是我们 ================= -->
+<section class="band why" id="why">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="cn-eyebrow">我们的发心</span>
+      <h2>让每个人做生意，都轻松一点</h2>
+    </div>
+    <div class="why-list">
+      <div><h3>背得轻<small>Light to carry</small></h3><p>从小额回收起步，单笔有上限，收之前先想好卖给谁。不先租店、不囤货，看走眼一次也不伤元气。</p></div>
+      <div><h3>走得远<small>Built to last</small></h3><p>不做一锤子买卖。线上给区间、见货给准价，讲清每一处折价。客户信你，才会一单接一单地回来。</p></div>
+      <div><h3>好圈子<small>The right circle</small></h3><p>结业以后进同行资源群，认识靠谱的上游和同行。货看不准，有人帮你看；货卖不动，有人给你出主意。</p></div>
+      <div><h3>有未来<small>A road ahead</small></h3><p>结业不散场。课后 1 年咨询服务，真实的货判不准，可以直接来找我们兜底，不收费。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 带走的东西 ================= -->
+<section class="band take" id="kit">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="cn-eyebrow">随课交付</span>
+      <h2>报名就有的六件事</h2>
+    </div>
+    <div class="kit">
+      <div class="stitch"><b>学员手册</b><span>估价表、动线卡、话术和流程，回去照着做</span></div>
+      <div class="stitch"><b>两晚工作坊</b><span>起步方案、账号和选题，逐个改</span></div>
+      <div class="stitch"><b>课堂实操</b><span>盲报估价、真客户演练、实物盲测</span></div>
+      <div class="stitch"><b>同行资源群</b><span>靠谱上游和同行，结业后长期在</span></div>
+      <div class="stitch"><b>1 年课后咨询</b><span>带着视频、聊天、货来问</span></div>
+      <div class="stitch"><b>免费兜底</b><span>真实的货判不准，发给我们看</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 报名 ================= -->
+<section class="band signup" id="signup">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="cn-eyebrow">报名须知</span>
+      <h2>每期 20 人，按报名先后安排席位</h2>
+    </div>
+    <div class="tag-wrap">
+      <div class="hangtag" aria-label="课程费用 2980 元，原价 5980 元">
+        <small>TUITION</small>
+        <s>原价 ¥5980</s>
+        <strong><sup>¥</sup>2980</strong>
+        <span>三天线下 · 含学员手册</span>
+      </div>
+      <dl class="terms">
+        <div><dt>时间</dt><dd>2026 年 11 月 25 日至 27 日（周三至周五）</dd></div>
+        <div><dt>每天</dt><dd>上午 9:30–12:30 · 下午 14:00–17:30 · 前两晚 19:00–21:00</dd></div>
+        <div><dt>地点</dt><dd>南京 · 绿溢国际广场</dd></div>
+        <div><dt>人数</dt><dd>每期限 20 人，满额即止</dd></div>
+        <div><dt>请带上</dt><dd>手机（拍摄和账号诊断用）；手上有货的，带 1–3 件来源清楚的货</dd></div>
+      </dl>
+    </div>
+    <div class="contact stitch">
+      <p>报名和咨询</p>
+      <p>名额按报名先后锁定，报名请联系天鼠课程顾问。</p>
+      <a class="cta" href="#faq">先看常见问题</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 问答 ================= -->
+<section class="band faq" id="faq">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="cn-eyebrow">常见问题</span>
+      <h2>报名前，大家最常问的五件事</h2>
+    </div>
+    <details><summary>完全不会鉴定，能来吗？</summary><p>能。第三天一整天讲鉴定，从按顺序看货、一眼假的怎么排除讲起。更重要的是学会判不准的时候怎么办：找谁兜底、跟客户怎么说，不靠自己硬判。</p></details>
+    <details><summary>没有店，能做吗？</summary><p>能。课上推荐从小额回收起步，不先租店、不囤货。有店的人会多一条门店获客的路，没店的人先用短视频和老客户。</p></details>
+    <details><summary>只能兼职做，跟得上吗？</summary><p>课程按"小额起步、一步步放开"来设计，兼职也能按自己的节奏走。第一晚的工作坊会帮你把每天要做什么算出来。</p></details>
+    <details><summary>课上完以后还有人管吗？</summary><p>有。结业后进同行资源群，享有 1 年课后咨询服务；真实的货判不准，可以直接发给我们看，不收费。</p></details>
+    <details><summary>需要提前准备什么？</summary><p>开课前一周会发预习资料和一份 10 题小测。来上课带上手机；手上有货的，可以带 1 到 3 件来源清楚的货，课上一起看。</p></details>
+  </div>
+</section>
+
+<!-- ================= 尾页 ================= -->
+<section class="band end">
+  <div class="inner">
+    <div class="seal" aria-hidden="true">天鼠<br>商学</div>
+    <p class="big">背得轻，走得远；<br>好圈子，有未来。</p>
+    <small>天鼠奢侈品商学院 · 二奢轻创业闭门会 · 2026.11.25–27</small>
+  </div>
+</section>
+
+</main>
+
+<div class="bar">
+  <div class="inner">
+    <p><b>¥2980</b><s>¥5980</s>11.25–27 · 南京</p>
+    <a href="#signup">报名</a>
+  </div>
+</div>
