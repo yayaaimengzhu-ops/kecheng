@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=block">
+<style>
+:root{--ground:#0E1915;--leather:#14231D;--panel:#1A2C25;--bone:#ECE4D4;--dim:#B5AE9F;--gold:#C9A86A;--gold-deep:#8F7442;--seal:#8C2F2A;--rule:rgba(201,168,106,.32);
+--display:"Noto Serif SC",serif;--body:"Noto Sans SC",sans-serif;--latin:"Bodoni Moda",Georgia,serif}
+*{box-sizing:border-box;margin:0}
+html,body{width:1080px;background:var(--leather)}
+body{color:var(--bone);font-family:var(--body);font-size:26px;line-height:1.6}
+.page{position:relative;width:1080px;padding:110px 92px 100px;
+ background:radial-gradient(90% 18% at 50% 0%,rgba(201,168,106,.18),transparent 70%),
+ repeating-linear-gradient(45deg,transparent 0 47px,rgba(201,168,106,.05) 47px 48px),
+ repeating-linear-gradient(-45deg,transparent 0 47px,rgba(201,168,106,.05) 47px 48px),var(--leather)}
+.page::before{content:"";position:absolute;inset:34px;border:2px solid var(--gold-deep);pointer-events:none}
+.page::after{content:"";position:absolute;inset:46px;border:1px dashed var(--rule);pointer-events:none}
+.house{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:18px}
+.house b{font-family:var(--display);font-weight:500;letter-spacing:.3em;font-size:26px}
+.house span{font-family:var(--latin);font-size:21px;color:var(--dim);letter-spacing:.16em}
+.eyebrow{margin-top:64px;font-family:var(--display);font-weight:500;color:var(--gold);letter-spacing:.3em;font-size:30px}
+h1{font-family:var(--display);font-weight:900;font-size:104px;line-height:1.18;margin-top:20px}
+.sub{margin-top:26px;font-family:var(--display);font-weight:500;font-size:36px;color:var(--bone)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:44px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.stats div{padding:22px 8px;text-align:center}
+.stats div+div{border-left:1px solid var(--rule)}
+.stats b{display:block;font-family:var(--latin);font-weight:600;color:var(--gold);font-size:60px;line-height:1.1}
+.stats span{color:var(--dim);font-size:24px}
+
+.day{margin-top:76px}
+.dayhead{display:flex;align-items:baseline;gap:22px;border-bottom:2px solid var(--gold);padding-bottom:14px}
+.dayhead i{font-family:var(--latin);font-style:italic;color:var(--gold);font-size:44px}
+.dayhead b{font-family:var(--display);font-weight:900;font-size:46px}
+.dayhead span{margin-left:auto;color:var(--dim);font-size:24px;white-space:nowrap}
+.slot{margin-top:26px;display:flex;align-items:center;gap:14px;color:var(--gold);font-size:24px;letter-spacing:.12em}
+.slot::after{content:"";flex:1;height:1px;background:var(--rule)}
+.lesson{margin-top:18px;background:rgba(26,44,37,.92);border:1px solid var(--rule);padding:30px 34px 28px}
+.lesson .no{display:flex;align-items:center;gap:14px;font-size:23px;color:var(--gold);letter-spacing:.14em}
+.lesson .no em{font-style:normal;font-family:var(--latin);font-size:30px}
+.lesson h3{font-family:var(--display);font-weight:900;font-size:42px;line-height:1.35;margin-top:10px}
+.lesson ul{list-style:none;padding:0;margin-top:16px;display:grid;gap:8px}
+.lesson li{font-size:27px;line-height:1.55;color:var(--bone);padding-left:30px;position:relative}
+.lesson li::before{content:"";position:absolute;left:4px;top:16px;width:10px;height:10px;transform:rotate(45deg);background:var(--gold)}
+.tag{display:inline-block;margin-top:16px;background:var(--gold);color:var(--leather);font-weight:700;font-size:23px;padding:4px 16px;letter-spacing:.06em}
+.ws{margin-top:18px;border:1px dashed var(--gold);padding:24px 34px;display:flex;align-items:center;gap:24px}
+.ws b{font-family:var(--display);font-size:32px;font-weight:700;color:var(--gold);white-space:nowrap}
+.ws span{font-size:27px}
+
+.take{margin-top:84px;background:var(--bone);color:var(--leather);padding:44px 44px 40px}
+.take h2{font-family:var(--display);font-weight:900;font-size:50px}
+.take .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 30px;margin-top:26px}
+.take .grid div{display:flex;gap:16px;align-items:baseline;border-bottom:1px dashed rgba(14,25,21,.3);padding-bottom:12px}
+.take .grid i{font-family:var(--latin);font-style:normal;font-weight:600;color:var(--gold-deep);font-size:30px}
+.take .grid span{font-size:28px;font-weight:500}
+
+.foot{margin-top:70px;display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center}
+.price{position:relative;width:250px;background:var(--bone);color:var(--leather);padding:46px 18px 24px;text-align:center;clip-path:polygon(18% 0,82% 0,100% 12%,100% 100%,0 100%,0 12%)}
+.price::before{content:"";position:absolute;top:16px;left:50%;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--leather);box-shadow:inset 0 0 0 3px var(--gold-deep)}
+.price strong{display:block;font-family:var(--latin);font-weight:600;font-size:76px;line-height:1.05}
+.price strong sup{font-size:28px;vertical-align:34px}
+.price small{display:block;font-size:19px;letter-spacing:.16em;color:#4a4438;margin-top:6px}
+.join p{font-size:25px;color:var(--dim)}
+.join .big{font-family:var(--display);font-weight:700;font-size:38px;color:var(--bone);margin-bottom:6px}
+.join .dm{margin-top:12px;display:inline-block;background:var(--gold);color:var(--leather);font-weight:700;font-size:28px;letter-spacing:.2em;padding:10px 26px}
+.seal{width:118px;height:118px;border:3px solid var(--seal);color:var(--seal);display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:34px;line-height:1.05;text-align:center;transform:rotate(-7deg)}
+</style></head>
+<body>
+<div class="page">
+  <div class="house"><b>天鼠奢侈品商学院</b><span>CURRICULUM</span></div>
+  <div class="eyebrow">二奢轻创业闭门会 · 课表</div>
+  <h1>三天，把二奢<br>做成一门生意</h1>
+  <p class="sub">不只教你看货，教你怎么收、怎么卖、怎么不亏。</p>
+  <div class="stats">
+    <div><b>8</b><span>堂课</span></div>
+    <div><b>3</b><span>场课堂实操</span></div>
+    <div><b>2</b><span>晚工作坊，逐个改</span></div>
+  </div>
+
+  <section class="day">
+    <div class="dayhead"><i>Day 1</i><b>看清楚，再下手</b><span>11.25 周三</span></div>
+    <div class="slot">上午 9:30–12:30</div>
+    <div class="lesson"><div class="no"><em>01</em>行业认知 · 生意模型</div>
+      <h3>想着“低买高卖”的人，第一年都压在货上</h3>
+      <ul><li>二奢到底赚的是什么钱，货是怎么流动的</li><li>回收、寄卖、撮合：同一件货，风险换谁扛</li><li>第一单的五条规矩：看走眼也不伤元气</li></ul></div>
+    <div class="slot">下午 14:00–17:30</div>
+    <div class="lesson"><div class="no"><em>02</em>你的定位</div>
+      <h3>你以前的本事，在二奢里值多少钱？</h3>
+      <ul><li>把“我人脉广”换成能直接打电话的数字</li><li>先选一个品类、一个人设，做透再扩</li><li>写出你自己的一句话定位</li></ul></div>
+    <div class="lesson"><div class="no"><em>03</em>估价</div>
+      <h3>一只包到手，怎么报才不亏？</h3>
+      <ul><li>收之前先答三问：卖给谁、几天卖、到手多少</li><li>线上给区间，见货给准价；“别家给得高”怎么接</li><li>压着的货怎么出，什么时候该止损</li></ul>
+      <span class="tag">课堂实操 · 盲报真货，当场对答案</span></div>
+    <div class="lesson"><div class="no"><em>04</em>行业风险</div>
+      <h3>碰上一次骗局，可能直接出局</h3>
+      <ul><li>调包、假转账截图、寄空盒、赃物，怎么识别</li><li>登记、录像、封签、签单，再付款</li><li>万一出事，第一小时做什么</li></ul></div>
+    <div class="slot">晚上 19:00–21:00</div>
+    <div class="ws"><b>工作坊</b><span>一人一份起步方案：城市、品类、模式、第一批客户找谁</span></div>
+  </section>
+
+  <section class="day">
+    <div class="dayhead"><i>Day 2</i><b>让手里有货的人来找你</b><span>11.26 周四</span></div>
+    <div class="slot">上午 9:30–12:30</div>
+    <div class="lesson"><div class="no"><em>05</em>短视频获客</div>
+      <h3>拍了几十条，为什么一个卖包的都没来？</h3>
+      <ul><li>你讲什么话，就来什么人</li><li>口才不好也能拍：七步写出能来客户的视频</li><li>账号五件套和置顶三条，一次搭好</li></ul></div>
+    <div class="slot">下午 14:00–17:30</div>
+    <div class="lesson"><div class="no"><em>06</em>私域成交</div>
+      <h3>加了几百个微信，为什么没人找你出货？</h3>
+      <ul><li>合规加微信的四条路，不被限流封号</li><li>朋友圈是存折；前三十秒怎么聊，客户才肯发图</li><li>老客户就是你的第一批客户；从聊天到钱货两清</li></ul>
+      <span class="tag">课堂实操 · 真客户演练</span></div>
+    <div class="slot">晚上 19:00–21:00</div>
+    <div class="ws"><b>工作坊</b><span>你的账号定位和选题，讲师一条一条当场改</span></div>
+  </section>
+
+  <section class="day">
+    <div class="dayhead"><i>Day 3</i><b>判不准的时候，也不亏</b><span>11.27 周五</span></div>
+    <div class="slot">上午 9:30–12:30 · 下午 14:00–17:00</div>
+    <div class="lesson"><div class="no"><em>07</em>鉴定避损</div>
+      <h3>一单看走眼，要白干几十单</h3>
+      <ul><li>判不准的五种处理，不用自己硬扛</li><li>看货动线：按顺序看，成了习惯就不会漏</li><li>一句“你这是假的”，可能被反咬调包：话术和留证</li></ul>
+      <span class="tag">课堂实操 · 实物盲测三轮</span></div>
+    <div class="slot">17:00 起</div>
+    <div class="lesson"><div class="no"><em>08</em>结业</div>
+      <h3>带着方案回去，不再停在原地</h3>
+      <ul><li>定稿你的起步方案和回去后的行动计划</li><li>判不准找谁兜底：同行资源群、靠谱上游、直接找我们</li><li>进同行资源群，开启 1 年课后咨询</li></ul></div>
+  </section>
+
+  <div class="take">
+    <h2>三天后，你手里会有</h2>
+    <div class="grid">
+      <div><i>01</i><span>一份自己的起步方案</span></div>
+      <div><i>02</i><span>一个改好的账号和选题</span></div>
+      <div><i>03</i><span>一套不出事的收货流程</span></div>
+      <div><i>04</i><span>一本照着做的学员手册</span></div>
+      <div><i>05</i><span>一个同行资源群</span></div>
+      <div><i>06</i><span>1 年课后咨询和免费兜底</span></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="price"><strong><sup>¥</sup>2980</strong><small>南京 · 绿溢国际广场</small></div>
+    <div class="join"><p class="big">每期限 20 人</p><p>11.25–27 · 按报名先后锁定席位</p><span class="dm">报名请私信我</span></div>
+    <div class="seal">天鼠<br>商学</div>
+  </div>
+</div>
+</body></html>
